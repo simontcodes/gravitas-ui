@@ -6,5 +6,61 @@
   },
   "newProjectRoot": "projects",
   "projects": {
+    "gravitas-ui": {
+      "projectType": "library",
+      "root": "projects/gravitas-ui",
+      "sourceRoot": "projects/gravitas-ui/src",
+      "prefix": "gv",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/gravitas-ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/gravitas-ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/gravitas-ui/tsconfig.spec.json"
+          }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/gravitas-ui/.storybook",
+            "browserTarget": "gravitas-ui:build:development",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/gravitas-ui"
+            ],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/gravitas-ui/.storybook",
+            "browserTarget": "gravitas-ui:build:development",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/gravitas-ui"
+            ],
+            "outputDir": "storybook-static"
+          }
+        }
+      }
+    }
   }
 }

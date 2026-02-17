@@ -4,6 +4,11 @@
   "compileOnSave": false,
   "compilerOptions": {
     "strict": true,
+    "paths": {
+      "gravitas-ui": [
+        "./dist/gravitas-ui"
+      ]
+    },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -21,5 +26,13 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "files": []
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/gravitas-ui/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/gravitas-ui/tsconfig.spec.json"
+    }
+  ]
 }
