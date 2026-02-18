@@ -18,7 +18,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{ args: { disabled: true } }"
+                "defaultValue": "{\r\n  args: { disabled: true },\r\n  render: renderButton,\r\n}"
             },
             {
                 "name": "FullWidth",
@@ -28,7 +28,19 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{ args: { className: 'w-100' } }"
+                "defaultValue": "{\r\n  args: { className: 'w-100' },\r\n  render: (args) => ({\r\n    ...renderButton(args),\r\n    template: `\r\n      <div style=\"max-width: 480px;\">\r\n        <gv-button\r\n          [variant]=\"variant\"\r\n          [size]=\"size\"\r\n          [disabled]=\"disabled\"\r\n          [loading]=\"loading\"\r\n          [className]=\"className\"\r\n        >\r\n          Button\r\n        </gv-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "globalTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/.storybook/preview.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  gvTheme: {\n    name: 'Theme',\n    description: 'Gravitas theme',\n    defaultValue: 'light',\n    toolbar: {\n      icon: 'mirror',\n      items: [\n        { value: 'light', title: 'Light' },\n        { value: 'dark', title: 'Dark' },\n      ],\n      dynamicTitle: true,\n    },\n  },\n\n  /** ✅ Toolbar: Density */\n  gvDensity: {\n    name: 'Density',\n    description: 'Gravitas density scale',\n    defaultValue: 'compact',\n    toolbar: {\n      icon: 'sidebar',\n      items: [\n        { value: 'compact', title: 'Compact' },\n        { value: 'comfortable', title: 'Comfortable' },\n        { value: 'spacious', title: 'Spacious' },\n      ],\n      dynamicTitle: true,\n    },\n  },\n}",
+                "rawdescription": "✅ Toolbar: Theme",
+                "description": "<p>✅ Toolbar: Theme</p>\n"
             },
             {
                 "name": "Large",
@@ -48,7 +60,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{ args: { loading: true } }"
+                "defaultValue": "{\r\n  args: { loading: true },\r\n  render: renderButton,\r\n}"
             },
             {
                 "name": "LoggedIn",
@@ -128,7 +140,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Button>",
-                "defaultValue": "{\r\n  title: 'Gravitas/Button',\r\n  component: Button,\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    loading: false,\r\n    className: '',\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'primary',\r\n        'secondary',\r\n        'success',\r\n        'danger',\r\n        'warning',\r\n        'info',\r\n        'light',\r\n        'dark',\r\n        'link',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [className]=\"className\"\r\n      >\r\n        Button\r\n      </gv-button>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  title: 'Gravitas/Button',\r\n  component: Button,\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    loading: false,\r\n    className: '',\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'primary',\r\n        'secondary',\r\n        'success',\r\n        'danger',\r\n        'warning',\r\n        'info',\r\n        'light',\r\n        'dark',\r\n        'link',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n  },\r\n}"
             },
             {
                 "name": "preview",
@@ -138,7 +150,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+                "defaultValue": "{\n  parameters: {\n    layout: 'fullscreen',\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n\n  decorators: [\n    (storyFn, context) => {\n      applyGravitasGlobals(context.globals);\n\n      const story = storyFn();\n\n      return {\n        ...story,\n        moduleMetadata: {\n          ...(story.moduleMetadata ?? {}),\n          imports: [\n            ...((story.moduleMetadata?.imports as any[]) ?? []),\n            ShellWrapperComponent,\n          ],\n        },\n        template: `\n          <gv-story-shell>\n            ${story.template ?? ''}\n          </gv-story-shell>\n        `,\n        props: story.props ?? {},\n      };\n    },\n  ],\n}"
             },
             {
                 "name": "Primary",
@@ -158,7 +170,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{}"
+                "defaultValue": "{\r\n  render: renderButton,\r\n}"
             },
             {
                 "name": "Secondary",
@@ -181,7 +193,64 @@
                 "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
             }
         ],
-        "functions": [],
+        "functions": [
+            {
+                "name": "applyGravitasGlobals",
+                "file": "projects/gravitas-ui/.storybook/preview.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "globals",
+                        "type": "any",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "globals",
+                        "type": "any",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "renderButton",
+                "file": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "args",
+                        "type": "Button",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "args",
+                        "type": "Button",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
         "typealiases": [
             {
                 "name": "Story",
@@ -239,7 +308,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{ args: { disabled: true } }"
+                    "defaultValue": "{\r\n  args: { disabled: true },\r\n  render: renderButton,\r\n}"
                 },
                 {
                     "name": "FullWidth",
@@ -249,7 +318,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{ args: { className: 'w-100' } }"
+                    "defaultValue": "{\r\n  args: { className: 'w-100' },\r\n  render: (args) => ({\r\n    ...renderButton(args),\r\n    template: `\r\n      <div style=\"max-width: 480px;\">\r\n        <gv-button\r\n          [variant]=\"variant\"\r\n          [size]=\"size\"\r\n          [disabled]=\"disabled\"\r\n          [loading]=\"loading\"\r\n          [className]=\"className\"\r\n        >\r\n          Button\r\n        </gv-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
                 },
                 {
                     "name": "Loading",
@@ -259,7 +328,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{ args: { loading: true } }"
+                    "defaultValue": "{\r\n  args: { loading: true },\r\n  render: renderButton,\r\n}"
                 },
                 {
                     "name": "meta",
@@ -269,7 +338,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Button>",
-                    "defaultValue": "{\r\n  title: 'Gravitas/Button',\r\n  component: Button,\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    loading: false,\r\n    className: '',\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'primary',\r\n        'secondary',\r\n        'success',\r\n        'danger',\r\n        'warning',\r\n        'info',\r\n        'light',\r\n        'dark',\r\n        'link',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [className]=\"className\"\r\n      >\r\n        Button\r\n      </gv-button>\r\n    `,\r\n  }),\r\n}"
+                    "defaultValue": "{\r\n  title: 'Gravitas/Button',\r\n  component: Button,\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    loading: false,\r\n    className: '',\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'primary',\r\n        'secondary',\r\n        'success',\r\n        'danger',\r\n        'warning',\r\n        'info',\r\n        'light',\r\n        'dark',\r\n        'link',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n  },\r\n}"
                 },
                 {
                     "name": "Primary",
@@ -279,7 +348,31 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{}"
+                    "defaultValue": "{\r\n  render: renderButton,\r\n}"
+                }
+            ],
+            "projects/gravitas-ui/.storybook/preview.ts": [
+                {
+                    "name": "globalTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  gvTheme: {\n    name: 'Theme',\n    description: 'Gravitas theme',\n    defaultValue: 'light',\n    toolbar: {\n      icon: 'mirror',\n      items: [\n        { value: 'light', title: 'Light' },\n        { value: 'dark', title: 'Dark' },\n      ],\n      dynamicTitle: true,\n    },\n  },\n\n  /** ✅ Toolbar: Density */\n  gvDensity: {\n    name: 'Density',\n    description: 'Gravitas density scale',\n    defaultValue: 'compact',\n    toolbar: {\n      icon: 'sidebar',\n      items: [\n        { value: 'compact', title: 'Compact' },\n        { value: 'comfortable', title: 'Comfortable' },\n        { value: 'spacious', title: 'Spacious' },\n      ],\n      dynamicTitle: true,\n    },\n  },\n}",
+                    "rawdescription": "✅ Toolbar: Theme",
+                    "description": "<p>✅ Toolbar: Theme</p>\n"
+                },
+                {
+                    "name": "preview",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Preview",
+                    "defaultValue": "{\n  parameters: {\n    layout: 'fullscreen',\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n\n  decorators: [\n    (storyFn, context) => {\n      applyGravitasGlobals(context.globals);\n\n      const story = storyFn();\n\n      return {\n        ...story,\n        moduleMetadata: {\n          ...(story.moduleMetadata ?? {}),\n          imports: [\n            ...((story.moduleMetadata?.imports as any[]) ?? []),\n            ShellWrapperComponent,\n          ],\n        },\n        template: `\n          <gv-story-shell>\n            ${story.template ?? ''}\n          </gv-story-shell>\n        `,\n        props: story.props ?? {},\n      };\n    },\n  ],\n}"
                 }
             ],
             "projects/gravitas-ui/src/stories/button.stories.ts": [
@@ -397,21 +490,70 @@
                     "type": "Meta<PageComponent>",
                     "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
                 }
-            ],
+            ]
+        },
+        "groupedFunctions": {
             "projects/gravitas-ui/.storybook/preview.ts": [
                 {
-                    "name": "preview",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
+                    "name": "applyGravitasGlobals",
                     "file": "projects/gravitas-ui/.storybook/preview.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Preview",
-                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "globals",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "globals",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "projects/gravitas-ui/src/lib/button/button.stories.ts": [
+                {
+                    "name": "renderButton",
+                    "file": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "args",
+                            "type": "Button",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "args",
+                            "type": "Button",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ]
         },
-        "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
             "projects/gravitas-ui/src/stories/button.stories.ts": [
@@ -474,15 +616,45 @@
         "children": []
     },
     "coverage": {
-        "count": 0,
+        "count": 4,
         "status": "low",
         "files": [
+            {
+                "filePath": "projects/gravitas-ui/.storybook/preview.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "applyGravitasGlobals",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/.storybook/preview.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "globalTypes",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
             {
                 "filePath": "projects/gravitas-ui/.storybook/preview.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "renderButton",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

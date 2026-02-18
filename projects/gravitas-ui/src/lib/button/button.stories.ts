@@ -28,7 +28,14 @@ const meta: Meta<Button> = {
     },
     size: { control: 'select', options: ['sm', 'md', 'lg'] },
   },
-  render: (args) => ({
+};
+
+export default meta;
+type Story = StoryObj<Button>;
+
+// ✅ Helper: each story creates a fresh render (forces update)
+function renderButton(args: Button) {
+  return {
     props: args,
     template: `
       <gv-button
@@ -41,13 +48,39 @@ const meta: Meta<Button> = {
         Button
       </gv-button>
     `,
-  }),
+  };
+}
+
+export const Primary: Story = {
+  render: renderButton,
 };
 
-export default meta;
-type Story = StoryObj<Button>;
+export const Loading: Story = {
+  args: { loading: true },
+  render: renderButton,
+};
 
-export const Primary: Story = {};
-export const Loading: Story = { args: { loading: true } };
-export const Disabled: Story = { args: { disabled: true } };
-export const FullWidth: Story = { args: { className: 'w-100' } };
+export const Disabled: Story = {
+  args: { disabled: true },
+  render: renderButton,
+};
+
+export const FullWidth: Story = {
+  args: { className: 'w-100' },
+  render: (args) => ({
+    ...renderButton(args),
+    template: `
+      <div style="max-width: 480px;">
+        <gv-button
+          [variant]="variant"
+          [size]="size"
+          [disabled]="disabled"
+          [loading]="loading"
+          [className]="className"
+        >
+          Button
+        </gv-button>
+      </div>
+    `,
+  }),
+};

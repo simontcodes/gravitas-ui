@@ -1,0 +1,113 @@
+/* =========================================
+   Gravitas Tokens — Modern Enterprise (Dense)
+   Toggles:
+   - data-gv-density="compact|comfortable|spacious"
+   - data-gv-theme="light|dark"
+========================================= */
+
+/* ---------- Defaults (light + comfortable) ---------- */
+:root {
+  /* Neutrals */
+  --gv-bg-app: #f1f5f9;
+  --gv-bg-deep: #0b1220;
+  --gv-bg-subtle: #f1f5f9;
+  --gv-surface: #ffffff;
+  --gv-surface-raised: #ffffff;
+  --gv-border: #e2e8f0;
+
+  --gv-text-strong: #0f172a;
+  --gv-text: #1f2937;
+  --gv-text-muted: #64748b;
+
+  /* Brand */
+  --gv-accent: #3b82f6;
+  --gv-accent-hover: #2563eb;
+  --gv-focus: #60a5fa;
+
+  /* Semantic */
+  --gv-success: #16a34a;
+  --gv-warning: #f59e0b;
+  --gv-danger: #dc2626;
+  --gv-info: #0ea5e9;
+
+  /* Shape */
+  --gv-radius-sm: 6px;
+  --gv-radius-md: 8px;
+  --gv-radius-lg: 12px;
+
+  /* Elevation */
+  --gv-shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --gv-shadow-md: 0 6px 16px rgba(15, 23, 42, 0.08);
+  --gv-shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.12);
+
+  /* Focus ring */
+  --gv-ring: 0 0 0 4px rgba(96, 165, 250, 0.35);
+
+  /* ---------- Density tokens (used by components + Bootstrap polish) ---------- */
+  --gv-font-size: 14px;
+  --gv-line-height: 1.35;
+
+  --gv-space-1: 4px;
+  --gv-space-2: 8px;
+  --gv-space-3: 12px;
+  --gv-space-4: 16px;
+
+  /* Button sizing */
+  --gv-btn-radius: var(--gv-radius-md);
+  --gv-btn-padding-y: 0.55rem;
+  --gv-btn-padding-x: 0.95rem;
+}
+
+/* ---------- Density: compact (default for Copernicus dashboards) ---------- */
+:root[data-gv-density="compact"] {
+  --gv-font-size: 13px;
+  --gv-line-height: 1.25;
+
+  --gv-space-1: 3px;
+  --gv-space-2: 6px;
+  --gv-space-3: 10px;
+  --gv-space-4: 14px;
+
+  --gv-btn-padding-y: 0.45rem;
+  --gv-btn-padding-x: 0.85rem;
+}
+
+/* ---------- Density: comfortable ---------- */
+:root[data-gv-density="comfortable"] {
+  /* (same as defaults, kept for explicitness) */
+}
+
+/* ---------- Density: spacious ---------- */
+:root[data-gv-density="spacious"] {
+  --gv-font-size: 15px;
+  --gv-line-height: 1.45;
+
+  --gv-space-1: 6px;
+  --gv-space-2: 10px;
+  --gv-space-3: 14px;
+  --gv-space-4: 18px;
+
+  --gv-btn-padding-y: 0.65rem;
+  --gv-btn-padding-x: 1.05rem;
+}
+
+/* ---------- Theme: dark ---------- */
+:root[data-gv-theme="dark"] {
+  --gv-bg-app: #0b1220;
+  --gv-bg-subtle: #0f172a;
+  --gv-surface: #111c2f;
+  --gv-surface-raised: #13213a;
+  --gv-border: rgba(148, 163, 184, 0.18);
+
+  --gv-text-strong: #e5e7eb;
+  --gv-text: rgba(229, 231, 235, 0.92);
+  --gv-text-muted: rgba(148, 163, 184, 0.82);
+
+  /* Keep brand colors (works well on dark) */
+  --gv-ring: 0 0 0 4px rgba(96, 165, 250, 0.35);
+
+  /* Slightly adjust shadows for dark surfaces */
+  --gv-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --gv-shadow-md: 0 8px 20px rgba(0, 0, 0, 0.35);
+  --gv-shadow-lg: 0 18px 50px rgba(0, 0, 0, 0.45);
+}

@@ -1,0 +1,54 @@
+/* =========================================
+   Gravitas Theme — Bootstrap mapping + globals
+========================================= */
+
+:root {
+  --bs-primary: var(--gv-accent);
+  --bs-primary-rgb: 59, 130, 246;
+
+  --bs-success: var(--gv-success);
+  --bs-success-rgb: 22, 163, 74;
+
+  --bs-warning: var(--gv-warning);
+  --bs-warning-rgb: 245, 158, 11;
+
+  --bs-danger: var(--gv-danger);
+  --bs-danger-rgb: 220, 38, 38;
+
+  --bs-info: var(--gv-info);
+  --bs-info-rgb: 14, 165, 233;
+
+  --bs-body-bg: var(--gv-bg-app);
+  --bs-body-color: var(--gv-text);
+
+  --bs-border-color: var(--gv-border);
+
+  --bs-link-color: var(--gv-accent);
+  --bs-link-hover-color: var(--gv-accent-hover);
+
+  --bs-border-radius: var(--gv-radius-md);
+  --bs-border-radius-sm: var(--gv-radius-sm);
+  --bs-border-radius-lg: var(--gv-radius-lg);
+}
+
+/* Let browsers style form controls properly in dark mode when you enable it */
+:root[data-gv-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* Global app feel */
+html {
+  font-size: var(--gv-font-size);
+  line-height: var(--gv-line-height);
+}
+
+body {
+  background: var(--gv-bg-app);
+  color: var(--gv-text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,268 @@
+/* =========================================
+   Gravitas Components + Bootstrap polish
+========================================= */
+
+/* ---------- Buttons (premium) ---------- */
+.btn {
+  border-radius: var(--gv-btn-radius);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: var(--gv-btn-padding-y) var(--gv-btn-padding-x);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:active {
+  transform: translateY(0.5px);
+}
+
+.btn:focus,
+.btn:focus-visible {
+  box-shadow: var(--gv-ring);
+}
+
+/* Primary buttons: crisp, premium */
+.btn-primary {
+  background-color: var(--gv-accent);
+  border-color: var(--gv-accent);
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.08);
+}
+
+.btn-primary:hover {
+  background-color: var(--gv-accent-hover);
+  border-color: var(--gv-accent-hover);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15);
+}
+
+/* Secondary buttons: clean outline */
+.btn-outline-primary {
+  border-color: rgba(59, 130, 246, 0.35);
+  color: var(--gv-accent);
+}
+
+.btn-outline-primary:hover {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.55);
+  color: var(--gv-accent-hover);
+}
+
+/* Disabled polish */
+.btn:disabled,
+.btn.disabled {
+  opacity: 0.65;
+  box-shadow: none !important;
+}
+
+/* ---------- Cards / Panels ---------- */
+.gv-card {
+  background: var(--gv-surface);
+  border: 1px solid var(--gv-border);
+  border-radius: var(--gv-radius-lg);
+  box-shadow: var(--gv-shadow-sm);
+}
+
+.gv-card.gv-card--hover:hover {
+  box-shadow: var(--gv-shadow-md);
+  transform: translateY(-1px);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+/* ---------- Forms ---------- */
+.form-control,
+.form-select {
+  border-radius: var(--gv-radius-md);
+  border-color: var(--gv-border);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: rgba(59, 130, 246, 0.55);
+  box-shadow: var(--gv-ring);
+}
+
+/* ---------- Tables ---------- */
+.table {
+  color: var(--gv-text);
+}
+
+.table > :not(caption) > * > * {
+  border-bottom-color: var(--gv-border);
+}
+
+.table thead th {
+  color: var(--gv-text-strong);
+  font-weight: 700;
+}
+
+/* =========================================
+   Storybook Shell — Dense Enterprise Dashboard
+   (optional: you can later move this into a
+   separate storybook-only css if desired)
+========================================= */
+
+.gv-shell {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  background: var(--gv-bg-app);
+}
+
+.gv-sidebar {
+  background: linear-gradient(180deg, #0f172a 0%, #0b1220 100%);
+  color: #e5e7eb;
+  border-right: 1px solid rgba(148, 163, 184, 0.08);
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gv-brand {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  font-size: 14px;
+  padding: 10px 10px;
+  border-radius: var(--gv-radius-md);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.gv-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 4px;
+}
+
+.gv-nav-title {
+  margin: 10px 6px 6px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(229, 231, 235, 0.7);
+}
+
+.gv-nav-item {
+  display: block;
+  padding: 8px 10px;
+  border-radius: var(--gv-radius-md);
+  text-decoration: none;
+  color: rgba(229, 231, 235, 0.9);
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.gv-nav-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.gv-nav-item--active {
+  background: rgba(59, 130, 246, 0.18);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.15);
+  font-weight: 600;
+}
+
+.gv-sidebar-footer {
+  margin-top: auto;
+  padding: 10px 6px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gv-pill {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.gv-muted {
+  font-size: 12px;
+  color: rgba(229, 231, 235, 0.65);
+}
+
+.gv-main {
+  display: grid;
+  grid-template-rows: 54px 1fr;
+  min-width: 0;
+}
+
+.gv-topbar {
+  background: var(--gv-surface);
+  border-bottom: 1px solid var(--gv-border);
+  padding: var(--gv-space-2) var(--gv-space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gv-title {
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--gv-text-strong);
+  line-height: 1.1;
+}
+
+.gv-subtitle {
+  font-size: 12px;
+  color: var(--gv-text-muted);
+}
+
+.gv-content {
+  padding: var(--gv-space-4);
+  background: var(--gv-bg-subtle);
+}
+
+.gv-panel {
+  background: var(--gv-surface);
+  border: 1px solid var(--gv-border);
+  border-radius: var(--gv-radius-lg);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+  position: relative;
+}
+
+.gv-panel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(59,130,246,0.4),
+    rgba(59,130,246,0.1)
+  );
+}
+
+.gv-panel-header {
+  padding: var(--gv-space-3);
+  border-bottom: 1px solid var(--gv-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gv-panel-title {
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gv-text-muted);
+}
+
+.gv-panel-body {
+  padding: var(--gv-space-3);
+}
+
+.gv-demo-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
