@@ -9,6 +9,8 @@ const meta: Meta<Button> = {
     size: 'md',
     disabled: false,
     loading: false,
+    fullWidth: false,
+    loadingText: '',
     className: '',
   },
   argTypes: {
@@ -27,13 +29,14 @@ const meta: Meta<Button> = {
       ],
     },
     size: { control: 'select', options: ['sm', 'md', 'lg'] },
+    loadingText: { control: 'text' },
+    fullWidth: { control: 'boolean' },
   },
 };
 
 export default meta;
 type Story = StoryObj<Button>;
 
-// ✅ Helper: each story creates a fresh render (forces update)
 function renderButton(args: Button) {
   return {
     props: args,
@@ -43,6 +46,8 @@ function renderButton(args: Button) {
         [size]="size"
         [disabled]="disabled"
         [loading]="loading"
+        [fullWidth]="fullWidth"
+        [loadingText]="loadingText"
         [className]="className"
       >
         Button
@@ -60,13 +65,18 @@ export const Loading: Story = {
   render: renderButton,
 };
 
+export const LoadingWithText: Story = {
+  args: { loading: true, loadingText: 'Saving...' },
+  render: renderButton,
+};
+
 export const Disabled: Story = {
   args: { disabled: true },
   render: renderButton,
 };
 
 export const FullWidth: Story = {
-  args: { className: 'w-100' },
+  args: { fullWidth: true },
   render: (args) => ({
     ...renderButton(args),
     template: `
@@ -76,11 +86,74 @@ export const FullWidth: Story = {
           [size]="size"
           [disabled]="disabled"
           [loading]="loading"
+          [fullWidth]="fullWidth"
+          [loadingText]="loadingText"
           [className]="className"
         >
           Button
         </gv-button>
       </div>
+    `,
+  }),
+};
+
+export const LeftIcon: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <gv-button
+        [variant]="variant"
+        [size]="size"
+        [disabled]="disabled"
+        [loading]="loading"
+        [fullWidth]="fullWidth"
+        [loadingText]="loadingText"
+        [className]="className"
+      >
+        <span gvIconLeft aria-hidden="true">💾</span>
+        Save
+      </gv-button>
+    `,
+  }),
+};
+
+export const RightIcon: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <gv-button
+        [variant]="variant"
+        [size]="size"
+        [disabled]="disabled"
+        [loading]="loading"
+        [fullWidth]="fullWidth"
+        [loadingText]="loadingText"
+        [className]="className"
+      >
+        Next
+        <span gvIconRight aria-hidden="true">➡️</span>
+      </gv-button>
+    `,
+  }),
+};
+
+export const LeftAndRightIcons: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <gv-button
+        [variant]="variant"
+        [size]="size"
+        [disabled]="disabled"
+        [loading]="loading"
+        [fullWidth]="fullWidth"
+        [loadingText]="loadingText"
+        [className]="className"
+      >
+        <span gvIconLeft aria-hidden="true">🔎</span>
+        Search
+        <span gvIconRight aria-hidden="true">⌘K</span>
+      </gv-button>
     `,
   }),
 };

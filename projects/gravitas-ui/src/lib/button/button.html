@@ -1,8 +1,15 @@
 <button
   [attr.type]="type"
   [class]="btnClass"
-  [disabled]="disabled || loading"
+  [disabled]="isDisabled"
+  [attr.aria-busy]="loading ? 'true' : null"
 >
+  <!-- Left icon slot -->
+  <span class="gv-btn-icon gv-btn-icon--left" aria-hidden="true">
+    <ng-content select="[gvIconLeft]"></ng-content>
+  </span>
+
+  <!-- Loading spinner -->
   @if (loading) {
     <span
       class="spinner-border spinner-border-sm me-2"
@@ -11,7 +18,19 @@
     ></span>
   }
 
-  <ng-content></ng-content>
+  <!-- Label -->
+  @if (loading && loadingText) {
+    <span class="gv-btn-label">{{ loadingText }}</span>
+  } @else {
+    <span class="gv-btn-label">
+      <ng-content></ng-content>
+    </span>
+  }
+
+  <!-- Right icon slot -->
+  <span class="gv-btn-icon gv-btn-icon--right" aria-hidden="true">
+    <ng-content select="[gvIconRight]"></ng-content>
+  </span>
 
   @if (loading) {
     <span class="visually-hidden">Loading</span>

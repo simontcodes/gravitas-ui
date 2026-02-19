@@ -1,59 +1,263 @@
-# GravitasUi
+# Gravitas UI
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+A modern, enterprise-grade Angular component library built on top of Bootstrap 5.
 
-## Development server
+Gravitas provides consistent design tokens, density control, and production-ready UI components for complex SaaS applications like Copernicus and MasterBook.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## ✨ Philosophy
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Gravitas is built with the following principles:
 
-## Code scaffolding
+- **Enterprise-first**
+- **Composable**
+- **Bootstrap-compatible**
+- **Design-token driven**
+- **Density-aware**
+- **Accessible by default**
+- **Incrementally adoptable**
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Gravitas does not replace Bootstrap — it enhances it with structure, consistency, and polish.
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## 📦 Installation
 
 ```bash
-ng build
+yarn add @your-org/gravitas-ui
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## 🚀 Quick Start
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+### 1️⃣ Import the theme
+
+In your application entry file:
+
+```ts
+import '@your-org/gravitas-ui/styles/gravitas.css';
+```
+
+### 2️⃣ Set density + theme (optional)
+
+```html
+<html data-gv-density="compact" data-gv-theme="light">
+```
+
+Available density options:
+
+- `compact`
+- `comfortable`
+- `spacious`
+
+Available theme options:
+
+- `light`
+- `dark` (coming soon)
+
+---
+
+## 🎛 Density System
+
+Gravitas supports layout density control via:
+
+```html
+data-gv-density="compact"
+```
+
+### Compact
+- Tight spacing
+- Data-heavy dashboards
+- Billing/insurance systems
+
+### Comfortable
+- Default SaaS layout
+- Balanced whitespace
+
+### Spacious
+- Marketing-heavy or admin tools
+
+Density adjusts paddings, spacing, and sizing system-wide.
+
+---
+
+## 🎨 Design Tokens
+
+Gravitas is token-driven.
+
+Example tokens:
+
+```css
+--gv-accent
+--gv-border
+--gv-text-strong
+--gv-radius-md
+--gv-shadow-sm
+```
+
+Tokens power:
+
+- Buttons
+- Cards
+- Forms
+- Tables
+- Future components
+
+You can override tokens in your application to customize branding.
+
+---
+
+## 🧩 Components
+
+### Button
+
+A Bootstrap-compatible enterprise button.
+
+#### Basic Usage
+
+```html
+<gv-button variant="primary">
+  Save
+</gv-button>
+```
+
+#### Variants
+
+- `primary`
+- `secondary`
+- `success`
+- `danger`
+- `warning`
+- `info`
+- `light`
+- `dark`
+- `link`
+
+#### Sizes
+
+- `sm`
+- `md` (default)
+- `lg`
+
+#### Full Width
+
+```html
+<gv-button [fullWidth]="true">
+  Continue
+</gv-button>
+```
+
+#### Loading State
+
+```html
+<gv-button [loading]="true">
+  Save
+</gv-button>
+```
+
+#### Loading With Text
+
+```html
+<gv-button
+  [loading]="true"
+  loadingText="Saving..."
+>
+  Save
+</gv-button>
+```
+
+#### Icons
+
+Left icon:
+
+```html
+<gv-button>
+  <span gvIconLeft>💾</span>
+  Save
+</gv-button>
+```
+
+Right icon:
+
+```html
+<gv-button>
+  Next
+  <span gvIconRight>➡️</span>
+</gv-button>
+```
+
+---
+
+## 🧠 Architecture
+
+Gravitas uses layered styling:
+
+1. **Tokens**
+2. **Theme mapping**
+3. **Component-scoped CSS**
+4. **Layout shell**
+
+Bootstrap classes remain usable.
+
+Gravitas components are opt-in and do not globally override Bootstrap components.
+
+---
+
+## 🔄 Versioning
+
+Gravitas follows Semantic Versioning.
+
+```
+0.x → Rapid iteration
+1.0 → Stable API
+```
+
+Breaking changes are communicated clearly in the changelog.
+
+---
+
+## 🛣 Roadmap
+
+Planned components:
+
+- Card
+- Form Field
+- Input
+- Badge
+- Dialog
+- Table
+- Toast
+
+---
+
+## 🤝 Contributing
+
+1. Create a feature branch
+2. Add Storybook stories
+3. Write unit tests
+4. Ensure no global Bootstrap overrides
+5. Submit PR
+
+---
+
+## 🧪 Development
+
+Start Storybook:
 
 ```bash
-ng test
+yarn storybook
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Build library:
 
 ```bash
-ng e2e
+yarn build
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## 📜 License
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Private – Internal Use Only (for now)

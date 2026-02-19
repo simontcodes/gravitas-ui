@@ -2,55 +2,6 @@
    Gravitas Components + Bootstrap polish
 ========================================= */
 
-/* ---------- Buttons (premium) ---------- */
-.btn {
-  border-radius: var(--gv-btn-radius);
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  padding: var(--gv-btn-padding-y) var(--gv-btn-padding-x);
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease, border-color 0.15s ease;
-}
-
-.btn:active {
-  transform: translateY(0.5px);
-}
-
-.btn:focus,
-.btn:focus-visible {
-  box-shadow: var(--gv-ring);
-}
-
-/* Primary buttons: crisp, premium */
-.btn-primary {
-  background-color: var(--gv-accent);
-  border-color: var(--gv-accent);
-  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.08);
-}
-
-.btn-primary:hover {
-  background-color: var(--gv-accent-hover);
-  border-color: var(--gv-accent-hover);
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15);
-}
-
-/* Secondary buttons: clean outline */
-.btn-outline-primary {
-  border-color: rgba(59, 130, 246, 0.35);
-  color: var(--gv-accent);
-}
-
-.btn-outline-primary:hover {
-  background: rgba(59, 130, 246, 0.08);
-  border-color: rgba(59, 130, 246, 0.55);
-  color: var(--gv-accent-hover);
-}
-
-/* Disabled polish */
-.btn:disabled,
-.btn.disabled {
-  opacity: 0.65;
-  box-shadow: none !important;
-}
 
 /* ---------- Cards / Panels ---------- */
 .gv-card {
