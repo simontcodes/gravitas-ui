@@ -47,7 +47,7 @@ import { Component, Input } from '@angular/core';
               <div class="gv-demo-row">
                 <ng-content></ng-content>
 
-                <button class="btn btn-primary">Bootstrap</button>
+                <!-- <button class="btn btn-primary">Bootstrap</button> -->
 
               </div>
             </div>

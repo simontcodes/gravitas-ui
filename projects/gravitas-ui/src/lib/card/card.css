@@ -1,0 +1,78 @@
+/* Base Card */
+.gv-card {
+  background: var(--gv-surface);
+  border: 1px solid var(--gv-border);
+  border-radius: var(--gv-radius-lg);
+  box-shadow: var(--gv-shadow-sm);
+  overflow: hidden;
+}
+
+/* Layout */
+.gv-card__header {
+  padding: var(--gv-space-3, 12px);
+  border-bottom: 1px solid var(--gv-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gv-space-3, 12px);
+}
+
+.gv-card__title {
+  font-weight: 700;
+  color: var(--gv-text-strong);
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.gv-card__subtitle {
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--gv-text-muted);
+}
+
+.gv-card__body {
+  padding: var(--gv-space-3, 12px);
+}
+
+.gv-card__footer {
+  padding: var(--gv-space-3, 12px);
+  border-top: 1px solid var(--gv-border);
+}
+
+/* Interactive State */
+.gv-card--interactive {
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease,
+    border-color 120ms ease;
+}
+
+.gv-card--interactive:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--gv-shadow-md);
+  border-color: rgba(59, 130, 246, 0.35);
+}
+
+.gv-card--interactive:active {
+  transform: translateY(0px);
+  box-shadow: var(--gv-shadow-sm);
+}
+
+/* Focus ring when keyboard-tabbing onto the host (role=button, tabindex=0) */
+:host(:focus-visible) .gv-card--interactive {
+  box-shadow: var(--gv-ring, 0 0 0 4px rgba(96, 165, 250, 0.35));
+  border-color: rgba(59, 130, 246, 0.55);
+}
+
+/* Disabled */
+.gv-card--disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.gv-card--disabled:hover {
+  transform: none;
+  box-shadow: var(--gv-shadow-sm);
+  border-color: var(--gv-border);
+}

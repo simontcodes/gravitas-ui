@@ -1,0 +1,56 @@
+<div class="gv-field">
+  @if (label) {
+    <label class="gv-label" [attr.for]="inputId">
+      {{ label }}
+      @if (required) {
+        <span class="gv-required">*</span>
+      }
+    </label>
+  }
+
+  <div
+    class="gv-inputwrap"
+    [ngClass]="{
+      'gv-inputwrap--prefix': hasPrefix,
+      'gv-inputwrap--suffix': hasSuffix,
+    }"
+  >
+    @if (hasPrefix) {
+      <div class="gv-affix gv-affix--prefix">
+        <ng-content select="[gvPrefix]"></ng-content>
+      </div>
+    }
+
+    <input
+      [id]="inputId"
+      [attr.type]="type"
+      [attr.placeholder]="placeholder"
+      [class]="inputClasses"
+      [disabled]="disabled"
+      [readOnly]="readonly"
+      [attr.aria-invalid]="isInvalid() ? 'true' : 'false'"
+      [attr.aria-describedby]="describedBy"
+      [value]="value ?? ''"
+      (input)="handleInput($any($event.target).value)"
+      (blur)="handleBlur()"
+    />
+
+    @if (hasSuffix || isDateLike) {
+      <div class="gv-affix gv-affix--suffix">
+        @if (hasSuffix) {
+          <ng-content select="[gvSuffix]"></ng-content>
+        } @else {
+          <span class="gv-dateicon" aria-hidden="true">📅</span>
+        }
+      </div>
+    }
+  </div>
+
+  @if (hint && !isInvalid()) {
+    <div class="gv-hint" [id]="inputId + '-hint'">{{ hint }}</div>
+  }
+
+  @if (errorText) {
+    <div class="gv-input__error">{{ errorText }}</div>
+  }
+</div>

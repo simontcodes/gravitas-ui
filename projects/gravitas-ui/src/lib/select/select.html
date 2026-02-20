@@ -1,0 +1,50 @@
+<div class="gv-field" [class.w-100]="fullWidth">
+  @if (label) {
+    <label class="gv-field__label">
+      {{ label }}
+      @if (required) {
+        <span class="gv-field__required">*</span>
+      }
+    </label>
+  }
+
+  <div class="gv-field__control" [class.w-100]="fullWidth">
+    <div class="gv-select-wrap" [class.w-100]="fullWidth">
+      <ng-content select="[prefix]"></ng-content>
+
+      <select
+        [class]="selectClass"
+        [disabled]="disabled || loading"
+        (blur)="handleBlur()"
+        (change)="handleNativeChange($event)"
+        [attr.aria-invalid]="!!error"
+      >
+        <option [value]="''" [disabled]="required">
+          {{ loading ? loadingText : placeholder }}
+        </option>
+
+        @for (opt of options; track trackByIndex($index)) {
+          <option
+            [value]="stringifyValue(opt.value)"
+            [selected]="isSelected(opt.value)"
+            [disabled]="opt.disabled"
+          >
+            {{ opt.label }}
+          </option>
+        }
+      </select>
+
+      <ng-content select="[suffix]"></ng-content>
+    </div>
+  </div>
+
+  @if (error) {
+    <div class="invalid-feedback d-block gv-field__error">
+      {{ error }}
+    </div>
+  } @else if (helperText) {
+    <div class="gv-field__helper">
+      {{ helperText }}
+    </div>
+  }
+</div>

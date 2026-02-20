@@ -11,6 +11,26 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args: any) => ({\r\n    props: {\r\n      ...args,\r\n      control: new FormControl('', [Validators.email]),\r\n    },\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-input\r\n          [label]=\"label\"\r\n          [placeholder]=\"placeholder\"\r\n          [hint]=\"hint\"\r\n          [type]=\"type\"\r\n          [size]=\"size\"\r\n          [disabled]=\"disabled\"\r\n          [readonly]=\"readonly\"\r\n          [required]=\"required\"\r\n          [className]=\"className\"\r\n          [hasPrefix]=\"hasPrefix\"\r\n          [hasSuffix]=\"hasSuffix\"\r\n          [formControl]=\"control\"\r\n        >\r\n        </gv-input>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: renderCard,\r\n}"
+            },
+            {
                 "name": "Disabled",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -21,6 +41,26 @@
                 "defaultValue": "{\r\n  args: { disabled: true },\r\n  render: renderButton,\r\n}"
             },
             {
+                "name": "DisabledInteractive",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: { interactive: true, disabled: true, subtitle: 'Interactive but disabled' },\r\n  render: renderCard,\r\n}"
+            },
+            {
+                "name": "ErrorState",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args: any) => ({\r\n    props: {\r\n      ...args,\r\n      label: 'Email',\r\n      type: 'email',\r\n      control: new FormControl('', [Validators.required, Validators.email]),\r\n    },\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-input\r\n          [label]=\"label\"\r\n          [type]=\"type\"\r\n          [formControl]=\"control\"\r\n        ></gv-input>\r\n\r\n        <div class=\"d-flex gap-2 mt-3\">\r\n          <button class=\"btn btn-sm btn-outline-primary\" (click)=\"control.markAsTouched()\">\r\n            Mark touched\r\n          </button>\r\n          <button class=\"btn btn-sm btn-outline-secondary\" (click)=\"control.setValue('bad')\">\r\n            Set invalid value\r\n          </button>\r\n        </div>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
                 "name": "FullWidth",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -28,7 +68,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: { className: 'w-100' },\r\n  render: (args) => ({\r\n    ...renderButton(args),\r\n    template: `\r\n      <div style=\"max-width: 480px;\">\r\n        <gv-button\r\n          [variant]=\"variant\"\r\n          [size]=\"size\"\r\n          [disabled]=\"disabled\"\r\n          [loading]=\"loading\"\r\n          [className]=\"className\"\r\n        >\r\n          Button\r\n        </gv-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  args: { fullWidth: true },\r\n  render: (args) => ({\r\n    ...renderButton(args),\r\n    template: `\r\n      <div style=\"max-width: 480px;\">\r\n        <gv-button\r\n          [variant]=\"variant\"\r\n          [size]=\"size\"\r\n          [disabled]=\"disabled\"\r\n          [loading]=\"loading\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [loadingText]=\"loadingText\"\r\n          [className]=\"className\"\r\n        >\r\n          Button\r\n        </gv-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "globalTypes",
@@ -43,6 +83,16 @@
                 "description": "<p>✅ Toolbar: Theme</p>\n"
             },
             {
+                "name": "Interactive",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: { interactive: true, subtitle: 'Clickable (hover + keyboard)' },\r\n  render: renderCard,\r\n}"
+            },
+            {
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -53,6 +103,26 @@
                 "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
             },
             {
+                "name": "LeftAndRightIcons",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        <span gvIconLeft aria-hidden=\"true\">🔎</span>\r\n        Search\r\n        <span gvIconRight aria-hidden=\"true\">⌘K</span>\r\n      </gv-button>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "LeftIcon",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        <span gvIconLeft aria-hidden=\"true\">💾</span>\r\n        Save\r\n      </gv-button>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
                 "name": "Loading",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -61,6 +131,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: { loading: true },\r\n  render: renderButton,\r\n}"
+            },
+            {
+                "name": "LoadingWithText",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: { loading: true, loadingText: 'Saving...' },\r\n  render: renderButton,\r\n}"
             },
             {
                 "name": "LoggedIn",
@@ -140,7 +220,37 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Button>",
-                "defaultValue": "{\r\n  title: 'Gravitas/Button',\r\n  component: Button,\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    loading: false,\r\n    className: '',\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'primary',\r\n        'secondary',\r\n        'success',\r\n        'danger',\r\n        'warning',\r\n        'info',\r\n        'light',\r\n        'dark',\r\n        'link',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  title: 'Gravitas/Button',\r\n  component: Button,\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    loading: false,\r\n    fullWidth: false,\r\n    loadingText: '',\r\n    className: '',\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'primary',\r\n        'secondary',\r\n        'success',\r\n        'danger',\r\n        'warning',\r\n        'info',\r\n        'light',\r\n        'dark',\r\n        'link',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n    loadingText: { control: 'text' },\r\n    fullWidth: { control: 'boolean' },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<InputComponent>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Input',\r\n  component: InputComponent,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [ReactiveFormsModule, InputComponent],\r\n    }),\r\n  ],\r\n  args: {\r\n    label: 'Email',\r\n    placeholder: 'you@company.com',\r\n    hint: 'We’ll never share your email.',\r\n    type: 'email',\r\n    size: 'md',\r\n    disabled: false,\r\n    readonly: false,\r\n    required: false,\r\n    className: '',\r\n    hasPrefix: false,\r\n    hasSuffix: false,\r\n  },\r\n  argTypes: {\r\n    type: {\r\n      control: 'select',\r\n      options: [\r\n        'text',\r\n        'email',\r\n        'password',\r\n        'number',\r\n        'tel',\r\n        'url',\r\n        'search',\r\n        'date',\r\n        'datetime-local',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Card>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Card',\r\n  component: Card,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Card, Button], // Card is standalone; Button only if used in templates below\r\n    }),\r\n  ],\r\n  args: {\r\n    title: 'Card Title',\r\n    subtitle: 'Optional subtitle',\r\n    fullHeight: false,\r\n    interactive: false,\r\n    disabled: false,\r\n    className: '',\r\n  },\r\n  argTypes: {\r\n    title: { control: 'text' },\r\n    subtitle: { control: 'text' },\r\n    fullHeight: { control: 'boolean' },\r\n    interactive: { control: 'boolean' },\r\n    disabled: { control: 'boolean' },\r\n    className: { control: 'text' },\r\n    // Output handlers should not be part of controls\r\n    cardClick: { action: 'cardClick', table: { disable: true } },\r\n  },\r\n}"
+            },
+            {
+                "name": "NoHeader",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: { title: null, subtitle: null },\r\n  render: renderCard,\r\n}"
             },
             {
                 "name": "preview",
@@ -173,6 +283,16 @@
                 "defaultValue": "{\r\n  render: renderButton,\r\n}"
             },
             {
+                "name": "RightIcon",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        Next\r\n        <span gvIconRight aria-hidden=\"true\">➡️</span>\r\n      </gv-button>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -191,6 +311,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "WithPrefix",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args: any) => ({\r\n    props: {\r\n      ...args,\r\n      hasPrefix: true,\r\n      control: new FormControl(''),\r\n    },\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-input\r\n          [label]=\"label\"\r\n          [placeholder]=\"placeholder\"\r\n          [hasPrefix]=\"true\"\r\n          [formControl]=\"control\"\r\n        >\r\n          <span gvPrefix>@</span>\r\n        </gv-input>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             }
         ],
         "functions": [
@@ -249,6 +379,34 @@
                         }
                     }
                 ]
+            },
+            {
+                "name": "renderCard",
+                "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "args",
+                        "type": "any",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "args",
+                        "type": "any",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
             }
         ],
         "typealiases": [
@@ -295,10 +453,126 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<InputComponent>",
+                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<Card>",
+                "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
             }
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/gravitas-ui/src/lib/input/input.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args: any) => ({\r\n    props: {\r\n      ...args,\r\n      control: new FormControl('', [Validators.email]),\r\n    },\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-input\r\n          [label]=\"label\"\r\n          [placeholder]=\"placeholder\"\r\n          [hint]=\"hint\"\r\n          [type]=\"type\"\r\n          [size]=\"size\"\r\n          [disabled]=\"disabled\"\r\n          [readonly]=\"readonly\"\r\n          [required]=\"required\"\r\n          [className]=\"className\"\r\n          [hasPrefix]=\"hasPrefix\"\r\n          [hasSuffix]=\"hasSuffix\"\r\n          [formControl]=\"control\"\r\n        >\r\n        </gv-input>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "ErrorState",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args: any) => ({\r\n    props: {\r\n      ...args,\r\n      label: 'Email',\r\n      type: 'email',\r\n      control: new FormControl('', [Validators.required, Validators.email]),\r\n    },\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-input\r\n          [label]=\"label\"\r\n          [type]=\"type\"\r\n          [formControl]=\"control\"\r\n        ></gv-input>\r\n\r\n        <div class=\"d-flex gap-2 mt-3\">\r\n          <button class=\"btn btn-sm btn-outline-primary\" (click)=\"control.markAsTouched()\">\r\n            Mark touched\r\n          </button>\r\n          <button class=\"btn btn-sm btn-outline-secondary\" (click)=\"control.setValue('bad')\">\r\n            Set invalid value\r\n          </button>\r\n        </div>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<InputComponent>",
+                    "defaultValue": "{\r\n  title: 'Gravitas/Input',\r\n  component: InputComponent,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [ReactiveFormsModule, InputComponent],\r\n    }),\r\n  ],\r\n  args: {\r\n    label: 'Email',\r\n    placeholder: 'you@company.com',\r\n    hint: 'We’ll never share your email.',\r\n    type: 'email',\r\n    size: 'md',\r\n    disabled: false,\r\n    readonly: false,\r\n    required: false,\r\n    className: '',\r\n    hasPrefix: false,\r\n    hasSuffix: false,\r\n  },\r\n  argTypes: {\r\n    type: {\r\n      control: 'select',\r\n      options: [\r\n        'text',\r\n        'email',\r\n        'password',\r\n        'number',\r\n        'tel',\r\n        'url',\r\n        'search',\r\n        'date',\r\n        'datetime-local',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n  },\r\n}"
+                },
+                {
+                    "name": "WithPrefix",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args: any) => ({\r\n    props: {\r\n      ...args,\r\n      hasPrefix: true,\r\n      control: new FormControl(''),\r\n    },\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-input\r\n          [label]=\"label\"\r\n          [placeholder]=\"placeholder\"\r\n          [hasPrefix]=\"true\"\r\n          [formControl]=\"control\"\r\n        >\r\n          <span gvPrefix>@</span>\r\n        </gv-input>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                }
+            ],
+            "projects/gravitas-ui/src/lib/card/card.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: renderCard,\r\n}"
+                },
+                {
+                    "name": "DisabledInteractive",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: { interactive: true, disabled: true, subtitle: 'Interactive but disabled' },\r\n  render: renderCard,\r\n}"
+                },
+                {
+                    "name": "Interactive",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: { interactive: true, subtitle: 'Clickable (hover + keyboard)' },\r\n  render: renderCard,\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<Card>",
+                    "defaultValue": "{\r\n  title: 'Gravitas/Card',\r\n  component: Card,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Card, Button], // Card is standalone; Button only if used in templates below\r\n    }),\r\n  ],\r\n  args: {\r\n    title: 'Card Title',\r\n    subtitle: 'Optional subtitle',\r\n    fullHeight: false,\r\n    interactive: false,\r\n    disabled: false,\r\n    className: '',\r\n  },\r\n  argTypes: {\r\n    title: { control: 'text' },\r\n    subtitle: { control: 'text' },\r\n    fullHeight: { control: 'boolean' },\r\n    interactive: { control: 'boolean' },\r\n    disabled: { control: 'boolean' },\r\n    className: { control: 'text' },\r\n    // Output handlers should not be part of controls\r\n    cardClick: { action: 'cardClick', table: { disable: true } },\r\n  },\r\n}"
+                },
+                {
+                    "name": "NoHeader",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: { title: null, subtitle: null },\r\n  render: renderCard,\r\n}"
+                }
+            ],
             "projects/gravitas-ui/src/lib/button/button.stories.ts": [
                 {
                     "name": "Disabled",
@@ -318,7 +592,27 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: { className: 'w-100' },\r\n  render: (args) => ({\r\n    ...renderButton(args),\r\n    template: `\r\n      <div style=\"max-width: 480px;\">\r\n        <gv-button\r\n          [variant]=\"variant\"\r\n          [size]=\"size\"\r\n          [disabled]=\"disabled\"\r\n          [loading]=\"loading\"\r\n          [className]=\"className\"\r\n        >\r\n          Button\r\n        </gv-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                    "defaultValue": "{\r\n  args: { fullWidth: true },\r\n  render: (args) => ({\r\n    ...renderButton(args),\r\n    template: `\r\n      <div style=\"max-width: 480px;\">\r\n        <gv-button\r\n          [variant]=\"variant\"\r\n          [size]=\"size\"\r\n          [disabled]=\"disabled\"\r\n          [loading]=\"loading\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [loadingText]=\"loadingText\"\r\n          [className]=\"className\"\r\n        >\r\n          Button\r\n        </gv-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "LeftAndRightIcons",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        <span gvIconLeft aria-hidden=\"true\">🔎</span>\r\n        Search\r\n        <span gvIconRight aria-hidden=\"true\">⌘K</span>\r\n      </gv-button>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "LeftIcon",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        <span gvIconLeft aria-hidden=\"true\">💾</span>\r\n        Save\r\n      </gv-button>\r\n    `,\r\n  }),\r\n}"
                 },
                 {
                     "name": "Loading",
@@ -331,6 +625,16 @@
                     "defaultValue": "{\r\n  args: { loading: true },\r\n  render: renderButton,\r\n}"
                 },
                 {
+                    "name": "LoadingWithText",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: { loading: true, loadingText: 'Saving...' },\r\n  render: renderButton,\r\n}"
+                },
+                {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -338,7 +642,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Button>",
-                    "defaultValue": "{\r\n  title: 'Gravitas/Button',\r\n  component: Button,\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    loading: false,\r\n    className: '',\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'primary',\r\n        'secondary',\r\n        'success',\r\n        'danger',\r\n        'warning',\r\n        'info',\r\n        'light',\r\n        'dark',\r\n        'link',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  title: 'Gravitas/Button',\r\n  component: Button,\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    loading: false,\r\n    fullWidth: false,\r\n    loadingText: '',\r\n    className: '',\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'primary',\r\n        'secondary',\r\n        'success',\r\n        'danger',\r\n        'warning',\r\n        'info',\r\n        'light',\r\n        'dark',\r\n        'link',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n    loadingText: { control: 'text' },\r\n    fullWidth: { control: 'boolean' },\r\n  },\r\n}"
                 },
                 {
                     "name": "Primary",
@@ -349,6 +653,16 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  render: renderButton,\r\n}"
+                },
+                {
+                    "name": "RightIcon",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        Next\r\n        <span gvIconRight aria-hidden=\"true\">➡️</span>\r\n      </gv-button>\r\n    `,\r\n  }),\r\n}"
                 }
             ],
             "projects/gravitas-ui/.storybook/preview.ts": [
@@ -552,6 +866,36 @@
                         }
                     ]
                 }
+            ],
+            "projects/gravitas-ui/src/lib/card/card.stories.ts": [
+                {
+                    "name": "renderCard",
+                    "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "args",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "args",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
             ]
         },
         "groupedEnumerations": {},
@@ -607,6 +951,32 @@
                     "description": "",
                     "kind": 184
                 }
+            ],
+            "projects/gravitas-ui/src/lib/input/input.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<InputComponent>",
+                    "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/gravitas-ui/src/lib/card/card.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Card>",
+                    "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
             ]
         }
     },
@@ -616,7 +986,7 @@
         "children": []
     },
     "coverage": {
-        "count": 4,
+        "count": 2,
         "status": "low",
         "files": [
             {
@@ -684,7 +1054,37 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "LeftAndRightIcons",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LeftIcon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Loading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoadingWithText",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -711,6 +1111,136 @@
             },
             {
                 "filePath": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RightIcon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "renderCard",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DisabledInteractive",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Interactive",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "NoHeader",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ErrorState",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithPrefix",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/input/input.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
