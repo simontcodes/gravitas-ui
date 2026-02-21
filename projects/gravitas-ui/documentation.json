@@ -6,7 +6,106 @@
     "interceptors": [],
     "classes": [],
     "directives": [],
-    "components": [],
+    "components": [
+        {
+            "name": "ToastDemo",
+            "id": "component-ToastDemo-c08b37e802d00f1f3cae96faf0bb5c1c503454ea8ae0e4a31b00c2763606793174184cec444f0159f089a3947be5193cbc7202640f5d1c3f89f3631e776ae4cb",
+            "file": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "gv-toast-demo",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div class=\"p-3 d-flex gap-2\">\n  <gv-button variant=\"success\" (click)=\"success()\">Success</gv-button>\n  <gv-button variant=\"danger\" (click)=\"error()\">Error (sticky)</gv-button>\n  <gv-button variant=\"info\" (click)=\"info()\">Info</gv-button>\n</div>\n\n<gv-toasts></gv-toasts>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "position",
+                    "defaultValue": "'top-end'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "ToastPosition",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "toast",
+                    "defaultValue": "inject(ToastService)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "error",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 36,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "info",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 47,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "success",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "Toasts"
+                },
+                {
+                    "name": "Button"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import type { Meta, StoryObj } from '@storybook/angular';\r\nimport { Component, Input, inject } from '@angular/core';\r\nimport { Toasts } from './toasts';\r\nimport { ToastService } from './toasts.service';\r\nimport { ToastPosition } from './toast.model';\r\nimport { Button } from '../button/button';\r\n\r\n@Component({\r\n  selector: 'gv-toast-demo',\r\n  standalone: true,\r\n  imports: [Toasts, Button],\r\n  template: `\r\n    <div class=\"p-3 d-flex gap-2\">\r\n      <gv-button variant=\"success\" (click)=\"success()\">Success</gv-button>\r\n      <gv-button variant=\"danger\" (click)=\"error()\">Error (sticky)</gv-button>\r\n      <gv-button variant=\"info\" (click)=\"info()\">Info</gv-button>\r\n    </div>\r\n\r\n    <gv-toasts></gv-toasts>\r\n  `,\r\n})\r\nclass ToastDemo {\r\n  private toast = inject(ToastService);\r\n\r\n  @Input() position: ToastPosition = 'top-end';\r\n\r\n  success() {\r\n    this.toast.show({\r\n      variant: 'success',\r\n      title: 'Saved',\r\n      message: 'Claim updated successfully.',\r\n      position: this.position,\r\n    });\r\n  }\r\n\r\n  error() {\r\n    this.toast.show({\r\n      variant: 'danger',\r\n      title: 'Validation error',\r\n      message: 'Password must be at least 8 characters long.',\r\n      position: this.position,\r\n      durationMs: 0,\r\n      ariaLive: 'assertive',\r\n    });\r\n  }\r\n\r\n  info() {\r\n    this.toast.show({\r\n      variant: 'info',\r\n      title: 'Sync',\r\n      message: 'Posting to EDI gateway…',\r\n      position: this.position,\r\n    });\r\n  }\r\n}\r\n\r\nconst meta: Meta<ToastDemo> = {\r\n  title: 'Gravitas/Toast',\r\n  component: ToastDemo,\r\n  args: { position: 'top-end' },\r\n  argTypes: {\r\n    position: {\r\n      control: 'select',\r\n      options: [\r\n        'top-end',\r\n        'top-start',\r\n        'top-center',\r\n        'bottom-end',\r\n        'bottom-start',\r\n        'bottom-center',\r\n      ],\r\n    },\r\n  },\r\n  decorators: [\r\n    (story) => ({\r\n      ...story(),\r\n      moduleMetadata: {\r\n        providers: [ToastService], // ✅ single instance shared by demo + <gv-toasts>\r\n      },\r\n    }),\r\n  ],\r\n};\r\n\r\nexport default meta;\r\ntype Story = StoryObj<ToastDemo>;\r\n\r\nexport const Playground: Story = {};\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": []
+        }
+    ],
     "modules": [],
     "miscellaneous": {
         "variables": [
@@ -44,6 +143,26 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <!-- demo control -->\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            [attr.aria-invalid]=\"!!error\"\r\n            placeholder=\"name@company.com\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: renderModal,\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/gravitas-ui/src/lib/select/select.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -54,11 +173,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <!-- demo control -->\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            [attr.aria-invalid]=\"!!error\"\r\n            placeholder=\"name@company.com\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    moduleMetadata: { imports: [Tabs, TabList, Tab, TabPanels, TabPanel] },\r\n    template: `\r\n      <gv-tabs [(value)]=\"value\" [variant]=\"variant\">\r\n        <gv-tab-list>\r\n          <gv-tab value=\"overview\">Overview</gv-tab>\r\n          <gv-tab value=\"billing\">Billing</gv-tab>\r\n          <gv-tab value=\"audit\" [disabled]=\"true\">Audit</gv-tab>\r\n          <gv-tab value=\"settings\">Settings</gv-tab>\r\n        </gv-tab-list>\r\n\r\n        <gv-tab-panels>\r\n          <gv-tab-panel value=\"overview\">Overview content</gv-tab-panel>\r\n          <gv-tab-panel value=\"billing\">Billing content</gv-tab-panel>\r\n          <gv-tab-panel value=\"audit\">Audit content</gv-tab-panel>\r\n          <gv-tab-panel value=\"settings\">Settings content</gv-tab-panel>\r\n        </gv-tab-panels>\r\n      </gv-tabs>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Disabled",
@@ -153,6 +272,16 @@
                 "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
             },
             {
+                "name": "Large",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: { size: 'lg' },\r\n  render: renderModal,\r\n}"
+            },
+            {
                 "name": "LeftAndRightIcons",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -181,6 +310,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: { loading: true },\r\n  render: renderButton,\r\n}"
+            },
+            {
+                "name": "Loading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: { loading: true },\r\n  render: renderModal,\r\n}"
             },
             {
                 "name": "Loading",
@@ -306,6 +445,26 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<FormField>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Form Field',\r\n  component: FormField,\r\n  args: {\r\n    label: 'Email',\r\n    required: false,\r\n    helperText: 'We’ll never share your email.',\r\n    error: null,\r\n    fullWidth: true,\r\n    controlId: 'email',\r\n  },\r\n  argTypes: {\r\n    error: { control: 'text' },\r\n    helperText: { control: 'text' },\r\n    label: { control: 'text' },\r\n    required: { control: 'boolean' },\r\n    fullWidth: { control: 'boolean' },\r\n    controlId: { control: 'text' },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ModalArgs>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Modal',\r\n  component: Modal,\r\n  args: {\r\n    open: true,\r\n    title: 'Edit Claim',\r\n    subtitle: 'Update patient + billing details',\r\n    size: 'md',\r\n    closeOnBackdrop: true,\r\n    closeOnEsc: true,\r\n    loading: false,\r\n    panelClass: '',\r\n  },\r\n  argTypes: {\r\n    size: { control: 'select', options: ['sm', 'md', 'lg', 'xl'] },\r\n    open: { control: 'boolean' },\r\n    closeOnBackdrop: { control: 'boolean' },\r\n    closeOnEsc: { control: 'boolean' },\r\n    loading: { control: 'boolean' },\r\n    panelClass: { control: 'text' },\r\n    title: { control: 'text' },\r\n    subtitle: { control: 'text' },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/gravitas-ui/src/lib/select/select.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -316,11 +475,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<FormField>",
-                "defaultValue": "{\r\n  title: 'Gravitas/Form Field',\r\n  component: FormField,\r\n  args: {\r\n    label: 'Email',\r\n    required: false,\r\n    helperText: 'We’ll never share your email.',\r\n    error: null,\r\n    fullWidth: true,\r\n    controlId: 'email',\r\n  },\r\n  argTypes: {\r\n    error: { control: 'text' },\r\n    helperText: { control: 'text' },\r\n    label: { control: 'text' },\r\n    required: { control: 'boolean' },\r\n    fullWidth: { control: 'boolean' },\r\n    controlId: { control: 'text' },\r\n  },\r\n}"
+                "type": "Meta<Tabs>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Tabs',\r\n  component: Tabs,\r\n  args: { value: 'overview', variant: 'underline' },\r\n  argTypes: {\r\n    variant: { control: 'select', options: ['underline', 'pill'] },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ToastDemo>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Toast',\r\n  component: ToastDemo,\r\n  args: { position: 'top-end' },\r\n  argTypes: {\r\n    position: {\r\n      control: 'select',\r\n      options: [\r\n        'top-end',\r\n        'top-start',\r\n        'top-center',\r\n        'bottom-end',\r\n        'bottom-start',\r\n        'bottom-center',\r\n      ],\r\n    },\r\n  },\r\n  decorators: [\r\n    (story) => ({\r\n      ...story(),\r\n      moduleMetadata: {\r\n        providers: [ToastService], // ✅ single instance shared by demo + <gv-toasts>\r\n      },\r\n    }),\r\n  ],\r\n}"
             },
             {
                 "name": "NoHeader",
@@ -341,6 +510,16 @@
                 "deprecationMessage": "",
                 "type": "GvSelectOption[]",
                 "defaultValue": "[\r\n  { label: 'Pending', value: 'pending' },\r\n  { label: 'Approved', value: 'approved' },\r\n  { label: 'Denied', value: 'denied' },\r\n]"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
             },
             {
                 "name": "preview",
@@ -519,6 +698,34 @@
                 ]
             },
             {
+                "name": "renderModal",
+                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "args",
+                        "type": "ModalArgs",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "args",
+                        "type": "ModalArgs",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
                 "name": "renderSelect",
                 "file": "projects/gravitas-ui/src/lib/select/select.stories.ts",
                 "ctype": "miscellaneous",
@@ -548,6 +755,28 @@
             }
         ],
         "typealiases": [
+            {
+                "name": "ModalArgs",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 188
+            },
+            {
+                "name": "ModalSize",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"sm\" | \"md\" | \"lg\" | \"xl\"",
+                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 193
+            },
             {
                 "name": "Story",
                 "ctype": "miscellaneous",
@@ -618,6 +847,28 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<FormField>",
+                "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ModalArgs>",
+                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<Select<string>>",
                 "file": "projects/gravitas-ui/src/lib/select/select.stories.ts",
                 "deprecated": false,
@@ -629,8 +880,19 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<FormField>",
-                "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                "rawtype": "StoryObj<Tabs>",
+                "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ToastDemo>",
+                "file": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -743,6 +1005,90 @@
                     "defaultValue": "{\r\n  args: { title: null, subtitle: null },\r\n  render: renderCard,\r\n}"
                 }
             ],
+            "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <!-- demo control -->\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            [attr.aria-invalid]=\"!!error\"\r\n            placeholder=\"name@company.com\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<FormField>",
+                    "defaultValue": "{\r\n  title: 'Gravitas/Form Field',\r\n  component: FormField,\r\n  args: {\r\n    label: 'Email',\r\n    required: false,\r\n    helperText: 'We’ll never share your email.',\r\n    error: null,\r\n    fullWidth: true,\r\n    controlId: 'email',\r\n  },\r\n  argTypes: {\r\n    error: { control: 'text' },\r\n    helperText: { control: 'text' },\r\n    label: { control: 'text' },\r\n    required: { control: 'boolean' },\r\n    fullWidth: { control: 'boolean' },\r\n    controlId: { control: 'text' },\r\n  },\r\n}"
+                },
+                {
+                    "name": "WithError",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    error: 'Password must be at least 8 characters long.',\r\n    helperText: 'Use at least one number and one symbol.',\r\n    label: 'Password',\r\n    required: true,\r\n    controlId: 'password',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <input\r\n            class=\"form-control is-invalid\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            aria-invalid=\"true\"\r\n            placeholder=\"••••••••\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "WithPrefixSuffix",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Amount',\r\n    helperText: 'Enter a number only.',\r\n    controlId: 'amount',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <span prefix class=\"fw-semibold\">$</span>\r\n\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            placeholder=\"0.00\"\r\n          />\r\n\r\n          <span suffix class=\"text-uppercase small\">CAD</span>\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                }
+            ],
+            "projects/gravitas-ui/src/lib/modal/modal.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: renderModal,\r\n}"
+                },
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: { size: 'lg' },\r\n  render: renderModal,\r\n}"
+                },
+                {
+                    "name": "Loading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: { loading: true },\r\n  render: renderModal,\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ModalArgs>",
+                    "defaultValue": "{\r\n  title: 'Gravitas/Modal',\r\n  component: Modal,\r\n  args: {\r\n    open: true,\r\n    title: 'Edit Claim',\r\n    subtitle: 'Update patient + billing details',\r\n    size: 'md',\r\n    closeOnBackdrop: true,\r\n    closeOnEsc: true,\r\n    loading: false,\r\n    panelClass: '',\r\n  },\r\n  argTypes: {\r\n    size: { control: 'select', options: ['sm', 'md', 'lg', 'xl'] },\r\n    open: { control: 'boolean' },\r\n    closeOnBackdrop: { control: 'boolean' },\r\n    closeOnEsc: { control: 'boolean' },\r\n    loading: { control: 'boolean' },\r\n    panelClass: { control: 'text' },\r\n    title: { control: 'text' },\r\n    subtitle: { control: 'text' },\r\n  },\r\n}"
+                }
+            ],
             "projects/gravitas-ui/src/lib/select/select.stories.ts": [
                 {
                     "name": "Default",
@@ -805,46 +1151,26 @@
                     "defaultValue": "[\r\n  { label: 'Pending', value: 'pending' },\r\n  { label: 'Approved', value: 'approved' },\r\n  { label: 'Denied', value: 'denied' },\r\n]"
                 }
             ],
-            "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
+            "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <!-- demo control -->\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            [attr.aria-invalid]=\"!!error\"\r\n            placeholder=\"name@company.com\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    moduleMetadata: { imports: [Tabs, TabList, Tab, TabPanels, TabPanel] },\r\n    template: `\r\n      <gv-tabs [(value)]=\"value\" [variant]=\"variant\">\r\n        <gv-tab-list>\r\n          <gv-tab value=\"overview\">Overview</gv-tab>\r\n          <gv-tab value=\"billing\">Billing</gv-tab>\r\n          <gv-tab value=\"audit\" [disabled]=\"true\">Audit</gv-tab>\r\n          <gv-tab value=\"settings\">Settings</gv-tab>\r\n        </gv-tab-list>\r\n\r\n        <gv-tab-panels>\r\n          <gv-tab-panel value=\"overview\">Overview content</gv-tab-panel>\r\n          <gv-tab-panel value=\"billing\">Billing content</gv-tab-panel>\r\n          <gv-tab-panel value=\"audit\">Audit content</gv-tab-panel>\r\n          <gv-tab-panel value=\"settings\">Settings content</gv-tab-panel>\r\n        </gv-tab-panels>\r\n      </gv-tabs>\r\n    `,\r\n  }),\r\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<FormField>",
-                    "defaultValue": "{\r\n  title: 'Gravitas/Form Field',\r\n  component: FormField,\r\n  args: {\r\n    label: 'Email',\r\n    required: false,\r\n    helperText: 'We’ll never share your email.',\r\n    error: null,\r\n    fullWidth: true,\r\n    controlId: 'email',\r\n  },\r\n  argTypes: {\r\n    error: { control: 'text' },\r\n    helperText: { control: 'text' },\r\n    label: { control: 'text' },\r\n    required: { control: 'boolean' },\r\n    fullWidth: { control: 'boolean' },\r\n    controlId: { control: 'text' },\r\n  },\r\n}"
-                },
-                {
-                    "name": "WithError",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    error: 'Password must be at least 8 characters long.',\r\n    helperText: 'Use at least one number and one symbol.',\r\n    label: 'Password',\r\n    required: true,\r\n    controlId: 'password',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <input\r\n            class=\"form-control is-invalid\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            aria-invalid=\"true\"\r\n            placeholder=\"••••••••\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "WithPrefixSuffix",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    label: 'Amount',\r\n    helperText: 'Enter a number only.',\r\n    controlId: 'amount',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <span prefix class=\"fw-semibold\">$</span>\r\n\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            placeholder=\"0.00\"\r\n          />\r\n\r\n          <span suffix class=\"text-uppercase small\">CAD</span>\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                    "type": "Meta<Tabs>",
+                    "defaultValue": "{\r\n  title: 'Gravitas/Tabs',\r\n  component: Tabs,\r\n  args: { value: 'overview', variant: 'underline' },\r\n  argTypes: {\r\n    variant: { control: 'select', options: ['underline', 'pill'] },\r\n  },\r\n}"
                 }
             ],
             "projects/gravitas-ui/src/lib/button/button.stories.ts": [
@@ -1078,6 +1404,28 @@
                     "type": "Meta<PageComponent>",
                     "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
                 }
+            ],
+            "projects/gravitas-ui/src/lib/toast/toasts.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ToastDemo>",
+                    "defaultValue": "{\r\n  title: 'Gravitas/Toast',\r\n  component: ToastDemo,\r\n  args: { position: 'top-end' },\r\n  argTypes: {\r\n    position: {\r\n      control: 'select',\r\n      options: [\r\n        'top-end',\r\n        'top-start',\r\n        'top-center',\r\n        'bottom-end',\r\n        'bottom-start',\r\n        'bottom-center',\r\n      ],\r\n    },\r\n  },\r\n  decorators: [\r\n    (story) => ({\r\n      ...story(),\r\n      moduleMetadata: {\r\n        providers: [ToastService], // ✅ single instance shared by demo + <gv-toasts>\r\n      },\r\n    }),\r\n  ],\r\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                }
             ]
         },
         "groupedFunctions": {
@@ -1171,6 +1519,36 @@
                     ]
                 }
             ],
+            "projects/gravitas-ui/src/lib/modal/modal.stories.ts": [
+                {
+                    "name": "renderModal",
+                    "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "args",
+                            "type": "ModalArgs",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "args",
+                            "type": "ModalArgs",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "projects/gravitas-ui/src/lib/select/select.stories.ts": [
                 {
                     "name": "renderSelect",
@@ -1204,6 +1582,41 @@
         },
         "groupedEnumerations": {},
         "groupedTypeAliases": {
+            "projects/gravitas-ui/src/lib/modal/modal.stories.ts": [
+                {
+                    "name": "ModalArgs",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 188
+                },
+                {
+                    "name": "ModalSize",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"sm\" | \"md\" | \"lg\" | \"xl\"",
+                    "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 193
+                },
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ModalArgs>",
+                    "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "projects/gravitas-ui/src/stories/button.stories.ts": [
                 {
                     "name": "Story",
@@ -1282,6 +1695,19 @@
                     "kind": 184
                 }
             ],
+            "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<FormField>",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "projects/gravitas-ui/src/lib/select/select.stories.ts": [
                 {
                     "name": "Story",
@@ -1295,13 +1721,26 @@
                     "kind": 184
                 }
             ],
-            "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
+            "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<FormField>",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "rawtype": "StoryObj<Tabs>",
+                    "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/gravitas-ui/src/lib/toast/toasts.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ToastDemo>",
+                    "file": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1640,6 +2079,86 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "renderModal",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Loading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "ModalArgs",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "ModalSize",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/gravitas-ui/src/lib/select/select.stories.ts",
                 "type": "function",
                 "linktype": "miscellaneous",
@@ -1711,6 +2230,75 @@
             },
             {
                 "filePath": "projects/gravitas-ui/src/lib/select/select.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ToastDemo",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Playground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

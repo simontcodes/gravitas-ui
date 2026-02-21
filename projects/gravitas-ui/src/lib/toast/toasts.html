@@ -1,0 +1,28 @@
+<div class="gv-toasts-root" aria-live="polite" aria-relevant="additions text">
+  <ng-container *ngIf="toasts$ | async as toasts">
+    <div
+      *ngFor="let t of toasts; trackBy: trackById"
+      class="gv-toast"
+      [ngClass]="[positionClass(t.position), 'gv-toast--' + t.variant]"
+      [attr.role]="t.ariaLive === 'assertive' ? 'alert' : 'status'"
+      [attr.aria-live]="t.ariaLive"
+    >
+      <div class="gv-toast__inner">
+        <div class="gv-toast__body">
+          <div class="gv-toast__title" *ngIf="t.title">{{ t.title }}</div>
+          <div class="gv-toast__msg">{{ t.message }}</div>
+        </div>
+
+        <button
+          *ngIf="t.dismissible"
+          type="button"
+          class="btn btn-sm btn-link gv-toast__close"
+          aria-label="Dismiss notification"
+          (click)="dismiss(t.id)"
+        >
+          ✕
+        </button>
+      </div>
+    </div>
+  </ng-container>
+</div>

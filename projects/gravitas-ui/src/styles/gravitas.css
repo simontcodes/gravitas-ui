@@ -1,3 +1,13 @@
 @import './tokens.css';
 @import './theme.css';
 @import './components.css';
+
+/* Component styles */
+@import '../lib/button/button.css';
+@import '../lib/card/card.css';
+@import '../lib/input/input.css';
+@import '../lib/select/select.css';
+@import '../lib/form-field/form-field.css';
+@import '../lib/modal/modal.css';
+@import '../lib/toast/toast.css';
+@import '../lib/tabs/tabs.css';

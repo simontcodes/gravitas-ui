@@ -1,0 +1,108 @@
+/* ================
+   Gravitas Tabs
+   Variants:
+   - underline (default)
+   - pill
+================ */
+
+/* Host containers */
+:host {
+  display: block;
+}
+
+/* LIST */
+.gv-tabs__list {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid var(--gv-border);
+  padding: 0 4px;
+}
+
+/* TAB BUTTON */
+.gv-tab {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--gv-text-muted);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 10px;
+  border-radius: var(--gv-radius-md);
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.gv-tab:hover {
+  color: var(--gv-text-strong);
+  background: rgba(15, 23, 42, 0.04);
+}
+
+.gv-tab:focus-visible {
+  outline: none;
+  box-shadow: var(--gv-ring);
+}
+
+.gv-tab[aria-selected="true"] {
+  color: var(--gv-text-strong);
+}
+
+/* underline indicator (animated-ish) */
+.gv-tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: -1px;
+  height: 2px;
+  background: var(--gv-accent);
+  border-radius: 999px;
+}
+
+/* disabled */
+.gv-tab:disabled,
+.gv-tab[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: transparent !important;
+}
+
+/* PANELS */
+.gv-tabs__panels {
+  padding-top: var(--gv-space-3);
+}
+
+.gv-tab-panel {
+  padding: var(--gv-space-3) 0;
+}
+
+/* =========================
+   Variant: pill
+   Apply when gv-tabs has:
+   data-gv-tabs-variant="pill"
+========================= */
+
+/* This is the important part: style based on an ancestor attribute */
+:host-context(gv-tabs[data-gv-tabs-variant="pill"]) .gv-tabs__list {
+  border-bottom: 0;
+  padding: 4px;
+  border: 1px solid var(--gv-border);
+  border-radius: var(--gv-radius-lg);
+  background: var(--gv-surface);
+  width: fit-content;
+}
+
+:host-context(gv-tabs[data-gv-tabs-variant="pill"]) .gv-tab {
+  padding: 8px 12px;
+  border-radius: var(--gv-radius-md);
+}
+
+:host-context(gv-tabs[data-gv-tabs-variant="pill"]) .gv-tab[aria-selected="true"] {
+  background: rgba(59, 130, 246, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.25);
+}
+
+:host-context(gv-tabs[data-gv-tabs-variant="pill"]) .gv-tab[aria-selected="true"]::after {
+  display: none;
+}
