@@ -4,6 +4,7 @@ import { Button } from './button';
 const meta: Meta<Button> = {
   title: 'Gravitas/Button',
   component: Button,
+  tags: ['autodocs'],
   args: {
     variant: 'primary',
     size: 'md',

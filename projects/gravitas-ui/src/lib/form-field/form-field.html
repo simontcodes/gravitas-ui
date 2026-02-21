@@ -1,0 +1,45 @@
+<div class="gv-field" [class.w-100]="fullWidth">
+  @if (label && showLabel) {
+    <label class="gv-field__label" [attr.for]="controlId">
+      <span class="gv-field__label-text">{{ label }}</span>
+
+      @if (required) {
+        <span class="gv-field__required" aria-hidden="true">*</span>
+      }
+    </label>
+  }
+
+  <div class="gv-field__row" [class.w-100]="fullWidth">
+    <div class="gv-field__prefix">
+      <ng-content select="[prefix]"></ng-content>
+    </div>
+
+    <div class="gv-field__control" [class.w-100]="fullWidth">
+      <!-- Consumer control goes here (gv-input, gv-select, etc.) -->
+      <ng-content></ng-content>
+    </div>
+
+    <div class="gv-field__suffix">
+      <ng-content select="[suffix]"></ng-content>
+    </div>
+  </div>
+
+  @if (hasError || hasHelper) {
+    <div
+      class="gv-field__message"
+      [class.gv-field__message--error]="hasError"
+      [attr.id]="describedById"
+    >
+      <!-- Use Bootstrap feedback styles but keep Gravitas class hooks -->
+      @if (hasError) {
+        <div class="invalid-feedback d-block gv-field__error">
+          {{ error }}
+        </div>
+      } @else {
+        <div class="form-text gv-field__helper">
+          {{ helperText }}
+        </div>
+      }
+    </div>
+  }
+</div>

@@ -1,0 +1,94 @@
+/* =========================================================
+   Gravitas Form Field (dense-enterprise, bootstrap-friendly)
+   Uses density tokens if you already added data-gv-density
+========================================================= */
+
+:root {
+  --gv-field-gap: 0.5rem;
+  --gv-field-label-gap: 0.35rem;
+  --gv-field-msg-gap: 0.35rem;
+
+  /* density defaults (comfortable) */
+  --gv-field-label-size: 0.8125rem; /* 13px */
+  --gv-field-label-weight: 700;
+}
+
+html[data-gv-density="compact"] {
+  --gv-field-gap: 0.4rem;
+  --gv-field-label-gap: 0.25rem;
+  --gv-field-msg-gap: 0.25rem;
+  --gv-field-label-size: 0.775rem; /* ~12.4px */
+}
+
+html[data-gv-density="spacious"] {
+  --gv-field-gap: 0.65rem;
+  --gv-field-label-gap: 0.45rem;
+  --gv-field-msg-gap: 0.45rem;
+  --gv-field-label-size: 0.85rem;
+}
+
+.gv-form-field {
+  display: block;
+}
+
+.gv-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gv-field-label-gap);
+}
+
+.gv-field__label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  color: var(--gv-text-strong, #0f172a);
+  font-weight: var(--gv-field-label-weight);
+  font-size: var(--gv-field-label-size);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.gv-field__required {
+  color: var(--gv-danger, #dc2626);
+  font-weight: 800;
+}
+
+.gv-field__row {
+  display: flex;
+  align-items: center;
+  gap: var(--gv-field-gap);
+  min-width: 0;
+}
+
+.gv-field__prefix,
+.gv-field__suffix {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  color: var(--gv-text-muted, #64748b);
+}
+
+.gv-field__control {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+/* Let the inner control decide its own width unless fullWidth is set */
+.gv-field__control > * {
+  max-width: 100%;
+}
+
+.gv-field__message {
+  margin-top: var(--gv-field-msg-gap);
+}
+
+.gv-field__helper {
+  margin: 0;
+  color: var(--gv-text-muted, #64748b);
+  font-size: 0.8125rem; /* 13px */
+}
+
+.gv-field__error {
+  margin: 0;
+  font-size: 0.8125rem; /* 13px */
+}

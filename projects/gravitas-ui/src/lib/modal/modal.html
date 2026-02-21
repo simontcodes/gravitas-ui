@@ -1,0 +1,53 @@
+@if (open) {
+  <div class="gv-modal" role="presentation">
+    <div class="gv-modal__backdrop" (mousedown)="onBackdropMouseDown()"></div>
+
+    <div class="gv-modal__viewport">
+      <section
+        #panel
+        [class]="panelClasses"
+        role="dialog"
+        aria-modal="true"
+        [attr.aria-labelledby]="title ? titleId : null"
+        tabindex="-1"
+      >
+        @if (title || subtitle) {
+          <header class="gv-modal__header">
+            <div class="gv-modal__heading">
+              @if (title) {
+                <div class="gv-modal__title" [id]="titleId">{{ title }}</div>
+              }
+              @if (subtitle) {
+                <div class="gv-modal__subtitle">{{ subtitle }}</div>
+              }
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-sm btn-light gv-modal__close"
+              (click)="onCloseButton()"
+              [disabled]="loading"
+              aria-label="Close dialog"
+            >
+              ✕
+            </button>
+          </header>
+        }
+
+        <div class="gv-modal__body">
+          <ng-content></ng-content>
+        </div>
+
+        <footer class="gv-modal__footer">
+          <ng-content select="[gvFooter]"></ng-content>
+        </footer>
+
+        @if (loading) {
+          <div class="gv-modal__loading" aria-hidden="true">
+            <div class="spinner-border spinner-border-sm" role="status"></div>
+          </div>
+        }
+      </section>
+    </div>
+  </div>
+}
