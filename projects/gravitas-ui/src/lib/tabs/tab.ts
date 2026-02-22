@@ -1,11 +1,11 @@
 import {
   Component,
   Host,
-  HostBinding,
   HostListener,
   Input,
   Optional,
   ElementRef,
+  ViewChild,
 } from '@angular/core';
 import { Tabs } from './tabs';
 
@@ -15,6 +15,7 @@ import { Tabs } from './tabs';
   styleUrls: ['./tabs.css'],
   template: `
     <button
+      #btn
       class="gv-tab"
       type="button"
       role="tab"
@@ -33,13 +34,16 @@ export class Tab {
 
   active = false;
 
-  constructor(
-    @Optional() @Host() private tabs: Tabs | null,
-    private el: ElementRef<HTMLElement>,
-  ) {}
+  @ViewChild('btn', { read: ElementRef })
+  private _btn!: ElementRef<HTMLButtonElement>;
+
+  get buttonEl(): HTMLButtonElement | null {
+    return this._btn?.nativeElement ?? null;
+  }
+
+  constructor(@Optional() @Host() private tabs: Tabs | null) {}
 
   get tabIndex() {
-    // Roving tabindex: only active is 0
     return this.active && !this.disabled ? 0 : -1;
   }
 
@@ -63,10 +67,7 @@ export class Tab {
 
     const idx = tabs.findIndex((t) => t.value === this.tabs!.value);
 
-    const focusTab = (t: Tab) => {
-      const btn = t.el.nativeElement.querySelector('button.gv-tab') as HTMLButtonElement | null;
-      btn?.focus();
-    };
+    const focusTab = (t: Tab) => t.buttonEl?.focus();
 
     if (key === 'Enter' || key === ' ') {
       this.tabs.setValue(this.value);

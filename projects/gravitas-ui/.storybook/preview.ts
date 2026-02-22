@@ -55,12 +55,22 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    docs: {
+      // This helps keep the Docs page clean (no extra wrappers in source blocks).
+      source: { excludeDecorators: true },
+    },
   },
 
   decorators: [
-    (storyFn, context) => {
+    (storyFn: any, context: any) => {
       applyGravitasGlobals(context.globals);
 
+      // ✅ In Docs, do NOT wrap in the shell at all.
+      if (context?.viewMode === 'docs') {
+        return storyFn();
+      }
+
+      // ✅ In Canvas (story view), wrap in the Gravitas shell.
       const story = storyFn();
 
       return {

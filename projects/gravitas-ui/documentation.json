@@ -8,6 +8,79 @@
     "directives": [],
     "components": [
         {
+            "name": "TabsStoryHost",
+            "id": "component-TabsStoryHost-9101b6b1809799d8b89be4ac82488204e856809b1a7511d5744a4f3121848e3fb04c0c585496311d3e06108cc08c77ce18bc1412c1513f758a6ccd3774e87bc2",
+            "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "styleUrls": [],
+            "styles": [],
+            "template": "<gv-tabs [(value)]=\"value\" [variant]=\"variant\">\n  <gv-tab-list>\n    <gv-tab value=\"overview\">\n      <span class=\"gv-tab__label\">\n        <span class=\"gv-tab__icon\">🏠</span>\n        Overview\n        <span class=\"gv-tab__badge\">3</span>\n      </span>\n    </gv-tab>\n\n    <gv-tab value=\"billing\">\n      <span class=\"gv-tab__label\">\n        <span class=\"gv-tab__icon\">💳</span>\n        Billing\n      </span>\n    </gv-tab>\n\n    <gv-tab value=\"audit\" [disabled]=\"true\">\n      <span class=\"gv-tab__label\">\n        <span class=\"gv-tab__icon\">🧾</span>\n        Audit\n      </span>\n    </gv-tab>\n\n    <gv-tab value=\"settings\">\n      <span class=\"gv-tab__label\">\n        <span class=\"gv-tab__icon\">⚙️</span>\n        Settings\n        <span class=\"gv-tab__badge\">12</span>\n      </span>\n    </gv-tab>\n  </gv-tab-list>\n\n  <gv-tab-panels>\n    <gv-tab-panel value=\"overview\">Overview content</gv-tab-panel>\n    <gv-tab-panel value=\"billing\">Billing content</gv-tab-panel>\n    <gv-tab-panel value=\"audit\">Audit content</gv-tab-panel>\n    <gv-tab-panel value=\"settings\">Settings content</gv-tab-panel>\n  </gv-tab-panels>\n</gv-tabs>\n\n<div style=\"margin-top: 12px; font-size: 12px; opacity: 0.8;\">\n  Active tab (debug): <strong>{{ value }}</strong>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "value",
+                    "defaultValue": "'overview'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 61
+                },
+                {
+                    "name": "variant",
+                    "defaultValue": "'underline'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"underline\" | \"pill\"",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 62
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "Tabs"
+                },
+                {
+                    "name": "TabList"
+                },
+                {
+                    "name": "Tab"
+                },
+                {
+                    "name": "TabPanels"
+                },
+                {
+                    "name": "TabPanel"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport type { Meta, StoryObj } from '@storybook/angular';\r\n\r\nimport { Tabs } from './tabs';\r\nimport { TabList } from './tab-list';\r\nimport { Tab } from './tab';\r\nimport { TabPanel } from './tab-panel';\r\nimport { TabPanels } from './tab-panels';\r\n\r\n@Component({\r\n  standalone: true,\r\n  imports: [Tabs, TabList, Tab, TabPanels, TabPanel],\r\n  template: `\r\n    <gv-tabs [(value)]=\"value\" [variant]=\"variant\">\r\n      <gv-tab-list>\r\n        <gv-tab value=\"overview\">\r\n          <span class=\"gv-tab__label\">\r\n            <span class=\"gv-tab__icon\">🏠</span>\r\n            Overview\r\n            <span class=\"gv-tab__badge\">3</span>\r\n          </span>\r\n        </gv-tab>\r\n\r\n        <gv-tab value=\"billing\">\r\n          <span class=\"gv-tab__label\">\r\n            <span class=\"gv-tab__icon\">💳</span>\r\n            Billing\r\n          </span>\r\n        </gv-tab>\r\n\r\n        <gv-tab value=\"audit\" [disabled]=\"true\">\r\n          <span class=\"gv-tab__label\">\r\n            <span class=\"gv-tab__icon\">🧾</span>\r\n            Audit\r\n          </span>\r\n        </gv-tab>\r\n\r\n        <gv-tab value=\"settings\">\r\n          <span class=\"gv-tab__label\">\r\n            <span class=\"gv-tab__icon\">⚙️</span>\r\n            Settings\r\n            <span class=\"gv-tab__badge\">12</span>\r\n          </span>\r\n        </gv-tab>\r\n      </gv-tab-list>\r\n\r\n      <gv-tab-panels>\r\n        <gv-tab-panel value=\"overview\">Overview content</gv-tab-panel>\r\n        <gv-tab-panel value=\"billing\">Billing content</gv-tab-panel>\r\n        <gv-tab-panel value=\"audit\">Audit content</gv-tab-panel>\r\n        <gv-tab-panel value=\"settings\">Settings content</gv-tab-panel>\r\n      </gv-tab-panels>\r\n    </gv-tabs>\r\n\r\n    <div style=\"margin-top: 12px; font-size: 12px; opacity: 0.8;\">\r\n      Active tab (debug): <strong>{{ value }}</strong>\r\n    </div>\r\n  `,\r\n})\r\nclass TabsStoryHost {\r\n  value = 'overview';\r\n  variant: 'underline' | 'pill' = 'underline';\r\n}\r\n\r\nconst meta: Meta<TabsStoryHost> = {\r\n  title: 'Gravitas/Tabs',\r\n  component: TabsStoryHost,\r\n  argTypes: {\r\n    variant: { control: 'select', options: ['underline', 'pill'] },\r\n  },\r\n  args: {\r\n    variant: 'underline',\r\n  },\r\n};\r\n\r\nexport default meta;\r\n\r\ntype Story = StoryObj<TabsStoryHost>;\r\n\r\nexport const Default: Story = {\r\n  args: { variant: 'underline' },\r\n};\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": []
+        },
+        {
             "name": "ToastDemo",
             "id": "component-ToastDemo-c08b37e802d00f1f3cae96faf0bb5c1c503454ea8ae0e4a31b00c2763606793174184cec444f0159f089a3947be5193cbc7202640f5d1c3f89f3631e776ae4cb",
             "file": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
@@ -133,11 +206,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: (args: any) => ({\r\n    props: {\r\n      ...args,\r\n      control: new FormControl('', [Validators.email]),\r\n    },\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-input\r\n          [label]=\"label\"\r\n          [placeholder]=\"placeholder\"\r\n          [hint]=\"hint\"\r\n          [type]=\"type\"\r\n          [size]=\"size\"\r\n          [disabled]=\"disabled\"\r\n          [readonly]=\"readonly\"\r\n          [required]=\"required\"\r\n          [className]=\"className\"\r\n          [hasPrefix]=\"hasPrefix\"\r\n          [hasSuffix]=\"hasSuffix\"\r\n          [formControl]=\"control\"\r\n        >\r\n        </gv-input>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  render: renderModal,\r\n}"
             },
             {
                 "name": "Default",
@@ -153,11 +226,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: renderModal,\r\n}"
+                "defaultValue": "{\r\n  render: (args: any) => ({\r\n    props: {\r\n      ...args,\r\n      control: new FormControl('', [Validators.email]),\r\n    },\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-input\r\n          [label]=\"label\"\r\n          [placeholder]=\"placeholder\"\r\n          [hint]=\"hint\"\r\n          [type]=\"type\"\r\n          [size]=\"size\"\r\n          [disabled]=\"disabled\"\r\n          [readonly]=\"readonly\"\r\n          [required]=\"required\"\r\n          [className]=\"className\"\r\n          [hasPrefix]=\"hasPrefix\"\r\n          [hasSuffix]=\"hasSuffix\"\r\n          [formControl]=\"control\"\r\n        >\r\n        </gv-input>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Default",
@@ -177,7 +250,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    moduleMetadata: { imports: [Tabs, TabList, Tab, TabPanels, TabPanel] },\r\n    template: `\r\n      <gv-tabs [(value)]=\"value\" [variant]=\"variant\">\r\n        <gv-tab-list>\r\n          <gv-tab value=\"overview\">Overview</gv-tab>\r\n          <gv-tab value=\"billing\">Billing</gv-tab>\r\n          <gv-tab value=\"audit\" [disabled]=\"true\">Audit</gv-tab>\r\n          <gv-tab value=\"settings\">Settings</gv-tab>\r\n        </gv-tab-list>\r\n\r\n        <gv-tab-panels>\r\n          <gv-tab-panel value=\"overview\">Overview content</gv-tab-panel>\r\n          <gv-tab-panel value=\"billing\">Billing content</gv-tab-panel>\r\n          <gv-tab-panel value=\"audit\">Audit content</gv-tab-panel>\r\n          <gv-tab-panel value=\"settings\">Settings content</gv-tab-panel>\r\n        </gv-tab-panels>\r\n      </gv-tabs>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  args: { variant: 'underline' },\r\n}"
             },
             {
                 "name": "Disabled",
@@ -187,7 +260,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: { disabled: true },\r\n  render: renderButton,\r\n}"
+                "defaultValue": "{\r\n  args: { disabled: true },\r\n  render: (args) => renderButton(args, 'Button'),\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        story: `\r\nDisabled state.\r\n\r\n\\`\\`\\`html\r\n<gv-button [disabled]=\"true\">Button</gv-button>\r\n\\`\\`\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "DisabledInteractive",
@@ -227,7 +300,9 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: { fullWidth: true },\r\n  render: (args) => ({\r\n    ...renderButton(args),\r\n    template: `\r\n      <div style=\"max-width: 480px;\">\r\n        <gv-button\r\n          [variant]=\"variant\"\r\n          [size]=\"size\"\r\n          [disabled]=\"disabled\"\r\n          [loading]=\"loading\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [loadingText]=\"loadingText\"\r\n          [className]=\"className\"\r\n        >\r\n          Button\r\n        </gv-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  args: { fullWidth: true },\r\n  render: (args) => renderButton(args, 'Button'),\r\n  decorators: [\r\n    (storyFn: any, context: any) => {\r\n      const story = storyFn();\r\n\r\n      // ✅ Do not show the wrapper anywhere in Docs\r\n      if (context?.viewMode === 'docs') return story;\r\n\r\n      // ✅ Only wrap in Canvas\r\n      return {\r\n        ...story,\r\n        template: `\r\n          <div style=\"max-width: 480px;\">\r\n            ${story.template}\r\n          </div>\r\n        `,\r\n      };\r\n    },\r\n  ],\r\n  parameters: {\r\n    docs: {\r\n      // ✅ ensures the source snippet never includes the wrapper\r\n      source: { excludeDecorators: true },\r\n      description: {\r\n        story: `\r\nFull width button (useful in narrow layouts and mobile).\r\n\r\n\\`\\`\\`html\r\n<gv-button [fullWidth]=\"true\">Button</gv-button>\r\n\\`\\`\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}",
+                "rawdescription": "FullWidth:\r\n- Canvas: wrapped in a max-width shell so you can see the fullWidth behavior in a constrained container.\r\n- Docs: NO wrapper at all (neither in render nor source).",
+                "description": "<p>FullWidth:</p>\n<ul>\n<li>Canvas: wrapped in a max-width shell so you can see the fullWidth behavior in a constrained container.</li>\n<li>Docs: NO wrapper at all (neither in render nor source).</li>\n</ul>\n"
             },
             {
                 "name": "FullWidth",
@@ -289,7 +364,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        <span gvIconLeft aria-hidden=\"true\">🔎</span>\r\n        Search\r\n        <span gvIconRight aria-hidden=\"true\">⌘K</span>\r\n      </gv-button>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [type]=\"type\"\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        <span gvIconLeft aria-hidden=\"true\">🔎</span>\r\n        Search\r\n        <span gvIconRight aria-hidden=\"true\">⌘K</span>\r\n      </gv-button>\r\n    `,\r\n  }),\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        story: `\r\nBoth icon slots.\r\n\r\n\\`\\`\\`html\r\n<gv-button>\r\n  <span gvIconLeft aria-hidden=\"true\">🔎</span>\r\n  Search\r\n  <span gvIconRight aria-hidden=\"true\">⌘K</span>\r\n</gv-button>\r\n\\`\\`\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "LeftIcon",
@@ -299,7 +374,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        <span gvIconLeft aria-hidden=\"true\">💾</span>\r\n        Save\r\n      </gv-button>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [type]=\"type\"\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        <span gvIconLeft aria-hidden=\"true\">💾</span>\r\n        Save\r\n      </gv-button>\r\n    `,\r\n  }),\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        story: `\r\nLeft icon slot using \\`[gvIconLeft]\\`.\r\n\r\n\\`\\`\\`html\r\n<gv-button>\r\n  <span gvIconLeft aria-hidden=\"true\">💾</span>\r\n  Save\r\n</gv-button>\r\n\\`\\`\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "Loading",
@@ -309,7 +384,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: { loading: true },\r\n  render: renderButton,\r\n}"
+                "defaultValue": "{\r\n  args: { loading: true },\r\n  render: (args) => renderButton(args, 'Button'),\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        story: `\r\nLoading state shows a spinner and disables the button.\r\n\r\n\\`\\`\\`html\r\n<gv-button [loading]=\"true\">Button</gv-button>\r\n\\`\\`\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "Loading",
@@ -339,7 +414,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: { loading: true, loadingText: 'Saving...' },\r\n  render: renderButton,\r\n}"
+                "defaultValue": "{\r\n  args: { loading: true, loadingText: 'Saving...' },\r\n  render: (args) => renderButton(args, 'Save'),\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        story: `\r\nLoading state with custom text.\r\n\r\n\\`\\`\\`html\r\n<gv-button [loading]=\"true\" loadingText=\"Saving...\">Save</gv-button>\r\n\\`\\`\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "LoggedIn",
@@ -419,7 +494,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Button>",
-                "defaultValue": "{\r\n  title: 'Gravitas/Button',\r\n  component: Button,\r\n  tags: ['autodocs'],\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    loading: false,\r\n    fullWidth: false,\r\n    loadingText: '',\r\n    className: '',\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'primary',\r\n        'secondary',\r\n        'success',\r\n        'danger',\r\n        'warning',\r\n        'info',\r\n        'light',\r\n        'dark',\r\n        'link',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n    loadingText: { control: 'text' },\r\n    fullWidth: { control: 'boolean' },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  title: 'Gravitas/Button',\r\n  component: Button,\r\n  tags: ['autodocs'],\r\n  args: {\r\n    type: 'button',\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    loading: false,\r\n    fullWidth: false,\r\n    loadingText: '',\r\n    className: '',\r\n  },\r\n  argTypes: {\r\n    // Appearance\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'primary',\r\n        'secondary',\r\n        'success',\r\n        'danger',\r\n        'warning',\r\n        'info',\r\n        'light',\r\n        'dark',\r\n        'link',\r\n      ],\r\n      description: 'Visual style variant.',\r\n      table: { category: 'Appearance', defaultValue: { summary: 'primary' } },\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['sm', 'md', 'lg'],\r\n      description: 'Button size.',\r\n      table: { category: 'Appearance', defaultValue: { summary: 'md' } },\r\n    },\r\n    fullWidth: {\r\n      control: 'boolean',\r\n      description: 'Makes the button span the full width of its container.',\r\n      table: { category: 'Layout', defaultValue: { summary: 'false' } },\r\n    },\r\n\r\n    // Behavior\r\n    type: {\r\n      control: 'select',\r\n      options: ['button', 'submit', 'reset'],\r\n      description: 'Native button type attribute.',\r\n      table: { category: 'Behavior', defaultValue: { summary: 'button' } },\r\n    },\r\n\r\n    // State\r\n    disabled: {\r\n      control: 'boolean',\r\n      description: 'Disables the button.',\r\n      table: { category: 'State', defaultValue: { summary: 'false' } },\r\n    },\r\n    loading: {\r\n      control: 'boolean',\r\n      description: 'Shows a busy state (spinner) and disables the button.',\r\n      table: { category: 'State', defaultValue: { summary: 'false' } },\r\n    },\r\n    loadingText: {\r\n      control: 'text',\r\n      description: 'Optional label shown while loading. If empty, shows normal content.',\r\n      table: { category: 'State', defaultValue: { summary: '' } },\r\n    },\r\n\r\n    // Advanced\r\n    className: {\r\n      control: 'text',\r\n      description: 'Extra CSS classes applied to the underlying button (Bootstrap utilities, etc).',\r\n      table: { category: 'Advanced', defaultValue: { summary: '' } },\r\n    },\r\n  },\r\n  parameters: {\r\n    docs: {\r\n      // Note: excludeDecorators only affects Source, not rendered story blocks.\r\n      source: { excludeDecorators: true },\r\n      description: {\r\n        component: `\r\nButtons support loading states and optional left/right icon slots via content projection.\r\n\r\n### Usage\r\n\\`\\`\\`html\r\n<gv-button variant=\"primary\">Button</gv-button>\r\n<gv-button [loading]=\"true\" loadingText=\"Saving...\">Save</gv-button>\r\n\\`\\`\\`\r\n\r\n### Slots\r\n- \\`[gvIconLeft]\\`: left icon slot\r\n- default slot: label/content\r\n- \\`[gvIconRight]\\`: right icon slot\r\n\r\n### Accessibility\r\n- \\`aria-busy=\"true\"\\` is applied while \\`loading\\` is true.\r\n- Button is disabled while loading to prevent duplicate submissions.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -435,11 +510,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<InputComponent>",
-                "defaultValue": "{\r\n  title: 'Gravitas/Input',\r\n  component: InputComponent,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [ReactiveFormsModule, InputComponent],\r\n    }),\r\n  ],\r\n  args: {\r\n    label: 'Email',\r\n    placeholder: 'you@company.com',\r\n    hint: 'We’ll never share your email.',\r\n    type: 'email',\r\n    size: 'md',\r\n    disabled: false,\r\n    readonly: false,\r\n    required: false,\r\n    className: '',\r\n    hasPrefix: false,\r\n    hasSuffix: false,\r\n  },\r\n  argTypes: {\r\n    type: {\r\n      control: 'select',\r\n      options: [\r\n        'text',\r\n        'email',\r\n        'password',\r\n        'number',\r\n        'tel',\r\n        'url',\r\n        'search',\r\n        'date',\r\n        'datetime-local',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n  },\r\n}"
+                "type": "Meta<ModalArgs>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Modal',\r\n  component: Modal,\r\n  args: {\r\n    open: true,\r\n    title: 'Edit Claim',\r\n    subtitle: 'Update patient + billing details',\r\n    size: 'md',\r\n    closeOnBackdrop: true,\r\n    closeOnEsc: true,\r\n    loading: false,\r\n    panelClass: '',\r\n  },\r\n  argTypes: {\r\n    size: { control: 'select', options: ['sm', 'md', 'lg', 'xl'] },\r\n    open: { control: 'boolean' },\r\n    closeOnBackdrop: { control: 'boolean' },\r\n    closeOnEsc: { control: 'boolean' },\r\n    loading: { control: 'boolean' },\r\n    panelClass: { control: 'text' },\r\n    title: { control: 'text' },\r\n    subtitle: { control: 'text' },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -455,11 +530,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ModalArgs>",
-                "defaultValue": "{\r\n  title: 'Gravitas/Modal',\r\n  component: Modal,\r\n  args: {\r\n    open: true,\r\n    title: 'Edit Claim',\r\n    subtitle: 'Update patient + billing details',\r\n    size: 'md',\r\n    closeOnBackdrop: true,\r\n    closeOnEsc: true,\r\n    loading: false,\r\n    panelClass: '',\r\n  },\r\n  argTypes: {\r\n    size: { control: 'select', options: ['sm', 'md', 'lg', 'xl'] },\r\n    open: { control: 'boolean' },\r\n    closeOnBackdrop: { control: 'boolean' },\r\n    closeOnEsc: { control: 'boolean' },\r\n    loading: { control: 'boolean' },\r\n    panelClass: { control: 'text' },\r\n    title: { control: 'text' },\r\n    subtitle: { control: 'text' },\r\n  },\r\n}"
+                "type": "Meta<InputComponent>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Input',\r\n  component: InputComponent,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [ReactiveFormsModule, InputComponent],\r\n    }),\r\n  ],\r\n  args: {\r\n    label: 'Email',\r\n    placeholder: 'you@company.com',\r\n    hint: 'We’ll never share your email.',\r\n    type: 'email',\r\n    size: 'md',\r\n    disabled: false,\r\n    readonly: false,\r\n    required: false,\r\n    className: '',\r\n    hasPrefix: false,\r\n    hasSuffix: false,\r\n  },\r\n  argTypes: {\r\n    type: {\r\n      control: 'select',\r\n      options: [\r\n        'text',\r\n        'email',\r\n        'password',\r\n        'number',\r\n        'tel',\r\n        'url',\r\n        'search',\r\n        'date',\r\n        'datetime-local',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -478,8 +553,8 @@
                 "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<Tabs>",
-                "defaultValue": "{\r\n  title: 'Gravitas/Tabs',\r\n  component: Tabs,\r\n  args: { value: 'overview', variant: 'underline' },\r\n  argTypes: {\r\n    variant: { control: 'select', options: ['underline', 'pill'] },\r\n  },\r\n}"
+                "type": "Meta<TabsStoryHost>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Tabs',\r\n  component: TabsStoryHost,\r\n  argTypes: {\r\n    variant: { control: 'select', options: ['underline', 'pill'] },\r\n  },\r\n  args: {\r\n    variant: 'underline',\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -549,7 +624,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: renderButton,\r\n}"
+                "defaultValue": "{\r\n  render: (args) => renderButton(args, 'Button'),\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        story: `\r\nBasic button.\r\n\r\n\\`\\`\\`html\r\n<gv-button variant=\"primary\">Button</gv-button>\r\n\\`\\`\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "RightIcon",
@@ -559,7 +634,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        Next\r\n        <span gvIconRight aria-hidden=\"true\">➡️</span>\r\n      </gv-button>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [type]=\"type\"\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        Next\r\n        <span gvIconRight aria-hidden=\"true\">➡️</span>\r\n      </gv-button>\r\n    `,\r\n  }),\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        story: `\r\nRight icon slot using \\`[gvIconRight]\\`.\r\n\r\n\\`\\`\\`html\r\n<gv-button>\r\n  Next\r\n  <span gvIconRight aria-hidden=\"true\">➡️</span>\r\n</gv-button>\r\n\\`\\`\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "Secondary",
@@ -642,6 +717,36 @@
                 ]
             },
             {
+                "name": "baseTemplate",
+                "file": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "label",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "defaultValue": "'Button'"
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "label",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "defaultValue": "'Button'",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
                 "name": "renderButton",
                 "file": "projects/gravitas-ui/src/lib/button/button.stories.ts",
                 "ctype": "miscellaneous",
@@ -655,6 +760,13 @@
                         "type": "Button",
                         "deprecated": false,
                         "deprecationMessage": ""
+                    },
+                    {
+                        "name": "label",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "defaultValue": "'Button'"
                     }
                 ],
                 "jsdoctags": [
@@ -663,6 +775,16 @@
                         "type": "Button",
                         "deprecated": false,
                         "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "label",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "defaultValue": "'Button'",
                         "tagName": {
                             "text": "param"
                         }
@@ -836,8 +958,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<InputComponent>",
-                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "rawtype": "StoryObj<ModalArgs>",
+                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -858,8 +980,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ModalArgs>",
-                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "rawtype": "StoryObj<InputComponent>",
+                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -880,7 +1002,7 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<Tabs>",
+                "rawtype": "StoryObj<TabsStoryHost>",
                 "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1005,48 +1127,6 @@
                     "defaultValue": "{\r\n  args: { title: null, subtitle: null },\r\n  render: renderCard,\r\n}"
                 }
             ],
-            "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <!-- demo control -->\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            [attr.aria-invalid]=\"!!error\"\r\n            placeholder=\"name@company.com\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<FormField>",
-                    "defaultValue": "{\r\n  title: 'Gravitas/Form Field',\r\n  component: FormField,\r\n  args: {\r\n    label: 'Email',\r\n    required: false,\r\n    helperText: 'We’ll never share your email.',\r\n    error: null,\r\n    fullWidth: true,\r\n    controlId: 'email',\r\n  },\r\n  argTypes: {\r\n    error: { control: 'text' },\r\n    helperText: { control: 'text' },\r\n    label: { control: 'text' },\r\n    required: { control: 'boolean' },\r\n    fullWidth: { control: 'boolean' },\r\n    controlId: { control: 'text' },\r\n  },\r\n}"
-                },
-                {
-                    "name": "WithError",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    error: 'Password must be at least 8 characters long.',\r\n    helperText: 'Use at least one number and one symbol.',\r\n    label: 'Password',\r\n    required: true,\r\n    controlId: 'password',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <input\r\n            class=\"form-control is-invalid\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            aria-invalid=\"true\"\r\n            placeholder=\"••••••••\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "WithPrefixSuffix",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    label: 'Amount',\r\n    helperText: 'Enter a number only.',\r\n    controlId: 'amount',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <span prefix class=\"fw-semibold\">$</span>\r\n\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            placeholder=\"0.00\"\r\n          />\r\n\r\n          <span suffix class=\"text-uppercase small\">CAD</span>\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
-                }
-            ],
             "projects/gravitas-ui/src/lib/modal/modal.stories.ts": [
                 {
                     "name": "Default",
@@ -1087,6 +1167,48 @@
                     "deprecationMessage": "",
                     "type": "Meta<ModalArgs>",
                     "defaultValue": "{\r\n  title: 'Gravitas/Modal',\r\n  component: Modal,\r\n  args: {\r\n    open: true,\r\n    title: 'Edit Claim',\r\n    subtitle: 'Update patient + billing details',\r\n    size: 'md',\r\n    closeOnBackdrop: true,\r\n    closeOnEsc: true,\r\n    loading: false,\r\n    panelClass: '',\r\n  },\r\n  argTypes: {\r\n    size: { control: 'select', options: ['sm', 'md', 'lg', 'xl'] },\r\n    open: { control: 'boolean' },\r\n    closeOnBackdrop: { control: 'boolean' },\r\n    closeOnEsc: { control: 'boolean' },\r\n    loading: { control: 'boolean' },\r\n    panelClass: { control: 'text' },\r\n    title: { control: 'text' },\r\n    subtitle: { control: 'text' },\r\n  },\r\n}"
+                }
+            ],
+            "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <!-- demo control -->\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            [attr.aria-invalid]=\"!!error\"\r\n            placeholder=\"name@company.com\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<FormField>",
+                    "defaultValue": "{\r\n  title: 'Gravitas/Form Field',\r\n  component: FormField,\r\n  args: {\r\n    label: 'Email',\r\n    required: false,\r\n    helperText: 'We’ll never share your email.',\r\n    error: null,\r\n    fullWidth: true,\r\n    controlId: 'email',\r\n  },\r\n  argTypes: {\r\n    error: { control: 'text' },\r\n    helperText: { control: 'text' },\r\n    label: { control: 'text' },\r\n    required: { control: 'boolean' },\r\n    fullWidth: { control: 'boolean' },\r\n    controlId: { control: 'text' },\r\n  },\r\n}"
+                },
+                {
+                    "name": "WithError",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    error: 'Password must be at least 8 characters long.',\r\n    helperText: 'Use at least one number and one symbol.',\r\n    label: 'Password',\r\n    required: true,\r\n    controlId: 'password',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <input\r\n            class=\"form-control is-invalid\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            aria-invalid=\"true\"\r\n            placeholder=\"••••••••\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "WithPrefixSuffix",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Amount',\r\n    helperText: 'Enter a number only.',\r\n    controlId: 'amount',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <span prefix class=\"fw-semibold\">$</span>\r\n\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            placeholder=\"0.00\"\r\n          />\r\n\r\n          <span suffix class=\"text-uppercase small\">CAD</span>\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
                 }
             ],
             "projects/gravitas-ui/src/lib/select/select.stories.ts": [
@@ -1160,7 +1282,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    moduleMetadata: { imports: [Tabs, TabList, Tab, TabPanels, TabPanel] },\r\n    template: `\r\n      <gv-tabs [(value)]=\"value\" [variant]=\"variant\">\r\n        <gv-tab-list>\r\n          <gv-tab value=\"overview\">Overview</gv-tab>\r\n          <gv-tab value=\"billing\">Billing</gv-tab>\r\n          <gv-tab value=\"audit\" [disabled]=\"true\">Audit</gv-tab>\r\n          <gv-tab value=\"settings\">Settings</gv-tab>\r\n        </gv-tab-list>\r\n\r\n        <gv-tab-panels>\r\n          <gv-tab-panel value=\"overview\">Overview content</gv-tab-panel>\r\n          <gv-tab-panel value=\"billing\">Billing content</gv-tab-panel>\r\n          <gv-tab-panel value=\"audit\">Audit content</gv-tab-panel>\r\n          <gv-tab-panel value=\"settings\">Settings content</gv-tab-panel>\r\n        </gv-tab-panels>\r\n      </gv-tabs>\r\n    `,\r\n  }),\r\n}"
+                    "defaultValue": "{\r\n  args: { variant: 'underline' },\r\n}"
                 },
                 {
                     "name": "meta",
@@ -1169,8 +1291,8 @@
                     "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<Tabs>",
-                    "defaultValue": "{\r\n  title: 'Gravitas/Tabs',\r\n  component: Tabs,\r\n  args: { value: 'overview', variant: 'underline' },\r\n  argTypes: {\r\n    variant: { control: 'select', options: ['underline', 'pill'] },\r\n  },\r\n}"
+                    "type": "Meta<TabsStoryHost>",
+                    "defaultValue": "{\r\n  title: 'Gravitas/Tabs',\r\n  component: TabsStoryHost,\r\n  argTypes: {\r\n    variant: { control: 'select', options: ['underline', 'pill'] },\r\n  },\r\n  args: {\r\n    variant: 'underline',\r\n  },\r\n}"
                 }
             ],
             "projects/gravitas-ui/src/lib/button/button.stories.ts": [
@@ -1182,7 +1304,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: { disabled: true },\r\n  render: renderButton,\r\n}"
+                    "defaultValue": "{\r\n  args: { disabled: true },\r\n  render: (args) => renderButton(args, 'Button'),\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        story: `\r\nDisabled state.\r\n\r\n\\`\\`\\`html\r\n<gv-button [disabled]=\"true\">Button</gv-button>\r\n\\`\\`\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "FullWidth",
@@ -1192,7 +1314,9 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: { fullWidth: true },\r\n  render: (args) => ({\r\n    ...renderButton(args),\r\n    template: `\r\n      <div style=\"max-width: 480px;\">\r\n        <gv-button\r\n          [variant]=\"variant\"\r\n          [size]=\"size\"\r\n          [disabled]=\"disabled\"\r\n          [loading]=\"loading\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [loadingText]=\"loadingText\"\r\n          [className]=\"className\"\r\n        >\r\n          Button\r\n        </gv-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                    "defaultValue": "{\r\n  args: { fullWidth: true },\r\n  render: (args) => renderButton(args, 'Button'),\r\n  decorators: [\r\n    (storyFn: any, context: any) => {\r\n      const story = storyFn();\r\n\r\n      // ✅ Do not show the wrapper anywhere in Docs\r\n      if (context?.viewMode === 'docs') return story;\r\n\r\n      // ✅ Only wrap in Canvas\r\n      return {\r\n        ...story,\r\n        template: `\r\n          <div style=\"max-width: 480px;\">\r\n            ${story.template}\r\n          </div>\r\n        `,\r\n      };\r\n    },\r\n  ],\r\n  parameters: {\r\n    docs: {\r\n      // ✅ ensures the source snippet never includes the wrapper\r\n      source: { excludeDecorators: true },\r\n      description: {\r\n        story: `\r\nFull width button (useful in narrow layouts and mobile).\r\n\r\n\\`\\`\\`html\r\n<gv-button [fullWidth]=\"true\">Button</gv-button>\r\n\\`\\`\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}",
+                    "rawdescription": "FullWidth:\r\n- Canvas: wrapped in a max-width shell so you can see the fullWidth behavior in a constrained container.\r\n- Docs: NO wrapper at all (neither in render nor source).",
+                    "description": "<p>FullWidth:</p>\n<ul>\n<li>Canvas: wrapped in a max-width shell so you can see the fullWidth behavior in a constrained container.</li>\n<li>Docs: NO wrapper at all (neither in render nor source).</li>\n</ul>\n"
                 },
                 {
                     "name": "LeftAndRightIcons",
@@ -1202,7 +1326,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        <span gvIconLeft aria-hidden=\"true\">🔎</span>\r\n        Search\r\n        <span gvIconRight aria-hidden=\"true\">⌘K</span>\r\n      </gv-button>\r\n    `,\r\n  }),\r\n}"
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [type]=\"type\"\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        <span gvIconLeft aria-hidden=\"true\">🔎</span>\r\n        Search\r\n        <span gvIconRight aria-hidden=\"true\">⌘K</span>\r\n      </gv-button>\r\n    `,\r\n  }),\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        story: `\r\nBoth icon slots.\r\n\r\n\\`\\`\\`html\r\n<gv-button>\r\n  <span gvIconLeft aria-hidden=\"true\">🔎</span>\r\n  Search\r\n  <span gvIconRight aria-hidden=\"true\">⌘K</span>\r\n</gv-button>\r\n\\`\\`\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "LeftIcon",
@@ -1212,7 +1336,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        <span gvIconLeft aria-hidden=\"true\">💾</span>\r\n        Save\r\n      </gv-button>\r\n    `,\r\n  }),\r\n}"
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [type]=\"type\"\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        <span gvIconLeft aria-hidden=\"true\">💾</span>\r\n        Save\r\n      </gv-button>\r\n    `,\r\n  }),\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        story: `\r\nLeft icon slot using \\`[gvIconLeft]\\`.\r\n\r\n\\`\\`\\`html\r\n<gv-button>\r\n  <span gvIconLeft aria-hidden=\"true\">💾</span>\r\n  Save\r\n</gv-button>\r\n\\`\\`\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "Loading",
@@ -1222,7 +1346,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: { loading: true },\r\n  render: renderButton,\r\n}"
+                    "defaultValue": "{\r\n  args: { loading: true },\r\n  render: (args) => renderButton(args, 'Button'),\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        story: `\r\nLoading state shows a spinner and disables the button.\r\n\r\n\\`\\`\\`html\r\n<gv-button [loading]=\"true\">Button</gv-button>\r\n\\`\\`\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "LoadingWithText",
@@ -1232,7 +1356,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: { loading: true, loadingText: 'Saving...' },\r\n  render: renderButton,\r\n}"
+                    "defaultValue": "{\r\n  args: { loading: true, loadingText: 'Saving...' },\r\n  render: (args) => renderButton(args, 'Save'),\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        story: `\r\nLoading state with custom text.\r\n\r\n\\`\\`\\`html\r\n<gv-button [loading]=\"true\" loadingText=\"Saving...\">Save</gv-button>\r\n\\`\\`\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "meta",
@@ -1242,7 +1366,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Button>",
-                    "defaultValue": "{\r\n  title: 'Gravitas/Button',\r\n  component: Button,\r\n  tags: ['autodocs'],\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    loading: false,\r\n    fullWidth: false,\r\n    loadingText: '',\r\n    className: '',\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'primary',\r\n        'secondary',\r\n        'success',\r\n        'danger',\r\n        'warning',\r\n        'info',\r\n        'light',\r\n        'dark',\r\n        'link',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n    loadingText: { control: 'text' },\r\n    fullWidth: { control: 'boolean' },\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  title: 'Gravitas/Button',\r\n  component: Button,\r\n  tags: ['autodocs'],\r\n  args: {\r\n    type: 'button',\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    loading: false,\r\n    fullWidth: false,\r\n    loadingText: '',\r\n    className: '',\r\n  },\r\n  argTypes: {\r\n    // Appearance\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'primary',\r\n        'secondary',\r\n        'success',\r\n        'danger',\r\n        'warning',\r\n        'info',\r\n        'light',\r\n        'dark',\r\n        'link',\r\n      ],\r\n      description: 'Visual style variant.',\r\n      table: { category: 'Appearance', defaultValue: { summary: 'primary' } },\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['sm', 'md', 'lg'],\r\n      description: 'Button size.',\r\n      table: { category: 'Appearance', defaultValue: { summary: 'md' } },\r\n    },\r\n    fullWidth: {\r\n      control: 'boolean',\r\n      description: 'Makes the button span the full width of its container.',\r\n      table: { category: 'Layout', defaultValue: { summary: 'false' } },\r\n    },\r\n\r\n    // Behavior\r\n    type: {\r\n      control: 'select',\r\n      options: ['button', 'submit', 'reset'],\r\n      description: 'Native button type attribute.',\r\n      table: { category: 'Behavior', defaultValue: { summary: 'button' } },\r\n    },\r\n\r\n    // State\r\n    disabled: {\r\n      control: 'boolean',\r\n      description: 'Disables the button.',\r\n      table: { category: 'State', defaultValue: { summary: 'false' } },\r\n    },\r\n    loading: {\r\n      control: 'boolean',\r\n      description: 'Shows a busy state (spinner) and disables the button.',\r\n      table: { category: 'State', defaultValue: { summary: 'false' } },\r\n    },\r\n    loadingText: {\r\n      control: 'text',\r\n      description: 'Optional label shown while loading. If empty, shows normal content.',\r\n      table: { category: 'State', defaultValue: { summary: '' } },\r\n    },\r\n\r\n    // Advanced\r\n    className: {\r\n      control: 'text',\r\n      description: 'Extra CSS classes applied to the underlying button (Bootstrap utilities, etc).',\r\n      table: { category: 'Advanced', defaultValue: { summary: '' } },\r\n    },\r\n  },\r\n  parameters: {\r\n    docs: {\r\n      // Note: excludeDecorators only affects Source, not rendered story blocks.\r\n      source: { excludeDecorators: true },\r\n      description: {\r\n        component: `\r\nButtons support loading states and optional left/right icon slots via content projection.\r\n\r\n### Usage\r\n\\`\\`\\`html\r\n<gv-button variant=\"primary\">Button</gv-button>\r\n<gv-button [loading]=\"true\" loadingText=\"Saving...\">Save</gv-button>\r\n\\`\\`\\`\r\n\r\n### Slots\r\n- \\`[gvIconLeft]\\`: left icon slot\r\n- default slot: label/content\r\n- \\`[gvIconRight]\\`: right icon slot\r\n\r\n### Accessibility\r\n- \\`aria-busy=\"true\"\\` is applied while \\`loading\\` is true.\r\n- Button is disabled while loading to prevent duplicate submissions.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "Primary",
@@ -1252,7 +1376,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  render: renderButton,\r\n}"
+                    "defaultValue": "{\r\n  render: (args) => renderButton(args, 'Button'),\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        story: `\r\nBasic button.\r\n\r\n\\`\\`\\`html\r\n<gv-button variant=\"primary\">Button</gv-button>\r\n\\`\\`\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "RightIcon",
@@ -1262,7 +1386,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        Next\r\n        <span gvIconRight aria-hidden=\"true\">➡️</span>\r\n      </gv-button>\r\n    `,\r\n  }),\r\n}"
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <gv-button\r\n        [type]=\"type\"\r\n        [variant]=\"variant\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [loading]=\"loading\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [loadingText]=\"loadingText\"\r\n        [className]=\"className\"\r\n      >\r\n        Next\r\n        <span gvIconRight aria-hidden=\"true\">➡️</span>\r\n      </gv-button>\r\n    `,\r\n  }),\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        story: `\r\nRight icon slot using \\`[gvIconRight]\\`.\r\n\r\n\\`\\`\\`html\r\n<gv-button>\r\n  Next\r\n  <span gvIconRight aria-hidden=\"true\">➡️</span>\r\n</gv-button>\r\n\\`\\`\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
                 }
             ],
             "projects/gravitas-ui/.storybook/preview.ts": [
@@ -1461,6 +1585,36 @@
             ],
             "projects/gravitas-ui/src/lib/button/button.stories.ts": [
                 {
+                    "name": "baseTemplate",
+                    "file": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "label",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "'Button'"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "label",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "'Button'",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "renderButton",
                     "file": "projects/gravitas-ui/src/lib/button/button.stories.ts",
                     "ctype": "miscellaneous",
@@ -1474,6 +1628,13 @@
                             "type": "Button",
                             "deprecated": false,
                             "deprecationMessage": ""
+                        },
+                        {
+                            "name": "label",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "'Button'"
                         }
                     ],
                     "jsdoctags": [
@@ -1482,6 +1643,16 @@
                             "type": "Button",
                             "deprecated": false,
                             "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "label",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "'Button'",
                             "tagName": {
                                 "text": "param"
                             }
@@ -1682,19 +1853,6 @@
                     "kind": 184
                 }
             ],
-            "projects/gravitas-ui/src/lib/input/input.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<InputComponent>",
-                    "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
                 {
                     "name": "Story",
@@ -1702,6 +1860,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<FormField>",
                     "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/gravitas-ui/src/lib/input/input.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<InputComponent>",
+                    "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1726,7 +1897,7 @@
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<Tabs>",
+                    "rawtype": "StoryObj<TabsStoryHost>",
                     "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -1755,7 +1926,7 @@
         "children": []
     },
     "coverage": {
-        "count": 1,
+        "count": 2,
         "status": "low",
         "files": [
             {
@@ -1793,6 +1964,16 @@
                 "type": "function",
                 "linktype": "miscellaneous",
                 "linksubtype": "function",
+                "name": "baseTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/button/button.stories.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
                 "name": "renderButton",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -1814,9 +1995,9 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "FullWidth",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
             },
             {
                 "filePath": "projects/gravitas-ui/src/lib/button/button.stories.ts",
@@ -2236,6 +2417,15 @@
                 "name": "Story",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TabsStoryHost",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {

@@ -20,20 +20,28 @@ type ButtonSize = 'sm' | 'md' | 'lg';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Button {
+ /** Native button type attribute. */
   @Input() type: 'button' | 'submit' | 'reset' = 'button';
+
+  /** Visual style variant. Maps to Bootstrap variants (btn-*) with Gravitas styling. */
   @Input() variant: ButtonVariant = 'primary';
+
+  /** Size variant. Maps to Bootstrap size classes (btn-sm / btn-lg). */
   @Input() size: ButtonSize = 'md';
 
+  /** Disables the button. */
   @Input() disabled = false;
+
+  /** Shows a busy state (disables button + shows spinner). */
   @Input() loading = false;
 
-  /** If true, applies Bootstrap's w-100 to make the button full width */
+  /** If true, makes the button full width. */
   @Input() fullWidth = false;
 
-  /** Optional text to show while loading (ex: "Saving..."). If not set, shows normal content. */
+  /** Optional label shown while loading (ex: "Saving..."). If empty, shows normal content. */
   @Input() loadingText = '';
 
-  /** Allows Bootstrap utility classes like "mt-3", "px-4" */
+  /** Extra CSS classes applied to the button element (ex: "mt-3 px-4"). */
   @Input() className = '';
 
   get isDisabled(): boolean {

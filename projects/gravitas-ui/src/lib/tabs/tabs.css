@@ -3,6 +3,9 @@
    Variants:
    - underline (default)
    - pill
+   Notes:
+   - Underline variant uses a shared sliding indicator (.gv-tabs__indicator) for a real animation.
+   - Pill variant uses an active chip background and hides the indicator.
 ================ */
 
 /* Host containers */
@@ -12,57 +15,132 @@
 
 /* LIST */
 .gv-tabs__list {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 6px;
-  border-bottom: 1px solid var(--gv-border);
+  border-bottom: 1px solid var(--gv-border); /* this is the gray divider */
   padding: 0 4px;
+
+  /* defaults so it doesn't jump */
+  --gv-tabs-indicator-left: 0px;
+  --gv-tabs-indicator-width: 0px;
+}
+
+/* Shared sliding indicator (underline variant) */
+.gv-tabs__indicator {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: var(--gv-tabs-indicator-width);
+  transform: translateX(var(--gv-tabs-indicator-left));
+  background: var(--gv-accent);
+  border-radius: 999px;
+  opacity: 1;
+  height: 3px;
+  transition:
+    transform 320ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    width 320ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  z-index: 10;
 }
 
 /* TAB BUTTON */
 .gv-tab {
   appearance: none;
   border: 0;
-  background: transparent;
+  background: transparent; /* underline variant stays clean */
   color: var(--gv-text-muted);
+
   font-weight: 600;
   font-size: 13px;
+
   padding: 10px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
   border-radius: var(--gv-radius-md);
   cursor: pointer;
   position: relative;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  z-index: 11;
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    transform 180ms ease;
 }
 
+/* Hover is subtle, enterprise */
 .gv-tab:hover {
   color: var(--gv-text-strong);
   background: rgba(15, 23, 42, 0.04);
 }
 
+/* Focus ring */
 .gv-tab:focus-visible {
   outline: none;
   box-shadow: var(--gv-ring);
 }
 
-.gv-tab[aria-selected="true"] {
+/* Active in underline variant: no "chip", just stronger text */
+.gv-tab[aria-selected='true'] {
   color: var(--gv-text-strong);
+  transform: none;
 }
 
-/* underline indicator (animated-ish) */
-.gv-tab[aria-selected="true"]::after {
-  content: "";
-  position: absolute;
-  left: 8px;
-  right: 8px;
-  bottom: -1px;
-  height: 2px;
-  background: var(--gv-accent);
+/* Icon */
+.gv-tab__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 16px;
+  height: 16px;
+  line-height: 1;
+
+  opacity: 0.75;
+}
+
+.gv-tab[aria-selected='true'] .gv-tab__icon {
+  opacity: 0.95;
+}
+
+/* Label */
+.gv-tab__label {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* Badge (count) */
+.gv-tab__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 20px;
+  height: 18px;
+  padding: 0 6px;
+
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
+
   border-radius: 999px;
+  background: rgba(15, 23, 42, 0.06);
+  color: var(--gv-text-muted);
 }
 
-/* disabled */
+/* Badge reacts when tab is active */
+.gv-tab[aria-selected='true'] .gv-tab__badge {
+  color: var(--gv-accent-hover);
+  background: rgba(59, 130, 246, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.22);
+}
+
+/* Disabled */
 .gv-tab:disabled,
-.gv-tab[aria-disabled="true"] {
+.gv-tab[aria-disabled='true'] {
   opacity: 0.5;
   cursor: not-allowed;
   background: transparent !important;
@@ -83,26 +161,32 @@
    data-gv-tabs-variant="pill"
 ========================= */
 
-/* This is the important part: style based on an ancestor attribute */
-:host-context(gv-tabs[data-gv-tabs-variant="pill"]) .gv-tabs__list {
+/* List container becomes a "chip rail" */
+:host-context(gv-tabs[data-gv-tabs-variant='pill']) .gv-tabs__list {
   border-bottom: 0;
   padding: 4px;
+
   border: 1px solid var(--gv-border);
   border-radius: var(--gv-radius-lg);
   background: var(--gv-surface);
   width: fit-content;
 }
 
-:host-context(gv-tabs[data-gv-tabs-variant="pill"]) .gv-tab {
+/* Tabs in pill variant: tighter + no underline concept */
+:host-context(gv-tabs[data-gv-tabs-variant='pill']) .gv-tab {
   padding: 8px 12px;
   border-radius: var(--gv-radius-md);
 }
 
-:host-context(gv-tabs[data-gv-tabs-variant="pill"]) .gv-tab[aria-selected="true"] {
-  background: rgba(59, 130, 246, 0.12);
-  box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.25);
+/* Active pill: premium enterprise */
+:host-context(gv-tabs[data-gv-tabs-variant='pill']) .gv-tab[aria-selected='true'] {
+  background: rgba(59, 130, 246, 0.1);
+  box-shadow:
+    inset 0 0 0 1px rgba(59, 130, 246, 0.22),
+    0 1px 2px rgba(15, 23, 42, 0.06);
 }
 
-:host-context(gv-tabs[data-gv-tabs-variant="pill"]) .gv-tab[aria-selected="true"]::after {
+/* Hide shared underline indicator in pill mode */
+:host-context(gv-tabs[data-gv-tabs-variant='pill']) .gv-tabs__indicator {
   display: none;
 }
