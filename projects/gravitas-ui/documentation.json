@@ -206,11 +206,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: renderModal,\r\n}"
+                "defaultValue": "{\r\n  render: (args: any) => ({\r\n    props: {\r\n      ...args,\r\n      control: new FormControl('', [Validators.email]),\r\n    },\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-input\r\n          [label]=\"label\"\r\n          [placeholder]=\"placeholder\"\r\n          [hint]=\"hint\"\r\n          [type]=\"type\"\r\n          [size]=\"size\"\r\n          [disabled]=\"disabled\"\r\n          [readonly]=\"readonly\"\r\n          [required]=\"required\"\r\n          [className]=\"className\"\r\n          [hasPrefix]=\"hasPrefix\"\r\n          [hasSuffix]=\"hasSuffix\"\r\n          [formControl]=\"control\"\r\n        >\r\n        </gv-input>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Default",
@@ -226,11 +226,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: (args: any) => ({\r\n    props: {\r\n      ...args,\r\n      control: new FormControl('', [Validators.email]),\r\n    },\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-input\r\n          [label]=\"label\"\r\n          [placeholder]=\"placeholder\"\r\n          [hint]=\"hint\"\r\n          [type]=\"type\"\r\n          [size]=\"size\"\r\n          [disabled]=\"disabled\"\r\n          [readonly]=\"readonly\"\r\n          [required]=\"required\"\r\n          [className]=\"className\"\r\n          [hasPrefix]=\"hasPrefix\"\r\n          [hasSuffix]=\"hasSuffix\"\r\n          [formControl]=\"control\"\r\n        >\r\n        </gv-input>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  render: renderModal,\r\n}"
             },
             {
                 "name": "Default",
@@ -510,11 +510,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ModalArgs>",
-                "defaultValue": "{\r\n  title: 'Gravitas/Modal',\r\n  component: Modal,\r\n  args: {\r\n    open: true,\r\n    title: 'Edit Claim',\r\n    subtitle: 'Update patient + billing details',\r\n    size: 'md',\r\n    closeOnBackdrop: true,\r\n    closeOnEsc: true,\r\n    loading: false,\r\n    panelClass: '',\r\n  },\r\n  argTypes: {\r\n    size: { control: 'select', options: ['sm', 'md', 'lg', 'xl'] },\r\n    open: { control: 'boolean' },\r\n    closeOnBackdrop: { control: 'boolean' },\r\n    closeOnEsc: { control: 'boolean' },\r\n    loading: { control: 'boolean' },\r\n    panelClass: { control: 'text' },\r\n    title: { control: 'text' },\r\n    subtitle: { control: 'text' },\r\n  },\r\n}"
+                "type": "Meta<InputComponent>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Input',\r\n  component: InputComponent,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [ReactiveFormsModule, InputComponent],\r\n    }),\r\n  ],\r\n  args: {\r\n    label: 'Email',\r\n    placeholder: 'you@company.com',\r\n    hint: 'We’ll never share your email.',\r\n    type: 'email',\r\n    size: 'md',\r\n    disabled: false,\r\n    readonly: false,\r\n    required: false,\r\n    className: '',\r\n    hasPrefix: false,\r\n    hasSuffix: false,\r\n  },\r\n  argTypes: {\r\n    type: {\r\n      control: 'select',\r\n      options: [\r\n        'text',\r\n        'email',\r\n        'password',\r\n        'number',\r\n        'tel',\r\n        'url',\r\n        'search',\r\n        'date',\r\n        'datetime-local',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -530,11 +530,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<InputComponent>",
-                "defaultValue": "{\r\n  title: 'Gravitas/Input',\r\n  component: InputComponent,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [ReactiveFormsModule, InputComponent],\r\n    }),\r\n  ],\r\n  args: {\r\n    label: 'Email',\r\n    placeholder: 'you@company.com',\r\n    hint: 'We’ll never share your email.',\r\n    type: 'email',\r\n    size: 'md',\r\n    disabled: false,\r\n    readonly: false,\r\n    required: false,\r\n    className: '',\r\n    hasPrefix: false,\r\n    hasSuffix: false,\r\n  },\r\n  argTypes: {\r\n    type: {\r\n      control: 'select',\r\n      options: [\r\n        'text',\r\n        'email',\r\n        'password',\r\n        'number',\r\n        'tel',\r\n        'url',\r\n        'search',\r\n        'date',\r\n        'datetime-local',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n  },\r\n}"
+                "type": "Meta<ModalArgs>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Modal',\r\n  component: Modal,\r\n  args: {\r\n    open: true,\r\n    title: 'Edit Claim',\r\n    subtitle: 'Update patient + billing details',\r\n    size: 'md',\r\n    closeOnBackdrop: true,\r\n    closeOnEsc: true,\r\n    loading: false,\r\n    panelClass: '',\r\n  },\r\n  argTypes: {\r\n    size: { control: 'select', options: ['sm', 'md', 'lg', 'xl'] },\r\n    open: { control: 'boolean' },\r\n    closeOnBackdrop: { control: 'boolean' },\r\n    closeOnEsc: { control: 'boolean' },\r\n    loading: { control: 'boolean' },\r\n    panelClass: { control: 'text' },\r\n    title: { control: 'text' },\r\n    subtitle: { control: 'text' },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -604,7 +604,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\n  parameters: {\n    layout: 'fullscreen',\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n\n  decorators: [\n    (storyFn, context) => {\n      applyGravitasGlobals(context.globals);\n\n      const story = storyFn();\n\n      return {\n        ...story,\n        moduleMetadata: {\n          ...(story.moduleMetadata ?? {}),\n          imports: [\n            ...((story.moduleMetadata?.imports as any[]) ?? []),\n            ShellWrapperComponent,\n          ],\n        },\n        template: `\n          <gv-story-shell>\n            ${story.template ?? ''}\n          </gv-story-shell>\n        `,\n        props: story.props ?? {},\n      };\n    },\n  ],\n}"
+                "defaultValue": "{\n  parameters: {\n    layout: 'fullscreen',\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n    docs: {\n      // This helps keep the Docs page clean (no extra wrappers in source blocks).\n      source: { excludeDecorators: true },\n    },\n  },\n\n  decorators: [\n    (storyFn: any, context: any) => {\n      applyGravitasGlobals(context.globals);\n\n      // ✅ In Docs, do NOT wrap in the shell at all.\n      if (context?.viewMode === 'docs') {\n        return storyFn();\n      }\n\n      // ✅ In Canvas (story view), wrap in the Gravitas shell.\n      const story = storyFn();\n\n      return {\n        ...story,\n        moduleMetadata: {\n          ...(story.moduleMetadata ?? {}),\n          imports: [\n            ...((story.moduleMetadata?.imports as any[]) ?? []),\n            ShellWrapperComponent,\n          ],\n        },\n        template: `\n          <gv-story-shell>\n            ${story.template ?? ''}\n          </gv-story-shell>\n        `,\n        props: story.props ?? {},\n      };\n    },\n  ],\n}"
             },
             {
                 "name": "Primary",
@@ -958,8 +958,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ModalArgs>",
-                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                "rawtype": "StoryObj<InputComponent>",
+                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -980,8 +980,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<InputComponent>",
-                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "rawtype": "StoryObj<ModalArgs>",
+                "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1127,48 +1127,6 @@
                     "defaultValue": "{\r\n  args: { title: null, subtitle: null },\r\n  render: renderCard,\r\n}"
                 }
             ],
-            "projects/gravitas-ui/src/lib/modal/modal.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  render: renderModal,\r\n}"
-                },
-                {
-                    "name": "Large",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: { size: 'lg' },\r\n  render: renderModal,\r\n}"
-                },
-                {
-                    "name": "Loading",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: { loading: true },\r\n  render: renderModal,\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ModalArgs>",
-                    "defaultValue": "{\r\n  title: 'Gravitas/Modal',\r\n  component: Modal,\r\n  args: {\r\n    open: true,\r\n    title: 'Edit Claim',\r\n    subtitle: 'Update patient + billing details',\r\n    size: 'md',\r\n    closeOnBackdrop: true,\r\n    closeOnEsc: true,\r\n    loading: false,\r\n    panelClass: '',\r\n  },\r\n  argTypes: {\r\n    size: { control: 'select', options: ['sm', 'md', 'lg', 'xl'] },\r\n    open: { control: 'boolean' },\r\n    closeOnBackdrop: { control: 'boolean' },\r\n    closeOnEsc: { control: 'boolean' },\r\n    loading: { control: 'boolean' },\r\n    panelClass: { control: 'text' },\r\n    title: { control: 'text' },\r\n    subtitle: { control: 'text' },\r\n  },\r\n}"
-                }
-            ],
             "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
                 {
                     "name": "Default",
@@ -1209,6 +1167,48 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args: {\r\n    label: 'Amount',\r\n    helperText: 'Enter a number only.',\r\n    controlId: 'amount',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <span prefix class=\"fw-semibold\">$</span>\r\n\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            placeholder=\"0.00\"\r\n          />\r\n\r\n          <span suffix class=\"text-uppercase small\">CAD</span>\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                }
+            ],
+            "projects/gravitas-ui/src/lib/modal/modal.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: renderModal,\r\n}"
+                },
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: { size: 'lg' },\r\n  render: renderModal,\r\n}"
+                },
+                {
+                    "name": "Loading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: { loading: true },\r\n  render: renderModal,\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ModalArgs>",
+                    "defaultValue": "{\r\n  title: 'Gravitas/Modal',\r\n  component: Modal,\r\n  args: {\r\n    open: true,\r\n    title: 'Edit Claim',\r\n    subtitle: 'Update patient + billing details',\r\n    size: 'md',\r\n    closeOnBackdrop: true,\r\n    closeOnEsc: true,\r\n    loading: false,\r\n    panelClass: '',\r\n  },\r\n  argTypes: {\r\n    size: { control: 'select', options: ['sm', 'md', 'lg', 'xl'] },\r\n    open: { control: 'boolean' },\r\n    closeOnBackdrop: { control: 'boolean' },\r\n    closeOnEsc: { control: 'boolean' },\r\n    loading: { control: 'boolean' },\r\n    panelClass: { control: 'text' },\r\n    title: { control: 'text' },\r\n    subtitle: { control: 'text' },\r\n  },\r\n}"
                 }
             ],
             "projects/gravitas-ui/src/lib/select/select.stories.ts": [
@@ -1410,7 +1410,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\n  parameters: {\n    layout: 'fullscreen',\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n\n  decorators: [\n    (storyFn, context) => {\n      applyGravitasGlobals(context.globals);\n\n      const story = storyFn();\n\n      return {\n        ...story,\n        moduleMetadata: {\n          ...(story.moduleMetadata ?? {}),\n          imports: [\n            ...((story.moduleMetadata?.imports as any[]) ?? []),\n            ShellWrapperComponent,\n          ],\n        },\n        template: `\n          <gv-story-shell>\n            ${story.template ?? ''}\n          </gv-story-shell>\n        `,\n        props: story.props ?? {},\n      };\n    },\n  ],\n}"
+                    "defaultValue": "{\n  parameters: {\n    layout: 'fullscreen',\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n    docs: {\n      // This helps keep the Docs page clean (no extra wrappers in source blocks).\n      source: { excludeDecorators: true },\n    },\n  },\n\n  decorators: [\n    (storyFn: any, context: any) => {\n      applyGravitasGlobals(context.globals);\n\n      // ✅ In Docs, do NOT wrap in the shell at all.\n      if (context?.viewMode === 'docs') {\n        return storyFn();\n      }\n\n      // ✅ In Canvas (story view), wrap in the Gravitas shell.\n      const story = storyFn();\n\n      return {\n        ...story,\n        moduleMetadata: {\n          ...(story.moduleMetadata ?? {}),\n          imports: [\n            ...((story.moduleMetadata?.imports as any[]) ?? []),\n            ShellWrapperComponent,\n          ],\n        },\n        template: `\n          <gv-story-shell>\n            ${story.template ?? ''}\n          </gv-story-shell>\n        `,\n        props: story.props ?? {},\n      };\n    },\n  ],\n}"
                 }
             ],
             "projects/gravitas-ui/src/stories/button.stories.ts": [
@@ -1853,19 +1853,6 @@
                     "kind": 184
                 }
             ],
-            "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<FormField>",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/gravitas-ui/src/lib/input/input.stories.ts": [
                 {
                     "name": "Story",
@@ -1873,6 +1860,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<InputComponent>",
                     "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<FormField>",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
