@@ -206,21 +206,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  render: (args: any) => ({\r\n    props: {\r\n      ...args,\r\n      control: new FormControl('', [Validators.email]),\r\n    },\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-input\r\n          [label]=\"label\"\r\n          [placeholder]=\"placeholder\"\r\n          [hint]=\"hint\"\r\n          [type]=\"type\"\r\n          [size]=\"size\"\r\n          [disabled]=\"disabled\"\r\n          [readonly]=\"readonly\"\r\n          [required]=\"required\"\r\n          [className]=\"className\"\r\n          [hasPrefix]=\"hasPrefix\"\r\n          [hasSuffix]=\"hasSuffix\"\r\n          [formControl]=\"control\"\r\n        >\r\n        </gv-input>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <!-- demo control -->\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            [attr.aria-invalid]=\"!!error\"\r\n            placeholder=\"name@company.com\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args: any) => ({\r\n    props: {\r\n      ...args,\r\n      control: new FormControl('', [Validators.email]),\r\n    },\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-input\r\n          [label]=\"label\"\r\n          [placeholder]=\"placeholder\"\r\n          [hint]=\"hint\"\r\n          [type]=\"type\"\r\n          [size]=\"size\"\r\n          [disabled]=\"disabled\"\r\n          [readonly]=\"readonly\"\r\n          [required]=\"required\"\r\n          [className]=\"className\"\r\n          [hasPrefix]=\"hasPrefix\"\r\n          [hasSuffix]=\"hasSuffix\"\r\n          [formControl]=\"control\"\r\n        >\r\n        </gv-input>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Default",
@@ -510,21 +510,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<InputComponent>",
-                "defaultValue": "{\r\n  title: 'Gravitas/Input',\r\n  component: InputComponent,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [ReactiveFormsModule, InputComponent],\r\n    }),\r\n  ],\r\n  args: {\r\n    label: 'Email',\r\n    placeholder: 'you@company.com',\r\n    hint: 'We’ll never share your email.',\r\n    type: 'email',\r\n    size: 'md',\r\n    disabled: false,\r\n    readonly: false,\r\n    required: false,\r\n    className: '',\r\n    hasPrefix: false,\r\n    hasSuffix: false,\r\n  },\r\n  argTypes: {\r\n    type: {\r\n      control: 'select',\r\n      options: [\r\n        'text',\r\n        'email',\r\n        'password',\r\n        'number',\r\n        'tel',\r\n        'url',\r\n        'search',\r\n        'date',\r\n        'datetime-local',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n  },\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<FormField>",
                 "defaultValue": "{\r\n  title: 'Gravitas/Form Field',\r\n  component: FormField,\r\n  args: {\r\n    label: 'Email',\r\n    required: false,\r\n    helperText: 'We’ll never share your email.',\r\n    error: null,\r\n    fullWidth: true,\r\n    controlId: 'email',\r\n  },\r\n  argTypes: {\r\n    error: { control: 'text' },\r\n    helperText: { control: 'text' },\r\n    label: { control: 'text' },\r\n    required: { control: 'boolean' },\r\n    fullWidth: { control: 'boolean' },\r\n    controlId: { control: 'text' },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<InputComponent>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Input',\r\n  component: InputComponent,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [ReactiveFormsModule, InputComponent],\r\n    }),\r\n  ],\r\n  args: {\r\n    label: 'Email',\r\n    placeholder: 'you@company.com',\r\n    hint: 'We’ll never share your email.',\r\n    type: 'email',\r\n    size: 'md',\r\n    disabled: false,\r\n    readonly: false,\r\n    required: false,\r\n    className: '',\r\n    hasPrefix: false,\r\n    hasSuffix: false,\r\n  },\r\n  argTypes: {\r\n    type: {\r\n      control: 'select',\r\n      options: [\r\n        'text',\r\n        'email',\r\n        'password',\r\n        'number',\r\n        'tel',\r\n        'url',\r\n        'search',\r\n        'date',\r\n        'datetime-local',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -550,21 +550,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<TabsStoryHost>",
-                "defaultValue": "{\r\n  title: 'Gravitas/Tabs',\r\n  component: TabsStoryHost,\r\n  argTypes: {\r\n    variant: { control: 'select', options: ['underline', 'pill'] },\r\n  },\r\n  args: {\r\n    variant: 'underline',\r\n  },\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ToastDemo>",
                 "defaultValue": "{\r\n  title: 'Gravitas/Toast',\r\n  component: ToastDemo,\r\n  args: { position: 'top-end' },\r\n  argTypes: {\r\n    position: {\r\n      control: 'select',\r\n      options: [\r\n        'top-end',\r\n        'top-start',\r\n        'top-center',\r\n        'bottom-end',\r\n        'bottom-start',\r\n        'bottom-center',\r\n      ],\r\n    },\r\n  },\r\n  decorators: [\r\n    (story) => ({\r\n      ...story(),\r\n      moduleMetadata: {\r\n        providers: [ToastService], // ✅ single instance shared by demo + <gv-toasts>\r\n      },\r\n    }),\r\n  ],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TabsStoryHost>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Tabs',\r\n  component: TabsStoryHost,\r\n  argTypes: {\r\n    variant: { control: 'select', options: ['underline', 'pill'] },\r\n  },\r\n  args: {\r\n    variant: 'underline',\r\n  },\r\n}"
             },
             {
                 "name": "NoHeader",
@@ -958,8 +958,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<InputComponent>",
-                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "rawtype": "StoryObj<FormField>",
+                "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -969,8 +969,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<FormField>",
-                "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                "rawtype": "StoryObj<InputComponent>",
+                "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1002,8 +1002,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TabsStoryHost>",
-                "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
+                "rawtype": "StoryObj<ToastDemo>",
+                "file": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1013,8 +1013,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ToastDemo>",
-                "file": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
+                "rawtype": "StoryObj<TabsStoryHost>",
+                "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1853,19 +1853,6 @@
                     "kind": 184
                 }
             ],
-            "projects/gravitas-ui/src/lib/input/input.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<InputComponent>",
-                    "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
                 {
                     "name": "Story",
@@ -1873,6 +1860,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<FormField>",
                     "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/gravitas-ui/src/lib/input/input.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<InputComponent>",
+                    "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1892,19 +1892,6 @@
                     "kind": 184
                 }
             ],
-            "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<TabsStoryHost>",
-                    "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/gravitas-ui/src/lib/toast/toasts.stories.ts": [
                 {
                     "name": "Story",
@@ -1912,6 +1899,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ToastDemo>",
                     "file": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TabsStoryHost>",
+                    "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
