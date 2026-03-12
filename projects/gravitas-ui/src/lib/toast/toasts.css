@@ -17,8 +17,8 @@
   width: min(420px, calc(100vw - 24px));
   pointer-events: auto;
   border-radius: 12px;
-  border: 1px solid var(--gv-border, #e2e8f0);
-  background: var(--gv-surface, #fff);
+  border: 1px solid var(--gv-toast-border, var(--gv-border, #e2e8f0));
+  background: var(--gv-toast-bg, var(--gv-surface, #fff));
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
   overflow: hidden;
 }
@@ -38,14 +38,14 @@
 .gv-toast__title {
   font-weight: 800;
   font-size: 12px;
-  color: var(--gv-text-strong, #0f172a);
+  color: var(--gv-toast-title-color, var(--gv-text-strong, #0f172a));
   margin-bottom: 2px;
   letter-spacing: 0.01em;
 }
 
 .gv-toast__msg {
   font-size: 13px;
-  color: var(--gv-text, #1f2937);
+  color: var(--gv-toast-color, var(--gv-text, #1f2937));
   line-height: 1.25rem;
   word-break: break-word;
 }
@@ -54,10 +54,11 @@
   padding: 0;
   margin: 0;
   text-decoration: none;
-  color: var(--gv-text-muted, #64748b);
+  color: var(--gv-toast-close-color, var(--gv-text-muted, #64748b));
 }
+
 .gv-toast__close:hover {
-  color: var(--gv-text-strong, #0f172a);
+  color: var(--gv-toast-close-hover-color, var(--gv-text-strong, #0f172a));
 }
 
 /* Positions */
@@ -65,10 +66,12 @@
   top: 12px;
   right: 12px;
 }
+
 .gv-toasts--top-start {
   top: 12px;
   left: 12px;
 }
+
 .gv-toasts--top-center {
   top: 12px;
   left: 50%;
@@ -79,10 +82,12 @@
   bottom: 12px;
   right: 12px;
 }
+
 .gv-toasts--bottom-start {
   bottom: 12px;
   left: 12px;
 }
+
 .gv-toasts--bottom-center {
   bottom: 12px;
   left: 50%;
@@ -92,21 +97,32 @@
 /* Variants: thin accent bar */
 .gv-toast--primary {
   border-left: 4px solid var(--gv-accent, #3b82f6);
+  background: var(--gv-toast-primary-bg, var(--gv-toast-bg, var(--gv-surface, #fff)));
 }
+
 .gv-toast--success {
   border-left: 4px solid var(--gv-success, #16a34a);
+  background: var(--gv-toast-success-bg, var(--gv-toast-bg, var(--gv-surface, #fff)));
 }
+
 .gv-toast--warning {
   border-left: 4px solid var(--gv-warning, #f59e0b);
+  background: var(--gv-toast-warning-bg, var(--gv-toast-bg, var(--gv-surface, #fff)));
 }
+
 .gv-toast--danger {
   border-left: 4px solid var(--gv-danger, #dc2626);
+  background: var(--gv-toast-danger-bg, var(--gv-toast-bg, var(--gv-surface, #fff)));
 }
+
 .gv-toast--info {
   border-left: 4px solid var(--gv-info, #0ea5e9);
+  background: var(--gv-toast-info-bg, var(--gv-toast-bg, var(--gv-surface, #fff)));
 }
+
 .gv-toast--dark {
   border-left: 4px solid #111827;
+  background: var(--gv-toast-dark-bg, var(--gv-toast-bg, var(--gv-surface, #fff)));
 }
 
 @keyframes gvToastIn {

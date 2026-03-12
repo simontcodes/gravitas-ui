@@ -82,7 +82,7 @@
         },
         {
             "name": "ToastDemo",
-            "id": "component-ToastDemo-c08b37e802d00f1f3cae96faf0bb5c1c503454ea8ae0e4a31b00c2763606793174184cec444f0159f089a3947be5193cbc7202640f5d1c3f89f3631e776ae4cb",
+            "id": "component-ToastDemo-dcac4ba61b653899bb8268e1767b08e8289e4d40e5c54ca8016f411334ad2a317b573b91d40361621a5d5a6781d51910fbdd537cd9d19ba46cb3e6bf6eca71fc",
             "file": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -92,7 +92,7 @@
             "selector": "gv-toast-demo",
             "styleUrls": [],
             "styles": [],
-            "template": "<div class=\"p-3 d-flex gap-2\">\n  <gv-button variant=\"success\" (click)=\"success()\">Success</gv-button>\n  <gv-button variant=\"danger\" (click)=\"error()\">Error (sticky)</gv-button>\n  <gv-button variant=\"info\" (click)=\"info()\">Info</gv-button>\n</div>\n\n<gv-toasts></gv-toasts>\n",
+            "template": "    <div class=\"p-3 d-flex flex-wrap gap-2\">\n      <gv-button variant=\"success\" (click)=\"success()\">Success</gv-button>\n      <gv-button variant=\"danger\" (click)=\"error()\">Error (sticky)</gv-button>\n      <gv-button variant=\"info\" (click)=\"info()\">Info</gv-button>\n    </div>\n\n    <div class=\"px-3 pb-3\" style=\"max-width: 720px;\">\n      <div class=\"small text-muted mb-2\"><strong>Toast theming tokens</strong></div>\n      <pre\n        style=\"margin: 0; padding: 12px; border-radius: 12px; background: #0f172a; color: #e2e8f0; font-size: 12px; overflow: auto;\"\n      >:root {\n  --gv-toast-bg: #ffffff;\n  --gv-toast-border: #e2e8f0;\n  --gv-toast-color: #1f2937;\n  --gv-toast-title-color: #0f172a;\n  --gv-toast-close-color: #64748b;\n  --gv-toast-close-hover-color: #0f172a;\n\n  /* Optional per-variant overrides */\n  --gv-toast-success-bg: #ecfdf5;\n  --gv-toast-danger-bg: #fef2f2;\n  --gv-toast-warning-bg: #fffbeb;\n  --gv-toast-info-bg: #f0f9ff;\n}</pre>\n    </div>\n\n    <gv-toasts></gv-toasts>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
@@ -102,7 +102,7 @@
                     "defaultValue": "'top-end'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 25,
+                    "line": 45,
                     "type": "ToastPosition",
                     "decorators": []
                 }
@@ -118,7 +118,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 23,
+                    "line": 43,
                     "modifierKind": [
                         123
                     ]
@@ -131,7 +131,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 36,
+                    "line": 56,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -141,7 +141,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 47,
+                    "line": 67,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -151,7 +151,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 27,
+                    "line": 47,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -172,7 +172,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import type { Meta, StoryObj } from '@storybook/angular';\r\nimport { Component, Input, inject } from '@angular/core';\r\nimport { Toasts } from './toasts';\r\nimport { ToastService } from './toasts.service';\r\nimport { ToastPosition } from './toast.model';\r\nimport { Button } from '../button/button';\r\n\r\n@Component({\r\n  selector: 'gv-toast-demo',\r\n  standalone: true,\r\n  imports: [Toasts, Button],\r\n  template: `\r\n    <div class=\"p-3 d-flex gap-2\">\r\n      <gv-button variant=\"success\" (click)=\"success()\">Success</gv-button>\r\n      <gv-button variant=\"danger\" (click)=\"error()\">Error (sticky)</gv-button>\r\n      <gv-button variant=\"info\" (click)=\"info()\">Info</gv-button>\r\n    </div>\r\n\r\n    <gv-toasts></gv-toasts>\r\n  `,\r\n})\r\nclass ToastDemo {\r\n  private toast = inject(ToastService);\r\n\r\n  @Input() position: ToastPosition = 'top-end';\r\n\r\n  success() {\r\n    this.toast.show({\r\n      variant: 'success',\r\n      title: 'Saved',\r\n      message: 'Claim updated successfully.',\r\n      position: this.position,\r\n    });\r\n  }\r\n\r\n  error() {\r\n    this.toast.show({\r\n      variant: 'danger',\r\n      title: 'Validation error',\r\n      message: 'Password must be at least 8 characters long.',\r\n      position: this.position,\r\n      durationMs: 0,\r\n      ariaLive: 'assertive',\r\n    });\r\n  }\r\n\r\n  info() {\r\n    this.toast.show({\r\n      variant: 'info',\r\n      title: 'Sync',\r\n      message: 'Posting to EDI gateway…',\r\n      position: this.position,\r\n    });\r\n  }\r\n}\r\n\r\nconst meta: Meta<ToastDemo> = {\r\n  title: 'Gravitas/Toast',\r\n  component: ToastDemo,\r\n  args: { position: 'top-end' },\r\n  argTypes: {\r\n    position: {\r\n      control: 'select',\r\n      options: [\r\n        'top-end',\r\n        'top-start',\r\n        'top-center',\r\n        'bottom-end',\r\n        'bottom-start',\r\n        'bottom-center',\r\n      ],\r\n    },\r\n  },\r\n  decorators: [\r\n    (story) => ({\r\n      ...story(),\r\n      moduleMetadata: {\r\n        providers: [ToastService], // ✅ single instance shared by demo + <gv-toasts>\r\n      },\r\n    }),\r\n  ],\r\n};\r\n\r\nexport default meta;\r\ntype Story = StoryObj<ToastDemo>;\r\n\r\nexport const Playground: Story = {};\r\n",
+            "sourceCode": "import type { Meta, StoryObj } from '@storybook/angular';\r\nimport { Component, Input, inject } from '@angular/core';\r\nimport { Toasts } from './toasts';\r\nimport { ToastService } from './toasts.service';\r\nimport { ToastPosition } from './toast.model';\r\nimport { Button } from '../button/button';\r\n\r\n@Component({\r\n  selector: 'gv-toast-demo',\r\n  standalone: true,\r\n  imports: [Toasts, Button],\r\n  template: `\r\n    <div class=\"p-3 d-flex flex-wrap gap-2\">\r\n      <gv-button variant=\"success\" (click)=\"success()\">Success</gv-button>\r\n      <gv-button variant=\"danger\" (click)=\"error()\">Error (sticky)</gv-button>\r\n      <gv-button variant=\"info\" (click)=\"info()\">Info</gv-button>\r\n    </div>\r\n\r\n    <div class=\"px-3 pb-3\" style=\"max-width: 720px;\">\r\n      <div class=\"small text-muted mb-2\"><strong>Toast theming tokens</strong></div>\r\n      <pre\r\n        style=\"margin: 0; padding: 12px; border-radius: 12px; background: #0f172a; color: #e2e8f0; font-size: 12px; overflow: auto;\"\r\n      >:root {\r\n  --gv-toast-bg: #ffffff;\r\n  --gv-toast-border: #e2e8f0;\r\n  --gv-toast-color: #1f2937;\r\n  --gv-toast-title-color: #0f172a;\r\n  --gv-toast-close-color: #64748b;\r\n  --gv-toast-close-hover-color: #0f172a;\r\n\r\n  /* Optional per-variant overrides */\r\n  --gv-toast-success-bg: #ecfdf5;\r\n  --gv-toast-danger-bg: #fef2f2;\r\n  --gv-toast-warning-bg: #fffbeb;\r\n  --gv-toast-info-bg: #f0f9ff;\r\n}</pre>\r\n    </div>\r\n\r\n    <gv-toasts></gv-toasts>\r\n  `,\r\n})\r\nclass ToastDemo {\r\n  private toast = inject(ToastService);\r\n\r\n  @Input() position: ToastPosition = 'top-end';\r\n\r\n  success() {\r\n    this.toast.show({\r\n      variant: 'success',\r\n      title: 'Saved',\r\n      message: 'Claim updated successfully.',\r\n      position: this.position,\r\n    });\r\n  }\r\n\r\n  error() {\r\n    this.toast.show({\r\n      variant: 'danger',\r\n      title: 'Validation error',\r\n      message: 'Password must be at least 8 characters long.',\r\n      position: this.position,\r\n      durationMs: 0,\r\n      ariaLive: 'assertive',\r\n    });\r\n  }\r\n\r\n  info() {\r\n    this.toast.show({\r\n      variant: 'info',\r\n      title: 'Sync',\r\n      message: 'Posting to EDI gateway…',\r\n      position: this.position,\r\n    });\r\n  }\r\n}\r\n\r\nconst meta: Meta<ToastDemo> = {\r\n  title: 'Gravitas/Toast',\r\n  component: ToastDemo,\r\n  tags: ['autodocs'],\r\n  args: { position: 'top-end' },\r\n  argTypes: {\r\n    position: {\r\n      control: 'select',\r\n      options: [\r\n        'top-end',\r\n        'top-start',\r\n        'top-center',\r\n        'bottom-end',\r\n        'bottom-start',\r\n        'bottom-center',\r\n      ],\r\n      description: 'Screen position where new toasts appear.',\r\n      table: {\r\n        category: 'Behavior',\r\n        defaultValue: { summary: 'top-end' },\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    (story) => ({\r\n      ...story(),\r\n      moduleMetadata: {\r\n        providers: [ToastService],\r\n      },\r\n    }),\r\n  ],\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        component: `\r\nToasts provide lightweight, temporary feedback for app events such as saves, sync updates, and validation errors.\r\n\r\n### Features\r\n- Position control via \\`ToastPosition\\`\r\n- Variants for semantic feedback\r\n- Auto-dismiss or sticky mode\r\n- Themeable with CSS variables\r\n\r\n### CSS Variables\r\n- \\`--gv-toast-bg\\`\r\n- \\`--gv-toast-border\\`\r\n- \\`--gv-toast-color\\`\r\n- \\`--gv-toast-title-color\\`\r\n- \\`--gv-toast-close-color\\`\r\n- \\`--gv-toast-close-hover-color\\`\r\n\r\n### Optional per-variant background overrides\r\n- \\`--gv-toast-primary-bg\\`\r\n- \\`--gv-toast-success-bg\\`\r\n- \\`--gv-toast-warning-bg\\`\r\n- \\`--gv-toast-danger-bg\\`\r\n- \\`--gv-toast-info-bg\\`\r\n- \\`--gv-toast-dark-bg\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n};\r\n\r\nexport default meta;\r\ntype Story = StoryObj<ToastDemo>;\r\n\r\nexport const Playground: Story = {\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        story: `\r\nUse the buttons to trigger example toasts. Change the \\`position\\` control to verify placement behavior.\r\n\r\n\\`\\`\\`ts\r\nthis.toast.show({\r\n  variant: 'success',\r\n  title: 'Saved',\r\n  message: 'Claim updated successfully.',\r\n  position: 'bottom-end',\r\n});\r\n\\`\\`\\`\r\n\r\nTo customize toast colors, override the exposed CSS variables in your app theme.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n};",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -196,16 +196,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  render: renderCard,\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -221,6 +211,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  render: (args: any) => ({\r\n    props: {\r\n      ...args,\r\n      control: new FormControl('', [Validators.email]),\r\n    },\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-input\r\n          [label]=\"label\"\r\n          [placeholder]=\"placeholder\"\r\n          [hint]=\"hint\"\r\n          [type]=\"type\"\r\n          [size]=\"size\"\r\n          [disabled]=\"disabled\"\r\n          [readonly]=\"readonly\"\r\n          [required]=\"required\"\r\n          [className]=\"className\"\r\n          [hasPrefix]=\"hasPrefix\"\r\n          [hasSuffix]=\"hasSuffix\"\r\n          [formControl]=\"control\"\r\n        >\r\n        </gv-input>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: renderCard,\r\n}"
             },
             {
                 "name": "Default",
@@ -500,16 +500,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<Card>",
-                "defaultValue": "{\r\n  title: 'Gravitas/Card',\r\n  component: Card,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Card, Button], // Card is standalone; Button only if used in templates below\r\n    }),\r\n  ],\r\n  args: {\r\n    title: 'Card Title',\r\n    subtitle: 'Optional subtitle',\r\n    fullHeight: false,\r\n    interactive: false,\r\n    disabled: false,\r\n    className: '',\r\n  },\r\n  argTypes: {\r\n    title: { control: 'text' },\r\n    subtitle: { control: 'text' },\r\n    fullHeight: { control: 'boolean' },\r\n    interactive: { control: 'boolean' },\r\n    disabled: { control: 'boolean' },\r\n    className: { control: 'text' },\r\n    // Output handlers should not be part of controls\r\n    cardClick: { action: 'cardClick', table: { disable: true } },\r\n  },\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -525,6 +515,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<InputComponent>",
                 "defaultValue": "{\r\n  title: 'Gravitas/Input',\r\n  component: InputComponent,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [ReactiveFormsModule, InputComponent],\r\n    }),\r\n  ],\r\n  args: {\r\n    label: 'Email',\r\n    placeholder: 'you@company.com',\r\n    hint: 'We’ll never share your email.',\r\n    type: 'email',\r\n    size: 'md',\r\n    disabled: false,\r\n    readonly: false,\r\n    required: false,\r\n    className: '',\r\n    hasPrefix: false,\r\n    hasSuffix: false,\r\n  },\r\n  argTypes: {\r\n    type: {\r\n      control: 'select',\r\n      options: [\r\n        'text',\r\n        'email',\r\n        'password',\r\n        'number',\r\n        'tel',\r\n        'url',\r\n        'search',\r\n        'date',\r\n        'datetime-local',\r\n      ],\r\n    },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Card>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Card',\r\n  component: Card,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Card, Button], // Card is standalone; Button only if used in templates below\r\n    }),\r\n  ],\r\n  args: {\r\n    title: 'Card Title',\r\n    subtitle: 'Optional subtitle',\r\n    fullHeight: false,\r\n    interactive: false,\r\n    disabled: false,\r\n    className: '',\r\n  },\r\n  argTypes: {\r\n    title: { control: 'text' },\r\n    subtitle: { control: 'text' },\r\n    fullHeight: { control: 'boolean' },\r\n    interactive: { control: 'boolean' },\r\n    disabled: { control: 'boolean' },\r\n    className: { control: 'text' },\r\n    // Output handlers should not be part of controls\r\n    cardClick: { action: 'cardClick', table: { disable: true } },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -554,7 +554,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ToastDemo>",
-                "defaultValue": "{\r\n  title: 'Gravitas/Toast',\r\n  component: ToastDemo,\r\n  args: { position: 'top-end' },\r\n  argTypes: {\r\n    position: {\r\n      control: 'select',\r\n      options: [\r\n        'top-end',\r\n        'top-start',\r\n        'top-center',\r\n        'bottom-end',\r\n        'bottom-start',\r\n        'bottom-center',\r\n      ],\r\n    },\r\n  },\r\n  decorators: [\r\n    (story) => ({\r\n      ...story(),\r\n      moduleMetadata: {\r\n        providers: [ToastService], // ✅ single instance shared by demo + <gv-toasts>\r\n      },\r\n    }),\r\n  ],\r\n}"
+                "defaultValue": "{\r\n  title: 'Gravitas/Toast',\r\n  component: ToastDemo,\r\n  tags: ['autodocs'],\r\n  args: { position: 'top-end' },\r\n  argTypes: {\r\n    position: {\r\n      control: 'select',\r\n      options: [\r\n        'top-end',\r\n        'top-start',\r\n        'top-center',\r\n        'bottom-end',\r\n        'bottom-start',\r\n        'bottom-center',\r\n      ],\r\n      description: 'Screen position where new toasts appear.',\r\n      table: {\r\n        category: 'Behavior',\r\n        defaultValue: { summary: 'top-end' },\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    (story) => ({\r\n      ...story(),\r\n      moduleMetadata: {\r\n        providers: [ToastService],\r\n      },\r\n    }),\r\n  ],\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        component: `\r\nToasts provide lightweight, temporary feedback for app events such as saves, sync updates, and validation errors.\r\n\r\n### Features\r\n- Position control via \\`ToastPosition\\`\r\n- Variants for semantic feedback\r\n- Auto-dismiss or sticky mode\r\n- Themeable with CSS variables\r\n\r\n### CSS Variables\r\n- \\`--gv-toast-bg\\`\r\n- \\`--gv-toast-border\\`\r\n- \\`--gv-toast-color\\`\r\n- \\`--gv-toast-title-color\\`\r\n- \\`--gv-toast-close-color\\`\r\n- \\`--gv-toast-close-hover-color\\`\r\n\r\n### Optional per-variant background overrides\r\n- \\`--gv-toast-primary-bg\\`\r\n- \\`--gv-toast-success-bg\\`\r\n- \\`--gv-toast-warning-bg\\`\r\n- \\`--gv-toast-danger-bg\\`\r\n- \\`--gv-toast-info-bg\\`\r\n- \\`--gv-toast-dark-bg\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -594,7 +594,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{}"
+                "defaultValue": "{\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        story: `\r\nUse the buttons to trigger example toasts. Change the \\`position\\` control to verify placement behavior.\r\n\r\n\\`\\`\\`ts\r\nthis.toast.show({\r\n  variant: 'success',\r\n  title: 'Saved',\r\n  message: 'Claim updated successfully.',\r\n  position: 'bottom-end',\r\n});\r\n\\`\\`\\`\r\n\r\nTo customize toast colors, override the exposed CSS variables in your app theme.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "preview",
@@ -947,17 +947,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<Card>",
-                "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<FormField>",
                 "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
                 "deprecated": false,
@@ -971,6 +960,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<InputComponent>",
                 "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<Card>",
+                "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1075,6 +1075,48 @@
                     "defaultValue": "{\r\n  render: (args: any) => ({\r\n    props: {\r\n      ...args,\r\n      hasPrefix: true,\r\n      control: new FormControl(''),\r\n    },\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-input\r\n          [label]=\"label\"\r\n          [placeholder]=\"placeholder\"\r\n          [hasPrefix]=\"true\"\r\n          [formControl]=\"control\"\r\n        >\r\n          <span gvPrefix>@</span>\r\n        </gv-input>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
                 }
             ],
+            "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <!-- demo control -->\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            [attr.aria-invalid]=\"!!error\"\r\n            placeholder=\"name@company.com\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<FormField>",
+                    "defaultValue": "{\r\n  title: 'Gravitas/Form Field',\r\n  component: FormField,\r\n  args: {\r\n    label: 'Email',\r\n    required: false,\r\n    helperText: 'We’ll never share your email.',\r\n    error: null,\r\n    fullWidth: true,\r\n    controlId: 'email',\r\n  },\r\n  argTypes: {\r\n    error: { control: 'text' },\r\n    helperText: { control: 'text' },\r\n    label: { control: 'text' },\r\n    required: { control: 'boolean' },\r\n    fullWidth: { control: 'boolean' },\r\n    controlId: { control: 'text' },\r\n  },\r\n}"
+                },
+                {
+                    "name": "WithError",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    error: 'Password must be at least 8 characters long.',\r\n    helperText: 'Use at least one number and one symbol.',\r\n    label: 'Password',\r\n    required: true,\r\n    controlId: 'password',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <input\r\n            class=\"form-control is-invalid\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            aria-invalid=\"true\"\r\n            placeholder=\"••••••••\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "WithPrefixSuffix",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Amount',\r\n    helperText: 'Enter a number only.',\r\n    controlId: 'amount',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <span prefix class=\"fw-semibold\">$</span>\r\n\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            placeholder=\"0.00\"\r\n          />\r\n\r\n          <span suffix class=\"text-uppercase small\">CAD</span>\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                }
+            ],
             "projects/gravitas-ui/src/lib/card/card.stories.ts": [
                 {
                     "name": "Default",
@@ -1125,48 +1167,6 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args: { title: null, subtitle: null },\r\n  render: renderCard,\r\n}"
-                }
-            ],
-            "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <!-- demo control -->\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            [attr.aria-invalid]=\"!!error\"\r\n            placeholder=\"name@company.com\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<FormField>",
-                    "defaultValue": "{\r\n  title: 'Gravitas/Form Field',\r\n  component: FormField,\r\n  args: {\r\n    label: 'Email',\r\n    required: false,\r\n    helperText: 'We’ll never share your email.',\r\n    error: null,\r\n    fullWidth: true,\r\n    controlId: 'email',\r\n  },\r\n  argTypes: {\r\n    error: { control: 'text' },\r\n    helperText: { control: 'text' },\r\n    label: { control: 'text' },\r\n    required: { control: 'boolean' },\r\n    fullWidth: { control: 'boolean' },\r\n    controlId: { control: 'text' },\r\n  },\r\n}"
-                },
-                {
-                    "name": "WithError",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    error: 'Password must be at least 8 characters long.',\r\n    helperText: 'Use at least one number and one symbol.',\r\n    label: 'Password',\r\n    required: true,\r\n    controlId: 'password',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <input\r\n            class=\"form-control is-invalid\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            aria-invalid=\"true\"\r\n            placeholder=\"••••••••\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "WithPrefixSuffix",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    label: 'Amount',\r\n    helperText: 'Enter a number only.',\r\n    controlId: 'amount',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <span prefix class=\"fw-semibold\">$</span>\r\n\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            placeholder=\"0.00\"\r\n          />\r\n\r\n          <span suffix class=\"text-uppercase small\">CAD</span>\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
                 }
             ],
             "projects/gravitas-ui/src/lib/modal/modal.stories.ts": [
@@ -1538,7 +1538,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ToastDemo>",
-                    "defaultValue": "{\r\n  title: 'Gravitas/Toast',\r\n  component: ToastDemo,\r\n  args: { position: 'top-end' },\r\n  argTypes: {\r\n    position: {\r\n      control: 'select',\r\n      options: [\r\n        'top-end',\r\n        'top-start',\r\n        'top-center',\r\n        'bottom-end',\r\n        'bottom-start',\r\n        'bottom-center',\r\n      ],\r\n    },\r\n  },\r\n  decorators: [\r\n    (story) => ({\r\n      ...story(),\r\n      moduleMetadata: {\r\n        providers: [ToastService], // ✅ single instance shared by demo + <gv-toasts>\r\n      },\r\n    }),\r\n  ],\r\n}"
+                    "defaultValue": "{\r\n  title: 'Gravitas/Toast',\r\n  component: ToastDemo,\r\n  tags: ['autodocs'],\r\n  args: { position: 'top-end' },\r\n  argTypes: {\r\n    position: {\r\n      control: 'select',\r\n      options: [\r\n        'top-end',\r\n        'top-start',\r\n        'top-center',\r\n        'bottom-end',\r\n        'bottom-start',\r\n        'bottom-center',\r\n      ],\r\n      description: 'Screen position where new toasts appear.',\r\n      table: {\r\n        category: 'Behavior',\r\n        defaultValue: { summary: 'top-end' },\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    (story) => ({\r\n      ...story(),\r\n      moduleMetadata: {\r\n        providers: [ToastService],\r\n      },\r\n    }),\r\n  ],\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        component: `\r\nToasts provide lightweight, temporary feedback for app events such as saves, sync updates, and validation errors.\r\n\r\n### Features\r\n- Position control via \\`ToastPosition\\`\r\n- Variants for semantic feedback\r\n- Auto-dismiss or sticky mode\r\n- Themeable with CSS variables\r\n\r\n### CSS Variables\r\n- \\`--gv-toast-bg\\`\r\n- \\`--gv-toast-border\\`\r\n- \\`--gv-toast-color\\`\r\n- \\`--gv-toast-title-color\\`\r\n- \\`--gv-toast-close-color\\`\r\n- \\`--gv-toast-close-hover-color\\`\r\n\r\n### Optional per-variant background overrides\r\n- \\`--gv-toast-primary-bg\\`\r\n- \\`--gv-toast-success-bg\\`\r\n- \\`--gv-toast-warning-bg\\`\r\n- \\`--gv-toast-danger-bg\\`\r\n- \\`--gv-toast-info-bg\\`\r\n- \\`--gv-toast-dark-bg\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "Playground",
@@ -1548,7 +1548,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{}"
+                    "defaultValue": "{\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        story: `\r\nUse the buttons to trigger example toasts. Change the \\`position\\` control to verify placement behavior.\r\n\r\n\\`\\`\\`ts\r\nthis.toast.show({\r\n  variant: 'success',\r\n  title: 'Saved',\r\n  message: 'Claim updated successfully.',\r\n  position: 'bottom-end',\r\n});\r\n\\`\\`\\`\r\n\r\nTo customize toast colors, override the exposed CSS variables in your app theme.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
                 }
             ]
         },
@@ -1840,19 +1840,6 @@
                     "kind": 184
                 }
             ],
-            "projects/gravitas-ui/src/lib/card/card.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<Card>",
-                    "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
                 {
                     "name": "Story",
@@ -1873,6 +1860,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<InputComponent>",
                     "file": "projects/gravitas-ui/src/lib/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/gravitas-ui/src/lib/card/card.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Card>",
+                    "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",

@@ -10,31 +10,130 @@
 
   <div class="gv-field__control" [class.w-100]="fullWidth">
     <div class="gv-select-wrap" [class.w-100]="fullWidth">
-      <ng-content select="[prefix]"></ng-content>
-
-      <select
-        [class]="selectClass"
-        [disabled]="disabled || loading"
-        (blur)="handleBlur()"
-        (change)="handleNativeChange($event)"
-        [attr.aria-invalid]="!!error"
-      >
-        <option [value]="''" [disabled]="required">
-          {{ loading ? loadingText : placeholder }}
-        </option>
-
-        @for (opt of options; track trackByIndex($index)) {
-          <option
-            [value]="stringifyValue(opt.value)"
-            [selected]="isSelected(opt.value)"
-            [disabled]="opt.disabled"
-          >
-            {{ opt.label }}
+      @if (!useCustomDropdown) {
+        <select
+          [class]="selectClass"
+          [disabled]="disabled || loading"
+          (blur)="handleBlur()"
+          (change)="handleNativeChange($event)"
+          [attr.aria-invalid]="!!error"
+        >
+          <option [value]="''" [disabled]="required">
+            {{ loading ? loadingText : placeholder }}
           </option>
-        }
-      </select>
 
-      <ng-content select="[suffix]"></ng-content>
+          @for (opt of options; track trackByValue($index, opt)) {
+            <option
+              [value]="stringifyValue(opt.value)"
+              [selected]="isSelected(opt.value)"
+              [disabled]="opt.disabled"
+            >
+              {{ opt.label }}
+            </option>
+          }
+        </select>
+      } @else {
+        <div class="gv-select-custom" [class.w-100]="fullWidth">
+          <button
+            type="button"
+            [class]="triggerClass"
+            [disabled]="disabled || loading"
+            (click)="toggleOpen()"
+            [attr.aria-expanded]="isOpen"
+            [attr.aria-invalid]="!!error"
+          >
+            <div class="gv-select-trigger__content">
+              @if (multiple && selectedOptions.length) {
+                <div class="gv-select-chips">
+                  @for (opt of selectedOptions; track trackByValue($index, opt)) {
+                    <span class="gv-select-chip">
+                      {{ opt.label }}
+                      <button
+                        type="button"
+                        class="gv-select-chip__remove"
+                        (click)="removeSelected(opt, $event)"
+                        [disabled]="disabled || loading"
+                        aria-label="Remove"
+                      >
+                        ×
+                      </button>
+                    </span>
+                  }
+                </div>
+              } @else {
+                <span
+                  class="gv-select-trigger__text"
+                  [class.gv-select-trigger__placeholder]="!selectedOptions.length"
+                >
+                  {{ loading ? loadingText : displayLabel }}
+                </span>
+              }
+            </div>
+
+            <div class="gv-select-trigger__actions">
+              @if (clearable && selectedOptions.length) {
+                <button
+                  type="button"
+                  class="gv-select-clear"
+                  (click)="clear($event)"
+                  [disabled]="disabled || loading"
+                  aria-label="Clear"
+                >
+                  ×
+                </button>
+              }
+              <span class="gv-select-caret">▾</span>
+            </div>
+          </button>
+
+          @if (isOpen) {
+            <div class="gv-select-panel">
+              @if (searchable) {
+                <div class="gv-select-search">
+                  <input
+                    type="text"
+                    class="form-control"
+                    [value]="searchTerm"
+                    [placeholder]="searchPlaceholder"
+                    (input)="searchTerm = $any($event.target).value"
+                  />
+                </div>
+              }
+
+              <div class="gv-select-options">
+                @if (filteredOptions.length) {
+                  @for (opt of filteredOptions; track trackByValue($index, opt)) {
+                    <button
+                      type="button"
+                      class="gv-select-option"
+                      [class.is-selected]="isSelected(opt.value)"
+                      [class.is-disabled]="opt.disabled"
+                      [disabled]="opt.disabled"
+                      (click)="selectOption(opt)"
+                    >
+                      @if (multiple) {
+                        <input
+                          type="checkbox"
+                          class="gv-select-option__checkbox"
+                          [checked]="isSelected(opt.value)"
+                          [disabled]="opt.disabled"
+                          tabindex="-1"
+                        />
+                      }
+
+                      <span>{{ opt.label }}</span>
+                    </button>
+                  }
+                } @else {
+                  <div class="gv-select-empty">
+                    {{ noResultsText }}
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      }
     </div>
   </div>
 

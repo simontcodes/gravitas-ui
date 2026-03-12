@@ -29,7 +29,7 @@
   font-size: 12px;
 }
 
-/* Make Bootstrap select look more “Gravitas” */
+/* Native */
 :host ::ng-deep .form-select {
   border-radius: var(--gv-radius-md, 8px);
   border-color: var(--gv-border, #e2e8f0);
@@ -38,4 +38,152 @@
 :host ::ng-deep .form-select:focus {
   border-color: rgba(59, 130, 246, 0.55);
   box-shadow: var(--gv-ring, 0 0 0 4px rgba(96, 165, 250, 0.35));
+}
+
+/* Custom mode */
+.gv-select-custom {
+  position: relative;
+}
+
+.gv-select-trigger {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid var(--gv-border, #e2e8f0);
+  border-radius: var(--gv-radius-md, 8px);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  text-align: left;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.gv-select-trigger:focus {
+  outline: none;
+  border-color: rgba(59, 130, 246, 0.55);
+  box-shadow: var(--gv-ring, 0 0 0 4px rgba(96, 165, 250, 0.35));
+}
+
+.gv-select-trigger.is-invalid {
+  border-color: var(--bs-form-invalid-border-color, #dc3545);
+}
+
+.gv-select-trigger__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.gv-select-trigger__text {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gv-select-trigger__placeholder {
+  color: var(--gv-text-muted, #64748b);
+}
+
+.gv-select-trigger__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.gv-select-clear,
+.gv-select-chip__remove {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.gv-select-caret {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.gv-select-panel {
+  position: absolute;
+  z-index: 1000;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid var(--gv-border, #e2e8f0);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  overflow: hidden;
+}
+
+.gv-select-search {
+  padding: 10px;
+  border-bottom: 1px solid var(--gv-border, #e2e8f0);
+}
+
+.gv-select-options {
+  max-height: 260px;
+  overflow: auto;
+  padding: 6px;
+}
+
+.gv-select-option {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  border-radius: 8px;
+  padding: 10px 12px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.gv-select-option:hover:not(.is-disabled) {
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.gv-select-option.is-selected {
+  background: rgba(59, 130, 246, 0.12);
+  font-weight: 600;
+}
+
+.gv-select-option.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.gv-select-option__checkbox {
+  pointer-events: none;
+}
+
+.gv-select-empty {
+  padding: 14px 12px;
+  font-size: 14px;
+  color: var(--gv-text-muted, #64748b);
+}
+
+.gv-select-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.gv-select-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--gv-text-strong, #0f172a);
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 600;
 }
