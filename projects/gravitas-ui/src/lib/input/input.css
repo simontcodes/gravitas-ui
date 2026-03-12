@@ -71,7 +71,7 @@ input.form-control:focus {
   color: var(--gv-text-muted);
 }
 
-.gv-error {
+.gv-input__error {
   font-size: 12px;
   color: var(--gv-danger);
 }

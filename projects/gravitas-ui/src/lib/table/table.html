@@ -1,0 +1,198 @@
+<div class="gv-table-shell">
+  @if (filterable || hasColumnFilters || pagination) {
+    <div class="gv-table-toolbar">
+      @if (filterable) {
+        <div class="gv-table-toolbar__search">
+          <input
+            type="text"
+            class="form-control"
+            [placeholder]="filterPlaceholder"
+            [(ngModel)]="filterTerm"
+            (ngModelChange)="onFilterChange()"
+          />
+        </div>
+      }
+
+      @if (pagination) {
+        <div class="gv-table-toolbar__page-size">
+          <label class="gv-table-toolbar__label">Rows per page</label>
+          <select
+            class="form-select"
+            [ngModel]="pageSize"
+            (ngModelChange)="onPageSizeChange($event)"
+          >
+            @for (opt of pageSizeOptions; track trackByIndex($index)) {
+              <option [value]="opt.value">{{ opt.label }}</option>
+            }
+          </select>
+        </div>
+      }
+    </div>
+  }
+
+  @if (hasColumnFilters) {
+    <div class="gv-table-filters">
+      @for (column of filterColumns; track trackByColumn($index, column)) {
+        <div class="gv-table-filter">
+          <label class="gv-table-filter__label">{{ column.label }}</label>
+
+          @switch (getFilterType(column)) {
+            @case ('text') {
+              <input
+                type="text"
+                class="form-control"
+                [value]="getTextFilterValue(column)"
+                [placeholder]="'Filter ' + column.label"
+                (input)="setTextFilterValue(column, $any($event.target).value)"
+              />
+            }
+
+            @case ('select') {
+              <select
+                class="form-select"
+                [ngModel]="getSelectFilterValue(column)"
+                (ngModelChange)="setSelectFilterValue(column, $event)"
+              >
+                <option value="">All</option>
+                @for (opt of column.filter?.options ?? []; track trackByIndex($index)) {
+                  <option [ngValue]="opt.value">{{ opt.label }}</option>
+                }
+              </select>
+            }
+
+            @case ('number-range') {
+              <div class="gv-table-filter__range">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Min"
+                  [value]="getNumberRangeFilterValue(column).min ?? ''"
+                  (input)="setNumberRangeFilterMin(column, $any($event.target).value)"
+                />
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Max"
+                  [value]="getNumberRangeFilterValue(column).max ?? ''"
+                  (input)="setNumberRangeFilterMax(column, $any($event.target).value)"
+                />
+              </div>
+            }
+
+            @case ('date-range') {
+              <div class="gv-table-filter__range">
+                <input
+                  type="date"
+                  class="form-control"
+                  [value]="getDateRangeFilterValue(column).from ?? ''"
+                  (input)="setDateRangeFilterFrom(column, $any($event.target).value)"
+                />
+                <input
+                  type="date"
+                  class="form-control"
+                  [value]="getDateRangeFilterValue(column).to ?? ''"
+                  (input)="setDateRangeFilterTo(column, $any($event.target).value)"
+                />
+              </div>
+            }
+          }
+        </div>
+      }
+
+      <div class="gv-table-filter gv-table-filter--actions">
+        <button type="button" class="gv-table-filters__clear" (click)="clearAllFilters()">
+          Clear filters
+        </button>
+      </div>
+    </div>
+  }
+
+  <div class="gv-table-wrap">
+    <table [class]="tableClass">
+      <thead>
+        <tr>
+          @for (column of columns; track trackByColumn($index, column)) {
+            <th [style.width]="column.width || null" [class]="getAlignClass(column)">
+              @if (column.sortable) {
+                <button type="button" class="gv-table__sort" (click)="toggleSort(column)">
+                  <span>{{ column.label }}</span>
+                  <span class="gv-table__sort-icon">
+                    @switch (getSortDirection(column)) {
+                      @case ('asc') {
+                        ▲
+                      }
+                      @case ('desc') {
+                        ▼
+                      }
+                      @default {
+                        ↕
+                      }
+                    }
+                  </span>
+                </button>
+              } @else {
+                <span>{{ column.label }}</span>
+              }
+            </th>
+          }
+        </tr>
+      </thead>
+
+      <tbody>
+        @if (loading) {
+          <tr>
+            <td [attr.colspan]="columns.length" class="gv-table__empty">Loading...</td>
+          </tr>
+        } @else if (!pagedRows.length) {
+          <tr>
+            <td [attr.colspan]="columns.length" class="gv-table__empty">
+              {{ emptyText }}
+            </td>
+          </tr>
+        } @else {
+          @for (row of pagedRows; track trackByIndex($index)) {
+            <tr>
+              @for (column of columns; track trackByColumn($index, column)) {
+                <td [class]="getAlignClass(column)">
+                  {{ getCellValue(row, column.key) }}
+                </td>
+              }
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+  </div>
+
+  @if (pagination) {
+    <div class="gv-table-footer">
+      <div class="gv-table-footer__meta">
+        Showing {{ startRow }} to {{ endRow }} of {{ totalRows }}
+      </div>
+
+      <div class="gv-table-pagination">
+        <button
+          type="button"
+          class="gv-table-pagination__btn"
+          (click)="previousPage()"
+          [disabled]="currentPage === 1"
+        >
+          Previous
+        </button>
+
+        <span class="gv-table-pagination__status">
+          Page {{ currentPage }} of {{ totalPages }}
+        </span>
+
+        <button
+          type="button"
+          class="gv-table-pagination__btn"
+          (click)="nextPage()"
+          [disabled]="currentPage === totalPages"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  }
+</div>
