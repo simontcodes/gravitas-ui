@@ -40,6 +40,14 @@ type GvDateRangeFilterValue = {
   to?: string | null;
 };
 
+type GvActiveFilterChip<T> = {
+  key: string;
+  label: string;
+  valueLabel: string;
+  column?: GvTableColumn<T>;
+  kind: 'global' | 'column';
+};
+
 @Component({
   selector: 'gv-table',
   standalone: true,
@@ -54,6 +62,8 @@ export class Table<T extends Record<string, any>> implements OnChanges {
 
   @Input() filterable = false;
   @Input() showColumnFilters = true;
+  @Input() collapsibleFilters = true;
+  @Input() filtersExpanded = false;
   @Input() filterPlaceholder = 'Search...';
 
   @Input() pagination = true;
@@ -66,6 +76,7 @@ export class Table<T extends Record<string, any>> implements OnChanges {
 
   @Input() rowLimit: number | null = null;
 
+  @Input() minBodyHeight = 320;
   @Input() loading = false;
   @Input() emptyText = 'No records found.';
   @Input() className = '';
@@ -80,11 +91,16 @@ export class Table<T extends Record<string, any>> implements OnChanges {
   sortDirection: GvTableSortDirection = null;
 
   columnFilters: Record<string, any> = {};
+  areFiltersOpen = false;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['rows'] || changes['rowLimit'] || changes['columns']) {
       this.initializeColumnFilters();
       this.ensureValidPage();
+    }
+
+    if (changes['filtersExpanded']) {
+      this.areFiltersOpen = !!this.filtersExpanded;
     }
   }
 
@@ -161,6 +177,113 @@ export class Table<T extends Record<string, any>> implements OnChanges {
     return (this.columns ?? []).filter((column) => column.searchable);
   }
 
+  get shouldShowFiltersPanel(): boolean {
+    if (!this.hasColumnFilters) return false;
+    if (!this.collapsibleFilters) return true;
+    return this.areFiltersOpen;
+  }
+
+  get activeFilterCount(): number {
+    return this.activeFilterChips.length;
+  }
+
+  get activeFilterChips(): GvActiveFilterChip<T>[] {
+    const chips: GvActiveFilterChip<T>[] = [];
+
+    const globalTerm = this.filterTerm.trim();
+    if (globalTerm) {
+      chips.push({
+        key: '__global__',
+        label: 'Search',
+        valueLabel: globalTerm,
+        kind: 'global',
+      });
+    }
+
+    for (const column of this.filterColumns) {
+      const key = this.getFilterKey(column);
+      const filterType = column.filter?.type;
+      const filterValue = this.columnFilters[key];
+
+      switch (filterType) {
+        case 'text': {
+          const value = String(filterValue ?? '').trim();
+          if (value) {
+            chips.push({
+              key,
+              label: column.label,
+              valueLabel: value,
+              column,
+              kind: 'column',
+            });
+          }
+          break;
+        }
+
+        case 'select': {
+          if (filterValue !== '' && filterValue != null) {
+            const optionLabel =
+              column.filter?.options?.find((opt) => opt.value === filterValue)?.label ??
+              String(filterValue);
+
+            chips.push({
+              key,
+              label: column.label,
+              valueLabel: optionLabel,
+              column,
+              kind: 'column',
+            });
+          }
+          break;
+        }
+
+        case 'number-range': {
+          const min = filterValue?.min;
+          const max = filterValue?.max;
+
+          if (min != null || max != null) {
+            let valueLabel = '';
+            if (min != null && max != null) valueLabel = `${min}–${max}`;
+            else if (min != null) valueLabel = `≥ ${min}`;
+            else valueLabel = `≤ ${max}`;
+
+            chips.push({
+              key,
+              label: column.label,
+              valueLabel,
+              column,
+              kind: 'column',
+            });
+          }
+          break;
+        }
+
+        case 'date-range': {
+          const from = filterValue?.from;
+          const to = filterValue?.to;
+
+          if (from || to) {
+            let valueLabel = '';
+            if (from && to) valueLabel = `${from} → ${to}`;
+            else if (from) valueLabel = `From ${from}`;
+            else valueLabel = `To ${to}`;
+
+            chips.push({
+              key,
+              label: column.label,
+              valueLabel,
+              column,
+              kind: 'column',
+            });
+          }
+          break;
+        }
+      }
+    }
+
+    return chips;
+  }
+
   onFilterChange(): void {
     this.currentPage = 1;
   }
@@ -173,6 +296,39 @@ export class Table<T extends Record<string, any>> implements OnChanges {
     this.pageSize = Number(value);
     this.currentPage = 1;
     this.ensureValidPage();
+  }
+
+  toggleFilters(): void {
+    if (!this.hasColumnFilters) return;
+    this.areFiltersOpen = !this.areFiltersOpen;
+  }
+
+  clearFilterChip(chip: GvActiveFilterChip<T>): void {
+    if (chip.kind === 'global') {
+      this.filterTerm = '';
+      this.currentPage = 1;
+      return;
+    }
+
+    const column = chip.column;
+    if (!column) return;
+
+    const key = this.getFilterKey(column);
+
+    switch (column.filter?.type) {
+      case 'text':
+      case 'select':
+        this.columnFilters[key] = '';
+        break;
+      case 'number-range':
+        this.columnFilters[key] = { min: null, max: null };
+        break;
+      case 'date-range':
+        this.columnFilters[key] = { from: null, to: null };
+        break;
+    }
+
+    this.currentPage = 1;
   }
 
   toggleSort(column: GvTableColumn<T>): void {
@@ -224,6 +380,7 @@ export class Table<T extends Record<string, any>> implements OnChanges {
   }
 
   trackByColumn = (_: number, column: GvTableColumn<T>) => String(column.key);
+  trackByChip = (_: number, chip: GvActiveFilterChip<T>) => chip.key;
 
   getCellValue(row: T, key: keyof T | string): any {
     return String(key)

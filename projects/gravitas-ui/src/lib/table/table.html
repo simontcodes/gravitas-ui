@@ -1,17 +1,36 @@
 <div class="gv-table-shell">
   @if (filterable || hasColumnFilters || pagination) {
     <div class="gv-table-toolbar">
-      @if (filterable) {
-        <div class="gv-table-toolbar__search">
-          <input
-            type="text"
-            class="form-control"
-            [placeholder]="filterPlaceholder"
-            [(ngModel)]="filterTerm"
-            (ngModelChange)="onFilterChange()"
-          />
-        </div>
-      }
+      <div class="gv-table-toolbar__left">
+        @if (filterable) {
+          <div class="gv-table-toolbar__search">
+            <input
+              type="text"
+              class="form-control"
+              [placeholder]="filterPlaceholder"
+              [(ngModel)]="filterTerm"
+              (ngModelChange)="onFilterChange()"
+            />
+          </div>
+        }
+
+        @if (hasColumnFilters) {
+          <button
+            type="button"
+            class="gv-table-toolbar__filters-btn"
+            [class.is-active]="activeFilterCount > 0"
+            (click)="toggleFilters()"
+          >
+            <span>Filters</span>
+            @if (activeFilterCount > 0) {
+              <span class="gv-table-toolbar__filters-count">{{ activeFilterCount }}</span>
+            }
+            <span class="gv-table-toolbar__filters-caret">
+              {{ shouldShowFiltersPanel ? '▴' : '▾' }}
+            </span>
+          </button>
+        }
+      </div>
 
       @if (pagination) {
         <div class="gv-table-toolbar__page-size">
@@ -30,76 +49,99 @@
     </div>
   }
 
-  @if (hasColumnFilters) {
-    <div class="gv-table-filters">
-      @for (column of filterColumns; track trackByColumn($index, column)) {
-        <div class="gv-table-filter">
-          <label class="gv-table-filter__label">{{ column.label }}</label>
-
-          @switch (getFilterType(column)) {
-            @case ('text') {
-              <input
-                type="text"
-                class="form-control"
-                [value]="getTextFilterValue(column)"
-                [placeholder]="'Filter ' + column.label"
-                (input)="setTextFilterValue(column, $any($event.target).value)"
-              />
-            }
-
-            @case ('select') {
-              <select
-                class="form-select"
-                [ngModel]="getSelectFilterValue(column)"
-                (ngModelChange)="setSelectFilterValue(column, $event)"
-              >
-                <option value="">All</option>
-                @for (opt of column.filter?.options ?? []; track trackByIndex($index)) {
-                  <option [ngValue]="opt.value">{{ opt.label }}</option>
-                }
-              </select>
-            }
-
-            @case ('number-range') {
-              <div class="gv-table-filter__range">
-                <input
-                  type="number"
-                  class="form-control"
-                  placeholder="Min"
-                  [value]="getNumberRangeFilterValue(column).min ?? ''"
-                  (input)="setNumberRangeFilterMin(column, $any($event.target).value)"
-                />
-                <input
-                  type="number"
-                  class="form-control"
-                  placeholder="Max"
-                  [value]="getNumberRangeFilterValue(column).max ?? ''"
-                  (input)="setNumberRangeFilterMax(column, $any($event.target).value)"
-                />
-              </div>
-            }
-
-            @case ('date-range') {
-              <div class="gv-table-filter__range">
-                <input
-                  type="date"
-                  class="form-control"
-                  [value]="getDateRangeFilterValue(column).from ?? ''"
-                  (input)="setDateRangeFilterFrom(column, $any($event.target).value)"
-                />
-                <input
-                  type="date"
-                  class="form-control"
-                  [value]="getDateRangeFilterValue(column).to ?? ''"
-                  (input)="setDateRangeFilterTo(column, $any($event.target).value)"
-                />
-              </div>
-            }
-          }
-        </div>
+  @if (activeFilterChips.length) {
+    <div class="gv-table-active-filters">
+      @for (chip of activeFilterChips; track trackByChip($index, chip)) {
+        <button
+          type="button"
+          class="gv-table-active-filters__chip"
+          (click)="clearFilterChip(chip)"
+          [attr.aria-label]="'Remove filter ' + chip.label"
+        >
+          <span class="gv-table-active-filters__chip-label">{{ chip.label }}:</span>
+          <span class="gv-table-active-filters__chip-value">{{ chip.valueLabel }}</span>
+          <span class="gv-table-active-filters__chip-remove">×</span>
+        </button>
       }
 
-      <div class="gv-table-filter gv-table-filter--actions">
+      <button type="button" class="gv-table-active-filters__clear-all" (click)="clearAllFilters()">
+        Clear all
+      </button>
+    </div>
+  }
+
+  @if (shouldShowFiltersPanel) {
+    <div class="gv-table-filters">
+      <div class="gv-table-filters__grid">
+        @for (column of filterColumns; track trackByColumn($index, column)) {
+          <div class="gv-table-filter">
+            <label class="gv-table-filter__label">{{ column.label }}</label>
+
+            @switch (getFilterType(column)) {
+              @case ('text') {
+                <input
+                  type="text"
+                  class="form-control"
+                  [value]="getTextFilterValue(column)"
+                  [placeholder]="'Filter ' + column.label"
+                  (input)="setTextFilterValue(column, $any($event.target).value)"
+                />
+              }
+
+              @case ('select') {
+                <select
+                  class="form-select"
+                  [ngModel]="getSelectFilterValue(column)"
+                  (ngModelChange)="setSelectFilterValue(column, $event)"
+                >
+                  <option value="">All</option>
+                  @for (opt of column.filter?.options ?? []; track trackByIndex($index)) {
+                    <option [ngValue]="opt.value">{{ opt.label }}</option>
+                  }
+                </select>
+              }
+
+              @case ('number-range') {
+                <div class="gv-table-filter__range">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Min"
+                    [value]="getNumberRangeFilterValue(column).min ?? ''"
+                    (input)="setNumberRangeFilterMin(column, $any($event.target).value)"
+                  />
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Max"
+                    [value]="getNumberRangeFilterValue(column).max ?? ''"
+                    (input)="setNumberRangeFilterMax(column, $any($event.target).value)"
+                  />
+                </div>
+              }
+
+              @case ('date-range') {
+                <div class="gv-table-filter__range">
+                  <input
+                    type="date"
+                    class="form-control"
+                    [value]="getDateRangeFilterValue(column).from ?? ''"
+                    (input)="setDateRangeFilterFrom(column, $any($event.target).value)"
+                  />
+                  <input
+                    type="date"
+                    class="form-control"
+                    [value]="getDateRangeFilterValue(column).to ?? ''"
+                    (input)="setDateRangeFilterTo(column, $any($event.target).value)"
+                  />
+                </div>
+              }
+            }
+          </div>
+        }
+      </div>
+
+      <div class="gv-table-filters__actions">
         <button type="button" class="gv-table-filters__clear" (click)="clearAllFilters()">
           Clear filters
         </button>
@@ -107,7 +149,7 @@
     </div>
   }
 
-  <div class="gv-table-wrap">
+  <div class="gv-table-wrap" [style.min-height.px]="minBodyHeight">
     <table [class]="tableClass">
       <thead>
         <tr>
@@ -141,11 +183,21 @@
       <tbody>
         @if (loading) {
           <tr>
-            <td [attr.colspan]="columns.length" class="gv-table__empty">Loading...</td>
+            <td
+              [attr.colspan]="columns.length"
+              class="gv-table__empty gv-table__empty--fill"
+              [style.height.px]="minBodyHeight"
+            >
+              Loading...
+            </td>
           </tr>
         } @else if (!pagedRows.length) {
           <tr>
-            <td [attr.colspan]="columns.length" class="gv-table__empty">
+            <td
+              [attr.colspan]="columns.length"
+              class="gv-table__empty gv-table__empty--fill"
+              [style.height.px]="minBodyHeight"
+            >
               {{ emptyText }}
             </td>
           </tr>
@@ -173,24 +225,28 @@
       <div class="gv-table-pagination">
         <button
           type="button"
-          class="gv-table-pagination__btn"
+          class="gv-table-pagination__icon-btn"
           (click)="previousPage()"
           [disabled]="currentPage === 1"
+          aria-label="Previous page"
         >
-          Previous
+          ‹
         </button>
 
-        <span class="gv-table-pagination__status">
-          Page {{ currentPage }} of {{ totalPages }}
-        </span>
+        <div class="gv-table-pagination__pill">
+          <span class="gv-table-pagination__current">{{ currentPage }}</span>
+          <span class="gv-table-pagination__separator">/</span>
+          <span class="gv-table-pagination__total">{{ totalPages }}</span>
+        </div>
 
         <button
           type="button"
-          class="gv-table-pagination__btn"
+          class="gv-table-pagination__icon-btn"
           (click)="nextPage()"
           [disabled]="currentPage === totalPages"
+          aria-label="Next page"
         >
-          Next
+          ›
         </button>
       </div>
     </div>
