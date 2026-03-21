@@ -17,3 +17,4 @@ export * from './table/table';
 export * from './skeleton/skeleton';
 export * from './dropdown/dropdown';
 export * from './badge/badge';
+export * from './alert/alert';

@@ -1,0 +1,26 @@
+@if (visible) {
+  <div class="gv-alert__surface">
+    <div class="gv-alert__body">
+      <div class="gv-alert__content">
+        @if (title?.trim()) {
+          <div class="gv-alert__title">{{ title }}</div>
+        }
+
+        <div class="gv-alert__message">
+          <ng-content></ng-content>
+        </div>
+      </div>
+
+      @if (dismissible) {
+        <button
+          type="button"
+          class="gv-alert__close"
+          aria-label="Dismiss alert"
+          (click)="onDismiss()"
+        >
+          ×
+        </button>
+      }
+    </div>
+  </div>
+}
