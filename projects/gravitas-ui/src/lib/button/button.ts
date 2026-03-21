@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 type ButtonVariant =
   | 'primary'
@@ -15,12 +15,16 @@ type ButtonSize = 'sm' | 'md' | 'lg';
 
 @Component({
   selector: 'gv-button',
+  standalone: true,
   templateUrl: './button.html',
   styleUrls: ['./button.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Button {
- /** Native button type attribute. */
+  @ViewChild('buttonElement', { static: true })
+  buttonElement?: ElementRef<HTMLButtonElement>;
+
+  /** Native button type attribute. */
   @Input() type: 'button' | 'submit' | 'reset' = 'button';
 
   /** Visual style variant. Maps to Bootstrap variants (btn-*) with Gravitas styling. */
@@ -44,6 +48,10 @@ export class Button {
   /** Extra CSS classes applied to the button element (ex: "mt-3 px-4"). */
   @Input() className = '';
 
+  get nativeButton(): HTMLButtonElement | null {
+    return this.buttonElement?.nativeElement ?? null;
+  }
+
   get isDisabled(): boolean {
     return this.disabled || this.loading;
   }
@@ -64,5 +72,9 @@ export class Button {
     ]
       .filter(Boolean)
       .join(' ');
+  }
+
+  focus(): void {
+    this.nativeButton?.focus();
   }
 }

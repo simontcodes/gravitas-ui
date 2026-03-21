@@ -1,0 +1,13 @@
+<div
+  class="gv-dropdown__trigger-wrap"
+  (click)="toggle($event)"
+  (keydown)="onTriggerKeydown($event)"
+>
+  <ng-content select="[gvDropdownTrigger]"></ng-content>
+</div>
+
+@if (open) {
+  <div class="gv-dropdown__panel" (click)="onMenuClick($event)" (keydown)="onMenuKeydown($event)">
+    <ng-content select="[gvDropdownMenu]"></ng-content>
+  </div>
+}

@@ -1,0 +1,12 @@
+<div class="gv-skeleton__group" role="status" aria-live="polite" aria-label="Loading content">
+  @for (line of resolvedLines; track line) {
+    <span
+      class="gv-skeleton__item"
+      [style.width]="lineWidth($index)"
+      [style.height]="variant === 'text' ? height || null : null"
+      aria-hidden="true"
+    ></span>
+  }
+
+  <span class="visually-hidden">Loading content</span>
+</div>
