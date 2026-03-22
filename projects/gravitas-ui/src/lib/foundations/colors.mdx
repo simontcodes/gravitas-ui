@@ -1,0 +1,90 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Colors" />
+
+# Colors
+
+Gravitas uses a token-based color system so components stay consistent across the library.
+
+---
+
+## Core tokens
+
+- `--gv-color-primary`
+- `--gv-color-success`
+- `--gv-color-warning`
+- `--gv-color-danger`
+- `--gv-color-info`
+
+---
+
+## Surface tokens
+
+- `--gv-surface`
+- `--gv-surface-muted`
+- `--gv-surface-elevated`
+
+---
+
+## Text tokens
+
+- `--gv-text-primary`
+- `--gv-text-secondary`
+- `--gv-text-muted`
+- `--gv-text-inverse`
+
+---
+
+## Borders
+
+- `--gv-border-color`
+- `--gv-border-color-strong`
+
+---
+
+## Example
+
+<div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '16px' }}>
+  <div
+    style={{
+      width: '120px',
+      height: '80px',
+      borderRadius: '12px',
+      background: 'var(--gv-color-primary)',
+      border: '1px solid var(--gv-border-color)',
+    }}
+  />
+  <div
+    style={{
+      width: '120px',
+      height: '80px',
+      borderRadius: '12px',
+      background: 'var(--gv-color-success)',
+      border: '1px solid var(--gv-border-color)',
+    }}
+  />
+  <div
+    style={{
+      width: '120px',
+      height: '80px',
+      borderRadius: '12px',
+      background: 'var(--gv-color-warning)',
+      border: '1px solid var(--gv-border-color)',
+    }}
+  />
+  <div
+    style={{
+      width: '120px',
+      height: '80px',
+      borderRadius: '12px',
+      background: 'var(--gv-color-danger)',
+      border: '1px solid var(--gv-border-color)',
+    }}
+  />
+</div>
+
+---
+
+## Rule
+
+Components should use semantic tokens whenever possible instead of hardcoded colors.

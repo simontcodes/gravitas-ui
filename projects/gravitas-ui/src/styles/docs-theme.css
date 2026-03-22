@@ -1,0 +1,225 @@
+/* =========================================
+   Gravitas Docs Theme (Final)
+========================================= */
+
+.gv-doc-page {
+  color: var(--gv-text);
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* 🔥 controls ALL vertical spacing */
+}
+
+/* ---------- Section Headings ---------- */
+
+.gv-doc-page h2 {
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  color: var(--gv-text-strong);
+  border-bottom: 1px solid var(--gv-border);
+}
+
+.gv-doc-page > p {
+  margin: 0;
+}
+
+/* ---------- HERO ---------- */
+
+.gv-doc-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 36px;
+  border-radius: 24px;
+  background:
+    radial-gradient(
+      circle at 20% 18%,
+      color-mix(in srgb, var(--gv-text-inverse) 12%, transparent),
+      transparent 38%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--gv-bg-deep) 82%, var(--gv-accent) 18%) 0%,
+      color-mix(in srgb, var(--gv-accent) 78%, var(--gv-bg-deep) 22%) 58%,
+      color-mix(in srgb, var(--gv-accent) 62%, var(--gv-surface) 38%) 100%
+    );
+  color: var(--gv-text-inverse);
+  box-shadow: var(--gv-shadow-lg);
+  border: 1px solid color-mix(in srgb, var(--gv-text-inverse) 10%, transparent);
+}
+
+/* 🔥 Force all hero text to be readable */
+.gv-doc-hero * {
+  color: var(--gv-text-inverse) !important;
+}
+
+/* Glow effect */
+.gv-doc-hero::after {
+  content: '';
+  position: absolute;
+  top: -64px;
+  right: -64px;
+  width: 240px;
+  height: 240px;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--gv-text-inverse) 16%, transparent),
+    transparent 70%
+  );
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+/* ---------- HERO CONTENT ---------- */
+
+.gv-doc-kicker {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 18px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--gv-text-inverse) 14%, transparent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gv-doc-hero-title {
+  margin: 0 0 14px;
+  max-width: 760px;
+  font-size: 42px;
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.gv-doc-hero-copy {
+  margin: 0;
+  max-width: 760px;
+  color: color-mix(in srgb, var(--gv-text-inverse) 90%, transparent) !important;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.gv-doc-hero-rule {
+  width: 64px;
+  height: 3px;
+  margin-top: 22px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--gv-text-inverse) 90%, transparent);
+}
+
+/* ---------- GRID (cards) ---------- */
+
+.gv-doc-grid {
+  display: grid;
+  gap: 16px;
+  margin: 0; /* 🔥 spacing handled by parent */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.gv-doc-grid--wide {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* ---------- CARDS ---------- */
+
+.gv-doc-card {
+  padding: 20px;
+  border-radius: 18px;
+  background: var(--gv-surface);
+  border: 1px solid var(--gv-border);
+  box-shadow: var(--gv-shadow-sm);
+}
+
+.gv-doc-card--tinted {
+  background: color-mix(in srgb, var(--gv-surface) 90%, var(--gv-accent) 10%);
+}
+
+.gv-doc-card-title {
+  margin: 0 0 8px;
+  color: var(--gv-text-strong);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.gv-doc-card-copy {
+  margin: 0;
+  color: var(--gv-text-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* ---------- CALLOUTS ---------- */
+
+.gv-doc-callout-list {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+}
+
+.gv-doc-callout {
+  padding: 18px 20px;
+  border-left: 4px solid var(--gv-accent);
+  border-radius: 14px;
+  background: var(--gv-surface);
+  border: 1px solid var(--gv-border);
+  box-shadow: var(--gv-shadow-sm);
+}
+
+.gv-doc-callout-title {
+  margin: 0 0 6px;
+  color: var(--gv-text-strong);
+  font-weight: 700;
+}
+
+.gv-doc-callout-copy {
+  margin: 0;
+  color: var(--gv-text-muted);
+  line-height: 1.65;
+}
+
+/* ---------- PANEL ---------- */
+
+.gv-doc-panel {
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--gv-surface);
+  border: 1px solid var(--gv-border);
+  box-shadow: var(--gv-shadow-sm);
+}
+
+/* ---------- TEXT ---------- */
+
+.gv-doc-list {
+  margin: 0;
+  padding-left: 18px;
+  line-height: 1.85;
+}
+
+.gv-doc-section-copy {
+  margin: 0;
+  color: var(--gv-text-muted);
+  line-height: 1.75;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 768px) {
+  .gv-doc-page {
+    gap: 28px;
+  }
+
+  .gv-doc-hero {
+    padding: 28px;
+    border-radius: 20px;
+  }
+
+  .gv-doc-hero-title {
+    font-size: 32px;
+  }
+
+  .gv-doc-hero-copy {
+    font-size: 15px;
+  }
+}

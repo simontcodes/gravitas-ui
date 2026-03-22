@@ -3,7 +3,7 @@ import { Component, Input, inject } from '@angular/core';
 import { Toasts } from './toasts';
 import { ToastService } from './toasts.service';
 import { ToastPosition } from './toast.model';
-import { Button } from '../button/button';
+import { Button } from '../../components/button/button';
 
 @Component({
   selector: 'gv-toast-demo',

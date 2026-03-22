@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { Modal } from './modal';
-import { Button } from '../button/button';
+import { Button } from '../../components/button/button';
 
 type ModalSize = 'sm' | 'md' | 'lg' | 'xl';
 

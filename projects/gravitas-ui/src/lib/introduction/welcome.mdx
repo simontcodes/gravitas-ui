@@ -1,0 +1,172 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction/Welcome" />
+
+<div className="gv-doc-page">
+  <div className="gv-doc-hero">
+    <div className="gv-doc-kicker">Gravitas UI · Design System</div>
+    <h1 className="gv-doc-hero-title">Build consistent interfaces</h1>
+    <p className="gv-doc-hero-copy">
+      Gravitas UI is the shared component system for building reliable, polished
+      interfaces. Use it as the reference for components, patterns, and design
+      decisions across all applications.
+    </p>
+    <div className="gv-doc-hero-rule" />
+  </div>
+
+<div className="gv-doc-grid">
+  {[
+    {
+      title: 'Shared foundation',
+      text: 'A common visual language for spacing, typography, color, density, and theming.',
+    },
+    {
+      title: 'Reusable components',
+      text: 'UI building blocks designed to be consistent, practical, and easy to adopt.',
+    },
+    {
+      title: 'Patterns and examples',
+      text: 'References for how components should work together in real interfaces.',
+    },
+    {
+      title: 'Single source of truth',
+      text: 'A place to review, test, and document UI before it spreads into product code.',
+    },
+  ].map((item) => (
+    <div key={item.title} className="gv-doc-card">
+      <h3 className="gv-doc-card-title">{item.title}</h3>
+      <p className="gv-doc-card-copy">{item.text}</p>
+    </div>
+  ))}
+</div>
+
+## Why Gravitas exists
+
+<p className="gv-doc-section-copy">
+  When teams build UI without a shared system, the same problems show up quickly: slightly different
+  buttons, inconsistent spacing, repeated form patterns, duplicated styling logic, and components
+  that behave differently depending on who built them.
+</p>
+
+<p className="gv-doc-section-copy">
+  Gravitas exists to reduce that drift. The goal is to provide a set of shared foundations and
+  reusable components so interfaces feel related, predictable, and easier to maintain over time.
+</p>
+
+  <div className="gv-doc-grid gv-doc-grid--wide">
+    <div className="gv-doc-card">
+      <h3 className="gv-doc-card-title">What belongs here</h3>
+      <ul className="gv-doc-list">
+        <li>Reusable UI components</li>
+        <li>Shared visual tokens and rules</li>
+        <li>Common interaction patterns</li>
+        <li>Documented states and expected usage</li>
+      </ul>
+    </div>
+
+    <div className="gv-doc-card">
+      <h3 className="gv-doc-card-title">What usually does not</h3>
+      <ul className="gv-doc-list">
+        <li>One-off page-specific UI</li>
+        <li>Temporary product hacks</li>
+        <li>Highly specialized flows with no reuse value</li>
+        <li>Unreviewed styling shortcuts</li>
+      </ul>
+    </div>
+
+  </div>
+
+## How to use this Storybook
+
+<div className="gv-doc-grid">
+  {[
+    {
+      title: 'Introduction',
+      text: 'Context for the library, how it is structured, and how it should be approached.',
+    },
+    {
+      title: 'Foundations',
+      text: 'The underlying design decisions: color, typography, spacing, density, and themes.',
+    },
+    {
+      title: 'Components',
+      text: 'Individual UI building blocks with supported variants, states, and examples.',
+    },
+    {
+      title: 'Patterns',
+      text: 'Examples of how several components work together in realistic UI compositions.',
+    },
+  ].map((item) => (
+    <div key={item.title} className="gv-doc-card gv-doc-card--tinted">
+      <h3 className="gv-doc-card-title">{item.title}</h3>
+      <p className="gv-doc-card-copy">{item.text}</p>
+    </div>
+  ))}
+</div>
+
+## Working principles
+
+<div className="gv-doc-callout-list">
+  {[
+    [
+      'Consistency over novelty',
+      'Components should feel like part of the same system instead of separate inventions.',
+    ],
+    [
+      'Reuse over duplication',
+      'If the same solution appears in multiple places, it should probably be standardized.',
+    ],
+    ['Clear defaults', 'Components should be easy to use well without requiring a lot of setup.'],
+    [
+      'Accessibility as a baseline',
+      'Focus states, keyboard support, readable contrast, and labeling should be expected from the start.',
+    ],
+  ].map(([title, text]) => (
+    <div key={title} className="gv-doc-callout">
+      <div className="gv-doc-callout-title">{title}</div>
+      <p className="gv-doc-callout-copy">{text}</p>
+    </div>
+  ))}
+</div>
+
+## Expectations when contributing
+
+<p className="gv-doc-section-copy">
+  A component is not finished just because it renders correctly once.
+</p>
+
+<p className="gv-doc-section-copy">
+  When adding or updating something in Gravitas, its Storybook entry should be updated too. That
+  includes realistic stories, key states, and documentation that reflects how the component is
+  actually meant to be used.
+</p>
+
+<p className="gv-doc-section-copy">
+  Good entries usually show the primary use case, supported variants, important states such as
+  disabled, loading, empty, or error, and any accessibility notes that help another developer use
+  the component correctly.
+</p>
+
+## Themes and density
+
+<p className="gv-doc-section-copy">
+  Use the toolbar at the top of Storybook to switch theme and density. These global controls are
+  part of the review process, not just decoration. Components should be checked in more than one
+  presentation mode, especially when working on forms, tables, and dense application layouts.
+</p>
+
+  <div className="gv-doc-panel">
+    <h2 style={{ marginTop: 0 }}>Suggested path</h2>
+    <p className="gv-doc-section-copy" style={{ marginBottom: '12px' }}>
+      If you are new to the library, this is a good order:
+    </p>
+
+    <ol className="gv-doc-list">
+      <li>Start with Foundations</li>
+      <li>Review the core Components</li>
+      <li>Look at Patterns to see how pieces fit together</li>
+      <li>Use Storybook as the reference before building custom UI</li>
+    </ol>
+
+  </div>
+</div>
