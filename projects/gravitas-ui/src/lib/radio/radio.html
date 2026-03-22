@@ -1,0 +1,50 @@
+<label class="gv-radio" [attr.for]="inputId">
+  <span class="gv-radio__control">
+    <input
+      #inputRef
+      class="gv-radio__input"
+      type="radio"
+      [id]="inputId"
+      [name]="name || null"
+      [checked]="checked"
+      [disabled]="disabled"
+      [required]="required"
+      [value]="value"
+      [attr.aria-invalid]="errorText ? 'true' : null"
+      [attr.aria-describedby]="description || helperText || errorText ? inputId + '-meta' : null"
+      (change)="handleInputChange($event)"
+      (focus)="handleFocus()"
+      (blur)="handleBlur()"
+    />
+
+    <span class="gv-radio__outer" aria-hidden="true">
+      <span class="gv-radio__inner"></span>
+    </span>
+  </span>
+
+  <span class="gv-radio__content">
+    @if (label) {
+      <span class="gv-radio__label">
+        {{ label }}
+        @if (required) {
+          <span class="gv-radio__required" aria-hidden="true">*</span>
+        }
+      </span>
+    }
+
+    @if (description || helperText || errorText) {
+      <span class="gv-radio__meta" [id]="inputId + '-meta'">
+        @if (errorText) {
+          <span class="gv-radio__error-text">{{ errorText }}</span>
+        } @else {
+          @if (description) {
+            <span class="gv-radio__description">{{ description }}</span>
+          }
+          @if (helperText) {
+            <span class="gv-radio__helper-text">{{ helperText }}</span>
+          }
+        }
+      </span>
+    }
+  </span>
+</label>

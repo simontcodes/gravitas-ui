@@ -1,0 +1,66 @@
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1080;
+  pointer-events: none;
+  display: block;
+}
+
+.gv-tooltip-panel__inner {
+  position: relative;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  background: #0f172a;
+  color: #f8fafc;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.18),
+    0 4px 12px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  word-break: break-word;
+}
+
+.gv-tooltip-panel__arrow {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #0f172a;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  transform: rotate(45deg);
+}
+
+:host(.gv-tooltip-panel--top) .gv-tooltip-panel__arrow {
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  border-left: 0;
+  border-top: 0;
+}
+
+:host(.gv-tooltip-panel--bottom) .gv-tooltip-panel__arrow {
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  border-right: 0;
+  border-bottom: 0;
+}
+
+:host(.gv-tooltip-panel--left) .gv-tooltip-panel__arrow {
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  border-left: 0;
+  border-bottom: 0;
+}
+
+:host(.gv-tooltip-panel--right) .gv-tooltip-panel__arrow {
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  border-right: 0;
+  border-top: 0;
+}

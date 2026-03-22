@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Empty } from '../empty/empty';
 
 export type GvTableSortDirection = 'asc' | 'desc' | null;
 export type GvTableFilterType = 'text' | 'select' | 'number-range' | 'date-range';
@@ -51,7 +52,7 @@ type GvActiveFilterChip<T> = {
 @Component({
   selector: 'gv-table',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, Empty],
   templateUrl: './table.html',
   styleUrls: ['./table.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -79,6 +80,11 @@ export class Table<T extends Record<string, any>> implements OnChanges {
   @Input() minBodyHeight = 320;
   @Input() loading = false;
   @Input() emptyText = 'No records found.';
+  @Input() emptyTitle = 'No records found';
+  @Input() emptyDescription = 'There are no rows to display right now.';
+  @Input() loadingTitle = 'Loading data';
+  @Input() loadingDescription = 'Please wait while the table content is loaded.';
+
   @Input() className = '';
   @Input() striped = false;
   @Input() hover = true;
@@ -282,6 +288,10 @@ export class Table<T extends Record<string, any>> implements OnChanges {
     }
 
     return chips;
+  }
+
+  get resolvedEmptyDescription(): string {
+    return this.emptyDescription?.trim() || this.emptyText;
   }
 
   onFilterChange(): void {

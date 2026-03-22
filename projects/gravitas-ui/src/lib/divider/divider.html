@@ -1,0 +1,13 @@
+@if (orientation === 'horizontal') {
+  <div class="gv-divider gv-divider--horizontal" role="separator" aria-orientation="horizontal">
+    @if (label) {
+      <span class="gv-divider__line"></span>
+      <span class="gv-divider__label">{{ label }}</span>
+      <span class="gv-divider__line"></span>
+    } @else {
+      <span class="gv-divider__line gv-divider__line--full"></span>
+    }
+  </div>
+} @else {
+  <div class="gv-divider gv-divider--vertical" role="separator" aria-orientation="vertical"></div>
+}

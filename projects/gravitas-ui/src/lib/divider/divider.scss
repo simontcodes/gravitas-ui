@@ -1,0 +1,68 @@
+:host {
+  display: block;
+}
+
+.gv-divider-host {
+  --gv-divider-color: rgba(148, 163, 184, 0.28);
+  --gv-divider-label-color: #64748b;
+  --gv-divider-gap: 0.75rem;
+}
+
+.gv-divider {
+  display: flex;
+  align-items: center;
+}
+
+.gv-divider--horizontal {
+  width: 100%;
+  min-width: 0;
+  gap: var(--gv-divider-gap);
+}
+
+.gv-divider__line {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 1px;
+  background: var(--gv-divider-color);
+}
+
+.gv-divider__line--full {
+  width: 100%;
+}
+
+.gv-divider__label {
+  flex: 0 0 auto;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gv-divider-label-color);
+  white-space: nowrap;
+}
+
+.gv-divider--vertical {
+  width: 1px;
+  height: 100%;
+  min-height: 1.5rem;
+  background: var(--gv-divider-color);
+  align-self: stretch;
+}
+
+:host(.gv-divider-host--horizontal) {
+  width: 100%;
+}
+
+:host(.gv-divider-host--vertical) {
+  display: inline-flex;
+  width: auto;
+  height: 100%;
+  min-height: 1.5rem;
+}
+
+:host(.gv-divider-host--inset.gv-divider-host--horizontal) {
+  padding-inline: 0.75rem;
+}
+
+:host(.gv-divider-host--inset.gv-divider-host--vertical) {
+  padding-block: 0.25rem;
+}

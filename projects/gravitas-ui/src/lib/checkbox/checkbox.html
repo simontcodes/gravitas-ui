@@ -1,0 +1,61 @@
+<label class="gv-checkbox" [attr.for]="inputId">
+  <span class="gv-checkbox__control">
+    <input
+      #inputRef
+      class="gv-checkbox__input"
+      type="checkbox"
+      [id]="inputId"
+      [name]="name || null"
+      [checked]="checked"
+      [disabled]="disabled"
+      [required]="required"
+      [attr.aria-invalid]="errorText ? 'true' : null"
+      [attr.aria-describedby]="description || helperText || errorText ? inputId + '-meta' : null"
+      (change)="handleInputChange($event)"
+      (focus)="handleFocus()"
+      (blur)="handleBlur()"
+    />
+
+    <span class="gv-checkbox__box" aria-hidden="true">
+      @if (indeterminate) {
+        <span class="gv-checkbox__mark gv-checkbox__mark--indeterminate"></span>
+      } @else if (checked) {
+        <svg class="gv-checkbox__mark gv-checkbox__mark--check" viewBox="0 0 16 16" fill="none">
+          <path
+            d="M3.5 8.25L6.5 11.25L12.5 4.75"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      }
+    </span>
+  </span>
+
+  <span class="gv-checkbox__content">
+    @if (label) {
+      <span class="gv-checkbox__label">
+        {{ label }}
+        @if (required) {
+          <span class="gv-checkbox__required" aria-hidden="true">*</span>
+        }
+      </span>
+    }
+
+    @if (description || helperText || errorText) {
+      <span class="gv-checkbox__meta" [id]="inputId + '-meta'">
+        @if (errorText) {
+          <span class="gv-checkbox__error-text">{{ errorText }}</span>
+        } @else {
+          @if (description) {
+            <span class="gv-checkbox__description">{{ description }}</span>
+          }
+          @if (helperText) {
+            <span class="gv-checkbox__helper-text">{{ helperText }}</span>
+          }
+        }
+      </span>
+    }
+  </span>
+</label>

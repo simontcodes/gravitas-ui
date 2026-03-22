@@ -1,0 +1,12 @@
+<button
+  class="gv-icon-button"
+  [attr.aria-label]="ariaLabel || null"
+  [attr.title]="ariaLabel || null"
+  [attr.type]="type"
+  [disabled]="disabled"
+  (click)="onClick($event)"
+>
+  <span class="gv-icon-button__content">
+    <ng-content></ng-content>
+  </span>
+</button>

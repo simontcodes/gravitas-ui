@@ -271,9 +271,22 @@
 }
 
 .gv-table__empty {
-  text-align: center;
-  padding: 24px !important;
+  padding: 0 !important;
   color: var(--gv-text-muted, #64748b);
+}
+
+.gv-table__empty--fill {
+  vertical-align: middle;
+}
+
+:host ::ng-deep .gv-table__empty gv-empty {
+  display: block;
+  width: 100%;
+}
+
+:host ::ng-deep .gv-table__empty .gv-empty__container {
+  min-height: 100%;
+  padding: 24px;
 }
 
 .gv-table-footer {

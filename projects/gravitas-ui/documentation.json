@@ -8,6 +8,244 @@
     "directives": [],
     "components": [
         {
+            "name": "AvatarStoryDemoComponent",
+            "id": "component-AvatarStoryDemoComponent-14f8671190bba3d624225641a5e3eb6ca5cb6032d479f837b10a0475b90c10505fd691f8ae6fb5a3bc6c4c1dc770e601f51e1a1f418f7a29848e7fe0fc0363a9",
+            "file": "projects/gravitas-ui/src/lib/avatar/avatar.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "gv-avatar-demo",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div class=\"p-4 d-flex flex-column gap-4\">\n  <div>\n    <h6 class=\"mb-1\">Gravitas Avatar</h6>\n    <p class=\"text-muted mb-0\" style=\"max-width: 760px;\">\n      Compact identity primitive for people, assignees, account chips, table rows, comments,\n      headers, and lightweight admin UI surfaces.\n    </p>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Initials</div>\n    <div class=\"d-flex flex-wrap gap-3 align-items-center\">\n      <gv-avatar initials=\"ST\"></gv-avatar>\n      <gv-avatar initials=\"MB\" size=\"sm\"></gv-avatar>\n      <gv-avatar initials=\"GV\" size=\"lg\"></gv-avatar>\n      <gv-avatar initials=\"UI\" size=\"xl\"></gv-avatar>\n    </div>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Image avatars</div>\n    <div class=\"d-flex flex-wrap gap-3 align-items-center\">\n      <gv-avatar src=\"https://i.pravatar.cc/80?img=12\" alt=\"User avatar\"></gv-avatar>\n\n      <gv-avatar src=\"https://i.pravatar.cc/80?img=24\" alt=\"User avatar\" size=\"lg\"></gv-avatar>\n\n      <gv-avatar src=\"https://i.pravatar.cc/100?img=31\" alt=\"User avatar\" size=\"xl\"></gv-avatar>\n    </div>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Shapes</div>\n    <div class=\"d-flex flex-wrap gap-3 align-items-center\">\n      <gv-avatar initials=\"ST\" shape=\"circle\"></gv-avatar>\n      <gv-avatar initials=\"ST\" shape=\"rounded\"></gv-avatar>\n      <gv-avatar initials=\"ST\" shape=\"square\"></gv-avatar>\n    </div>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Fallback behavior</div>\n    <div class=\"d-flex flex-wrap gap-3 align-items-center\">\n      <gv-avatar initials=\"NA\"></gv-avatar>\n\n      <gv-avatar\n        src=\"https://example.invalid/broken-image.jpg\"\n        alt=\"Broken image fallback\"\n        initials=\"BK\"\n      ></gv-avatar>\n\n      <gv-avatar initials=\"?\"></gv-avatar>\n    </div>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Sizes</div>\n    <div class=\"d-flex flex-wrap gap-3 align-items-center\">\n      <gv-avatar initials=\"SM\" size=\"sm\"></gv-avatar>\n      <gv-avatar initials=\"MD\" size=\"md\"></gv-avatar>\n      <gv-avatar initials=\"LG\" size=\"lg\"></gv-avatar>\n      <gv-avatar initials=\"XL\" size=\"xl\"></gv-avatar>\n    </div>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">In context</div>\n    <div\n      class=\"rounded-4 border bg-white p-3 d-flex align-items-center justify-content-between\"\n      style=\"border-color: rgba(148, 163, 184, 0.24); max-width: 520px;\"\n    >\n      <div class=\"d-flex align-items-center gap-3\">\n        <gv-avatar initials=\"ST\" size=\"lg\"></gv-avatar>\n\n        <div class=\"min-w-0\">\n          <div class=\"fw-semibold text-dark\">Simón Tang</div>\n          <div class=\"text-muted small\">Agency Owner</div>\n        </div>\n      </div>\n\n      <span\n        class=\"badge rounded-pill text-bg-light border\"\n        style=\"border-color: rgba(148, 163, 184, 0.24);\"\n      >\n        Active\n      </span>\n    </div>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Team row example</div>\n    <div\n      class=\"rounded-4 border bg-white p-3 d-flex flex-column gap-3\"\n      style=\"border-color: rgba(148, 163, 184, 0.24); max-width: 560px;\"\n    >\n      <div class=\"d-flex align-items-center justify-content-between\">\n        <div class=\"d-flex align-items-center gap-3\">\n          <gv-avatar src=\"https://i.pravatar.cc/80?img=15\" alt=\"Caitlin avatar\"></gv-avatar>\n\n          <div>\n            <div class=\"fw-semibold text-dark\">Caitlin Morris</div>\n            <div class=\"text-muted small\">Senior Coordinator</div>\n          </div>\n        </div>\n\n        <span class=\"text-muted small\">Toronto</span>\n      </div>\n\n      <div class=\"d-flex align-items-center justify-content-between\">\n        <div class=\"d-flex align-items-center gap-3\">\n          <gv-avatar initials=\"AR\"></gv-avatar>\n\n          <div>\n            <div class=\"fw-semibold text-dark\">Andrés Rojas</div>\n            <div class=\"text-muted small\">Broker</div>\n          </div>\n        </div>\n\n        <span class=\"text-muted small\">Remote</span>\n      </div>\n    </div>\n  </div>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "Avatar"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import type { Meta, StoryObj } from '@storybook/angular';\r\nimport { Component } from '@angular/core';\r\nimport { Avatar } from './avatar';\r\n\r\n@Component({\r\n  selector: 'gv-avatar-demo',\r\n  standalone: true,\r\n  imports: [Avatar],\r\n  template: `\r\n    <div class=\"p-4 d-flex flex-column gap-4\">\r\n      <div>\r\n        <h6 class=\"mb-1\">Gravitas Avatar</h6>\r\n        <p class=\"text-muted mb-0\" style=\"max-width: 760px;\">\r\n          Compact identity primitive for people, assignees, account chips, table rows, comments,\r\n          headers, and lightweight admin UI surfaces.\r\n        </p>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Initials</div>\r\n        <div class=\"d-flex flex-wrap gap-3 align-items-center\">\r\n          <gv-avatar initials=\"ST\"></gv-avatar>\r\n          <gv-avatar initials=\"MB\" size=\"sm\"></gv-avatar>\r\n          <gv-avatar initials=\"GV\" size=\"lg\"></gv-avatar>\r\n          <gv-avatar initials=\"UI\" size=\"xl\"></gv-avatar>\r\n        </div>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Image avatars</div>\r\n        <div class=\"d-flex flex-wrap gap-3 align-items-center\">\r\n          <gv-avatar src=\"https://i.pravatar.cc/80?img=12\" alt=\"User avatar\"></gv-avatar>\r\n\r\n          <gv-avatar src=\"https://i.pravatar.cc/80?img=24\" alt=\"User avatar\" size=\"lg\"></gv-avatar>\r\n\r\n          <gv-avatar src=\"https://i.pravatar.cc/100?img=31\" alt=\"User avatar\" size=\"xl\"></gv-avatar>\r\n        </div>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Shapes</div>\r\n        <div class=\"d-flex flex-wrap gap-3 align-items-center\">\r\n          <gv-avatar initials=\"ST\" shape=\"circle\"></gv-avatar>\r\n          <gv-avatar initials=\"ST\" shape=\"rounded\"></gv-avatar>\r\n          <gv-avatar initials=\"ST\" shape=\"square\"></gv-avatar>\r\n        </div>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Fallback behavior</div>\r\n        <div class=\"d-flex flex-wrap gap-3 align-items-center\">\r\n          <gv-avatar initials=\"NA\"></gv-avatar>\r\n\r\n          <gv-avatar\r\n            src=\"https://example.invalid/broken-image.jpg\"\r\n            alt=\"Broken image fallback\"\r\n            initials=\"BK\"\r\n          ></gv-avatar>\r\n\r\n          <gv-avatar initials=\"?\"></gv-avatar>\r\n        </div>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Sizes</div>\r\n        <div class=\"d-flex flex-wrap gap-3 align-items-center\">\r\n          <gv-avatar initials=\"SM\" size=\"sm\"></gv-avatar>\r\n          <gv-avatar initials=\"MD\" size=\"md\"></gv-avatar>\r\n          <gv-avatar initials=\"LG\" size=\"lg\"></gv-avatar>\r\n          <gv-avatar initials=\"XL\" size=\"xl\"></gv-avatar>\r\n        </div>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">In context</div>\r\n        <div\r\n          class=\"rounded-4 border bg-white p-3 d-flex align-items-center justify-content-between\"\r\n          style=\"border-color: rgba(148, 163, 184, 0.24); max-width: 520px;\"\r\n        >\r\n          <div class=\"d-flex align-items-center gap-3\">\r\n            <gv-avatar initials=\"ST\" size=\"lg\"></gv-avatar>\r\n\r\n            <div class=\"min-w-0\">\r\n              <div class=\"fw-semibold text-dark\">Simón Tang</div>\r\n              <div class=\"text-muted small\">Agency Owner</div>\r\n            </div>\r\n          </div>\r\n\r\n          <span\r\n            class=\"badge rounded-pill text-bg-light border\"\r\n            style=\"border-color: rgba(148, 163, 184, 0.24);\"\r\n          >\r\n            Active\r\n          </span>\r\n        </div>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Team row example</div>\r\n        <div\r\n          class=\"rounded-4 border bg-white p-3 d-flex flex-column gap-3\"\r\n          style=\"border-color: rgba(148, 163, 184, 0.24); max-width: 560px;\"\r\n        >\r\n          <div class=\"d-flex align-items-center justify-content-between\">\r\n            <div class=\"d-flex align-items-center gap-3\">\r\n              <gv-avatar src=\"https://i.pravatar.cc/80?img=15\" alt=\"Caitlin avatar\"></gv-avatar>\r\n\r\n              <div>\r\n                <div class=\"fw-semibold text-dark\">Caitlin Morris</div>\r\n                <div class=\"text-muted small\">Senior Coordinator</div>\r\n              </div>\r\n            </div>\r\n\r\n            <span class=\"text-muted small\">Toronto</span>\r\n          </div>\r\n\r\n          <div class=\"d-flex align-items-center justify-content-between\">\r\n            <div class=\"d-flex align-items-center gap-3\">\r\n              <gv-avatar initials=\"AR\"></gv-avatar>\r\n\r\n              <div>\r\n                <div class=\"fw-semibold text-dark\">Andrés Rojas</div>\r\n                <div class=\"text-muted small\">Broker</div>\r\n              </div>\r\n            </div>\r\n\r\n            <span class=\"text-muted small\">Remote</span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  `,\r\n})\r\nclass AvatarStoryDemoComponent {}\r\n\r\nconst meta: Meta<AvatarStoryDemoComponent> = {\r\n  title: 'Gravitas/Avatar',\r\n  component: AvatarStoryDemoComponent,\r\n};\r\n\r\nexport default meta;\r\n\r\ntype Story = StoryObj<AvatarStoryDemoComponent>;\r\n\r\nexport const Default: Story = {};\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": []
+        },
+        {
+            "name": "CheckboxStoryDemoComponent",
+            "id": "component-CheckboxStoryDemoComponent-2076fb5a3102055653f7aba1d0449335f19e610c530fa52e9c3b33fe18ed8d421e23955e6c4cffe23d526801d98f48aacd9fb45e4cba1239af0e3cf54687790a",
+            "file": "projects/gravitas-ui/src/lib/checkbox/checkbox.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "gv-checkbox-demo",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div class=\"p-4 d-flex flex-column gap-4\">\n  <div>\n    <h6 class=\"mb-1\">Gravitas Checkbox</h6>\n    <p class=\"text-muted mb-0\" style=\"max-width: 760px;\">\n      Premium, form-friendly checkbox control for settings panels, filters, table bulk actions,\n      and admin-style forms.\n    </p>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Basic</div>\n    <div class=\"d-flex flex-column gap-3\">\n      <gv-checkbox label=\"Enable notifications\" [(ngModel)]=\"notifications\"></gv-checkbox>\n\n      <gv-checkbox\n        label=\"Allow email updates\"\n        description=\"Send occasional product and workflow updates.\"\n        [(ngModel)]=\"emailUpdates\"\n      ></gv-checkbox>\n    </div>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Sizes</div>\n    <div class=\"d-flex flex-column gap-3\">\n      <gv-checkbox size=\"sm\" label=\"Small checkbox\" [(ngModel)]=\"smallChecked\"></gv-checkbox>\n\n      <gv-checkbox size=\"md\" label=\"Medium checkbox\" [(ngModel)]=\"mediumChecked\"></gv-checkbox>\n\n      <gv-checkbox size=\"lg\" label=\"Large checkbox\" [(ngModel)]=\"largeChecked\"></gv-checkbox>\n    </div>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Indeterminate and disabled</div>\n    <div class=\"d-flex flex-column gap-3\">\n      <gv-checkbox\n        label=\"Select all brokers\"\n        description=\"Some items are currently selected.\"\n        [indeterminate]=\"true\"\n      ></gv-checkbox>\n\n      <gv-checkbox\n        label=\"Archived option\"\n        description=\"This setting cannot be changed right now.\"\n        [disabled]=\"true\"\n        [ngModel]=\"true\"\n      ></gv-checkbox>\n\n      <gv-checkbox label=\"Disabled unchecked\" [disabled]=\"true\" [ngModel]=\"false\"></gv-checkbox>\n    </div>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Helper and error text</div>\n    <div class=\"d-flex flex-column gap-3\">\n      <gv-checkbox\n        label=\"Accept terms\"\n        helperText=\"You must accept before continuing.\"\n        [(ngModel)]=\"termsAccepted\"\n      ></gv-checkbox>\n\n      <gv-checkbox\n        label=\"Required consent\"\n        errorText=\"This field is required.\"\n        [ngModel]=\"false\"\n      ></gv-checkbox>\n    </div>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Settings panel example</div>\n    <div\n      class=\"rounded-4 border bg-white p-3 d-flex flex-column gap-3\"\n      style=\"border-color: rgba(148, 163, 184, 0.24); max-width: 560px;\"\n    >\n      <gv-checkbox\n        label=\"Email notifications\"\n        description=\"Receive an email whenever a new request is assigned to you.\"\n        [(ngModel)]=\"settings.email\"\n      ></gv-checkbox>\n\n      <gv-checkbox\n        label=\"Browser alerts\"\n        description=\"Show in-app alerts for urgent policy activity.\"\n        [(ngModel)]=\"settings.browser\"\n      ></gv-checkbox>\n\n      <gv-checkbox\n        label=\"Weekly summary\"\n        description=\"Send a weekly digest every Monday morning.\"\n        [(ngModel)]=\"settings.weekly\"\n      ></gv-checkbox>\n    </div>\n  </div>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "emailUpdates",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 111
+                },
+                {
+                    "name": "largeChecked",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 114
+                },
+                {
+                    "name": "mediumChecked",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 113
+                },
+                {
+                    "name": "notifications",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 110
+                },
+                {
+                    "name": "settings",
+                    "defaultValue": "{\r\n    email: true,\r\n    browser: true,\r\n    weekly: false,\r\n  }",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 117
+                },
+                {
+                    "name": "smallChecked",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 112
+                },
+                {
+                    "name": "termsAccepted",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 115
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "FormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "Checkbox"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import type { Meta, StoryObj } from '@storybook/angular';\r\nimport { Component } from '@angular/core';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { Checkbox } from './checkbox';\r\n\r\n@Component({\r\n  selector: 'gv-checkbox-demo',\r\n  standalone: true,\r\n  imports: [FormsModule, Checkbox],\r\n  template: `\r\n    <div class=\"p-4 d-flex flex-column gap-4\">\r\n      <div>\r\n        <h6 class=\"mb-1\">Gravitas Checkbox</h6>\r\n        <p class=\"text-muted mb-0\" style=\"max-width: 760px;\">\r\n          Premium, form-friendly checkbox control for settings panels, filters, table bulk actions,\r\n          and admin-style forms.\r\n        </p>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Basic</div>\r\n        <div class=\"d-flex flex-column gap-3\">\r\n          <gv-checkbox label=\"Enable notifications\" [(ngModel)]=\"notifications\"></gv-checkbox>\r\n\r\n          <gv-checkbox\r\n            label=\"Allow email updates\"\r\n            description=\"Send occasional product and workflow updates.\"\r\n            [(ngModel)]=\"emailUpdates\"\r\n          ></gv-checkbox>\r\n        </div>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Sizes</div>\r\n        <div class=\"d-flex flex-column gap-3\">\r\n          <gv-checkbox size=\"sm\" label=\"Small checkbox\" [(ngModel)]=\"smallChecked\"></gv-checkbox>\r\n\r\n          <gv-checkbox size=\"md\" label=\"Medium checkbox\" [(ngModel)]=\"mediumChecked\"></gv-checkbox>\r\n\r\n          <gv-checkbox size=\"lg\" label=\"Large checkbox\" [(ngModel)]=\"largeChecked\"></gv-checkbox>\r\n        </div>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Indeterminate and disabled</div>\r\n        <div class=\"d-flex flex-column gap-3\">\r\n          <gv-checkbox\r\n            label=\"Select all brokers\"\r\n            description=\"Some items are currently selected.\"\r\n            [indeterminate]=\"true\"\r\n          ></gv-checkbox>\r\n\r\n          <gv-checkbox\r\n            label=\"Archived option\"\r\n            description=\"This setting cannot be changed right now.\"\r\n            [disabled]=\"true\"\r\n            [ngModel]=\"true\"\r\n          ></gv-checkbox>\r\n\r\n          <gv-checkbox label=\"Disabled unchecked\" [disabled]=\"true\" [ngModel]=\"false\"></gv-checkbox>\r\n        </div>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Helper and error text</div>\r\n        <div class=\"d-flex flex-column gap-3\">\r\n          <gv-checkbox\r\n            label=\"Accept terms\"\r\n            helperText=\"You must accept before continuing.\"\r\n            [(ngModel)]=\"termsAccepted\"\r\n          ></gv-checkbox>\r\n\r\n          <gv-checkbox\r\n            label=\"Required consent\"\r\n            errorText=\"This field is required.\"\r\n            [ngModel]=\"false\"\r\n          ></gv-checkbox>\r\n        </div>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Settings panel example</div>\r\n        <div\r\n          class=\"rounded-4 border bg-white p-3 d-flex flex-column gap-3\"\r\n          style=\"border-color: rgba(148, 163, 184, 0.24); max-width: 560px;\"\r\n        >\r\n          <gv-checkbox\r\n            label=\"Email notifications\"\r\n            description=\"Receive an email whenever a new request is assigned to you.\"\r\n            [(ngModel)]=\"settings.email\"\r\n          ></gv-checkbox>\r\n\r\n          <gv-checkbox\r\n            label=\"Browser alerts\"\r\n            description=\"Show in-app alerts for urgent policy activity.\"\r\n            [(ngModel)]=\"settings.browser\"\r\n          ></gv-checkbox>\r\n\r\n          <gv-checkbox\r\n            label=\"Weekly summary\"\r\n            description=\"Send a weekly digest every Monday morning.\"\r\n            [(ngModel)]=\"settings.weekly\"\r\n          ></gv-checkbox>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  `,\r\n})\r\nclass CheckboxStoryDemoComponent {\r\n  notifications = true;\r\n  emailUpdates = false;\r\n  smallChecked = true;\r\n  mediumChecked = false;\r\n  largeChecked = true;\r\n  termsAccepted = false;\r\n\r\n  settings = {\r\n    email: true,\r\n    browser: true,\r\n    weekly: false,\r\n  };\r\n}\r\n\r\nconst meta: Meta<CheckboxStoryDemoComponent> = {\r\n  title: 'Gravitas/Checkbox',\r\n  component: CheckboxStoryDemoComponent,\r\n};\r\n\r\nexport default meta;\r\n\r\ntype Story = StoryObj<CheckboxStoryDemoComponent>;\r\n\r\nexport const Default: Story = {};\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": []
+        },
+        {
+            "name": "DividerStoryDemoComponent",
+            "id": "component-DividerStoryDemoComponent-3ae1103435e1f6962fc5ff2b31874b3101e214b070a3640fa519c822edd7aecabbdc019de25ea0e8407d31bac9f0c494ec57577318d4e12f317fed2f1c28e2c3",
+            "file": "projects/gravitas-ui/src/lib/divider/divider.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "gv-divider-demo",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div class=\"p-4 d-flex flex-column gap-4\">\n  <div>\n    <h6 class=\"mb-1\">Gravitas Divider</h6>\n    <p class=\"text-muted mb-0\" style=\"max-width: 760px;\">\n      Subtle section separator for cards, toolbars, dropdowns, panels, and settings layouts.\n    </p>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Horizontal</div>\n    <div class=\"rounded-4 border bg-white p-3\" style=\"border-color: rgba(148, 163, 184, 0.24);\">\n      <div class=\"mb-3\">Section above</div>\n      <gv-divider></gv-divider>\n      <div class=\"mt-3\">Section below</div>\n    </div>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">With label</div>\n    <div class=\"rounded-4 border bg-white p-3\" style=\"border-color: rgba(148, 163, 184, 0.24);\">\n      <div class=\"mb-3\">Account settings</div>\n      <gv-divider label=\"Advanced\"></gv-divider>\n      <div class=\"mt-3\">Danger zone</div>\n    </div>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Inset</div>\n    <div class=\"rounded-4 border bg-white p-3\" style=\"border-color: rgba(148, 163, 184, 0.24);\">\n      <div class=\"mb-3\">Header content</div>\n      <gv-divider [inset]=\"true\"></gv-divider>\n      <div class=\"mt-3\">Body content</div>\n    </div>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Vertical</div>\n    <div\n      class=\"d-inline-flex align-items-center rounded-4 border bg-white px-3 py-2 gap-3\"\n      style=\"border-color: rgba(148, 163, 184, 0.24); min-height: 56px;\"\n    >\n      <span>Overview</span>\n      <gv-divider orientation=\"vertical\"></gv-divider>\n      <span>Analytics</span>\n      <gv-divider orientation=\"vertical\"></gv-divider>\n      <span>Exports</span>\n    </div>\n  </div>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "Divider"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import type { Meta, StoryObj } from '@storybook/angular';\r\nimport { Component } from '@angular/core';\r\nimport { Divider } from './divider';\r\n\r\n@Component({\r\n  selector: 'gv-divider-demo',\r\n  standalone: true,\r\n  imports: [Divider],\r\n  template: `\r\n    <div class=\"p-4 d-flex flex-column gap-4\">\r\n      <div>\r\n        <h6 class=\"mb-1\">Gravitas Divider</h6>\r\n        <p class=\"text-muted mb-0\" style=\"max-width: 760px;\">\r\n          Subtle section separator for cards, toolbars, dropdowns, panels, and settings layouts.\r\n        </p>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Horizontal</div>\r\n        <div class=\"rounded-4 border bg-white p-3\" style=\"border-color: rgba(148, 163, 184, 0.24);\">\r\n          <div class=\"mb-3\">Section above</div>\r\n          <gv-divider></gv-divider>\r\n          <div class=\"mt-3\">Section below</div>\r\n        </div>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">With label</div>\r\n        <div class=\"rounded-4 border bg-white p-3\" style=\"border-color: rgba(148, 163, 184, 0.24);\">\r\n          <div class=\"mb-3\">Account settings</div>\r\n          <gv-divider label=\"Advanced\"></gv-divider>\r\n          <div class=\"mt-3\">Danger zone</div>\r\n        </div>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Inset</div>\r\n        <div class=\"rounded-4 border bg-white p-3\" style=\"border-color: rgba(148, 163, 184, 0.24);\">\r\n          <div class=\"mb-3\">Header content</div>\r\n          <gv-divider [inset]=\"true\"></gv-divider>\r\n          <div class=\"mt-3\">Body content</div>\r\n        </div>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Vertical</div>\r\n        <div\r\n          class=\"d-inline-flex align-items-center rounded-4 border bg-white px-3 py-2 gap-3\"\r\n          style=\"border-color: rgba(148, 163, 184, 0.24); min-height: 56px;\"\r\n        >\r\n          <span>Overview</span>\r\n          <gv-divider orientation=\"vertical\"></gv-divider>\r\n          <span>Analytics</span>\r\n          <gv-divider orientation=\"vertical\"></gv-divider>\r\n          <span>Exports</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  `,\r\n})\r\nclass DividerStoryDemoComponent {}\r\n\r\nconst meta: Meta<DividerStoryDemoComponent> = {\r\n  title: 'Gravitas/Divider',\r\n  component: DividerStoryDemoComponent,\r\n};\r\n\r\nexport default meta;\r\n\r\ntype Story = StoryObj<DividerStoryDemoComponent>;\r\n\r\nexport const Default: Story = {};\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": []
+        },
+        {
+            "name": "IconButtonStoryDemoComponent",
+            "id": "component-IconButtonStoryDemoComponent-0e8da61364af2fe582a000a366ec74ed341ef82ffb64e1b6b64d82f6d55585d9e3a716e3d5d2c5a9280e9c8e5871d22ed689e0c3fdd8563e59dbb19bde4a1e94",
+            "file": "projects/gravitas-ui/src/lib/icon-button/icon-button.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "gv-icon-button-demo",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div class=\"p-4 d-flex flex-column gap-4\">\n  <div>\n    <h6 class=\"mb-1\">Gravitas Icon Button</h6>\n    <p class=\"text-muted mb-0\" style=\"max-width: 760px;\">\n      Compact icon-only button for utility actions, row controls, toolbar items, close buttons,\n      and lightweight contextual interactions.\n    </p>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Variants</div>\n    <div class=\"d-flex flex-wrap gap-3 align-items-center\">\n      <gv-icon-button ariaLabel=\"Edit\">\n        <i class=\"bi bi-pencil\"></i>\n      </gv-icon-button>\n\n      <gv-icon-button ariaLabel=\"More actions\" variant=\"ghost\">\n        <i class=\"bi bi-three-dots\"></i>\n      </gv-icon-button>\n\n      <gv-icon-button ariaLabel=\"Pin\" variant=\"primary\">\n        <i class=\"bi bi-pin-angle\"></i>\n      </gv-icon-button>\n\n      <gv-icon-button ariaLabel=\"Delete\" variant=\"danger\">\n        <i class=\"bi bi-trash\"></i>\n      </gv-icon-button>\n    </div>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Sizes</div>\n    <div class=\"d-flex flex-wrap gap-3 align-items-center\">\n      <gv-icon-button ariaLabel=\"Refresh small\" size=\"sm\">\n        <i class=\"bi bi-arrow-clockwise\"></i>\n      </gv-icon-button>\n\n      <gv-icon-button ariaLabel=\"Refresh medium\" size=\"md\">\n        <i class=\"bi bi-arrow-clockwise\"></i>\n      </gv-icon-button>\n\n      <gv-icon-button ariaLabel=\"Refresh large\" size=\"lg\">\n        <i class=\"bi bi-arrow-clockwise\"></i>\n      </gv-icon-button>\n    </div>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Shapes</div>\n    <div class=\"d-flex flex-wrap gap-3 align-items-center\">\n      <gv-icon-button ariaLabel=\"Default rounded\" shape=\"rounded\">\n        <i class=\"bi bi-star\"></i>\n      </gv-icon-button>\n\n      <gv-icon-button ariaLabel=\"Circle shape\" shape=\"circle\">\n        <i class=\"bi bi-heart\"></i>\n      </gv-icon-button>\n\n      <gv-icon-button ariaLabel=\"Square shape\" shape=\"square\">\n        <i class=\"bi bi-grid\"></i>\n      </gv-icon-button>\n    </div>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">States</div>\n    <div class=\"d-flex flex-wrap gap-3 align-items-center\">\n      <gv-icon-button ariaLabel=\"Active item\" [active]=\"true\">\n        <i class=\"bi bi-layout-sidebar\"></i>\n      </gv-icon-button>\n\n      <gv-icon-button ariaLabel=\"Disabled item\" [disabled]=\"true\">\n        <i class=\"bi bi-lock\"></i>\n      </gv-icon-button>\n\n      <gv-icon-button ariaLabel=\"Ghost disabled\" variant=\"ghost\" [disabled]=\"true\">\n        <i class=\"bi bi-eye-slash\"></i>\n      </gv-icon-button>\n    </div>\n  </div>\n\n  <div>\n    <div class=\"small text-muted mb-2\">Toolbar example</div>\n    <div\n      class=\"d-inline-flex align-items-center gap-2 rounded-4 border bg-white px-2 py-2\"\n      style=\"border-color: rgba(148, 163, 184, 0.24);\"\n    >\n      <gv-icon-button ariaLabel=\"Back\" variant=\"ghost\" size=\"sm\">\n        <i class=\"bi bi-arrow-left\"></i>\n      </gv-icon-button>\n\n      <gv-icon-button ariaLabel=\"Forward\" variant=\"ghost\" size=\"sm\">\n        <i class=\"bi bi-arrow-right\"></i>\n      </gv-icon-button>\n\n      <div class=\"vr mx-1\"></div>\n\n      <gv-icon-button ariaLabel=\"Refresh\" size=\"sm\">\n        <i class=\"bi bi-arrow-clockwise\"></i>\n      </gv-icon-button>\n\n      <gv-icon-button ariaLabel=\"Settings\" size=\"sm\">\n        <i class=\"bi bi-gear\"></i>\n      </gv-icon-button>\n\n      <gv-icon-button ariaLabel=\"Delete\" variant=\"danger\" size=\"sm\">\n        <i class=\"bi bi-trash\"></i>\n      </gv-icon-button>\n    </div>\n  </div>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "IconButton"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import type { Meta, StoryObj } from '@storybook/angular';\r\nimport { Component } from '@angular/core';\r\nimport { IconButton } from './icon-button';\r\n\r\n@Component({\r\n  selector: 'gv-icon-button-demo',\r\n  standalone: true,\r\n  imports: [IconButton],\r\n  template: `\r\n    <div class=\"p-4 d-flex flex-column gap-4\">\r\n      <div>\r\n        <h6 class=\"mb-1\">Gravitas Icon Button</h6>\r\n        <p class=\"text-muted mb-0\" style=\"max-width: 760px;\">\r\n          Compact icon-only button for utility actions, row controls, toolbar items, close buttons,\r\n          and lightweight contextual interactions.\r\n        </p>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Variants</div>\r\n        <div class=\"d-flex flex-wrap gap-3 align-items-center\">\r\n          <gv-icon-button ariaLabel=\"Edit\">\r\n            <i class=\"bi bi-pencil\"></i>\r\n          </gv-icon-button>\r\n\r\n          <gv-icon-button ariaLabel=\"More actions\" variant=\"ghost\">\r\n            <i class=\"bi bi-three-dots\"></i>\r\n          </gv-icon-button>\r\n\r\n          <gv-icon-button ariaLabel=\"Pin\" variant=\"primary\">\r\n            <i class=\"bi bi-pin-angle\"></i>\r\n          </gv-icon-button>\r\n\r\n          <gv-icon-button ariaLabel=\"Delete\" variant=\"danger\">\r\n            <i class=\"bi bi-trash\"></i>\r\n          </gv-icon-button>\r\n        </div>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Sizes</div>\r\n        <div class=\"d-flex flex-wrap gap-3 align-items-center\">\r\n          <gv-icon-button ariaLabel=\"Refresh small\" size=\"sm\">\r\n            <i class=\"bi bi-arrow-clockwise\"></i>\r\n          </gv-icon-button>\r\n\r\n          <gv-icon-button ariaLabel=\"Refresh medium\" size=\"md\">\r\n            <i class=\"bi bi-arrow-clockwise\"></i>\r\n          </gv-icon-button>\r\n\r\n          <gv-icon-button ariaLabel=\"Refresh large\" size=\"lg\">\r\n            <i class=\"bi bi-arrow-clockwise\"></i>\r\n          </gv-icon-button>\r\n        </div>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Shapes</div>\r\n        <div class=\"d-flex flex-wrap gap-3 align-items-center\">\r\n          <gv-icon-button ariaLabel=\"Default rounded\" shape=\"rounded\">\r\n            <i class=\"bi bi-star\"></i>\r\n          </gv-icon-button>\r\n\r\n          <gv-icon-button ariaLabel=\"Circle shape\" shape=\"circle\">\r\n            <i class=\"bi bi-heart\"></i>\r\n          </gv-icon-button>\r\n\r\n          <gv-icon-button ariaLabel=\"Square shape\" shape=\"square\">\r\n            <i class=\"bi bi-grid\"></i>\r\n          </gv-icon-button>\r\n        </div>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">States</div>\r\n        <div class=\"d-flex flex-wrap gap-3 align-items-center\">\r\n          <gv-icon-button ariaLabel=\"Active item\" [active]=\"true\">\r\n            <i class=\"bi bi-layout-sidebar\"></i>\r\n          </gv-icon-button>\r\n\r\n          <gv-icon-button ariaLabel=\"Disabled item\" [disabled]=\"true\">\r\n            <i class=\"bi bi-lock\"></i>\r\n          </gv-icon-button>\r\n\r\n          <gv-icon-button ariaLabel=\"Ghost disabled\" variant=\"ghost\" [disabled]=\"true\">\r\n            <i class=\"bi bi-eye-slash\"></i>\r\n          </gv-icon-button>\r\n        </div>\r\n      </div>\r\n\r\n      <div>\r\n        <div class=\"small text-muted mb-2\">Toolbar example</div>\r\n        <div\r\n          class=\"d-inline-flex align-items-center gap-2 rounded-4 border bg-white px-2 py-2\"\r\n          style=\"border-color: rgba(148, 163, 184, 0.24);\"\r\n        >\r\n          <gv-icon-button ariaLabel=\"Back\" variant=\"ghost\" size=\"sm\">\r\n            <i class=\"bi bi-arrow-left\"></i>\r\n          </gv-icon-button>\r\n\r\n          <gv-icon-button ariaLabel=\"Forward\" variant=\"ghost\" size=\"sm\">\r\n            <i class=\"bi bi-arrow-right\"></i>\r\n          </gv-icon-button>\r\n\r\n          <div class=\"vr mx-1\"></div>\r\n\r\n          <gv-icon-button ariaLabel=\"Refresh\" size=\"sm\">\r\n            <i class=\"bi bi-arrow-clockwise\"></i>\r\n          </gv-icon-button>\r\n\r\n          <gv-icon-button ariaLabel=\"Settings\" size=\"sm\">\r\n            <i class=\"bi bi-gear\"></i>\r\n          </gv-icon-button>\r\n\r\n          <gv-icon-button ariaLabel=\"Delete\" variant=\"danger\" size=\"sm\">\r\n            <i class=\"bi bi-trash\"></i>\r\n          </gv-icon-button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  `,\r\n})\r\nclass IconButtonStoryDemoComponent {}\r\n\r\nconst meta: Meta<IconButtonStoryDemoComponent> = {\r\n  title: 'Gravitas/Icon Button',\r\n  component: IconButtonStoryDemoComponent,\r\n};\r\n\r\nexport default meta;\r\n\r\ntype Story = StoryObj<IconButtonStoryDemoComponent>;\r\n\r\nexport const Default: Story = {};\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": []
+        },
+        {
             "name": "TabsStoryHost",
             "id": "component-TabsStoryHost-9101b6b1809799d8b89be4ac82488204e856809b1a7511d5744a4f3121848e3fb04c0c585496311d3e06108cc08c77ce18bc1412c1513f758a6ccd3774e87bc2",
             "file": "projects/gravitas-ui/src/lib/tabs/tabs.stories.ts",
@@ -191,11 +429,61 @@
             "styleUrlsData": "",
             "stylesData": "",
             "extends": []
+        },
+        {
+            "name": "TooltipStoryDemoComponent",
+            "id": "component-TooltipStoryDemoComponent-188900ab0535995f0e474bc393187197c8ac25001136f73ba69ec13ec5a383066a45ec62d55d8199ec00cddab6dad5acc9e1c25d1c5d34a3a6fea1ed80c2db24",
+            "file": "projects/gravitas-ui/src/lib/tooltip/tooltip.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "gv-tooltip-demo",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div class=\"p-4\">\n  <div class=\"mb-4\">\n    <h6 class=\"mb-1\">Gravitas Tooltip</h6>\n    <p class=\"text-muted mb-0\" style=\"max-width: 720px;\">\n      Quiet, premium tooltip styling for dashboards, forms, tables, and actions. Supports\n      placement, trigger modes, disabled state, and compact text wrapping.\n    </p>\n  </div>\n\n  <div class=\"d-flex flex-wrap gap-3 align-items-center\">\n    <button\n      type=\"button\"\n      class=\"btn btn-light border rounded-3\"\n      gvTooltip=\"Default top tooltip\"\n    >\n      Top\n    </button>\n\n    <button\n      type=\"button\"\n      class=\"btn btn-light border rounded-3\"\n      gvTooltip=\"Tooltip on the right\"\n      gvTooltipPlacement=\"right\"\n    >\n      Right\n    </button>\n\n    <button\n      type=\"button\"\n      class=\"btn btn-light border rounded-3\"\n      gvTooltip=\"Tooltip on the bottom\"\n      gvTooltipPlacement=\"bottom\"\n    >\n      Bottom\n    </button>\n\n    <button\n      type=\"button\"\n      class=\"btn btn-light border rounded-3\"\n      gvTooltip=\"Tooltip on the left\"\n      gvTooltipPlacement=\"left\"\n    >\n      Left\n    </button>\n  </div>\n\n  <hr class=\"my-4\" />\n\n  <div class=\"d-flex flex-wrap gap-3 align-items-center\">\n    <button\n      type=\"button\"\n      class=\"btn btn-light border rounded-3\"\n      gvTooltip=\"Shown on focus\"\n      gvTooltipTrigger=\"focus\"\n    >\n      Focus trigger\n    </button>\n\n    <button\n      type=\"button\"\n      class=\"btn btn-light border rounded-3\"\n      gvTooltip=\"Shown on click\"\n      gvTooltipTrigger=\"click\"\n      gvTooltipPlacement=\"bottom\"\n    >\n      Click trigger\n    </button>\n\n    <button\n      type=\"button\"\n      class=\"btn btn-light border rounded-3\"\n      gvTooltip=\"This tooltip is disabled\"\n      [gvTooltipDisabled]=\"true\"\n    >\n      Disabled\n    </button>\n  </div>\n\n  <hr class=\"my-4\" />\n\n  <div class=\"d-flex gap-3 align-items-center\">\n    <span\n      class=\"badge text-bg-light border rounded-pill px-3 py-2\"\n      gvTooltip=\"Useful for short metadata labels too\"\n    >\n      Status badge\n    </span>\n\n    <span\n      class=\"text-decoration-underline\"\n      tabindex=\"0\"\n      gvTooltip=\"Longer helper copy can wrap across multiple lines without looking cramped.\"\n      [gvTooltipMaxWidth]=\"220\"\n      gvTooltipPlacement=\"bottom\"\n    >\n      Hover or focus this text\n    </span>\n  </div>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "GvTooltipDirective",
+                    "type": "directive"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import type { Meta, StoryObj } from '@storybook/angular';\r\nimport { Component } from '@angular/core';\r\nimport { GvTooltipDirective } from './tooltip-directive';\r\n\r\n@Component({\r\n  selector: 'gv-tooltip-demo',\r\n  standalone: true,\r\n  imports: [GvTooltipDirective],\r\n  template: `\r\n    <div class=\"p-4\">\r\n      <div class=\"mb-4\">\r\n        <h6 class=\"mb-1\">Gravitas Tooltip</h6>\r\n        <p class=\"text-muted mb-0\" style=\"max-width: 720px;\">\r\n          Quiet, premium tooltip styling for dashboards, forms, tables, and actions. Supports\r\n          placement, trigger modes, disabled state, and compact text wrapping.\r\n        </p>\r\n      </div>\r\n\r\n      <div class=\"d-flex flex-wrap gap-3 align-items-center\">\r\n        <button\r\n          type=\"button\"\r\n          class=\"btn btn-light border rounded-3\"\r\n          gvTooltip=\"Default top tooltip\"\r\n        >\r\n          Top\r\n        </button>\r\n\r\n        <button\r\n          type=\"button\"\r\n          class=\"btn btn-light border rounded-3\"\r\n          gvTooltip=\"Tooltip on the right\"\r\n          gvTooltipPlacement=\"right\"\r\n        >\r\n          Right\r\n        </button>\r\n\r\n        <button\r\n          type=\"button\"\r\n          class=\"btn btn-light border rounded-3\"\r\n          gvTooltip=\"Tooltip on the bottom\"\r\n          gvTooltipPlacement=\"bottom\"\r\n        >\r\n          Bottom\r\n        </button>\r\n\r\n        <button\r\n          type=\"button\"\r\n          class=\"btn btn-light border rounded-3\"\r\n          gvTooltip=\"Tooltip on the left\"\r\n          gvTooltipPlacement=\"left\"\r\n        >\r\n          Left\r\n        </button>\r\n      </div>\r\n\r\n      <hr class=\"my-4\" />\r\n\r\n      <div class=\"d-flex flex-wrap gap-3 align-items-center\">\r\n        <button\r\n          type=\"button\"\r\n          class=\"btn btn-light border rounded-3\"\r\n          gvTooltip=\"Shown on focus\"\r\n          gvTooltipTrigger=\"focus\"\r\n        >\r\n          Focus trigger\r\n        </button>\r\n\r\n        <button\r\n          type=\"button\"\r\n          class=\"btn btn-light border rounded-3\"\r\n          gvTooltip=\"Shown on click\"\r\n          gvTooltipTrigger=\"click\"\r\n          gvTooltipPlacement=\"bottom\"\r\n        >\r\n          Click trigger\r\n        </button>\r\n\r\n        <button\r\n          type=\"button\"\r\n          class=\"btn btn-light border rounded-3\"\r\n          gvTooltip=\"This tooltip is disabled\"\r\n          [gvTooltipDisabled]=\"true\"\r\n        >\r\n          Disabled\r\n        </button>\r\n      </div>\r\n\r\n      <hr class=\"my-4\" />\r\n\r\n      <div class=\"d-flex gap-3 align-items-center\">\r\n        <span\r\n          class=\"badge text-bg-light border rounded-pill px-3 py-2\"\r\n          gvTooltip=\"Useful for short metadata labels too\"\r\n        >\r\n          Status badge\r\n        </span>\r\n\r\n        <span\r\n          class=\"text-decoration-underline\"\r\n          tabindex=\"0\"\r\n          gvTooltip=\"Longer helper copy can wrap across multiple lines without looking cramped.\"\r\n          [gvTooltipMaxWidth]=\"220\"\r\n          gvTooltipPlacement=\"bottom\"\r\n        >\r\n          Hover or focus this text\r\n        </span>\r\n      </div>\r\n    </div>\r\n  `,\r\n})\r\nclass TooltipStoryDemoComponent {}\r\n\r\nconst meta: Meta<TooltipStoryDemoComponent> = {\r\n  title: 'GRAVITAS/Tooltip',\r\n  component: TooltipStoryDemoComponent,\r\n};\r\n\r\nexport default meta;\r\n\r\ntype Story = StoryObj<TooltipStoryDemoComponent>;\r\n\r\nexport const Default: Story = {};\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": []
         }
     ],
     "modules": [],
     "miscellaneous": {
         "variables": [
+            {
+                "name": "AboveTableExample",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Alert],\r\n    template: `\r\n      <div style=\"max-width: 760px;\">\r\n        <gv-alert variant=\"info\" title=\"Filtered results\">\r\n          Showing 18 matching records based on the current filters.\r\n        </gv-alert>\r\n\r\n        <div\r\n          style=\"\r\n            margin-top: 12px;\r\n            border: 1px solid #e2e8f0;\r\n            border-radius: 12px;\r\n            background: #ffffff;\r\n            min-height: 140px;\r\n          \"\r\n        ></div>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
             {
                 "name": "AlignEnd",
                 "ctype": "miscellaneous",
@@ -205,6 +493,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  render: () => ({\r\n    imports: dropdownImports,\r\n    template: `\r\n      <div\r\n        class=\"p-4\"\r\n        style=\"display: flex; justify-content: flex-end; width: 100%;\"\r\n      >\r\n        <gv-dropdown align=\"end\">\r\n          <button gvDropdownTrigger type=\"button\" class=\"btn btn-outline-secondary\">\r\n            Profile\r\n          </button>\r\n\r\n          <div gvDropdownMenu>\r\n            <button type=\"button\">Account settings</button>\r\n            <button type=\"button\">Billing</button>\r\n            <button type=\"button\">Team members</button>\r\n            <hr class=\"gv-dropdown-divider\" />\r\n            <button type=\"button\" class=\"gv-dropdown-item gv-dropdown-item--danger\">\r\n              Log out\r\n            </button>\r\n          </div>\r\n        </gv-dropdown>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Basic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    imports: [Alert],\r\n    template: `\r\n      <gv-alert\r\n        [variant]=\"variant\"\r\n        [title]=\"title\"\r\n        [dismissible]=\"dismissible\"\r\n      >\r\n        This is an inline alert message for the current section.\r\n      </gv-alert>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Basic",
@@ -225,6 +523,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    imports: dropdownImports,\r\n    template: `\r\n      <div class=\"p-4\">\r\n        <gv-dropdown\r\n          [align]=\"align\"\r\n          [disabled]=\"disabled\"\r\n          [closeOnItemClick]=\"closeOnItemClick\"\r\n        >\r\n          <button gvDropdownTrigger type=\"button\" class=\"btn btn-outline-secondary\">\r\n            Actions\r\n          </button>\r\n\r\n          <div gvDropdownMenu>\r\n            <button type=\"button\">View details</button>\r\n            <button type=\"button\">Edit record</button>\r\n            <button type=\"button\">Duplicate</button>\r\n            <hr class=\"gv-dropdown-divider\" />\r\n            <button type=\"button\" class=\"gv-dropdown-item gv-dropdown-item--danger\">\r\n              Delete\r\n            </button>\r\n          </div>\r\n        </gv-dropdown>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Basic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    imports: [Empty],\r\n    template: `\r\n      <gv-empty\r\n        [title]=\"title\"\r\n        [description]=\"description\"\r\n        [compact]=\"compact\"\r\n      ></gv-empty>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "CardExample",
@@ -280,6 +588,16 @@
                 "name": "Compact",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Empty],\r\n    template: `\r\n      <div\r\n        style=\"\r\n          border: 1px solid #e2e8f0;\r\n          border-radius: 12px;\r\n          background: #ffffff;\r\n        \"\r\n      >\r\n        <gv-empty\r\n          compact\r\n          title=\"No results\"\r\n          description=\"No matching records were found.\"\r\n        ></gv-empty>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Compact",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/gravitas-ui/src/lib/table/table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -310,11 +628,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                "file": "projects/gravitas-ui/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <!-- demo control -->\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            [attr.aria-invalid]=\"!!error\"\r\n            placeholder=\"name@company.com\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{}"
             },
             {
                 "name": "Default",
@@ -325,6 +643,46 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  render: renderCard,\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/checkbox/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/divider/divider.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <!-- demo control -->\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            [attr.aria-invalid]=\"!!error\"\r\n            placeholder=\"name@company.com\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/icon-button/icon-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
             },
             {
                 "name": "Default",
@@ -387,6 +745,16 @@
                 "defaultValue": "{\r\n  args: { variant: 'underline' },\r\n}"
             },
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/tooltip/tooltip.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
+            },
+            {
                 "name": "Disabled",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -415,6 +783,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: { interactive: true, disabled: true, subtitle: 'Interactive but disabled' },\r\n  render: renderCard,\r\n}"
+            },
+            {
+                "name": "Dismissible",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Alert],\r\n    template: `\r\n      <div style=\"max-width: 720px;\">\r\n        <gv-alert variant=\"info\" title=\"Dismissible alert\" dismissible>\r\n          You can close this message after reviewing it.\r\n        </gv-alert>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Dots",
@@ -465,6 +843,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    error: 'Status is required.',\r\n  },\r\n  render: (args) => renderSelect(args),\r\n}"
+            },
+            {
+                "name": "FirstTimeExperience",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Empty],\r\n    template: `\r\n      <div\r\n        style=\"\r\n          padding: 24px;\r\n          border: 1px solid #e2e8f0;\r\n          border-radius: 12px;\r\n          background: #ffffff;\r\n          max-width: 480px;\r\n        \"\r\n      >\r\n        <gv-empty\r\n          title=\"Get started\"\r\n          description=\"Create your first record to begin using this feature.\"\r\n        >\r\n          <button\r\n            gvEmptyActions\r\n            class=\"btn btn-primary\"\r\n            type=\"button\"\r\n          >\r\n            Create your first item\r\n          </button>\r\n        </gv-empty>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "FormExample",
@@ -531,6 +919,16 @@
                 "description": "<p>✅ Toolbar: Theme</p>\n"
             },
             {
+                "name": "InCardExample",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Alert],\r\n    template: `\r\n      <div\r\n        style=\"\r\n          width: 420px;\r\n          padding: 20px;\r\n          border: 1px solid #e2e8f0;\r\n          border-radius: 12px;\r\n          background: #ffffff;\r\n        \"\r\n      >\r\n        <div\r\n          style=\"\r\n            font-weight: 700;\r\n            color: #0f172a;\r\n            margin-bottom: 14px;\r\n          \"\r\n        >\r\n          Billing settings\r\n        </div>\r\n\r\n        <gv-alert variant=\"warning\" title=\"Payment method expiring soon\">\r\n          Update your billing details to avoid interruptions in service.\r\n        </gv-alert>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
                 "name": "Inline",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -539,6 +937,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div class=\"p-3\" style=\"font-size: 14px; color: #475569;\">\r\n        Saving changes\r\n        <gv-loader\r\n          class=\"ms-2\"\r\n          [inline]=\"true\"\r\n          variant=\"dots\"\r\n          size=\"sm\"\r\n          label=\"Please wait\"\r\n        ></gv-loader>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "InTable",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Empty],\r\n    template: `\r\n      <div\r\n        style=\"\r\n          width: 100%;\r\n          border: 1px solid #e2e8f0;\r\n          border-radius: 12px;\r\n          background: #ffffff;\r\n          min-height: 220px;\r\n          display: flex;\r\n          align-items: center;\r\n          justify-content: center;\r\n        \"\r\n      >\r\n        <gv-empty\r\n          title=\"No data available\"\r\n          description=\"This table has no rows yet.\"\r\n        ></gv-empty>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "InTableExample",
@@ -734,6 +1142,26 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Alert>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Alert',\r\n  component: Alert,\r\n  tags: ['autodocs'],\r\n  args: {\r\n    variant: 'info',\r\n    title: 'Heads up',\r\n    dismissible: false,\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'inline-radio',\r\n      options: ['neutral', 'info', 'success', 'warning', 'danger'],\r\n    },\r\n    title: {\r\n      control: 'text',\r\n    },\r\n    dismissible: {\r\n      control: 'boolean',\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AvatarStoryDemoComponent>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Avatar',\r\n  component: AvatarStoryDemoComponent,\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/gravitas-ui/src/lib/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -754,16 +1182,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<FormField>",
-                "defaultValue": "{\r\n  title: 'Gravitas/Form Field',\r\n  component: FormField,\r\n  args: {\r\n    label: 'Email',\r\n    required: false,\r\n    helperText: 'We’ll never share your email.',\r\n    error: null,\r\n    fullWidth: true,\r\n    controlId: 'email',\r\n  },\r\n  argTypes: {\r\n    error: { control: 'text' },\r\n    helperText: { control: 'text' },\r\n    label: { control: 'text' },\r\n    required: { control: 'boolean' },\r\n    fullWidth: { control: 'boolean' },\r\n    controlId: { control: 'text' },\r\n  },\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -774,11 +1192,61 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/checkbox/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<CheckboxStoryDemoComponent>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Checkbox',\r\n  component: CheckboxStoryDemoComponent,\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/gravitas-ui/src/lib/dropdown/dropdown.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Dropdown>",
                 "defaultValue": "{\r\n  title: 'Gravitas/Dropdown',\r\n  component: Dropdown,\r\n  tags: ['autodocs'],\r\n  args: {\r\n    align: 'start',\r\n    disabled: false,\r\n    closeOnItemClick: true,\r\n  },\r\n  argTypes: {\r\n    align: {\r\n      control: 'inline-radio',\r\n      options: ['start', 'end'],\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n    },\r\n    closeOnItemClick: {\r\n      control: 'boolean',\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/divider/divider.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DividerStoryDemoComponent>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Divider',\r\n  component: DividerStoryDemoComponent,\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Empty>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Empty',\r\n  component: Empty,\r\n  tags: ['autodocs'],\r\n  args: {\r\n    title: 'Nothing to show',\r\n    description: 'There is currently no data available for this view.',\r\n    compact: false,\r\n  },\r\n  argTypes: {\r\n    title: { control: 'text' },\r\n    description: { control: 'text' },\r\n    compact: { control: 'boolean' },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<FormField>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Form Field',\r\n  component: FormField,\r\n  args: {\r\n    label: 'Email',\r\n    required: false,\r\n    helperText: 'We’ll never share your email.',\r\n    error: null,\r\n    fullWidth: true,\r\n    controlId: 'email',\r\n  },\r\n  argTypes: {\r\n    error: { control: 'text' },\r\n    helperText: { control: 'text' },\r\n    label: { control: 'text' },\r\n    required: { control: 'boolean' },\r\n    fullWidth: { control: 'boolean' },\r\n    controlId: { control: 'text' },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/icon-button/icon-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<IconButtonStoryDemoComponent>",
+                "defaultValue": "{\r\n  title: 'Gravitas/Icon Button',\r\n  component: IconButtonStoryDemoComponent,\r\n}"
             },
             {
                 "name": "meta",
@@ -859,6 +1327,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<ToastDemo>",
                 "defaultValue": "{\r\n  title: 'Gravitas/Toast',\r\n  component: ToastDemo,\r\n  tags: ['autodocs'],\r\n  args: { position: 'top-end' },\r\n  argTypes: {\r\n    position: {\r\n      control: 'select',\r\n      options: [\r\n        'top-end',\r\n        'top-start',\r\n        'top-center',\r\n        'bottom-end',\r\n        'bottom-start',\r\n        'bottom-center',\r\n      ],\r\n      description: 'Screen position where new toasts appear.',\r\n      table: {\r\n        category: 'Behavior',\r\n        defaultValue: { summary: 'top-end' },\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    (story) => ({\r\n      ...story(),\r\n      moduleMetadata: {\r\n        providers: [ToastService],\r\n      },\r\n    }),\r\n  ],\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        component: `\r\nToasts provide lightweight, temporary feedback for app events such as saves, sync updates, and validation errors.\r\n\r\n### Features\r\n- Position control via \\`ToastPosition\\`\r\n- Variants for semantic feedback\r\n- Auto-dismiss or sticky mode\r\n- Themeable with CSS variables\r\n\r\n### CSS Variables\r\n- \\`--gv-toast-bg\\`\r\n- \\`--gv-toast-border\\`\r\n- \\`--gv-toast-color\\`\r\n- \\`--gv-toast-title-color\\`\r\n- \\`--gv-toast-close-color\\`\r\n- \\`--gv-toast-close-hover-color\\`\r\n\r\n### Optional per-variant background overrides\r\n- \\`--gv-toast-primary-bg\\`\r\n- \\`--gv-toast-success-bg\\`\r\n- \\`--gv-toast-warning-bg\\`\r\n- \\`--gv-toast-danger-bg\\`\r\n- \\`--gv-toast-info-bg\\`\r\n- \\`--gv-toast-dark-bg\\`\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/tooltip/tooltip.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TooltipStoryDemoComponent>",
+                "defaultValue": "{\r\n  title: 'GRAVITAS/Tooltip',\r\n  component: TooltipStoryDemoComponent,\r\n}"
             },
             {
                 "name": "Multiple",
@@ -1184,11 +1662,31 @@
                 "name": "Variants",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Alert],\r\n    template: `\r\n      <div\r\n        style=\"display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 720px;\"\r\n      >\r\n        <gv-alert variant=\"neutral\" title=\"Note\">\r\n          This record is visible to all team members with access.\r\n        </gv-alert>\r\n\r\n        <gv-alert variant=\"info\" title=\"Info\">\r\n          New policy changes will be reflected after the next sync cycle.\r\n        </gv-alert>\r\n\r\n        <gv-alert variant=\"success\" title=\"Saved successfully\">\r\n          Your commission settings were updated.\r\n        </gv-alert>\r\n\r\n        <gv-alert variant=\"warning\" title=\"Action recommended\">\r\n          Some required fields are still incomplete.\r\n        </gv-alert>\r\n\r\n        <gv-alert variant=\"danger\" title=\"Something went wrong\">\r\n          We could not save your changes. Please try again.\r\n        </gv-alert>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Variants",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/gravitas-ui/src/lib/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Badge],\r\n    template: `\r\n      <div\r\n        style=\"\r\n          padding: 20px;\r\n          background: #ffffff;\r\n          border: 1px solid #e2e8f0;\r\n          border-radius: 12px;\r\n        \"\r\n        class=\"d-flex gap-2 flex-wrap\"\r\n      >\r\n        <gv-badge variant=\"neutral\">Neutral</gv-badge>\r\n        <gv-badge variant=\"primary\">Primary</gv-badge>\r\n        <gv-badge variant=\"success\">Success</gv-badge>\r\n        <gv-badge variant=\"warning\">Warning</gv-badge>\r\n        <gv-badge variant=\"danger\">Danger</gv-badge>\r\n        <gv-badge variant=\"info\">Info</gv-badge>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "WithAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Empty],\r\n    template: `\r\n      <gv-empty\r\n        title=\"No records found\"\r\n        description=\"Try adjusting your filters or create a new record.\"\r\n      >\r\n        <button\r\n          gvEmptyActions\r\n          type=\"button\"\r\n          class=\"btn btn-primary\"\r\n        >\r\n          Create record\r\n        </button>\r\n      </gv-empty>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "WithDisabledOptions",
@@ -1229,6 +1727,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    variant: 'spinner',\r\n    size: 'md',\r\n    label: 'Loading data...',\r\n  },\r\n}"
+            },
+            {
+                "name": "WithoutTitle",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Alert],\r\n    template: `\r\n      <div style=\"max-width: 720px;\">\r\n        <gv-alert variant=\"neutral\">\r\n          This is a simpler alert without a title.\r\n        </gv-alert>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "WithPagination",
@@ -1576,6 +2084,28 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<Alert>",
+                "file": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<AvatarStoryDemoComponent>",
+                "file": "projects/gravitas-ui/src/lib/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<Badge>",
                 "file": "projects/gravitas-ui/src/lib/badge/badge.stories.ts",
                 "deprecated": false,
@@ -1598,17 +2128,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<FormField>",
-                "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<Card>",
                 "file": "projects/gravitas-ui/src/lib/card/card.stories.ts",
                 "deprecated": false,
@@ -1620,8 +2139,63 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<CheckboxStoryDemoComponent>",
+                "file": "projects/gravitas-ui/src/lib/checkbox/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<Dropdown>",
                 "file": "projects/gravitas-ui/src/lib/dropdown/dropdown.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<DividerStoryDemoComponent>",
+                "file": "projects/gravitas-ui/src/lib/divider/divider.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<Empty>",
+                "file": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<FormField>",
+                "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<IconButtonStoryDemoComponent>",
+                "file": "projects/gravitas-ui/src/lib/icon-button/icon-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1714,10 +2288,93 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TooltipStoryDemoComponent>",
+                "file": "projects/gravitas-ui/src/lib/tooltip/tooltip.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
             }
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/gravitas-ui/src/lib/alert/alert.stories.ts": [
+                {
+                    "name": "AboveTableExample",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Alert],\r\n    template: `\r\n      <div style=\"max-width: 760px;\">\r\n        <gv-alert variant=\"info\" title=\"Filtered results\">\r\n          Showing 18 matching records based on the current filters.\r\n        </gv-alert>\r\n\r\n        <div\r\n          style=\"\r\n            margin-top: 12px;\r\n            border: 1px solid #e2e8f0;\r\n            border-radius: 12px;\r\n            background: #ffffff;\r\n            min-height: 140px;\r\n          \"\r\n        ></div>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    imports: [Alert],\r\n    template: `\r\n      <gv-alert\r\n        [variant]=\"variant\"\r\n        [title]=\"title\"\r\n        [dismissible]=\"dismissible\"\r\n      >\r\n        This is an inline alert message for the current section.\r\n      </gv-alert>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Dismissible",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Alert],\r\n    template: `\r\n      <div style=\"max-width: 720px;\">\r\n        <gv-alert variant=\"info\" title=\"Dismissible alert\" dismissible>\r\n          You can close this message after reviewing it.\r\n        </gv-alert>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "InCardExample",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Alert],\r\n    template: `\r\n      <div\r\n        style=\"\r\n          width: 420px;\r\n          padding: 20px;\r\n          border: 1px solid #e2e8f0;\r\n          border-radius: 12px;\r\n          background: #ffffff;\r\n        \"\r\n      >\r\n        <div\r\n          style=\"\r\n            font-weight: 700;\r\n            color: #0f172a;\r\n            margin-bottom: 14px;\r\n          \"\r\n        >\r\n          Billing settings\r\n        </div>\r\n\r\n        <gv-alert variant=\"warning\" title=\"Payment method expiring soon\">\r\n          Update your billing details to avoid interruptions in service.\r\n        </gv-alert>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<Alert>",
+                    "defaultValue": "{\r\n  title: 'Gravitas/Alert',\r\n  component: Alert,\r\n  tags: ['autodocs'],\r\n  args: {\r\n    variant: 'info',\r\n    title: 'Heads up',\r\n    dismissible: false,\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'inline-radio',\r\n      options: ['neutral', 'info', 'success', 'warning', 'danger'],\r\n    },\r\n    title: {\r\n      control: 'text',\r\n    },\r\n    dismissible: {\r\n      control: 'boolean',\r\n    },\r\n  },\r\n}"
+                },
+                {
+                    "name": "Variants",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Alert],\r\n    template: `\r\n      <div\r\n        style=\"display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 720px;\"\r\n      >\r\n        <gv-alert variant=\"neutral\" title=\"Note\">\r\n          This record is visible to all team members with access.\r\n        </gv-alert>\r\n\r\n        <gv-alert variant=\"info\" title=\"Info\">\r\n          New policy changes will be reflected after the next sync cycle.\r\n        </gv-alert>\r\n\r\n        <gv-alert variant=\"success\" title=\"Saved successfully\">\r\n          Your commission settings were updated.\r\n        </gv-alert>\r\n\r\n        <gv-alert variant=\"warning\" title=\"Action recommended\">\r\n          Some required fields are still incomplete.\r\n        </gv-alert>\r\n\r\n        <gv-alert variant=\"danger\" title=\"Something went wrong\">\r\n          We could not save your changes. Please try again.\r\n        </gv-alert>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "WithoutTitle",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Alert],\r\n    template: `\r\n      <div style=\"max-width: 720px;\">\r\n        <gv-alert variant=\"neutral\">\r\n          This is a simpler alert without a title.\r\n        </gv-alert>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                }
+            ],
             "projects/gravitas-ui/src/lib/dropdown/dropdown.stories.ts": [
                 {
                     "name": "AlignEnd",
@@ -1870,6 +2527,68 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Badge],\r\n    template: `\r\n      <div\r\n        style=\"\r\n          padding: 20px;\r\n          background: #ffffff;\r\n          border: 1px solid #e2e8f0;\r\n          border-radius: 12px;\r\n        \"\r\n        class=\"d-flex gap-2 flex-wrap\"\r\n      >\r\n        <gv-badge dot variant=\"neutral\">Draft</gv-badge>\r\n        <gv-badge dot variant=\"primary\">In Review</gv-badge>\r\n        <gv-badge dot variant=\"success\">Active</gv-badge>\r\n        <gv-badge dot variant=\"warning\">Pending</gv-badge>\r\n        <gv-badge dot variant=\"danger\">Blocked</gv-badge>\r\n        <gv-badge dot variant=\"info\">Synced</gv-badge>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                }
+            ],
+            "projects/gravitas-ui/src/lib/empty/empty.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    imports: [Empty],\r\n    template: `\r\n      <gv-empty\r\n        [title]=\"title\"\r\n        [description]=\"description\"\r\n        [compact]=\"compact\"\r\n      ></gv-empty>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Compact",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Empty],\r\n    template: `\r\n      <div\r\n        style=\"\r\n          border: 1px solid #e2e8f0;\r\n          border-radius: 12px;\r\n          background: #ffffff;\r\n        \"\r\n      >\r\n        <gv-empty\r\n          compact\r\n          title=\"No results\"\r\n          description=\"No matching records were found.\"\r\n        ></gv-empty>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "FirstTimeExperience",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Empty],\r\n    template: `\r\n      <div\r\n        style=\"\r\n          padding: 24px;\r\n          border: 1px solid #e2e8f0;\r\n          border-radius: 12px;\r\n          background: #ffffff;\r\n          max-width: 480px;\r\n        \"\r\n      >\r\n        <gv-empty\r\n          title=\"Get started\"\r\n          description=\"Create your first record to begin using this feature.\"\r\n        >\r\n          <button\r\n            gvEmptyActions\r\n            class=\"btn btn-primary\"\r\n            type=\"button\"\r\n          >\r\n            Create your first item\r\n          </button>\r\n        </gv-empty>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "InTable",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Empty],\r\n    template: `\r\n      <div\r\n        style=\"\r\n          width: 100%;\r\n          border: 1px solid #e2e8f0;\r\n          border-radius: 12px;\r\n          background: #ffffff;\r\n          min-height: 220px;\r\n          display: flex;\r\n          align-items: center;\r\n          justify-content: center;\r\n        \"\r\n      >\r\n        <gv-empty\r\n          title=\"No data available\"\r\n          description=\"This table has no rows yet.\"\r\n        ></gv-empty>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<Empty>",
+                    "defaultValue": "{\r\n  title: 'Gravitas/Empty',\r\n  component: Empty,\r\n  tags: ['autodocs'],\r\n  args: {\r\n    title: 'Nothing to show',\r\n    description: 'There is currently no data available for this view.',\r\n    compact: false,\r\n  },\r\n  argTypes: {\r\n    title: { control: 'text' },\r\n    description: { control: 'text' },\r\n    compact: { control: 'boolean' },\r\n  },\r\n}"
+                },
+                {
+                    "name": "WithAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    imports: [Empty],\r\n    template: `\r\n      <gv-empty\r\n        title=\"No records found\"\r\n        description=\"Try adjusting your filters or create a new record.\"\r\n      >\r\n        <button\r\n          gvEmptyActions\r\n          type=\"button\"\r\n          class=\"btn btn-primary\"\r\n        >\r\n          Create record\r\n        </button>\r\n      </gv-empty>\r\n    `,\r\n  }),\r\n}"
                 }
             ],
             "projects/gravitas-ui/src/lib/skeleton/skeleton.stories.ts": [
@@ -2412,46 +3131,26 @@
                     "defaultValue": "{\r\n  render: (args: any) => ({\r\n    props: {\r\n      ...args,\r\n      hasPrefix: true,\r\n      control: new FormControl(''),\r\n    },\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-input\r\n          [label]=\"label\"\r\n          [placeholder]=\"placeholder\"\r\n          [hasPrefix]=\"true\"\r\n          [formControl]=\"control\"\r\n        >\r\n          <span gvPrefix>@</span>\r\n        </gv-input>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
                 }
             ],
-            "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
+            "projects/gravitas-ui/src/lib/avatar/avatar.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "file": "projects/gravitas-ui/src/lib/avatar/avatar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <!-- demo control -->\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            [attr.aria-invalid]=\"!!error\"\r\n            placeholder=\"name@company.com\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                    "defaultValue": "{}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "file": "projects/gravitas-ui/src/lib/avatar/avatar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<FormField>",
-                    "defaultValue": "{\r\n  title: 'Gravitas/Form Field',\r\n  component: FormField,\r\n  args: {\r\n    label: 'Email',\r\n    required: false,\r\n    helperText: 'We’ll never share your email.',\r\n    error: null,\r\n    fullWidth: true,\r\n    controlId: 'email',\r\n  },\r\n  argTypes: {\r\n    error: { control: 'text' },\r\n    helperText: { control: 'text' },\r\n    label: { control: 'text' },\r\n    required: { control: 'boolean' },\r\n    fullWidth: { control: 'boolean' },\r\n    controlId: { control: 'text' },\r\n  },\r\n}"
-                },
-                {
-                    "name": "WithError",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    error: 'Password must be at least 8 characters long.',\r\n    helperText: 'Use at least one number and one symbol.',\r\n    label: 'Password',\r\n    required: true,\r\n    controlId: 'password',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <input\r\n            class=\"form-control is-invalid\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            aria-invalid=\"true\"\r\n            placeholder=\"••••••••\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "WithPrefixSuffix",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    label: 'Amount',\r\n    helperText: 'Enter a number only.',\r\n    controlId: 'amount',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <span prefix class=\"fw-semibold\">$</span>\r\n\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            placeholder=\"0.00\"\r\n          />\r\n\r\n          <span suffix class=\"text-uppercase small\">CAD</span>\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                    "type": "Meta<AvatarStoryDemoComponent>",
+                    "defaultValue": "{\r\n  title: 'Gravitas/Avatar',\r\n  component: AvatarStoryDemoComponent,\r\n}"
                 }
             ],
             "projects/gravitas-ui/src/lib/card/card.stories.ts": [
@@ -2504,6 +3203,114 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args: { title: null, subtitle: null },\r\n  render: renderCard,\r\n}"
+                }
+            ],
+            "projects/gravitas-ui/src/lib/checkbox/checkbox.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/checkbox/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/checkbox/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<CheckboxStoryDemoComponent>",
+                    "defaultValue": "{\r\n  title: 'Gravitas/Checkbox',\r\n  component: CheckboxStoryDemoComponent,\r\n}"
+                }
+            ],
+            "projects/gravitas-ui/src/lib/divider/divider.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/divider/divider.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/divider/divider.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<DividerStoryDemoComponent>",
+                    "defaultValue": "{\r\n  title: 'Gravitas/Divider',\r\n  component: DividerStoryDemoComponent,\r\n}"
+                }
+            ],
+            "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <!-- demo control -->\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            [attr.aria-invalid]=\"!!error\"\r\n            placeholder=\"name@company.com\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<FormField>",
+                    "defaultValue": "{\r\n  title: 'Gravitas/Form Field',\r\n  component: FormField,\r\n  args: {\r\n    label: 'Email',\r\n    required: false,\r\n    helperText: 'We’ll never share your email.',\r\n    error: null,\r\n    fullWidth: true,\r\n    controlId: 'email',\r\n  },\r\n  argTypes: {\r\n    error: { control: 'text' },\r\n    helperText: { control: 'text' },\r\n    label: { control: 'text' },\r\n    required: { control: 'boolean' },\r\n    fullWidth: { control: 'boolean' },\r\n    controlId: { control: 'text' },\r\n  },\r\n}"
+                },
+                {
+                    "name": "WithError",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    error: 'Password must be at least 8 characters long.',\r\n    helperText: 'Use at least one number and one symbol.',\r\n    label: 'Password',\r\n    required: true,\r\n    controlId: 'password',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 520px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [required]=\"required\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <input\r\n            class=\"form-control is-invalid\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            aria-invalid=\"true\"\r\n            placeholder=\"••••••••\"\r\n          />\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "WithPrefixSuffix",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Amount',\r\n    helperText: 'Enter a number only.',\r\n    controlId: 'amount',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <gv-form-field\r\n          [label]=\"label\"\r\n          [helperText]=\"helperText\"\r\n          [error]=\"error\"\r\n          [fullWidth]=\"fullWidth\"\r\n          [controlId]=\"controlId\"\r\n        >\r\n          <span prefix class=\"fw-semibold\">$</span>\r\n\r\n          <input\r\n            class=\"form-control\"\r\n            [id]=\"controlId\"\r\n            [attr.aria-describedby]=\"controlId + '__desc'\"\r\n            placeholder=\"0.00\"\r\n          />\r\n\r\n          <span suffix class=\"text-uppercase small\">CAD</span>\r\n        </gv-form-field>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                }
+            ],
+            "projects/gravitas-ui/src/lib/icon-button/icon-button.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/icon-button/icon-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/icon-button/icon-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<IconButtonStoryDemoComponent>",
+                    "defaultValue": "{\r\n  title: 'Gravitas/Icon Button',\r\n  component: IconButtonStoryDemoComponent,\r\n}"
                 }
             ],
             "projects/gravitas-ui/src/lib/modal/modal.stories.ts": [
@@ -2568,6 +3375,28 @@
                     "deprecationMessage": "",
                     "type": "Meta<TabsStoryHost>",
                     "defaultValue": "{\r\n  title: 'Gravitas/Tabs',\r\n  component: TabsStoryHost,\r\n  argTypes: {\r\n    variant: { control: 'select', options: ['underline', 'pill'] },\r\n  },\r\n  args: {\r\n    variant: 'underline',\r\n  },\r\n}"
+                }
+            ],
+            "projects/gravitas-ui/src/lib/tooltip/tooltip.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/tooltip/tooltip.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/tooltip/tooltip.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TooltipStoryDemoComponent>",
+                    "defaultValue": "{\r\n  title: 'GRAVITAS/Tooltip',\r\n  component: TooltipStoryDemoComponent,\r\n}"
                 }
             ],
             "projects/gravitas-ui/src/lib/button/button.stories.ts": [
@@ -3173,6 +4002,32 @@
                     "kind": 184
                 }
             ],
+            "projects/gravitas-ui/src/lib/alert/alert.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Alert>",
+                    "file": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/gravitas-ui/src/lib/avatar/avatar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AvatarStoryDemoComponent>",
+                    "file": "projects/gravitas-ui/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "projects/gravitas-ui/src/lib/badge/badge.stories.ts": [
                 {
                     "name": "Story",
@@ -3199,19 +4054,6 @@
                     "kind": 184
                 }
             ],
-            "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<FormField>",
-                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/gravitas-ui/src/lib/card/card.stories.ts": [
                 {
                     "name": "Story",
@@ -3225,6 +4067,19 @@
                     "kind": 184
                 }
             ],
+            "projects/gravitas-ui/src/lib/checkbox/checkbox.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<CheckboxStoryDemoComponent>",
+                    "file": "projects/gravitas-ui/src/lib/checkbox/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "projects/gravitas-ui/src/lib/dropdown/dropdown.stories.ts": [
                 {
                     "name": "Story",
@@ -3232,6 +4087,58 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<Dropdown>",
                     "file": "projects/gravitas-ui/src/lib/dropdown/dropdown.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/gravitas-ui/src/lib/divider/divider.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<DividerStoryDemoComponent>",
+                    "file": "projects/gravitas-ui/src/lib/divider/divider.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/gravitas-ui/src/lib/empty/empty.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Empty>",
+                    "file": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<FormField>",
+                    "file": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/gravitas-ui/src/lib/icon-button/icon-button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<IconButtonStoryDemoComponent>",
+                    "file": "projects/gravitas-ui/src/lib/icon-button/icon-button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3315,6 +4222,19 @@
                     "description": "",
                     "kind": 184
                 }
+            ],
+            "projects/gravitas-ui/src/lib/tooltip/tooltip.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TooltipStoryDemoComponent>",
+                    "file": "projects/gravitas-ui/src/lib/tooltip/tooltip.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
             ]
         }
     },
@@ -3353,6 +4273,125 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "AboveTableExample",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Basic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Dismissible",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "InCardExample",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Variants",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithoutTitle",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/alert/alert.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/avatar/avatar.stories.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AvatarStoryDemoComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/avatar/avatar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/avatar/avatar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/avatar/avatar.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3638,6 +4677,84 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/gravitas-ui/src/lib/checkbox/checkbox.stories.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CheckboxStoryDemoComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/checkbox/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/checkbox/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/checkbox/checkbox.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/divider/divider.stories.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DividerStoryDemoComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/divider/divider.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/divider/divider.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/divider/divider.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/gravitas-ui/src/lib/dropdown/dropdown.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -3718,6 +4835,76 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Basic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Compact",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "FirstTimeExperience",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "InTable",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/empty/empty.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -3759,6 +4946,45 @@
             },
             {
                 "filePath": "projects/gravitas-ui/src/lib/form-field/form-field.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/icon-button/icon-button.stories.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "IconButtonStoryDemoComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/icon-button/icon-button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/icon-button/icon-button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/icon-button/icon-button.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
@@ -4527,6 +5753,45 @@
             },
             {
                 "filePath": "projects/gravitas-ui/src/lib/toast/toasts.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/tooltip/tooltip.stories.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TooltipStoryDemoComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/tooltip/tooltip.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/tooltip/tooltip.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gravitas-ui/src/lib/tooltip/tooltip.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

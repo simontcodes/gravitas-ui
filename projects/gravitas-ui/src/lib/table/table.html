@@ -188,7 +188,11 @@
               class="gv-table__empty gv-table__empty--fill"
               [style.height.px]="minBodyHeight"
             >
-              Loading...
+              <gv-empty
+                compact
+                [title]="loadingTitle"
+                [description]="loadingDescription"
+              ></gv-empty>
             </td>
           </tr>
         } @else if (!pagedRows.length) {
@@ -198,7 +202,11 @@
               class="gv-table__empty gv-table__empty--fill"
               [style.height.px]="minBodyHeight"
             >
-              {{ emptyText }}
+              <gv-empty
+                compact
+                [title]="emptyTitle"
+                [description]="resolvedEmptyDescription"
+              ></gv-empty>
             </td>
           </tr>
         } @else {

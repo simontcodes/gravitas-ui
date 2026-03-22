@@ -18,3 +18,7 @@ export * from './skeleton/skeleton';
 export * from './dropdown/dropdown';
 export * from './badge/badge';
 export * from './alert/alert';
+export * from './tooltip/tooltip-directive';
+export * from './tooltip/tooltip-panel';
+export * from './icon-button/icon-button';
+export * from './divider/divider';
