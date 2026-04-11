@@ -1,12 +1,18 @@
 <div class="gv-field" [class.w-100]="fullWidth">
   @if (label && showLabel) {
-    <label class="gv-field__label" [attr.for]="controlId">
+    <label class="gv-field__label" [attr.for]="controlId" [attr.id]="labelId">
       <span class="gv-field__label-text">{{ label }}</span>
 
       @if (required) {
         <span class="gv-field__required" aria-hidden="true">*</span>
       }
     </label>
+  }
+
+  @if (hasDescription) {
+    <div class="gv-field__description">
+      {{ description }}
+    </div>
   }
 
   <div class="gv-field__row" [class.w-100]="fullWidth">
@@ -32,11 +38,11 @@
     >
       <!-- Use Bootstrap feedback styles but keep Gravitas class hooks -->
       @if (hasError) {
-        <div class="invalid-feedback d-block gv-field__error">
+        <div class="gv-field__error" role="alert">
           {{ error }}
         </div>
       } @else {
-        <div class="form-text gv-field__helper">
+        <div class="gv-field__helper">
           {{ helperText }}
         </div>
       }

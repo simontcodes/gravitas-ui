@@ -12,6 +12,7 @@ type ButtonVariant =
   | 'link';
 
 type ButtonSize = 'sm' | 'md' | 'lg';
+type ButtonAppearance = 'solid' | 'soft' | 'outline' | 'ghost' | 'link';
 
 @Component({
   selector: 'gv-button',
@@ -29,6 +30,9 @@ export class Button {
 
   /** Visual style variant. Maps to Bootstrap variants (btn-*) with Gravitas styling. */
   @Input() variant: ButtonVariant = 'primary';
+
+  /** Visual treatment independent from semantic variant. */
+  @Input() appearance: ButtonAppearance = 'solid';
 
   /** Size variant. Maps to Bootstrap size classes (btn-sm / btn-lg). */
   @Input() size: ButtonSize = 'md';
@@ -60,18 +64,28 @@ export class Button {
     const sizeClass = this.size === 'md' ? '' : `btn-${this.size}`;
     const disabledClass = this.isDisabled ? 'disabled' : '';
     const widthClass = this.fullWidth ? 'w-100' : '';
+    const appearanceClass = `gv-button--appearance-${this.resolvedAppearance}`;
+    const variantClass = `gv-button--variant-${this.variant}`;
 
     return [
       'btn',
       'gv-button',
-      `btn-${this.variant}`,
       sizeClass,
       widthClass,
       disabledClass,
+      appearanceClass,
+      variantClass,
       this.className,
     ]
       .filter(Boolean)
       .join(' ');
+  }
+
+  get resolvedAppearance(): ButtonAppearance {
+    if (this.appearance === 'solid' && this.variant === 'link') {
+      return 'link';
+    }
+    return this.appearance;
   }
 
   focus(): void {

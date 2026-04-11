@@ -2,89 +2,142 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Foundations/Colors" />
 
-# Colors
+<div className="gv-doc-page">
+  <div className="gv-doc-hero">
+    <div className="gv-doc-kicker">Foundations · Colors</div>
+    <h1 className="gv-doc-hero-title">Semantic color roles, not arbitrary paint</h1>
+    <p className="gv-doc-hero-copy">
+      Gravitas color is built around role-based tokens. Components should communicate intent through
+      semantic color usage, while neutral surfaces and text tokens keep dense application screens
+      stable and readable.
+    </p>
+    <div className="gv-doc-hero-rule" />
+  </div>
 
-Gravitas uses a token-based color system so components stay consistent across the library.
+  ## Core semantic palette
 
----
+  <div className="gv-doc-grid gv-doc-grid--wide">
+    {[
+      ['Accent', 'var(--gv-accent)', 'Primary actions, links, active states, focus-adjacent accents'],
+      ['Accent Hover', 'var(--gv-accent-hover)', 'Hover state for primary interactive elements'],
+      ['Success', 'var(--gv-success)', 'Positive confirmations, success states, and safe outcomes'],
+      ['Warning', 'var(--gv-warning)', 'Cautionary messaging and intermediate risk states'],
+      ['Danger', 'var(--gv-danger)', 'Errors, destructive actions, and critical alerts'],
+      ['Info', 'var(--gv-info)', 'Informational emphasis and neutral guidance states'],
+    ].map(([title, value, text]) => (
+      <div key={title} className="gv-doc-card">
+        <div
+          style={{
+            height: '96px',
+            borderRadius: '16px',
+            background: value,
+            border: '1px solid var(--gv-border)',
+            boxShadow: 'var(--gv-shadow-sm)',
+            marginBottom: '14px',
+          }}
+        />
+        <h3 className="gv-doc-card-title">{title}</h3>
+        <p className="gv-doc-card-copy" style={{ marginBottom: '6px' }}>
+          <code>{value}</code>
+        </p>
+        <p className="gv-doc-card-copy">{text}</p>
+      </div>
+    ))}
+  </div>
 
-## Core tokens
+  ## Surface system
 
-- `--gv-color-primary`
-- `--gv-color-success`
-- `--gv-color-warning`
-- `--gv-color-danger`
-- `--gv-color-info`
+  <p className="gv-doc-section-copy">
+    Most enterprise UI is not built out of bright colors. It is built out of layers of neutral
+    surfaces with clear borders, shadows, and restrained semantic accents. Gravitas intentionally
+    spends more color budget on clarity than on decoration.
+  </p>
 
----
+  <div className="gv-doc-grid gv-doc-grid--wide">
+    {[
+      ['App Background', 'var(--gv-bg-app)', 'The page-level background for dashboards and application shells'],
+      ['Deep Background', 'var(--gv-bg-deep)', 'Dark hero surfaces, high-emphasis panels, and strong contrast backdrops'],
+      ['Subtle Background', 'var(--gv-bg-subtle)', 'Low-contrast sections and muted blocks'],
+      ['Surface', 'var(--gv-surface)', 'Default cards, inputs, dropdowns, and content surfaces'],
+      ['Raised Surface', 'var(--gv-surface-raised)', 'Elevated surfaces such as layered cards and overlays'],
+    ].map(([title, value, text]) => (
+      <div key={title} className="gv-doc-card">
+        <div
+          style={{
+            height: '96px',
+            borderRadius: '16px',
+            background: value,
+            border: '1px solid var(--gv-border)',
+            boxShadow: 'var(--gv-shadow-sm)',
+            marginBottom: '14px',
+          }}
+        />
+        <h3 className="gv-doc-card-title">{title}</h3>
+        <p className="gv-doc-card-copy" style={{ marginBottom: '6px' }}>
+          <code>{value}</code>
+        </p>
+        <p className="gv-doc-card-copy">{text}</p>
+      </div>
+    ))}
+  </div>
 
-## Surface tokens
+  ## Text roles
 
-- `--gv-surface`
-- `--gv-surface-muted`
-- `--gv-surface-elevated`
+  <div className="gv-doc-grid">
+    {[
+      ['Strong Text', 'var(--gv-text-strong)', 'Primary headings and high-emphasis labels'],
+      ['Default Text', 'var(--gv-text)', 'Body text, standard labels, and most content'],
+      ['Muted Text', 'var(--gv-text-muted)', 'Secondary metadata, descriptions, and support copy'],
+      ['Inverse Text', 'var(--gv-text-inverse)', 'Text placed on dark or accent-heavy surfaces'],
+    ].map(([title, value, text]) => (
+      <div key={title} className="gv-doc-card gv-doc-card--tinted">
+        <h3 className="gv-doc-card-title" style={{ color: value }}>
+          {title}
+        </h3>
+        <p className="gv-doc-card-copy" style={{ marginBottom: '6px' }}>
+          <code>{value}</code>
+        </p>
+        <p className="gv-doc-card-copy">{text}</p>
+      </div>
+    ))}
+  </div>
 
----
+  ## Practical rules
 
-## Text tokens
+  <div className="gv-doc-callout-list">
+    {[
+      [
+        'Use semantic tokens for meaning',
+        'Choose success, warning, danger, and info based on state meaning, not because a color happens to look nice in isolation.',
+      ],
+      [
+        'Use neutrals for structure',
+        'Cards, panels, form controls, and shells should rely on surface, border, and text tokens rather than accent-heavy treatments.',
+      ],
+      [
+        'Reserve accent for interaction and emphasis',
+        'Accent should do real work: primary actions, current selection, links, and focused importance.',
+      ],
+      [
+        'Do not hardcode hex values in component CSS',
+        'If a component needs a new color role, add or evolve a token instead of embedding local color decisions.',
+      ],
+    ].map(([title, text]) => (
+      <div key={title} className="gv-doc-callout">
+        <div className="gv-doc-callout-title">{title}</div>
+        <p className="gv-doc-callout-copy">{text}</p>
+      </div>
+    ))}
+  </div>
 
-- `--gv-text-primary`
-- `--gv-text-secondary`
-- `--gv-text-muted`
-- `--gv-text-inverse`
+  ## Theme behavior
 
----
-
-## Borders
-
-- `--gv-border-color`
-- `--gv-border-color-strong`
-
----
-
-## Example
-
-<div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '16px' }}>
-  <div
-    style={{
-      width: '120px',
-      height: '80px',
-      borderRadius: '12px',
-      background: 'var(--gv-color-primary)',
-      border: '1px solid var(--gv-border-color)',
-    }}
-  />
-  <div
-    style={{
-      width: '120px',
-      height: '80px',
-      borderRadius: '12px',
-      background: 'var(--gv-color-success)',
-      border: '1px solid var(--gv-border-color)',
-    }}
-  />
-  <div
-    style={{
-      width: '120px',
-      height: '80px',
-      borderRadius: '12px',
-      background: 'var(--gv-color-warning)',
-      border: '1px solid var(--gv-border-color)',
-    }}
-  />
-  <div
-    style={{
-      width: '120px',
-      height: '80px',
-      borderRadius: '12px',
-      background: 'var(--gv-color-danger)',
-      border: '1px solid var(--gv-border-color)',
-    }}
-  />
+  <div className="gv-doc-panel">
+    <p className="gv-doc-section-copy" style={{ marginTop: 0 }}>
+      In dark theme, Gravitas keeps the semantic hues recognizable while rebalancing surfaces,
+      borders, shadows, and text tokens. Component authors should rely on tokens instead of assuming
+      a light background. If a component looks wrong in dark mode, the issue is usually a hardcoded
+      local value rather than the theme itself.
+    </p>
+  </div>
 </div>
-
----
-
-## Rule
-
-Components should use semantic tokens whenever possible instead of hardcoded colors.

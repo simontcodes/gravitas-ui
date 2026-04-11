@@ -36,12 +36,20 @@ let nextRadioId = 0;
   ],
 })
 export class Radio implements ControlValueAccessor {
+  private readonly generatedId = `gv-radio-${++nextRadioId}`;
+
   @Input() label = '';
   @Input() description = '';
   @Input() helperText = '';
   @Input() errorText = '';
+  @Input({ alias: 'error' }) set error(value: string | null | undefined) {
+    this.errorText = value ?? '';
+  }
   @Input() size: GvRadioSize = 'md';
-  @Input() inputId = `gv-radio-${++nextRadioId}`;
+  @Input() inputId = this.generatedId;
+  @Input({ alias: 'id' }) set id(value: string | null | undefined) {
+    this.inputId = value?.trim() || this.generatedId;
+  }
   @Input() name?: string;
   @Input() value: unknown = true;
   @Input({ transform: booleanAttribute }) disabled = false;

@@ -6,6 +6,7 @@ import { InputComponent } from './input';
 const meta: Meta<InputComponent> = {
   title: 'Gravitas/Input',
   component: InputComponent,
+  tags: ['autodocs'],
   decorators: [
     moduleMetadata({
       imports: [ReactiveFormsModule, InputComponent],
@@ -40,6 +41,17 @@ const meta: Meta<InputComponent> = {
       ],
     },
     size: { control: 'select', options: ['sm', 'md', 'lg'] },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Single-line text input for standard form entry such as names, email, search, numeric values, and date-like browser inputs.
+
+Input is ControlValueAccessor-based and works with Angular forms directly. Use prefix and suffix slots for lightweight adornments, and rely on the built-in field framing for labels and validation messaging.
+        `.trim(),
+      },
+    },
   },
 };
 

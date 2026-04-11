@@ -9,7 +9,8 @@
 .gv-modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(15, 23, 42, 0.45);
+  background: var(--gv-overlay-backdrop);
+  backdrop-filter: blur(3px);
 }
 
 /* Top-aligned viewport */
@@ -37,10 +38,10 @@ html[data-gv-density='spacious'] .gv-modal__viewport {
 /* Panel */
 .gv-modal__panel {
   width: min(920px, 100%);
-  background: var(--gv-surface, #fff);
-  border: 1px solid var(--gv-border, #e2e8f0);
-  border-radius: var(--gv-radius-lg, 12px);
-  box-shadow: var(--gv-shadow-lg, 0 16px 40px rgba(15, 23, 42, 0.12));
+  background: var(--gv-overlay-surface);
+  border: 1px solid var(--gv-overlay-border);
+  border-radius: 18px;
+  box-shadow: var(--gv-shadow-overlay);
   overflow: hidden;
   position: relative;
   outline: none;
@@ -65,8 +66,9 @@ html[data-gv-density='spacious'] .gv-modal__viewport {
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
-  padding: 12px 12px;
+  padding: 16px 18px;
   border-bottom: 1px solid var(--gv-border, #e2e8f0);
+  background: color-mix(in srgb, var(--gv-surface-subtle) 82%, transparent);
 }
 
 .gv-modal__heading {
@@ -75,7 +77,7 @@ html[data-gv-density='spacious'] .gv-modal__viewport {
 
 .gv-modal__title {
   font-weight: 800;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--gv-text-strong, #0f172a);
   line-height: 1.2;
 }
@@ -84,31 +86,55 @@ html[data-gv-density='spacious'] .gv-modal__viewport {
   margin-top: 4px;
   font-size: 12px;
   color: var(--gv-text-muted, #64748b);
-  line-height: 1.3;
+  line-height: 1.45;
 }
 
 .gv-modal__close {
   flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--gv-border, #e2e8f0);
+  border-radius: 10px;
+  background: var(--gv-surface);
+  color: var(--gv-text-muted);
   line-height: 1;
+  box-shadow: var(--gv-shadow-sm);
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.gv-modal__close:hover:not(:disabled) {
+  background: var(--gv-surface-subtle);
+  color: var(--gv-text-strong);
+  border-color: var(--gv-field-border-hover);
+}
+
+.gv-modal__close:focus-visible {
+  outline: none;
+  box-shadow: var(--gv-ring), var(--gv-shadow-sm);
 }
 
 .gv-modal__body {
-  padding: 12px 12px;
+  padding: 18px;
 }
 
 .gv-modal__footer {
-  padding: 10px 12px;
+  padding: 14px 18px;
   border-top: 1px solid var(--gv-border, #e2e8f0);
   display: flex;
   justify-content: flex-end;
   gap: 8px;
+  background: color-mix(in srgb, var(--gv-surface-subtle) 72%, transparent);
 }
 
 /* Optional loading veil */
 .gv-modal__loading {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.6);
+  background: color-mix(in srgb, var(--gv-overlay-surface) 78%, transparent);
   display: grid;
   place-items: center;
 }

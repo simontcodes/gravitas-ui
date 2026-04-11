@@ -1,19 +1,12 @@
-<div class="gv-textarea">
-  @if (label) {
-    <label class="gv-textarea__label" [attr.for]="inputId">
-      {{ label }}
-      @if (required) {
-        <span class="gv-textarea__required" aria-hidden="true">*</span>
-      }
-    </label>
-  }
-
-  @if (description) {
-    <div class="gv-textarea__description">
-      {{ description }}
-    </div>
-  }
-
+<gv-form-field
+  [label]="label || null"
+  [description]="description || null"
+  [required]="required"
+  [helperText]="!errorText ? helperText || null : null"
+  [error]="errorText || null"
+  [controlId]="inputId"
+  [fullWidth]="true"
+>
   <div class="gv-textarea__control">
     <textarea
       class="gv-textarea__field"
@@ -27,28 +20,18 @@
       [readOnly]="readonly"
       [maxLength]="maxLength ?? null"
       [attr.aria-invalid]="errorText ? 'true' : null"
-      [attr.aria-describedby]="
-        description || helperText || errorText || maxLength ? inputId + '-meta' : null
-      "
+      [attr.aria-describedby]="describedBy"
       (input)="handleInput($event)"
       (focus)="handleFocus()"
       (blur)="handleBlur()"
     ></textarea>
   </div>
 
-  @if (helperText || errorText || maxLength) {
-    <div class="gv-textarea__meta" [id]="inputId + '-meta'">
-      <div class="gv-textarea__meta-text">
-        @if (errorText) {
-          <span class="gv-textarea__error-text">{{ errorText }}</span>
-        } @else if (helperText) {
-          <span class="gv-textarea__helper-text">{{ helperText }}</span>
-        }
-      </div>
-
+  @if (maxLength) {
+    <div class="gv-textarea__meta">
       @if (maxLength) {
-        <div class="gv-textarea__count">{{ characterCount }}/{{ maxLength }}</div>
+        <div class="gv-textarea__count" [id]="inputId + '-count'">{{ characterCount }}/{{ maxLength }}</div>
       }
     </div>
   }
-</div>
+</gv-form-field>

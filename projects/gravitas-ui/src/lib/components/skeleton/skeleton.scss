@@ -1,6 +1,6 @@
 :host {
-  --gv-skeleton-bg: var(--gv-color-slate-200, #e2e8f0);
-  --gv-skeleton-highlight: rgba(255, 255, 255, 0.58);
+  --gv-skeleton-bg: var(--gv-skeleton-bg);
+  --gv-skeleton-highlight: var(--gv-skeleton-highlight);
   --gv-skeleton-radius: 10px;
   --gv-skeleton-text-height: 0.875rem;
   --gv-skeleton-text-gap: 0.5rem;

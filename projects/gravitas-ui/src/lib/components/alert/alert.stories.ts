@@ -22,6 +22,17 @@ const meta: Meta<Alert> = {
       control: 'boolean',
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Inline feedback banner for section-level messaging such as warnings, validation summaries, success confirmations, and informational notices.
+
+Use \`variant\` to communicate tone, add \`title\` when the message needs a stronger scan target, and enable \`dismissible\` only for non-blocking content the user can safely hide.
+        `.trim(),
+      },
+    },
+  },
 };
 
 export default meta;

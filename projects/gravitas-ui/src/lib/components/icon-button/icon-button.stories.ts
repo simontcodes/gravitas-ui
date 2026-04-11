@@ -23,15 +23,15 @@ import { IconButton } from './icon-button';
             <i class="bi bi-pencil"></i>
           </gv-icon-button>
 
-          <gv-icon-button ariaLabel="More actions" variant="ghost">
+          <gv-icon-button ariaLabel="More actions" appearance="ghost">
             <i class="bi bi-three-dots"></i>
           </gv-icon-button>
 
-          <gv-icon-button ariaLabel="Pin" variant="primary">
+          <gv-icon-button ariaLabel="Pin" variant="primary" appearance="solid">
             <i class="bi bi-pin-angle"></i>
           </gv-icon-button>
 
-          <gv-icon-button ariaLabel="Delete" variant="danger">
+          <gv-icon-button ariaLabel="Delete" variant="danger" appearance="soft">
             <i class="bi bi-trash"></i>
           </gv-icon-button>
         </div>
@@ -82,7 +82,7 @@ import { IconButton } from './icon-button';
             <i class="bi bi-lock"></i>
           </gv-icon-button>
 
-          <gv-icon-button ariaLabel="Ghost disabled" variant="ghost" [disabled]="true">
+          <gv-icon-button ariaLabel="Ghost disabled" appearance="ghost" [disabled]="true">
             <i class="bi bi-eye-slash"></i>
           </gv-icon-button>
         </div>
@@ -94,11 +94,11 @@ import { IconButton } from './icon-button';
           class="d-inline-flex align-items-center gap-2 rounded-4 border bg-white px-2 py-2"
           style="border-color: rgba(148, 163, 184, 0.24);"
         >
-          <gv-icon-button ariaLabel="Back" variant="ghost" size="sm">
+          <gv-icon-button ariaLabel="Back" appearance="ghost" size="sm">
             <i class="bi bi-arrow-left"></i>
           </gv-icon-button>
 
-          <gv-icon-button ariaLabel="Forward" variant="ghost" size="sm">
+          <gv-icon-button ariaLabel="Forward" appearance="ghost" size="sm">
             <i class="bi bi-arrow-right"></i>
           </gv-icon-button>
 
@@ -112,7 +112,7 @@ import { IconButton } from './icon-button';
             <i class="bi bi-gear"></i>
           </gv-icon-button>
 
-          <gv-icon-button ariaLabel="Delete" variant="danger" size="sm">
+          <gv-icon-button ariaLabel="Delete" variant="danger" appearance="soft" size="sm">
             <i class="bi bi-trash"></i>
           </gv-icon-button>
         </div>
@@ -125,6 +125,18 @@ class IconButtonStoryDemoComponent {}
 const meta: Meta<IconButtonStoryDemoComponent> = {
   title: 'Gravitas/Icon Button',
   component: IconButtonStoryDemoComponent,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Icon-only action button for toolbars, row actions, overlays, compact controls, and secondary utility affordances.
+
+Use \`ariaLabel\` for every instance because the icon alone is not sufficient accessible text. Combine \`variant\` with \`appearance\` to keep the action semantically clear while fitting the surrounding surface density.
+        `.trim(),
+      },
+    },
+  },
 };
 
 export default meta;

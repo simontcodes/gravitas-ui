@@ -27,6 +27,17 @@ const meta: Meta<Badge> = {
       control: 'boolean',
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Compact status or metadata label used for workflow state, record tags, counters, and lightweight semantic emphasis.
+
+Use \`variant\` for tone, \`dot\` when the badge represents state, and \`pill\` when the badge should read as a softer chip-like token.
+        `.trim(),
+      },
+    },
+  },
 };
 
 export default meta;

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { Loader } from './loader';
 
 const meta: Meta<Loader> = {
-  title: 'GRAVITAS/Loader',
+  title: 'Gravitas/Loader',
   component: Loader,
   tags: ['autodocs'],
   args: {
@@ -33,6 +33,17 @@ const meta: Meta<Loader> = {
     },
     centered: {
       control: 'boolean',
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Loading indicator for asynchronous states such as saving, syncing, fetching, and dashboard widget refreshes.
+
+Use inline loaders for compact status hints, centered loaders for standalone loading regions, and overlay loaders when you need to block interaction temporarily while preserving layout context.
+        `.trim(),
+      },
     },
   },
 };

@@ -20,6 +20,7 @@ type ModalArgs = {
 const meta: Meta<ModalArgs> = {
   title: 'Gravitas/Modal',
   component: Modal,
+  tags: ['autodocs'],
   args: {
     open: true,
     title: 'Edit Claim',
@@ -39,6 +40,17 @@ const meta: Meta<ModalArgs> = {
     panelClass: { control: 'text' },
     title: { control: 'text' },
     subtitle: { control: 'text' },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Dialog surface for focused workflows such as record editing, approval flows, confirmations, and detail inspection.
+
+Modal owns focus management, escape handling, and backdrop close behavior. Keep modal content task-focused and use the footer slot for primary and secondary actions.
+        `.trim(),
+      },
+    },
   },
 };
 

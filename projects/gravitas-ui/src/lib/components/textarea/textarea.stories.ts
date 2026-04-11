@@ -135,6 +135,18 @@ class TextareaStoryDemoComponent {
 const meta: Meta<TextareaStoryDemoComponent> = {
   title: 'Gravitas/Textarea',
   component: TextareaStoryDemoComponent,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Multiline text input for notes, comments, explanations, summaries, and admin workflow fields that need more space than a standard input.
+
+Textarea supports helper text, errors, readonly and disabled states, resize behavior, and character counting. Use it for narrative content, not for structured lists of many separate values.
+        `.trim(),
+      },
+    },
+  },
 };
 
 export default meta;

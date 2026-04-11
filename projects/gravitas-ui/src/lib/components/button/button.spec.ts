@@ -46,14 +46,22 @@ describe('Button (gv-button)', () => {
     const btn = getBtn();
     expect(btn.className).toContain('btn');
     expect(btn.className).toContain('gv-button');
-    expect(btn.className).toContain('btn-primary');
+    expect(btn.className).toContain('gv-button--appearance-solid');
+    expect(btn.className).toContain('gv-button--variant-primary');
   });
 
   it('applies variant class', async () => {
     await setInputs({ variant: 'danger' as any });
 
     const btn = getBtn();
-    expect(btn.className).toContain('btn-danger');
+    expect(btn.className).toContain('gv-button--variant-danger');
+  });
+
+  it('applies appearance class', async () => {
+    await setInputs({ appearance: 'ghost' as any });
+
+    const btn = getBtn();
+    expect(btn.className).toContain('gv-button--appearance-ghost');
   });
 
   it('applies size class (sm/lg) but not for md', async () => {

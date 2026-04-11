@@ -40,23 +40,28 @@ describe('Card (gv-card)', () => {
   });
 
   it('renders base classes', async () => {
-    await setInputs({ variant: 'default' as any, padding: 'md' as any });
+    await setInputs({});
 
     const el = fixture.debugElement.query(By.css('.gv-card'))?.nativeElement as HTMLElement;
     expect(el).toBeTruthy();
-    expect(el.className).toContain('card');
-    expect(el.className).toContain('gv-card--default');
-    expect(el.className).toContain('gv-card--pad-md');
+    expect(el.className).toContain('gv-card');
   });
 
   it('applies fullHeight as h-100 when fullHeight=true', async () => {
-    await setInputs({ fullHeight: true as any });
+    await setInputs({ fullHeight: true });
     const el = fixture.debugElement.query(By.css('.gv-card'))?.nativeElement as HTMLElement;
     expect(el.className).toContain('h-100');
   });
 
+  it('applies interactive class when interactive=true', async () => {
+    await setInputs({ interactive: true });
+
+    const el = fixture.debugElement.query(By.css('.gv-card'))?.nativeElement as HTMLElement;
+    expect(el.className).toContain('gv-card--interactive');
+  });
+
   it('does not render header when no title/subtitle and showHeader is null', async () => {
-    await setInputs({ title: '', subtitle: '', showHeader: null as any });
+    await setInputs({ title: '', subtitle: '', showHeader: null });
 
     const header = fixture.debugElement.query(By.css('.gv-card__header'));
     expect(header).toBeNull();

@@ -39,8 +39,8 @@ export class Tabs implements AfterContentInit {
     return this.variant;
   }
 
-  @ContentChildren(Tab) tabs!: QueryList<Tab>;
-  @ContentChildren(TabPanel) panels!: QueryList<TabPanel>;
+  @ContentChildren(Tab, { descendants: true }) tabs!: QueryList<Tab>;
+  @ContentChildren(TabPanel, { descendants: true }) panels!: QueryList<TabPanel>;
 
   private zone = inject(NgZone);
   private destroyRef = inject(DestroyRef);

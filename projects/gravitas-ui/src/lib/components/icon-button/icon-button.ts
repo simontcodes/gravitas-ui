@@ -13,6 +13,7 @@ export type GvIconButtonVariant = 'default' | 'ghost' | 'primary' | 'danger';
 export type GvIconButtonSize = 'sm' | 'md' | 'lg';
 export type GvIconButtonShape = 'rounded' | 'circle' | 'square';
 export type GvIconButtonType = 'button' | 'submit' | 'reset';
+export type GvIconButtonAppearance = 'solid' | 'soft' | 'outline' | 'ghost';
 
 @Component({
   selector: 'gv-icon-button',
@@ -25,6 +26,7 @@ export type GvIconButtonType = 'button' | 'submit' | 'reset';
 export class IconButton {
   @Input() ariaLabel = '';
   @Input() variant: GvIconButtonVariant = 'default';
+  @Input() appearance: GvIconButtonAppearance = 'soft';
   @Input() size: GvIconButtonSize = 'md';
   @Input() shape: GvIconButtonShape = 'rounded';
   @Input() type: GvIconButtonType = 'button';
@@ -39,6 +41,7 @@ export class IconButton {
       'gv-icon-button-host',
       `gv-icon-button-host--${this.size}`,
       `gv-icon-button-host--${this.variant}`,
+      `gv-icon-button-host--appearance-${this.appearance}`,
       `gv-icon-button-host--${this.shape}`,
       this.active ? 'gv-icon-button-host--active' : '',
       this.disabled ? 'gv-icon-button-host--disabled' : '',

@@ -111,8 +111,20 @@ import { GvTooltipDirective } from './tooltip-directive';
 class TooltipStoryDemoComponent {}
 
 const meta: Meta<TooltipStoryDemoComponent> = {
-  title: 'GRAVITAS/Tooltip',
+  title: 'Gravitas/Tooltip',
   component: TooltipStoryDemoComponent,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Contextual helper overlay for short supporting copy on icon buttons, truncated labels, status chips, and compact dashboard affordances.
+
+Tooltip is best for supplemental information, not required instructions. Keep the message brief, choose the lightest trigger that still works, and avoid putting critical workflow content only inside a tooltip.
+        `.trim(),
+      },
+    },
+  },
 };
 
 export default meta;

@@ -20,6 +20,9 @@ export class FormField {
   /** Visible label above the control */
   @Input() label: string | null = null;
 
+  /** Optional supporting description shown between label and control */
+  @Input() description: string | null = null;
+
   /** Shows a red asterisk next to label */
   @Input() required = false;
 
@@ -50,12 +53,20 @@ export class FormField {
     return `${this.controlId}__desc`;
   }
 
+  get labelId(): string {
+    return `${this.controlId}__label`;
+  }
+
   get hasError(): boolean {
     return !!(this.error && this.error.trim().length);
   }
 
   get hasHelper(): boolean {
     return !!(this.helperText && this.helperText.trim().length);
+  }
+
+  get hasDescription(): boolean {
+    return !!(this.description && this.description.trim().length);
   }
 
   get describedByText(): string {

@@ -1,0 +1,221 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction/AI Migration" />
+
+<div className="gv-doc-page">
+  <div className="gv-doc-hero">
+    <div className="gv-doc-kicker">Introduction · AI Migration</div>
+    <h1 className="gv-doc-hero-title">Use an AI agent to replace app components with Gravitas</h1>
+    <p className="gv-doc-hero-copy">
+      Gravitas can be adopted incrementally, but the migration should be disciplined. This page is
+      the high-level execution guide for an AI agent that is rewriting an Angular application to
+      use Gravitas components instead of raw Bootstrap primitives or local wrapper components.
+    </p>
+    <div className="gv-doc-hero-rule" />
+  </div>
+
+  <div className="gv-doc-panel">
+    <h2 style={{ marginTop: 0 }}>Packaged agent spec</h2>
+    <p className="gv-doc-section-copy" style={{ margin: 0 }}>
+      The published package includes the machine-oriented migration document at
+      `ai/gravitas-component-migration.md`. Use that file when an agent is working directly from
+      the installed library and needs the stricter execution contract instead of the Storybook
+      summary.
+    </p>
+  </div>
+
+  ## What the agent must verify first
+
+  <div className="gv-doc-grid">
+    {[
+      {
+        title: 'Angular app',
+        text: 'The target codebase must be an Angular application that can consume standalone components.',
+      },
+      {
+        title: 'Package access',
+        text: 'The target app must be able to install `gravitas-ui`, `bootstrap`, and use Angular forms.',
+      },
+      {
+        title: 'Global CSS control',
+        text: 'The shell must be able to load Bootstrap and Gravitas CSS exactly once at the application root.',
+      },
+      {
+        title: 'Migration scope',
+        text: 'The agent should migrate reusable UI primitives, not redesign bespoke business workflows.',
+      },
+    ].map((item) => (
+      <div key={item.title} className="gv-doc-card">
+        <h3 className="gv-doc-card-title">{item.title}</h3>
+        <p className="gv-doc-card-copy">{item.text}</p>
+      </div>
+    ))}
+  </div>
+
+  ## Required setup in the target app
+
+  <div className="gv-doc-panel">
+    <p className="gv-doc-section-copy" style={{ marginTop: 0 }}>
+      The migration is not valid unless the target application has the package and global style
+      contract in place first.
+    </p>
+
+```bash
+npm install gravitas-ui bootstrap
+```
+
+```ts
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'gravitas-ui/styles/gravitas.css';
+```
+
+```html
+<html data-gv-theme="light" data-gv-density="comfortable">
+```
+
+    <p className="gv-doc-section-copy" style={{ marginBottom: 0 }}>
+      If the application cannot support this setup, the agent should stop and report the
+      constraint rather than applying a partial rewrite.
+    </p>
+  </div>
+
+  ## Recommended migration order
+
+  <div className="gv-doc-callout-list">
+    {[
+      [
+        'Start with buttons',
+        'Replace `btn` markup and local action wrappers with `gv-button` and `gv-icon-button` first.',
+      ],
+      [
+        'Then move forms',
+        'Migrate text inputs, textarea, select, checkbox, radio, and switch controls while preserving Angular form bindings.',
+      ],
+      [
+        'Then shared chrome',
+        'Replace alerts, badges, cards, loaders, empty states, avatars, and dividers where the application is duplicating those patterns.',
+      ],
+      [
+        'Then structured widgets',
+        'Move tabs, tables, modals, dropdowns, and tooltips only when the screen fits the supported Gravitas contract.',
+      ],
+    ].map(([title, text]) => (
+      <div key={title} className="gv-doc-callout">
+        <div className="gv-doc-callout-title">{title}</div>
+        <p className="gv-doc-callout-copy">{text}</p>
+      </div>
+    ))}
+  </div>
+
+  ## Default replacement map
+
+  <div className="gv-doc-grid gv-doc-grid--wide">
+    <div className="gv-doc-card">
+      <h3 className="gv-doc-card-title">Straight replacements</h3>
+      <ul className="gv-doc-list">
+        <li>`button.btn*` → `gv-button`</li>
+        <li>icon-only action buttons → `gv-icon-button`</li>
+        <li>`input.form-control` → `gv-input`</li>
+        <li>`textarea.form-control` → `gv-textarea`</li>
+        <li>`select.form-select` and simple select wrappers → `gv-select`</li>
+        <li>`input[type="checkbox"]` → `gv-checkbox`</li>
+        <li>`input[type="radio"]` → `gv-radio`</li>
+        <li>binary settings toggles → `gv-switch`</li>
+      </ul>
+    </div>
+
+    <div className="gv-doc-card">
+      <h3 className="gv-doc-card-title">Common UI patterns</h3>
+      <ul className="gv-doc-list">
+        <li>alert banners → `gv-alert`</li>
+        <li>badges and counters → `gv-badge`</li>
+        <li>content containers → `gv-card`</li>
+        <li>simple dialogs → `gv-modal`</li>
+        <li>tab systems → `gv-tabs`, `gv-tab-list`, `gv-tab`, `gv-tab-panels`, `gv-tab-panel`</li>
+        <li>repeat loading placeholders → `gv-loader` and `gv-skeleton`</li>
+        <li>empty results blocks → `gv-empty`</li>
+      </ul>
+    </div>
+  </div>
+
+  ## Form migration rules
+
+  <div className="gv-doc-panel">
+    <ul className="gv-doc-list">
+      <li>Preserve `formControlName`, `[formControl]`, or `[(ngModel)]` bindings.</li>
+      <li>Preserve validators, disabled state, touched state, and async form behavior.</li>
+      <li>Move helper and error messaging into Gravitas component inputs where supported.</li>
+      <li>Do not wrap self-rendering Gravitas field controls in `gv-form-field` unless there is a real gap to solve.</li>
+      <li>Do not leave duplicated helper or error markup in place after migration.</li>
+    </ul>
+  </div>
+
+  ## Import strategy
+
+  <div className="gv-doc-panel">
+    <p className="gv-doc-section-copy" style={{ marginTop: 0 }}>
+      The agent should import only the standalone components needed by each feature component.
+    </p>
+
+```ts
+import { Button, InputComponent, Select, Tabs, TabList, Tab, TabPanels, TabPanel } from 'gravitas-ui';
+```
+
+    <p className="gv-doc-section-copy" style={{ marginBottom: 0 }}>
+      Do not blanket-import the entire library into every screen. Keep imports explicit so usage
+      stays readable and tree-shakable.
+    </p>
+  </div>
+
+  ## What the agent must not guess
+
+  <div className="gv-doc-grid gv-doc-grid--wide">
+    <div className="gv-doc-card">
+      <h3 className="gv-doc-card-title">Do not auto-replace</h3>
+      <ul className="gv-doc-list">
+        <li>third-party data grids</li>
+        <li>date pickers without a Gravitas equivalent</li>
+        <li>autocomplete and async typeahead widgets</li>
+        <li>rich text editors</li>
+        <li>deeply custom tables or tree grids</li>
+        <li>multi-step workflow modals with embedded app logic</li>
+      </ul>
+    </div>
+
+    <div className="gv-doc-card">
+      <h3 className="gv-doc-card-title">Report instead</h3>
+      <ul className="gv-doc-list">
+        <li>which controls were migrated</li>
+        <li>which Gravitas components were introduced</li>
+        <li>which legacy wrappers or styles were removed</li>
+        <li>which widgets were left in place intentionally</li>
+        <li>which unsupported patterns need follow-up work</li>
+      </ul>
+    </div>
+  </div>
+
+  ## Bootstrap guidance
+
+  <p className="gv-doc-section-copy">
+    The target state is not “remove Bootstrap from the application.” Gravitas is intentionally
+    Bootstrap-aligned. The agent should keep Bootstrap for layout and shell structure, but stop
+    using raw Bootstrap component primitives like `btn`, `form-control`, `form-select`, and
+    `input-group` when Gravitas already owns that UI pattern.
+  </p>
+
+  ## Success criteria
+
+  <div className="gv-doc-callout-list">
+    {[
+      ['The app still builds', 'A migration is not complete if the application does not compile after the replacement work.'],
+      ['Forms still work', 'Reactive forms, validation, disabled states, and change propagation must still behave correctly.'],
+      ['User flows still work', 'The agent must preserve click handlers, routing hooks, submit behavior, and state transitions.'],
+      ['Old primitives are reduced', 'The migration should materially reduce raw Bootstrap component markup and obsolete local wrappers.'],
+    ].map(([title, text]) => (
+      <div key={title} className="gv-doc-callout">
+        <div className="gv-doc-callout-title">{title}</div>
+        <p className="gv-doc-callout-copy">{text}</p>
+      </div>
+    ))}
+  </div>
+</div>

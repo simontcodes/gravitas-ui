@@ -7,35 +7,35 @@
   --gv-badge-padding-y-md: 0.3125rem;
   --gv-badge-padding-x-md: 0.6875rem;
 
-  --gv-badge-neutral-bg: #f8fafc;
-  --gv-badge-neutral-border: #e2e8f0;
-  --gv-badge-neutral-text: #475569;
-  --gv-badge-neutral-dot: #64748b;
+  --gv-badge-neutral-bg: var(--gv-neutral-subtle-bg);
+  --gv-badge-neutral-border: var(--gv-neutral-subtle-border);
+  --gv-badge-neutral-text: var(--gv-neutral-subtle-text);
+  --gv-badge-neutral-dot: var(--gv-text-muted);
 
-  --gv-badge-primary-bg: #eff6ff;
-  --gv-badge-primary-border: #bfdbfe;
-  --gv-badge-primary-text: #1d4ed8;
-  --gv-badge-primary-dot: #2563eb;
+  --gv-badge-primary-bg: var(--gv-primary-subtle-bg);
+  --gv-badge-primary-border: var(--gv-primary-subtle-border);
+  --gv-badge-primary-text: var(--gv-primary-subtle-text);
+  --gv-badge-primary-dot: var(--gv-accent);
 
-  --gv-badge-success-bg: #ecfdf5;
-  --gv-badge-success-border: #a7f3d0;
-  --gv-badge-success-text: #047857;
-  --gv-badge-success-dot: #10b981;
+  --gv-badge-success-bg: var(--gv-success-subtle-bg);
+  --gv-badge-success-border: var(--gv-success-subtle-border);
+  --gv-badge-success-text: var(--gv-success-subtle-text);
+  --gv-badge-success-dot: var(--gv-success);
 
-  --gv-badge-warning-bg: #fffbeb;
-  --gv-badge-warning-border: #fde68a;
-  --gv-badge-warning-text: #b45309;
-  --gv-badge-warning-dot: #f59e0b;
+  --gv-badge-warning-bg: var(--gv-warning-subtle-bg);
+  --gv-badge-warning-border: var(--gv-warning-subtle-border);
+  --gv-badge-warning-text: var(--gv-warning-subtle-text);
+  --gv-badge-warning-dot: var(--gv-warning);
 
-  --gv-badge-danger-bg: #fef2f2;
-  --gv-badge-danger-border: #fecaca;
-  --gv-badge-danger-text: #b91c1c;
-  --gv-badge-danger-dot: #ef4444;
+  --gv-badge-danger-bg: var(--gv-danger-subtle-bg);
+  --gv-badge-danger-border: var(--gv-danger-subtle-border);
+  --gv-badge-danger-text: var(--gv-danger-subtle-text);
+  --gv-badge-danger-dot: var(--gv-danger);
 
-  --gv-badge-info-bg: #f0f9ff;
-  --gv-badge-info-border: #bae6fd;
-  --gv-badge-info-text: #0369a1;
-  --gv-badge-info-dot: #0ea5e9;
+  --gv-badge-info-bg: var(--gv-info-subtle-bg);
+  --gv-badge-info-border: var(--gv-info-subtle-border);
+  --gv-badge-info-text: var(--gv-info-subtle-text);
+  --gv-badge-info-dot: var(--gv-info);
 
   display: inline-flex;
   align-items: center;
@@ -46,7 +46,9 @@
   letter-spacing: 0.01em;
   white-space: nowrap;
   line-height: 1;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    0 1px 2px rgba(15, 23, 42, 0.04);
 }
 
 /* Sizes */

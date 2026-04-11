@@ -4,6 +4,7 @@ import { FormField } from './form-field';
 const meta: Meta<FormField> = {
   title: 'Gravitas/Form Field',
   component: FormField,
+  tags: ['autodocs'],
   args: {
     label: 'Email',
     required: false,
@@ -19,6 +20,17 @@ const meta: Meta<FormField> = {
     required: { control: 'boolean' },
     fullWidth: { control: 'boolean' },
     controlId: { control: 'text' },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Shared field wrapper for labels, descriptions, helper text, errors, and prefix or suffix content.
+
+Use Form Field when you are composing a custom control and want it to align with the same field framing used by Gravitas inputs. It should own the field chrome while the projected control owns the actual interaction behavior.
+        `.trim(),
+      },
+    },
   },
 };
 

@@ -18,9 +18,9 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--gv-space-2);
   border-bottom: 1px solid var(--gv-border); /* this is the gray divider */
-  padding: 0 4px;
+  padding: 0 var(--gv-space-1);
 
   /* defaults so it doesn't jump */
   --gv-tabs-indicator-left: 0px;
@@ -34,10 +34,11 @@
   bottom: -1px;
   width: var(--gv-tabs-indicator-width);
   transform: translateX(var(--gv-tabs-indicator-left));
-  background: var(--gv-accent);
+  background: linear-gradient(90deg, var(--gv-accent), var(--gv-accent-hover));
   border-radius: 999px;
   opacity: 1;
-  height: 3px;
+  height: 4px;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.24);
   transition:
     transform 320ms cubic-bezier(0.2, 0.9, 0.2, 1),
     width 320ms cubic-bezier(0.2, 0.9, 0.2, 1);
@@ -52,21 +53,24 @@
   color: var(--gv-text-muted);
 
   font-weight: 600;
-  font-size: 13px;
+  font-size: calc(var(--gv-control-font-size-sm) - 0.0625rem);
 
-  padding: 10px 10px;
+  min-height: var(--gv-control-height-md);
+  padding: 0 var(--gv-control-padding-x-sm);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--gv-space-2);
 
-  border-radius: var(--gv-radius-md);
+  border-radius: var(--gv-control-radius-sm);
   cursor: pointer;
   position: relative;
   z-index: 11;
+  isolation: isolate;
 
   transition:
     background-color 0.15s ease,
     color 0.15s ease,
+    box-shadow 0.15s ease,
     transform 180ms ease;
 }
 
@@ -84,7 +88,10 @@
 
 /* Active in underline variant: no "chip", just stronger text */
 .gv-tab[aria-selected='true'] {
-  color: var(--gv-text-strong);
+  color: var(--gv-accent-hover);
+  background: color-mix(in srgb, var(--gv-accent) 9%, var(--gv-surface) 91%);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gv-accent) 14%, transparent);
+  font-weight: 700;
   transform: none;
 }
 
@@ -102,13 +109,15 @@
 }
 
 .gv-tab[aria-selected='true'] .gv-tab__icon {
-  opacity: 0.95;
+  opacity: 1;
+  color: var(--gv-accent-hover);
 }
 
 /* Label */
 .gv-tab__label {
   display: inline-flex;
   align-items: center;
+  gap: var(--gv-space-2);
   white-space: nowrap;
 }
 
@@ -134,8 +143,8 @@
 /* Badge reacts when tab is active */
 .gv-tab[aria-selected='true'] .gv-tab__badge {
   color: var(--gv-accent-hover);
-  background: rgba(59, 130, 246, 0.14);
-  box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.22);
+  background: color-mix(in srgb, var(--gv-accent) 15%, var(--gv-surface) 85%);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gv-accent) 24%, transparent);
 }
 
 /* Disabled */
@@ -164,7 +173,7 @@
 /* List container becomes a "chip rail" */
 :host-context(gv-tabs[data-gv-tabs-variant='pill']) .gv-tabs__list {
   border-bottom: 0;
-  padding: 4px;
+  padding: var(--gv-space-1);
 
   border: 1px solid var(--gv-border);
   border-radius: var(--gv-radius-lg);
@@ -174,16 +183,18 @@
 
 /* Tabs in pill variant: tighter + no underline concept */
 :host-context(gv-tabs[data-gv-tabs-variant='pill']) .gv-tab {
-  padding: 8px 12px;
-  border-radius: var(--gv-radius-md);
+  min-height: var(--gv-control-height-sm);
+  padding: 0 var(--gv-control-padding-x-md);
+  border-radius: var(--gv-control-radius-sm);
 }
 
 /* Active pill: premium enterprise */
 :host-context(gv-tabs[data-gv-tabs-variant='pill']) .gv-tab[aria-selected='true'] {
-  background: rgba(59, 130, 246, 0.1);
+  color: var(--gv-accent-hover);
+  background: color-mix(in srgb, var(--gv-accent) 12%, var(--gv-surface) 88%);
   box-shadow:
-    inset 0 0 0 1px rgba(59, 130, 246, 0.22),
-    0 1px 2px rgba(15, 23, 42, 0.06);
+    inset 0 0 0 1px color-mix(in srgb, var(--gv-accent) 24%, transparent),
+    0 4px 10px rgba(15, 23, 42, 0.08);
 }
 
 /* Hide shared underline indicator in pill mode */

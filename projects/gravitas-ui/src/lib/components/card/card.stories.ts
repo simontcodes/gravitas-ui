@@ -6,6 +6,7 @@ import { Button } from '../button/button';
 const meta: Meta<Card> = {
   title: 'Gravitas/Card',
   component: Card,
+  tags: ['autodocs'],
   decorators: [
     moduleMetadata({
       imports: [Card, Button], // Card is standalone; Button only if used in templates below
@@ -28,6 +29,17 @@ const meta: Meta<Card> = {
     className: { control: 'text' },
     // Output handlers should not be part of controls
     cardClick: { action: 'cardClick', table: { disable: true } },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+General-purpose surface container for dashboard widgets, detail panels, summary blocks, and grouped actions.
+
+Use the card header when the content benefits from a title or quick actions. Turn on \`interactive\` only when the entire card behaves like a clickable target, not just as a styled container.
+        `.trim(),
+      },
+    },
   },
 };
 

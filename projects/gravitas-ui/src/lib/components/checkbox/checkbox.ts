@@ -36,12 +36,20 @@ let nextCheckboxId = 0;
   ],
 })
 export class Checkbox implements ControlValueAccessor {
+  private readonly generatedId = `gv-checkbox-${++nextCheckboxId}`;
+
   @Input() label = '';
   @Input() description = '';
   @Input() helperText = '';
   @Input() errorText = '';
+  @Input({ alias: 'error' }) set error(value: string | null | undefined) {
+    this.errorText = value ?? '';
+  }
   @Input() size: GvCheckboxSize = 'md';
-  @Input() inputId = `gv-checkbox-${++nextCheckboxId}`;
+  @Input() inputId = this.generatedId;
+  @Input({ alias: 'id' }) set id(value: string | null | undefined) {
+    this.inputId = value?.trim() || this.generatedId;
+  }
   @Input() name?: string;
   @Input({ transform: booleanAttribute }) disabled = false;
   @Input({ transform: booleanAttribute }) required = false;

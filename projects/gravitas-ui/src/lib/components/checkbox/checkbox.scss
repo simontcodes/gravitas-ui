@@ -5,27 +5,27 @@
 
 .gv-checkbox-host {
   --gv-checkbox-box-size: 1.125rem;
-  --gv-checkbox-radius: 0.4rem;
-  --gv-checkbox-gap: 0.75rem;
-  --gv-checkbox-label-size: 0.9375rem;
+  --gv-checkbox-radius: calc(var(--gv-control-radius-sm) - 3px);
+  --gv-checkbox-gap: var(--gv-control-gap-md);
+  --gv-checkbox-label-size: var(--gv-control-font-size-md);
   --gv-checkbox-meta-size: 0.8125rem;
 
-  --gv-checkbox-bg: #ffffff;
-  --gv-checkbox-border: rgba(148, 163, 184, 0.42);
-  --gv-checkbox-border-hover: rgba(100, 116, 139, 0.5);
-  --gv-checkbox-label-color: #0f172a;
-  --gv-checkbox-meta-color: #64748b;
+  --gv-checkbox-bg: var(--gv-field-bg);
+  --gv-checkbox-border: var(--gv-field-border-strong);
+  --gv-checkbox-border-hover: var(--gv-field-border-hover);
+  --gv-checkbox-label-color: var(--gv-text-strong);
+  --gv-checkbox-meta-color: var(--gv-text-muted);
 
-  --gv-checkbox-checked-bg: #2563eb;
-  --gv-checkbox-checked-border: #2563eb;
+  --gv-checkbox-checked-bg: var(--gv-accent);
+  --gv-checkbox-checked-border: var(--gv-accent);
   --gv-checkbox-checked-color: #ffffff;
 
-  --gv-checkbox-error-color: #dc2626;
-  --gv-checkbox-error-border: rgba(239, 68, 68, 0.5);
+  --gv-checkbox-error-color: var(--gv-danger);
+  --gv-checkbox-error-border: color-mix(in srgb, var(--gv-danger) 45%, transparent);
 
-  --gv-checkbox-disabled-bg: #f8fafc;
-  --gv-checkbox-disabled-border: rgba(203, 213, 225, 0.8);
-  --gv-checkbox-disabled-color: #94a3b8;
+  --gv-checkbox-disabled-bg: var(--gv-control-disabled-bg);
+  --gv-checkbox-disabled-border: var(--gv-control-disabled-border);
+  --gv-checkbox-disabled-color: var(--gv-control-disabled-text);
 }
 
 .gv-checkbox {
@@ -66,7 +66,7 @@
   background: var(--gv-checkbox-bg);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.75),
-    0 1px 2px rgba(15, 23, 42, 0.04);
+    var(--gv-field-shadow);
   color: transparent;
   transition:
     background-color 0.18s ease,
@@ -160,8 +160,8 @@
 
 :host(.gv-checkbox-host--checked) .gv-checkbox:hover .gv-checkbox__box,
 :host(.gv-checkbox-host--indeterminate) .gv-checkbox:hover .gv-checkbox__box {
-  background: #1d4ed8;
-  border-color: #1d4ed8;
+  background: var(--gv-accent-hover);
+  border-color: var(--gv-accent-hover);
 }
 
 :host(.gv-checkbox-host--error) .gv-checkbox__box {
@@ -169,7 +169,7 @@
 }
 
 :host(.gv-checkbox-host--error) .gv-checkbox:hover .gv-checkbox__box {
-  border-color: rgba(239, 68, 68, 0.62);
+  border-color: color-mix(in srgb, var(--gv-danger) 62%, transparent);
 }
 
 :host(.gv-checkbox-host--disabled) .gv-checkbox {
@@ -195,22 +195,22 @@
 
 :host(.gv-checkbox-host--sm) {
   --gv-checkbox-box-size: 1rem;
-  --gv-checkbox-gap: 0.625rem;
-  --gv-checkbox-label-size: 0.875rem;
+  --gv-checkbox-gap: var(--gv-control-gap-sm);
+  --gv-checkbox-label-size: var(--gv-control-font-size-sm);
   --gv-checkbox-meta-size: 0.75rem;
 }
 
 :host(.gv-checkbox-host--md) {
   --gv-checkbox-box-size: 1.125rem;
-  --gv-checkbox-gap: 0.75rem;
-  --gv-checkbox-label-size: 0.9375rem;
+  --gv-checkbox-gap: var(--gv-control-gap-md);
+  --gv-checkbox-label-size: var(--gv-control-font-size-md);
   --gv-checkbox-meta-size: 0.8125rem;
 }
 
 :host(.gv-checkbox-host--lg) {
   --gv-checkbox-box-size: 1.25rem;
-  --gv-checkbox-gap: 0.8rem;
-  --gv-checkbox-label-size: 1rem;
+  --gv-checkbox-gap: var(--gv-control-gap-lg);
+  --gv-checkbox-label-size: var(--gv-control-font-size-lg);
   --gv-checkbox-meta-size: 0.875rem;
-  --gv-checkbox-radius: 0.45rem;
+  --gv-checkbox-radius: calc(var(--gv-control-radius-sm) - 2px);
 }

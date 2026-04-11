@@ -136,6 +136,18 @@ class AvatarStoryDemoComponent {}
 const meta: Meta<AvatarStoryDemoComponent> = {
   title: 'Gravitas/Avatar',
   component: AvatarStoryDemoComponent,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Identity primitive for people, assignees, account chips, comments, and table rows.
+
+Avatar supports image, initials, and projected fallback content. Prefer passing a real \`alt\` value when the avatar conveys unique identity, and use initials as the default fallback for dense enterprise layouts.
+        `.trim(),
+      },
+    },
+  },
 };
 
 export default meta;

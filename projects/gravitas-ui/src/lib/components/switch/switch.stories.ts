@@ -118,6 +118,18 @@ class SwitchStoryDemoComponent {
 const meta: Meta<SwitchStoryDemoComponent> = {
   title: 'Gravitas/Switch',
   component: SwitchStoryDemoComponent,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Binary toggle for immediate on or off preferences such as notifications, permissions, and lightweight settings.
+
+Switch is best when the control represents a live toggleable state rather than a submit-later form choice. Use helper or description text when the impact of turning the setting on is not obvious.
+        `.trim(),
+      },
+    },
+  },
 };
 
 export default meta;

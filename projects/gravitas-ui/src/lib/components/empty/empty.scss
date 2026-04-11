@@ -2,11 +2,11 @@
   --gv-empty-padding-y: 2.5rem;
   --gv-empty-padding-x: 1.5rem;
 
-  --gv-empty-title-color: #0f172a;
-  --gv-empty-text-color: #64748b;
+  --gv-empty-title-color: var(--gv-text-strong);
+  --gv-empty-text-color: var(--gv-text-muted);
 
-  --gv-empty-icon-bg: #f8fafc;
-  --gv-empty-icon-border: #e2e8f0;
+  --gv-empty-icon-bg: var(--gv-surface-subtle);
+  --gv-empty-icon-border: var(--gv-neutral-subtle-border);
 
   display: block;
 }
@@ -36,6 +36,7 @@
   border-radius: 14px;
   background: var(--gv-empty-icon-bg);
   border: 1px solid var(--gv-empty-icon-border);
+  box-shadow: var(--gv-shadow-sm);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +52,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(#cbd5f5 2px, transparent 2px);
+  background-image: radial-gradient(color-mix(in srgb, var(--gv-accent) 42%, var(--gv-border) 58%) 2px, transparent 2px);
   background-size: 8px 8px;
   opacity: 0.8;
   border-radius: 6px;

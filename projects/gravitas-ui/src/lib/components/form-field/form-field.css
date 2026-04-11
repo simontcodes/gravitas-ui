@@ -60,6 +60,13 @@ html[data-gv-density="spacious"] {
   min-width: 0;
 }
 
+.gv-field__description {
+  margin: 0;
+  color: var(--gv-text-muted, #64748b);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
 .gv-field__prefix,
 .gv-field__suffix {
   display: inline-flex;
@@ -91,4 +98,5 @@ html[data-gv-density="spacious"] {
 .gv-field__error {
   margin: 0;
   font-size: 0.8125rem; /* 13px */
+  color: var(--gv-danger, #dc2626);
 }

@@ -124,6 +124,18 @@ class CheckboxStoryDemoComponent {
 const meta: Meta<CheckboxStoryDemoComponent> = {
   title: 'Gravitas/Checkbox',
   component: CheckboxStoryDemoComponent,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Binary form control for independent selections such as settings, preferences, consent, and bulk actions.
+
+Checkbox is best when multiple options can be selected independently. Use \`description\`, \`helperText\`, and \`errorText\` to keep the control self-explanatory in dense forms.
+        `.trim(),
+      },
+    },
+  },
 };
 
 export default meta;

@@ -1,6 +1,7 @@
 import { Component, Input, ChangeDetectionStrategy, Optional, Self, computed } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { FormField } from '../form-field/form-field';
 
 type InputSize = 'sm' | 'md' | 'lg';
 type InputType =
@@ -17,17 +18,22 @@ type InputType =
 @Component({
   selector: 'gv-input',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, FormField],
   templateUrl: './input.html',
   styleUrl: './input.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent implements ControlValueAccessor {
+  private readonly generatedId = `gv-input-${Math.random().toString(16).slice(2)}`;
+
   @Input() id?: string;
 
   @Input() label?: string;
   @Input() placeholder = '';
   @Input() hint?: string;
+  @Input({ alias: 'helperText' }) set helperText(value: string | undefined) {
+    this.hint = value;
+  }
 
   /** If set, overrides control-based validation UI */
   @Input() error?: string;
@@ -80,13 +86,15 @@ export class InputComponent implements ControlValueAccessor {
   });
 
   get inputId(): string {
-    return this.id ?? `gv-input-${Math.random().toString(16).slice(2)}`;
+    return this.id ?? this.generatedId;
   }
 
   get describedBy(): string {
-    const ids: string[] = [];
-    if (this.hint && !this.isInvalid()) ids.push(`${this.inputId}-hint`);
-    return ids.join(' ') || '';
+    return this.fieldHelperText || this.errorText ? `${this.inputId}__desc` : '';
+  }
+
+  get fieldHelperText(): string | null {
+    return !this.isInvalid() && this.hint ? this.hint : null;
   }
 
   get isDateLike(): boolean {

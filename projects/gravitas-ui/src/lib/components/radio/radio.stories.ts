@@ -187,6 +187,18 @@ class RadioStoryDemoComponent {
 const meta: Meta<RadioStoryDemoComponent> = {
   title: 'Gravitas/Radio',
   component: RadioStoryDemoComponent,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Single-choice form control for mutually exclusive options such as filters, plans, modes, and settings selections.
+
+Use radio when the user must choose exactly one option from a small visible set. Keep related radios grouped by a shared \`name\` and pair them with helpful descriptions when the choices are nuanced.
+        `.trim(),
+      },
+    },
+  },
 };
 
 export default meta;

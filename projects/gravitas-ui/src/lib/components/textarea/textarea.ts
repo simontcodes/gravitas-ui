@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormField } from '../form-field/form-field';
 
 export type GvTextareaSize = 'sm' | 'md' | 'lg';
 export type GvTextareaResize = 'none' | 'vertical' | 'both';
@@ -21,7 +22,7 @@ let nextTextareaId = 0;
 @Component({
   selector: 'gv-textarea',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormField],
   templateUrl: './textarea.html',
   styleUrls: ['./textarea.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -35,12 +36,20 @@ let nextTextareaId = 0;
   ],
 })
 export class Textarea implements ControlValueAccessor {
+  private readonly generatedId = `gv-textarea-${++nextTextareaId}`;
+
   @Input() label = '';
   @Input() description = '';
   @Input() helperText = '';
   @Input() errorText = '';
+  @Input({ alias: 'error' }) set error(value: string | null | undefined) {
+    this.errorText = value ?? '';
+  }
   @Input() placeholder = '';
-  @Input() inputId = `gv-textarea-${++nextTextareaId}`;
+  @Input() inputId = this.generatedId;
+  @Input({ alias: 'id' }) set id(value: string | null | undefined) {
+    this.inputId = value?.trim() || this.generatedId;
+  }
   @Input() name?: string;
   @Input() rows = 4;
   @Input() size: GvTextareaSize = 'md';
@@ -78,6 +87,17 @@ export class Textarea implements ControlValueAccessor {
 
   get characterCount(): number {
     return this.value?.length ?? 0;
+  }
+
+  get describedBy(): string | null {
+    const ids: string[] = [];
+    if (this.helperText || this.errorText) {
+      ids.push(`${this.inputId}__desc`);
+    }
+    if (this.maxLength) {
+      ids.push(`${this.inputId}-count`);
+    }
+    return ids.length ? ids.join(' ') : null;
   }
 
   writeValue(value: string | null): void {

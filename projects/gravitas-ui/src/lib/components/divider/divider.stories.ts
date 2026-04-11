@@ -63,6 +63,18 @@ class DividerStoryDemoComponent {}
 const meta: Meta<DividerStoryDemoComponent> = {
   title: 'Gravitas/Divider',
   component: DividerStoryDemoComponent,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Low-emphasis structural separator for cards, toolbars, menus, settings sections, and split content layouts.
+
+Use horizontal dividers to separate stacked sections and vertical dividers for dense toolbar grouping. Add a label only when the separation itself needs semantic meaning.
+        `.trim(),
+      },
+    },
+  },
 };
 
 export default meta;

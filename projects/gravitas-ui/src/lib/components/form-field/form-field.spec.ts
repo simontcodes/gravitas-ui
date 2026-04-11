@@ -31,12 +31,15 @@ class HostComponent {
 }
 
 describe('FormField (gv-form-field)', () => {
-  async function setup() {
+  async function setup(initialState: Partial<HostComponent> = {}) {
     await TestBed.configureTestingModule({
       imports: [HostComponent],
     }).compileComponents();
 
     const fixture = TestBed.createComponent(HostComponent);
+    Object.assign(fixture.componentInstance, initialState);
+    fixture.detectChanges();
+    await fixture.whenStable();
     fixture.detectChanges();
     return { fixture };
   }
@@ -50,9 +53,7 @@ describe('FormField (gv-form-field)', () => {
   });
 
   it('shows required asterisk when required=true', async () => {
-    const { fixture } = await setup();
-    fixture.componentInstance.required = true;
-    fixture.detectChanges();
+    const { fixture } = await setup({ required: true });
 
     const star = fixture.debugElement.query(By.css('.gv-field__required'));
     expect(star).toBeTruthy();
@@ -66,9 +67,7 @@ describe('FormField (gv-form-field)', () => {
   });
 
   it('shows error and hides helper when error is set', async () => {
-    const { fixture } = await setup();
-    fixture.componentInstance.error = 'Bad input';
-    fixture.detectChanges();
+    const { fixture } = await setup({ error: 'Bad input' });
 
     const error = fixture.debugElement.query(By.css('.gv-field__error'))
       .nativeElement as HTMLElement;

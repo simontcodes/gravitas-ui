@@ -34,12 +34,20 @@ let nextSwitchId = 0;
   ],
 })
 export class Switch implements ControlValueAccessor {
+  private readonly generatedId = `gv-switch-${++nextSwitchId}`;
+
   @Input() label = '';
   @Input() description = '';
   @Input() helperText = '';
   @Input() errorText = '';
+  @Input({ alias: 'error' }) set error(value: string | null | undefined) {
+    this.errorText = value ?? '';
+  }
   @Input() size: GvSwitchSize = 'md';
-  @Input() inputId = `gv-switch-${++nextSwitchId}`;
+  @Input() inputId = this.generatedId;
+  @Input({ alias: 'id' }) set id(value: string | null | undefined) {
+    this.inputId = value?.trim() || this.generatedId;
+  }
   @Input() name?: string;
   @Input({ transform: booleanAttribute }) disabled = false;
   @Input({ transform: booleanAttribute }) required = false;

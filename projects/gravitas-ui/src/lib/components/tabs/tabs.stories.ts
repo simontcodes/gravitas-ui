@@ -65,11 +65,23 @@ class TabsStoryHost {
 const meta: Meta<TabsStoryHost> = {
   title: 'Gravitas/Tabs',
   component: TabsStoryHost,
+  tags: ['autodocs'],
   argTypes: {
     variant: { control: 'select', options: ['underline', 'pill'] },
   },
   args: {
     variant: 'underline',
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Progressive disclosure navigation for switching between related views without leaving the current page context.
+
+Use underline tabs for primary page sections and pill tabs for denser embedded contexts such as filters or secondary workspace modes. Keep tab labels short and panel content directly related to the same object or workflow.
+        `.trim(),
+      },
+    },
   },
 };
 

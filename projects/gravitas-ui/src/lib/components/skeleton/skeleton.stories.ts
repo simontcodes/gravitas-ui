@@ -34,6 +34,17 @@ const meta: Meta<Skeleton> = {
       control: 'boolean',
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Content placeholder used while data is loading but layout should remain visible and stable.
+
+Use text skeletons for paragraphs or metadata, rectangle skeletons for cards and media blocks, and circles for avatars or icon regions. Prefer skeletons over spinners when preserving spatial continuity matters.
+        `.trim(),
+      },
+    },
+  },
 };
 
 export default meta;

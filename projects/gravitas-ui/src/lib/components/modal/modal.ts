@@ -19,6 +19,7 @@ let nextId = 0;
 
 @Component({
   selector: 'gv-modal',
+  standalone: true,
   templateUrl: './modal.html',
   styleUrl: './modal.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -5,30 +5,30 @@
   --gv-alert-title-size: 0.9375rem;
   --gv-alert-text-size: 0.875rem;
 
-  --gv-alert-neutral-bg: #ffffff;
-  --gv-alert-neutral-border: #e2e8f0;
-  --gv-alert-neutral-title: #0f172a;
-  --gv-alert-neutral-text: #475569;
+  --gv-alert-neutral-bg: var(--gv-surface);
+  --gv-alert-neutral-border: var(--gv-neutral-subtle-border);
+  --gv-alert-neutral-title: var(--gv-text-strong);
+  --gv-alert-neutral-text: var(--gv-neutral-subtle-text);
 
-  --gv-alert-info-bg: #f8fbff;
-  --gv-alert-info-border: #bfdbfe;
-  --gv-alert-info-title: #1d4ed8;
-  --gv-alert-info-text: #1e3a8a;
+  --gv-alert-info-bg: var(--gv-info-subtle-bg);
+  --gv-alert-info-border: var(--gv-info-subtle-border);
+  --gv-alert-info-title: var(--gv-info-subtle-text);
+  --gv-alert-info-text: var(--gv-info-subtle-strong);
 
-  --gv-alert-success-bg: #f3fcf7;
-  --gv-alert-success-border: #a7f3d0;
-  --gv-alert-success-title: #047857;
-  --gv-alert-success-text: #065f46;
+  --gv-alert-success-bg: var(--gv-success-subtle-bg);
+  --gv-alert-success-border: var(--gv-success-subtle-border);
+  --gv-alert-success-title: var(--gv-success-subtle-text);
+  --gv-alert-success-text: var(--gv-success-subtle-strong);
 
-  --gv-alert-warning-bg: #fffcf5;
-  --gv-alert-warning-border: #fde68a;
-  --gv-alert-warning-title: #b45309;
-  --gv-alert-warning-text: #92400e;
+  --gv-alert-warning-bg: var(--gv-warning-subtle-bg);
+  --gv-alert-warning-border: var(--gv-warning-subtle-border);
+  --gv-alert-warning-title: var(--gv-warning-subtle-text);
+  --gv-alert-warning-text: var(--gv-warning-subtle-strong);
 
-  --gv-alert-danger-bg: #fff7f7;
-  --gv-alert-danger-border: #fecaca;
-  --gv-alert-danger-title: #b91c1c;
-  --gv-alert-danger-text: #991b1b;
+  --gv-alert-danger-bg: var(--gv-danger-subtle-bg);
+  --gv-alert-danger-border: var(--gv-danger-subtle-border);
+  --gv-alert-danger-title: var(--gv-danger-subtle-text);
+  --gv-alert-danger-text: var(--gv-danger-subtle-strong);
 
   display: block;
 }
@@ -36,9 +36,7 @@
 .gv-alert__surface {
   border: 1px solid transparent;
   border-radius: var(--gv-alert-radius);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.7),
-    0 1px 2px rgba(15, 23, 42, 0.03);
+  box-shadow: var(--gv-shadow-sm);
 }
 
 .gv-alert__body {
@@ -93,7 +91,7 @@
 }
 
 .gv-alert__close:hover {
-  background: rgba(15, 23, 42, 0.05);
+  background: color-mix(in srgb, currentColor 8%, transparent);
   opacity: 1;
 }
 

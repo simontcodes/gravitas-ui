@@ -1,0 +1,191 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction/Quickstart" />
+
+<div className="gv-doc-page">
+  <div className="gv-doc-hero">
+    <div className="gv-doc-kicker">Introduction · Quickstart</div>
+    <h1 className="gv-doc-hero-title">Implement Gravitas in a real Angular app</h1>
+    <p className="gv-doc-hero-copy">
+      Gravitas is designed for Angular applications that already use Bootstrap as part of the app
+      shell. The supported setup is simple: install the package, load Bootstrap and Gravitas once
+      globally, then import standalone components where you use them.
+    </p>
+    <div className="gv-doc-hero-rule" />
+  </div>
+
+  <div className="gv-doc-panel">
+    <h2 style={{ marginTop: 0 }}>Using an AI agent?</h2>
+    <p className="gv-doc-section-copy" style={{ marginBottom: '12px' }}>
+      If a team wants an AI agent to replace existing application components with Gravitas
+      components, use the <strong>Introduction / AI Migration</strong> page as the starting
+      contract. That page explains the required setup, safe migration order, replacement map, and
+      the cases an agent should not try to rewrite automatically.
+    </p>
+    <p className="gv-doc-section-copy" style={{ marginBottom: 0 }}>
+      The published package also includes a stricter machine-oriented spec at
+      `ai/gravitas-component-migration.md` for agents working directly from the installed library.
+    </p>
+  </div>
+
+  ## Integration contract
+
+  <div className="gv-doc-grid">
+    {[
+      {
+        title: 'Bootstrap-based shell',
+        text: 'Gravitas is intentionally built for Bootstrap-based company applications, not as a Bootstrap replacement.',
+      },
+      {
+        title: 'Single global setup',
+        text: 'Bootstrap CSS and Gravitas CSS should each be imported once at the application shell level.',
+      },
+      {
+        title: 'Standalone components',
+        text: 'Feature code imports only the Gravitas components it needs, keeping usage clear and tree-shakable.',
+      },
+      {
+        title: 'Theme from the root',
+        text: 'Theme and density should be controlled globally through root attributes rather than per-component hacks.',
+      },
+    ].map((item) => (
+      <div key={item.title} className="gv-doc-card">
+        <h3 className="gv-doc-card-title">{item.title}</h3>
+        <p className="gv-doc-card-copy">{item.text}</p>
+      </div>
+    ))}
+  </div>
+
+  ## 1. Install the package
+
+  <div className="gv-doc-panel">
+    <p className="gv-doc-section-copy" style={{ marginTop: 0 }}>
+      Install Gravitas and Bootstrap in the consuming Angular project:
+    </p>
+
+```bash
+npm install gravitas-ui bootstrap
+```
+
+    <p className="gv-doc-section-copy" style={{ marginBottom: 0 }}>
+      Gravitas expects Angular peer dependencies to come from the host application, while Bootstrap
+      provides the supported baseline shell environment.
+    </p>
+  </div>
+
+  ## 2. Import global styles once
+
+  <div className="gv-doc-panel">
+    <p className="gv-doc-section-copy" style={{ marginTop: 0 }}>
+      Add these imports in your global styles or application entrypoint:
+    </p>
+
+```ts
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'gravitas-ui/styles/gravitas.css';
+```
+
+    <p className="gv-doc-section-copy" style={{ marginBottom: 0 }}>
+      `gravitas.css` contains the Gravitas token and theme layers. Do not import these files
+      repeatedly in feature modules or component-level styles.
+    </p>
+  </div>
+
+  ## 3. Set theme and density at the app shell
+
+  <div className="gv-doc-panel">
+    <p className="gv-doc-section-copy" style={{ marginTop: 0 }}>
+      Gravitas reads theme and density from root attributes:
+    </p>
+
+```html
+<html data-gv-theme="light" data-gv-density="comfortable">
+```
+
+    <ul className="gv-doc-list">
+      <li>`data-gv-theme`: `light` or `dark`</li>
+      <li>`data-gv-density`: `compact`, `comfortable`, or `spacious`</li>
+    </ul>
+  </div>
+
+  ## 4. Import standalone components where you use them
+
+  <div className="gv-doc-panel">
+```ts
+import { Component } from '@angular/core';
+import { Button, InputComponent, Tabs } from 'gravitas-ui';
+
+@Component({
+  standalone: true,
+  selector: 'app-account-settings',
+  imports: [Button, InputComponent, Tabs],
+  template: `
+    <gv-input label="Account name" placeholder="Acme Corp" />
+
+    <gv-button variant="primary">Save changes</gv-button>
+  `,
+})
+export class AccountSettingsComponent {}
+```
+  </div>
+
+  ## Recommended application setup
+
+  <div className="gv-doc-callout-list">
+    {[
+      [
+        'Import styles globally',
+        'Bootstrap and Gravitas should be loaded once by the app shell, not by individual features.',
+      ],
+      [
+        'Use Gravitas for UI primitives',
+        'If Gravitas already provides the button, field, tab, or modal you need, prefer the library component over custom Bootstrap markup.',
+      ],
+      [
+        'Customize through tokens first',
+        'Brand and theme changes should come from CSS variables and supported variants, not local overrides of component internals.',
+      ],
+      [
+        'Keep Bootstrap versioning consistent',
+        'Company applications should align on the supported Bootstrap range declared by the package to avoid styling drift.',
+      ],
+    ].map(([title, text]) => (
+      <div key={title} className="gv-doc-callout">
+        <div className="gv-doc-callout-title">{title}</div>
+        <p className="gv-doc-callout-copy">{text}</p>
+      </div>
+    ))}
+  </div>
+
+  ## What not to do
+
+  <div className="gv-doc-grid gv-doc-grid--wide">
+    <div className="gv-doc-card">
+      <h3 className="gv-doc-card-title">Avoid</h3>
+      <ul className="gv-doc-list">
+        <li>loading Bootstrap and Gravitas multiple times</li>
+        <li>overriding internal Gravitas classes ad hoc in each app</li>
+        <li>mixing incompatible Bootstrap versions across projects</li>
+        <li>rebuilding existing Gravitas primitives with custom local markup</li>
+      </ul>
+    </div>
+
+    <div className="gv-doc-card">
+      <h3 className="gv-doc-card-title">Prefer</h3>
+      <ul className="gv-doc-list">
+        <li>one shared app-shell setup across company projects</li>
+        <li>token overrides for branding and theming</li>
+        <li>documented component usage through Storybook</li>
+        <li>feeding missing patterns back into Gravitas instead of forking them locally</li>
+      </ul>
+    </div>
+  </div>
+
+  ## Next steps
+
+  <p className="gv-doc-section-copy">
+    After setup, use the Foundations pages to understand the token system and the Components section
+    to review the supported UI primitives, states, and usage guidance. Storybook should be the
+    source of truth before teams add new patterns in product code.
+  </p>
+</div>

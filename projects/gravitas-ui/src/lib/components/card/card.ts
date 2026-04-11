@@ -10,6 +10,7 @@ import {
 
 @Component({
   selector: 'gv-card',
+  standalone: true,
   templateUrl: './card.html',
   styleUrl: './card.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

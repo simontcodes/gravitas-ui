@@ -1,22 +1,22 @@
-<div class="gv-field" [class.w-100]="fullWidth">
-  @if (label) {
-    <label class="gv-field__label">
-      {{ label }}
-      @if (required) {
-        <span class="gv-field__required">*</span>
-      }
-    </label>
-  }
-
+<gv-form-field
+  [label]="label || null"
+  [required]="required"
+  [helperText]="!error ? helperText : null"
+  [error]="error"
+  [controlId]="controlId"
+  [fullWidth]="fullWidth"
+>
   <div class="gv-field__control" [class.w-100]="fullWidth">
     <div class="gv-select-wrap" [class.w-100]="fullWidth">
       @if (!useCustomDropdown) {
         <select
+          [id]="controlId"
           [class]="selectClass"
           [disabled]="disabled || loading"
           (blur)="handleBlur()"
           (change)="handleNativeChange($event)"
           [attr.aria-invalid]="!!error"
+          [attr.aria-describedby]="describedBy"
         >
           <option [value]="''" [disabled]="required">
             {{ loading ? loadingText : placeholder }}
@@ -24,7 +24,7 @@
 
           @for (opt of options; track trackByValue($index, opt)) {
             <option
-              [value]="stringifyValue(opt.value)"
+              [value]="getOptionKey($index)"
               [selected]="isSelected(opt.value)"
               [disabled]="opt.disabled"
             >
@@ -36,11 +36,16 @@
         <div class="gv-select-custom" [class.w-100]="fullWidth">
           <button
             type="button"
+            [id]="controlId"
             [class]="triggerClass"
             [disabled]="disabled || loading"
             (click)="toggleOpen()"
             [attr.aria-expanded]="isOpen"
             [attr.aria-invalid]="!!error"
+            [attr.aria-labelledby]="labelId ? labelId + ' ' + controlId : null"
+            [attr.aria-describedby]="describedBy"
+            [attr.aria-haspopup]="'listbox'"
+            [attr.role]="'combobox'"
           >
             <div class="gv-select-trigger__content">
               @if (multiple && selectedOptions.length) {
@@ -136,14 +141,4 @@
       }
     </div>
   </div>
-
-  @if (error) {
-    <div class="invalid-feedback d-block gv-field__error">
-      {{ error }}
-    </div>
-  } @else if (helperText) {
-    <div class="gv-field__helper">
-      {{ helperText }}
-    </div>
-  }
-</div>
+</gv-form-field>

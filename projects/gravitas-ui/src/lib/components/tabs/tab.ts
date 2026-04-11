@@ -1,6 +1,6 @@
 import {
+  ChangeDetectorRef,
   Component,
-  Host,
   HostListener,
   Input,
   Optional,
@@ -32,16 +32,29 @@ export class Tab {
   @Input({ required: true }) value!: string;
   @Input() disabled = false;
 
-  active = false;
+  private _active = false;
 
   @ViewChild('btn', { read: ElementRef })
   private _btn!: ElementRef<HTMLButtonElement>;
+
+  get active() {
+    return this._active;
+  }
+
+  set active(next: boolean) {
+    if (this._active === next) return;
+    this._active = next;
+    this.cdr.markForCheck();
+  }
 
   get buttonEl(): HTMLButtonElement | null {
     return this._btn?.nativeElement ?? null;
   }
 
-  constructor(@Optional() @Host() private tabs: Tabs | null) {}
+  constructor(
+    @Optional() private tabs: Tabs | null,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   get tabIndex() {
     return this.active && !this.disabled ? 0 : -1;

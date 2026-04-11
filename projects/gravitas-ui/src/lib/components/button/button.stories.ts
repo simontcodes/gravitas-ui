@@ -8,6 +8,7 @@ const meta: Meta<Button> = {
   args: {
     type: 'button',
     variant: 'primary',
+    appearance: 'solid',
     size: 'md',
     disabled: false,
     loading: false,
@@ -32,6 +33,12 @@ const meta: Meta<Button> = {
       ],
       description: 'Visual style variant.',
       table: { category: 'Appearance', defaultValue: { summary: 'primary' } },
+    },
+    appearance: {
+      control: 'select',
+      options: ['solid', 'soft', 'outline', 'ghost', 'link'],
+      description: 'Visual treatment independent from semantic variant.',
+      table: { category: 'Appearance', defaultValue: { summary: 'solid' } },
     },
     size: {
       control: 'select',
@@ -113,6 +120,7 @@ function baseTemplate(label = 'Button') {
     <gv-button
       [type]="type"
       [variant]="variant"
+      [appearance]="appearance"
       [size]="size"
       [disabled]="disabled"
       [loading]="loading"
@@ -253,6 +261,7 @@ export const LeftIcon: Story = {
       <gv-button
         [type]="type"
         [variant]="variant"
+        [appearance]="appearance"
         [size]="size"
         [disabled]="disabled"
         [loading]="loading"

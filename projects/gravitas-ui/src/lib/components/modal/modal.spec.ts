@@ -1,109 +1,96 @@
-import { Component } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Modal } from './modal';
 
-@Component({
-  standalone: true,
-  imports: [Modal],
-  template: `
-    <gv-modal
-      [open]="open"
-      [title]="title"
-      [subtitle]="subtitle"
-      [closeOnBackdrop]="closeOnBackdrop"
-      [closeOnEsc]="closeOnEsc"
-      [loading]="loading"
-      (openChange)="open = $event"
-      (closed)="lastReason = $event"
-    >
-      <div class="body">Body</div>
-      <div gvFooter>
-        <button type="button" class="close-btn" (click)="open = false">Close</button>
-      </div>
-    </gv-modal>
-  `,
-})
-class HostComponent {
-  open = true;
-  title = 'Title';
-  subtitle = 'Subtitle';
-  closeOnBackdrop = true;
-  closeOnEsc = true;
-  loading = false;
-  lastReason: any = null;
-}
-
 describe('Modal (gv-modal)', () => {
+  let fixture: ComponentFixture<Modal>;
+  let component: Modal;
+
+  async function setInputs(inputs: Partial<Modal>) {
+    for (const [key, value] of Object.entries(inputs)) {
+      fixture.componentRef.setInput(key as keyof Modal, value as never);
+    }
+    fixture.detectChanges();
+    await fixture.whenStable();
+    fixture.detectChanges();
+  }
+
   function getPanel(): HTMLElement | null {
-    return document.querySelector('.gv-modal__panel');
+    return fixture.nativeElement.querySelector('.gv-modal__panel');
   }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HostComponent],
+      imports: [Modal],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(Modal);
+    component = fixture.componentInstance;
   });
 
-  it('renders when open=true and disappears when open=false', () => {
-    const fixture = TestBed.createComponent(HostComponent);
-    fixture.detectChanges();
+  afterEach(() => {
+    document.body.style.overflow = '';
+  });
 
+  it('renders when open=true and disappears when open=false', async () => {
+    await setInputs({ open: true, title: 'Title', subtitle: 'Subtitle' });
     expect(getPanel()).toBeTruthy();
 
-    fixture.componentInstance.open = false;
-    fixture.detectChanges();
-
+    await setInputs({ open: false });
     expect(getPanel()).toBeFalsy();
   });
 
-  it('emits openChange=false when clicking backdrop (if enabled)', () => {
-    const fixture = TestBed.createComponent(HostComponent);
-    fixture.detectChanges();
+  it('emits openChange=false when clicking backdrop (if enabled)', async () => {
+    const openChanges: boolean[] = [];
+    const closedReasons: string[] = [];
+    component.openChange.subscribe((value) => openChanges.push(value));
+    component.closed.subscribe((reason) => closedReasons.push(reason));
+
+    await setInputs({ open: true, closeOnBackdrop: true });
 
     const backdrop = fixture.debugElement.query(By.css('.gv-modal__backdrop'));
     backdrop.triggerEventHandler('mousedown', new MouseEvent('mousedown'));
-    fixture.detectChanges();
 
-    expect(fixture.componentInstance.open).toBe(false);
-    expect(fixture.componentInstance.lastReason).toBe('backdrop');
+    expect(openChanges).toEqual([false]);
+    expect(closedReasons).toEqual(['backdrop']);
   });
 
-  it('does NOT close on backdrop when closeOnBackdrop=false', () => {
-    const fixture = TestBed.createComponent(HostComponent);
-    fixture.componentInstance.closeOnBackdrop = false;
-    fixture.detectChanges();
+  it('does NOT close on backdrop when closeOnBackdrop=false', async () => {
+    const openChanges: boolean[] = [];
+    const closedReasons: string[] = [];
+    component.openChange.subscribe((value) => openChanges.push(value));
+    component.closed.subscribe((reason) => closedReasons.push(reason));
+
+    await setInputs({ open: true, closeOnBackdrop: false });
 
     const backdrop = fixture.debugElement.query(By.css('.gv-modal__backdrop'));
     backdrop.triggerEventHandler('mousedown', new MouseEvent('mousedown'));
-    fixture.detectChanges();
 
-    expect(fixture.componentInstance.open).toBe(true);
-    expect(fixture.componentInstance.lastReason).toBe(null);
+    expect(openChanges).toEqual([]);
+    expect(closedReasons).toEqual([]);
   });
 
-  it('closes on Escape (if enabled)', () => {
-    const fixture = TestBed.createComponent(HostComponent);
-    fixture.detectChanges();
+  it('closes on Escape (if enabled)', async () => {
+    const openChanges: boolean[] = [];
+    const closedReasons: string[] = [];
+    component.openChange.subscribe((value) => openChanges.push(value));
+    component.closed.subscribe((reason) => closedReasons.push(reason));
+
+    await setInputs({ open: true, closeOnEsc: true });
 
     document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
-    fixture.detectChanges();
 
-    expect(fixture.componentInstance.open).toBe(false);
-    expect(fixture.componentInstance.lastReason).toBe('esc');
+    expect(openChanges).toEqual([false]);
+    expect(closedReasons).toEqual(['esc']);
   });
 
-  it('locks body scroll while open', () => {
-    const fixture = TestBed.createComponent(HostComponent);
-
+  it('locks body scroll while open', async () => {
     const before = document.body.style.overflow;
-    fixture.detectChanges();
 
+    await setInputs({ open: true });
     expect(document.body.style.overflow).toBe('hidden');
 
-    fixture.componentInstance.open = false;
-    fixture.detectChanges();
-
+    await setInputs({ open: false });
     expect(document.body.style.overflow).toBe(before);
   });
 });

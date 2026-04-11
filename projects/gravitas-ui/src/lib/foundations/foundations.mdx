@@ -2,88 +2,123 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Foundations/Overview" />
 
-# Foundations
+<div className="gv-doc-page">
+  <div className="gv-doc-hero">
+    <div className="gv-doc-kicker">Foundations · Overview</div>
+    <h1 className="gv-doc-hero-title">Define the system once, reuse it everywhere</h1>
+    <p className="gv-doc-hero-copy">
+      Foundations are the tokens and rules that make Gravitas UI feel coherent across buttons,
+      forms, tables, overlays, and documentation. They are the layer underneath components, not a
+      separate design exercise.
+    </p>
+    <div className="gv-doc-hero-rule" />
+  </div>
 
-Foundations are the core design decisions behind Gravitas UI.
+  <div className="gv-doc-grid">
+    {[
+      {
+        title: 'Color',
+        text: 'Semantic tones, neutral surfaces, borders, and text colors that keep states predictable.',
+      },
+      {
+        title: 'Typography',
+        text: 'A readable hierarchy tuned for dense dashboard UI rather than marketing-style layouts.',
+      },
+      {
+        title: 'Spacing',
+        text: 'A tight but scalable rhythm that supports compact, comfortable, and spacious density modes.',
+      },
+      {
+        title: 'Shape and elevation',
+        text: 'Shared radii, shadows, and focus treatment so controls look related across the library.',
+      },
+    ].map((item) => (
+      <div key={item.title} className="gv-doc-card">
+        <h3 className="gv-doc-card-title">{item.title}</h3>
+        <p className="gv-doc-card-copy">{item.text}</p>
+      </div>
+    ))}
+  </div>
 
-They define the visual language that keeps components consistent across every product.
+  ## What Foundations control
 
----
+  <p className="gv-doc-section-copy">
+    Every component should inherit its visual behavior from this layer first. A button should not
+    invent its own border radius. A modal should not pick an arbitrary shadow. A form control
+    should not hardcode a slightly different text color just because it looks acceptable in one
+    story.
+  </p>
 
-## What lives in Foundations?
+  <div className="gv-doc-grid gv-doc-grid--wide">
+    <div className="gv-doc-card">
+      <h3 className="gv-doc-card-title">Component authors use Foundations to</h3>
+      <ul className="gv-doc-list">
+        <li>choose colors through semantic tokens instead of raw hex values</li>
+        <li>reuse shared spacing and radius values</li>
+        <li>keep text sizing consistent across controls and layouts</li>
+        <li>respect theme and density changes without rewriting component CSS</li>
+      </ul>
+    </div>
 
-### Colors
+    <div className="gv-doc-card">
+      <h3 className="gv-doc-card-title">Consumers benefit because</h3>
+      <ul className="gv-doc-list">
+        <li>components feel like part of the same product family</li>
+        <li>theme changes are more predictable</li>
+        <li>dense screens still feel structured instead of cramped</li>
+        <li>new components can be added without drifting visually</li>
+      </ul>
+    </div>
+  </div>
 
-Your semantic and brand color tokens.
+  ## Gravitas design posture
 
-### Typography
+  <div className="gv-doc-callout-list">
+    {[
+      [
+        'Built for enterprise dashboards',
+        'Gravitas favors legibility, information density, and strong state clarity over decorative flourish.',
+      ],
+      [
+        'Token-first, not utility-first',
+        'The system should be driven by named design decisions that can evolve centrally, not by scattered one-off values.',
+      ],
+      [
+        'Dense by default, flexible by design',
+        'The default experience is efficient enough for real application work, with density controls available when products need more room.',
+      ],
+      [
+        'Bootstrap-compatible, Gravitas-led',
+        'Bootstrap can provide baseline structure, but the visual identity and behavior should come from Gravitas tokens and component styles.',
+      ],
+    ].map(([title, text]) => (
+      <div key={title} className="gv-doc-callout">
+        <div className="gv-doc-callout-title">{title}</div>
+        <p className="gv-doc-callout-copy">{text}</p>
+      </div>
+    ))}
+  </div>
 
-Font sizes, weights, line heights, and text hierarchy.
+  ## How to read this section
 
-### Spacing
+  <div className="gv-doc-panel">
+    <p className="gv-doc-section-copy" style={{ marginTop: 0 }}>
+      The pages in Foundations are meant to answer practical implementation questions:
+    </p>
 
-The spacing scale used for padding, gaps, and layout rhythm.
+    <ul className="gv-doc-list">
+      <li>Which token should I use for a neutral elevated surface?</li>
+      <li>How compact should form spacing be in dashboard layouts?</li>
+      <li>Which text style is appropriate for supporting metadata?</li>
+      <li>How do light, dark, and density modes affect component styling?</li>
+    </ul>
+  </div>
 
-### Radius
+  ## Recommended workflow
 
-Border radius values for inputs, cards, modals, and buttons.
-
-### Shadows
-
-Elevation styles for floating and layered UI.
-
-### Motion
-
-Animation timing and interaction behavior.
-
-### Themes
-
-Global appearance modes such as light and dark.
-
-### Density
-
-Global spacing density such as compact, comfortable, and spacious.
-
----
-
-## Why Foundations matter
-
-Without foundations, components become inconsistent very quickly.
-
-Foundations make sure that:
-
-- buttons and inputs feel related
-- spacing looks intentional
-- typography stays readable
-- themes remain predictable
-- new components are easier to build
-
----
-
-## How to use this section
-
-Use the pages in this section as the source of truth for:
-
-- visual tokens
-- layout rhythm
-- text hierarchy
-- theme rules
-- component styling decisions
-
----
-
-## Recommended order
-
-If you are new to Gravitas, start here:
-
-1. Colors
-2. Typography
-3. Spacing
-4. Themes
-5. Density
-
----
-
-## Gravitas principle
-
-Design decisions should be defined once in Foundations and reused everywhere else.
+  <p className="gv-doc-section-copy">
+    When designing or implementing a new component, start in this order: choose the right semantic
+    color roles, align spacing to the shared scale, apply the established text hierarchy, and only
+    then add component-specific polish. That order keeps the library maintainable as it grows.
+  </p>
+</div>

@@ -22,6 +22,17 @@ const meta: Meta<Dropdown> = {
       control: 'boolean',
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Composable menu container for contextual actions, row menus, profile menus, and lightweight command groups.
+
+Project your own trigger with \`gvDropdownTrigger\` and your own menu content with \`gvDropdownMenu\`. This component is intentionally low-level so teams can reuse it with their own action markup and iconography.
+        `.trim(),
+      },
+    },
+  },
 };
 
 export default meta;

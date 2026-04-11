@@ -15,6 +15,17 @@ const meta: Meta<Empty> = {
     description: { control: 'text' },
     compact: { control: 'boolean' },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Empty-state placeholder for blank data views, filtered lists with no matches, and first-run experiences.
+
+Use \`compact\` inside constrained containers such as cards and tables. Project actions into the dedicated slot when the empty state should guide the user toward the next step.
+        `.trim(),
+      },
+    },
+  },
 };
 
 export default meta;

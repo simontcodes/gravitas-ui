@@ -1,248 +1,71 @@
 # Gravitas UI
 
-A modern, enterprise-grade Angular component library built on top of Bootstrap 5.
+Gravitas UI is an Angular standalone component library for Bootstrap-based
+enterprise applications.
 
-Gravitas provides consistent design tokens, density control, and production-ready UI components for complex SaaS applications like Copernicus and MasterBook.
+This repository contains the component package, design tokens, Storybook
+documentation, and packaging configuration used to publish the library.
 
----
+Current planned public release: `0.1.0`.
 
-## ✨ Philosophy
+## Repository Tooling
 
-Gravitas is built with the following principles:
+This repository is standardized on Yarn 4.
 
-- **Enterprise-first**
-- **Composable**
-- **Bootstrap-compatible**
-- **Design-token driven**
-- **Density-aware**
-- **Accessible by default**
-- **Incrementally adoptable**
-
-Gravitas does not replace Bootstrap — it enhances it with structure, consistency, and polish.
-
----
-
-## 📦 Installation
+Use:
 
 ```bash
-yarn add @your-org/gravitas-ui
+corepack enable
+yarn install
 ```
 
----
+Do not commit `package-lock.json`. The authoritative lockfile for this
+repository is `yarn.lock`.
 
-## 🚀 Quick Start
+## Package Positioning
 
-### 1️⃣ Import the theme
+Gravitas is designed for applications that already use Bootstrap as part of
+their shell and layout environment.
 
-In your application entry file:
+The intended layering is:
+
+- Bootstrap provides the baseline application environment
+- Gravitas provides the design-system contract
+- Applications consume Gravitas components instead of reimplementing UI patterns
+
+Gravitas is therefore Bootstrap-aligned, not Bootstrap-agnostic.
+
+## Package Contract
+
+Consumer applications should:
+
+1. install `gravitas-ui` and `bootstrap`
+2. import Bootstrap once globally
+3. import `gravitas-ui/styles/gravitas.css` once globally
+4. optionally set `data-gv-theme` and `data-gv-density` at the app shell level
+
+## Installation
+
+```bash
+yarn add gravitas-ui bootstrap
+```
+
+Minimum supported Angular peer line for publication: `21.2.4+`.
+
+## Global Setup
 
 ```ts
-import '@your-org/gravitas-ui/styles/gravitas.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'gravitas-ui/styles/gravitas.css';
 ```
 
-### 2️⃣ Set density + theme (optional)
+Example root theme configuration:
 
 ```html
-<html data-gv-density="compact" data-gv-theme="light">
+<html data-gv-theme="light" data-gv-density="comfortable">
 ```
 
-Available density options:
-
-- `compact`
-- `comfortable`
-- `spacious`
-
-Available theme options:
-
-- `light`
-- `dark` (coming soon)
-
----
-
-## 🎛 Density System
-
-Gravitas supports layout density control via:
-
-```html
-data-gv-density="compact"
-```
-
-### Compact
-- Tight spacing
-- Data-heavy dashboards
-- Billing/insurance systems
-
-### Comfortable
-- Default SaaS layout
-- Balanced whitespace
-
-### Spacious
-- Marketing-heavy or admin tools
-
-Density adjusts paddings, spacing, and sizing system-wide.
-
----
-
-## 🎨 Design Tokens
-
-Gravitas is token-driven.
-
-Example tokens:
-
-```css
---gv-accent
---gv-border
---gv-text-strong
---gv-radius-md
---gv-shadow-sm
-```
-
-Tokens power:
-
-- Buttons
-- Cards
-- Forms
-- Tables
-- Future components
-
-You can override tokens in your application to customize branding.
-
----
-
-## 🧩 Components
-
-### Button
-
-A Bootstrap-compatible enterprise button.
-
-#### Basic Usage
-
-```html
-<gv-button variant="primary">
-  Save
-</gv-button>
-```
-
-#### Variants
-
-- `primary`
-- `secondary`
-- `success`
-- `danger`
-- `warning`
-- `info`
-- `light`
-- `dark`
-- `link`
-
-#### Sizes
-
-- `sm`
-- `md` (default)
-- `lg`
-
-#### Full Width
-
-```html
-<gv-button [fullWidth]="true">
-  Continue
-</gv-button>
-```
-
-#### Loading State
-
-```html
-<gv-button [loading]="true">
-  Save
-</gv-button>
-```
-
-#### Loading With Text
-
-```html
-<gv-button
-  [loading]="true"
-  loadingText="Saving..."
->
-  Save
-</gv-button>
-```
-
-#### Icons
-
-Left icon:
-
-```html
-<gv-button>
-  <span gvIconLeft>💾</span>
-  Save
-</gv-button>
-```
-
-Right icon:
-
-```html
-<gv-button>
-  Next
-  <span gvIconRight>➡️</span>
-</gv-button>
-```
-
----
-
-## 🧠 Architecture
-
-Gravitas uses layered styling:
-
-1. **Tokens**
-2. **Theme mapping**
-3. **Component-scoped CSS**
-4. **Layout shell**
-
-Bootstrap classes remain usable.
-
-Gravitas components are opt-in and do not globally override Bootstrap components.
-
----
-
-## 🔄 Versioning
-
-Gravitas follows Semantic Versioning.
-
-```
-0.x → Rapid iteration
-1.0 → Stable API
-```
-
-Breaking changes are communicated clearly in the changelog.
-
----
-
-## 🛣 Roadmap
-
-Planned components:
-
-- Card
-- Form Field
-- Input
-- Badge
-- Dialog
-- Table
-- Toast
-
----
-
-## 🤝 Contributing
-
-1. Create a feature branch
-2. Add Storybook stories
-3. Write unit tests
-4. Ensure no global Bootstrap overrides
-5. Submit PR
-
----
-
-## 🧪 Development
+## Development
 
 Start Storybook:
 
@@ -250,14 +73,50 @@ Start Storybook:
 yarn storybook
 ```
 
-Build library:
+Build the library:
 
 ```bash
 yarn build
 ```
 
----
+Run tests:
 
-## 📜 License
+```bash
+yarn test --watch=false
+```
 
-Private – Internal Use Only (for now)
+Build Storybook:
+
+```bash
+yarn build-storybook
+```
+
+## Publishing
+
+The publishable package is built into [`dist/gravitas-ui`](/home/simontang/projects/gravitas-ui/dist/gravitas-ui).
+
+Recommended flow:
+
+```bash
+yarn build
+cd dist/gravitas-ui
+npm publish
+```
+
+Release notes for the initial public release are captured in
+[CHANGELOG.md](/home/simontang/projects/gravitas-ui/CHANGELOG.md).
+
+## Security
+
+Before publishing, verify runtime dependencies are outside known vulnerable
+ranges. In this repository, Angular package ranges have been raised to the
+patched `21.2.4+` line after `npm audit` reported high-severity Angular XSS
+advisories against the earlier `21.1.x` and early `21.2.x` ranges.
+
+Use [SECURITY.md](/home/simontang/projects/gravitas-ui/SECURITY.md) as the
+disclosure policy for the public package and repository.
+
+## License
+
+This repository is now prepared for public distribution under the MIT license.
+See [LICENSE](/home/simontang/projects/gravitas-ui/LICENSE).

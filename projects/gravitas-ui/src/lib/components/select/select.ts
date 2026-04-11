@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormField } from '../form-field/form-field';
 
 export type GvSelectSize = 'sm' | 'md' | 'lg';
 export type SelectValue<T> = T | T[] | null;
@@ -24,7 +25,7 @@ export interface GvSelectOption<T = any> {
 @Component({
   selector: 'gv-select',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormField],
   templateUrl: './select.html',
   styleUrls: ['./select.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -37,7 +38,10 @@ export interface GvSelectOption<T = any> {
   ],
 })
 export class Select<T = any> implements ControlValueAccessor, OnChanges {
+  private readonly generatedId = `gv-select-${Math.random().toString(16).slice(2)}`;
+
   // --- UI ---
+  @Input() id?: string;
   @Input() label = '';
   @Input() helperText = '';
   @Input() placeholder = 'Select...';
@@ -105,9 +109,13 @@ export class Select<T = any> implements ControlValueAccessor, OnChanges {
 
   private rebuildValueMap(): void {
     this.valueMap.clear();
-    for (const opt of this.options ?? []) {
-      this.valueMap.set(this.stringifyValue(opt.value), opt.value);
+    for (const [index, opt] of (this.options ?? []).entries()) {
+      this.valueMap.set(this.getOptionKey(index), opt.value);
     }
+  }
+
+  getOptionKey(index: number): string {
+    return `gv-select-option-${index}`;
   }
 
   private normalizeValueForMode(): void {
@@ -176,6 +184,26 @@ export class Select<T = any> implements ControlValueAccessor, OnChanges {
 
   get useCustomDropdown(): boolean {
     return this.multiple || this.searchable;
+  }
+
+  get controlId(): string {
+    return this.id ?? this.generatedId;
+  }
+
+  get labelId(): string | null {
+    return this.label ? `${this.controlId}__label` : null;
+  }
+
+  get helperTextId(): string | null {
+    return this.helperText && !this.error ? `${this.controlId}__desc` : null;
+  }
+
+  get errorId(): string | null {
+    return this.error ? `${this.controlId}__desc` : null;
+  }
+
+  get describedBy(): string | null {
+    return this.errorId ?? this.helperTextId;
   }
 
   get selectClass(): string {

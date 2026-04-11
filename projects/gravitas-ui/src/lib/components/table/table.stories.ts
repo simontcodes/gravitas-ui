@@ -151,6 +151,7 @@ const pageSizeOptions: GvTablePageSizeOption[] = [
 const meta: Meta<Table<PolicyRow>> = {
   title: 'Gravitas/Table',
   component: Table,
+  tags: ['autodocs'],
   args: {
     columns,
     rows,
@@ -182,6 +183,17 @@ const meta: Meta<Table<PolicyRow>> = {
     striped: { control: 'boolean' },
     hover: { control: 'boolean' },
     compact: { control: 'boolean' },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Data table for dense operational views with sorting, search, column filters, pagination, and empty or loading states.
+
+This table is optimized for enterprise dashboard usage where scanability matters more than heavy customization. Define behavior through the column configuration object and keep row values predictable and serializable.
+        `.trim(),
+      },
+    },
   },
 };
 

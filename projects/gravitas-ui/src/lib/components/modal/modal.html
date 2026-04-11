@@ -24,7 +24,7 @@
 
             <button
               type="button"
-              class="btn btn-sm btn-light gv-modal__close"
+              class="gv-modal__close"
               (click)="onCloseButton()"
               [disabled]="loading"
               aria-label="Close dialog"
@@ -44,7 +44,7 @@
 
         @if (loading) {
           <div class="gv-modal__loading" aria-hidden="true">
-            <div class="spinner-border spinner-border-sm" role="status"></div>
+            <div class="spinner-border spinner-border-sm text-primary" role="status"></div>
           </div>
         }
       </section>

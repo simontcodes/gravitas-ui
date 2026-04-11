@@ -2,82 +2,125 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Foundations/Spacing" />
 
-# Spacing
+<div className="gv-doc-page">
+  <div className="gv-doc-hero">
+    <div className="gv-doc-kicker">Foundations · Spacing</div>
+    <h1 className="gv-doc-hero-title">Tight rhythm, deliberate structure</h1>
+    <p className="gv-doc-hero-copy">
+      Gravitas is optimized for real application density. Spacing is designed to keep dashboards
+      compact without feeling cramped, and to scale predictably when density switches between
+      compact, comfortable, and spacious modes.
+    </p>
+    <div className="gv-doc-hero-rule" />
+  </div>
 
-Spacing creates rhythm, structure, and clarity in the interface.
+  ## Spacing tokens
 
----
+  <div className="gv-doc-grid gv-doc-grid--wide">
+    {[
+      ['--gv-space-1', '4px', '3px compact, 4px comfortable, 6px spacious', 'Micro spacing inside dense controls and tight icon gaps'],
+      ['--gv-space-2', '8px', '6px compact, 8px comfortable, 10px spacious', 'Default small gaps, stacked metadata, small control padding'],
+      ['--gv-space-3', '12px', '10px compact, 12px comfortable, 14px spacious', 'Standard spacing inside fields, cards, and grouped controls'],
+      ['--gv-space-4', '16px', '14px compact, 16px comfortable, 18px spacious', 'Primary layout spacing for sections, rows, and card content'],
+    ].map(([token, size, density, usage]) => (
+      <div key={token} className="gv-doc-card">
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '16px',
+            marginBottom: '14px',
+          }}
+        >
+          <div
+            style={{
+              width: size,
+              height: size,
+              minWidth: size,
+              borderRadius: '999px',
+              background: 'var(--gv-accent)',
+              boxShadow: 'var(--gv-shadow-sm)',
+            }}
+          />
+          <div>
+            <div className="gv-doc-card-title" style={{ marginBottom: '4px' }}>
+              {token}
+            </div>
+            <div className="gv-doc-card-copy">{size}</div>
+          </div>
+        </div>
+        <p className="gv-doc-card-copy" style={{ marginBottom: '8px' }}>
+          <strong>Density behavior:</strong> {density}
+        </p>
+        <p className="gv-doc-card-copy">{usage}</p>
+      </div>
+    ))}
+  </div>
 
-## Spacing scale
+  ## How spacing should feel
 
-- 4px
-- 8px
-- 12px
-- 16px
-- 20px
-- 24px
-- 32px
-- 40px
+  <div className="gv-doc-grid">
+    {[
+      {
+        title: 'Inside controls',
+        text: 'Form controls, buttons, and segmented interface elements should feel compact but breathable. Internal padding should generally come from the shared scale, not custom one-off values.',
+      },
+      {
+        title: 'Between related items',
+        text: 'Labels, helper text, icons, and grouped actions should use smaller tokens to preserve visual connection.',
+      },
+      {
+        title: 'Between sections',
+        text: 'Cards, panels, and larger layout blocks should step up spacing intentionally so hierarchy stays visible even on dense pages.',
+      },
+      {
+        title: 'Across densities',
+        text: 'Density changes should rebalance rhythm globally. Individual components should adapt instead of manually overriding spacing in isolation.',
+      },
+    ].map((item) => (
+      <div key={item.title} className="gv-doc-card">
+        <h3 className="gv-doc-card-title">{item.title}</h3>
+        <p className="gv-doc-card-copy">{item.text}</p>
+      </div>
+    ))}
+  </div>
 
----
+  ## Practical guidance
 
-## Example scale
+  <div className="gv-doc-callout-list">
+    {[
+      [
+        'Prefer the scale over arbitrary pixels',
+        'If a spacing value does not map cleanly to the system, first check whether the component structure is the real problem.',
+      ],
+      [
+        'Let density drive compactness',
+        'Do not create a separate mini spacing language inside one component. Use density tokens to tighten or relax the whole system consistently.',
+      ],
+      [
+        'Use small spacing to connect, large spacing to separate',
+        'Spacing should reinforce information hierarchy. Closely related items belong visually closer together than unrelated groups.',
+      ],
+      [
+        'Avoid visually noisy layouts',
+        'Even dense enterprise interfaces need clear grouping. If every gap is tiny, nothing feels organized.',
+      ],
+    ].map(([title, text]) => (
+      <div key={title} className="gv-doc-callout">
+        <div className="gv-doc-callout-title">{title}</div>
+        <p className="gv-doc-callout-copy">{text}</p>
+      </div>
+    ))}
+  </div>
 
-<div style={{ display: 'grid', gap: '12px', marginTop: '16px', maxWidth: '480px' }}>
-  <div
-    style={{
-      background: 'var(--gv-color-primary)',
-      height: '4px',
-      width: '4px',
-      borderRadius: '999px',
-    }}
-  />
-  <div
-    style={{
-      background: 'var(--gv-color-primary)',
-      height: '8px',
-      width: '8px',
-      borderRadius: '999px',
-    }}
-  />
-  <div
-    style={{
-      background: 'var(--gv-color-primary)',
-      height: '12px',
-      width: '12px',
-      borderRadius: '999px',
-    }}
-  />
-  <div
-    style={{
-      background: 'var(--gv-color-primary)',
-      height: '16px',
-      width: '16px',
-      borderRadius: '999px',
-    }}
-  />
-  <div
-    style={{
-      background: 'var(--gv-color-primary)',
-      height: '24px',
-      width: '24px',
-      borderRadius: '999px',
-    }}
-  />
-  <div
-    style={{
-      background: 'var(--gv-color-primary)',
-      height: '32px',
-      width: '32px',
-      borderRadius: '999px',
-    }}
-  />
+  ## Recommended defaults
+
+  <div className="gv-doc-panel">
+    <ul className="gv-doc-list">
+      <li>Use <code>--gv-space-1</code> for the tightest internal adjustments and micro gaps</li>
+      <li>Use <code>--gv-space-2</code> for small inline gaps and stacked metadata</li>
+      <li>Use <code>--gv-space-3</code> for standard component interior spacing</li>
+      <li>Use <code>--gv-space-4</code> for section spacing inside cards and panels</li>
+    </ul>
+  </div>
 </div>
-
----
-
-## Guidance
-
-- Use consistent spacing tokens
-- Prefer scale values over arbitrary numbers
-- Tighter spacing should be driven by density, not random overrides

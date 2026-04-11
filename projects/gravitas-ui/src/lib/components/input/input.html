@@ -1,13 +1,10 @@
-<div class="gv-field">
-  @if (label) {
-    <label class="gv-label" [attr.for]="inputId">
-      {{ label }}
-      @if (required) {
-        <span class="gv-required">*</span>
-      }
-    </label>
-  }
-
+<gv-form-field
+  [label]="label ?? null"
+  [required]="required"
+  [helperText]="fieldHelperText"
+  [error]="errorText"
+  [controlId]="inputId"
+>
   <div
     class="gv-inputwrap"
     [ngClass]="{
@@ -45,12 +42,4 @@
       </div>
     }
   </div>
-
-  @if (hint && !isInvalid()) {
-    <div class="gv-hint" [id]="inputId + '-hint'">{{ hint }}</div>
-  }
-
-  @if (errorText) {
-    <div class="gv-input__error">{{ errorText }}</div>
-  }
-</div>
+</gv-form-field>

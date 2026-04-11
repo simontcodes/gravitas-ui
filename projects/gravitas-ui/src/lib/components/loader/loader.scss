@@ -1,10 +1,10 @@
 :host {
-  --gv-loader-accent: var(--gv-color-primary-500, #3b82f6);
-  --gv-loader-track: var(--gv-color-slate-200, #e2e8f0);
-  --gv-loader-text: var(--gv-color-slate-500, #64748b);
-  --gv-loader-overlay-bg: rgba(255, 255, 255, 0.72);
-  --gv-loader-overlay-panel-bg: rgba(255, 255, 255, 0.92);
-  --gv-loader-overlay-border: rgba(148, 163, 184, 0.22);
+  --gv-loader-accent: var(--gv-accent);
+  --gv-loader-track: var(--gv-loader-track);
+  --gv-loader-text: var(--gv-text-muted);
+  --gv-loader-overlay-bg: color-mix(in srgb, var(--gv-overlay-surface) 72%, transparent);
+  --gv-loader-overlay-panel-bg: var(--gv-overlay-surface);
+  --gv-loader-overlay-border: var(--gv-overlay-border);
   --gv-loader-radius: var(--gv-radius-md, 12px);
 
   display: block;
@@ -49,9 +49,7 @@
   border: 1px solid var(--gv-loader-overlay-border);
   border-radius: var(--gv-loader-radius);
   background: var(--gv-loader-overlay-panel-bg);
-  box-shadow:
-    0 12px 32px rgba(15, 23, 42, 0.08),
-    0 2px 6px rgba(15, 23, 42, 0.04);
+  box-shadow: var(--gv-shadow-overlay);
 }
 
 :host(.gv-loader--sm) .gv-loader__spinner {

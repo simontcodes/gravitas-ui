@@ -2,43 +2,149 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Foundations/Typography" />
 
-# Typography
+<div className="gv-doc-page">
+  <div className="gv-doc-hero">
+    <div className="gv-doc-kicker">Foundations · Typography</div>
+    <h1 className="gv-doc-hero-title">Readable hierarchy for dense product UI</h1>
+    <p className="gv-doc-hero-copy">
+      Gravitas typography is designed for enterprise dashboards, not landing pages. The emphasis is
+      on clarity, scanability, and steady hierarchy across forms, tables, cards, filters, and
+      documentation.
+    </p>
+    <div className="gv-doc-hero-rule" />
+  </div>
 
-Typography defines hierarchy, readability, and tone across Gravitas UI.
+  ## System defaults
 
----
+  <div className="gv-doc-grid">
+    <div className="gv-doc-card">
+      <h3 className="gv-doc-card-title">Base font size</h3>
+      <p className="gv-doc-card-copy">
+        <code>--gv-font-size</code> defaults to <strong>14px</strong> in comfortable mode, shifts to
+        <strong> 13px</strong> in compact mode, and <strong>15px</strong> in spacious mode.
+      </p>
+    </div>
+    <div className="gv-doc-card">
+      <h3 className="gv-doc-card-title">Line height</h3>
+      <p className="gv-doc-card-copy">
+        <code>--gv-line-height</code> defaults to <strong>1.35</strong>, tightens to
+        <strong> 1.25</strong> in compact mode, and relaxes to <strong>1.45</strong> in spacious
+        mode.
+      </p>
+    </div>
+    <div className="gv-doc-card">
+      <h3 className="gv-doc-card-title">Font family</h3>
+      <p className="gv-doc-card-copy">
+        The current theme uses a practical system sans stack tuned for product readability and
+        platform consistency.
+      </p>
+    </div>
+  </div>
 
-## Headings
+  ## Type roles
 
-# Heading 1
+  <div className="gv-doc-grid gv-doc-grid--wide">
+    {[
+      [
+        'Strong heading',
+        '32-42px in docs and hero contexts',
+        'Reserved for documentation heroes and major section framing, not routine app UI',
+      ],
+      [
+        'Section heading',
+        '20-28px depending on context',
+        'Used for page sections, large panel titles, and major grouped content',
+      ],
+      [
+        'Component title',
+        '16-18px',
+        'Used for card titles, modal titles, and emphasized component-level headings',
+      ],
+      [
+        'Body text',
+        'var(--gv-font-size)',
+        'Default readable text for forms, tables, cards, and documentation copy',
+      ],
+      [
+        'Supporting text',
+        'var(--gv-font-size) with muted color',
+        'Secondary metadata, helper text, and explanatory content',
+      ],
+      [
+        'Label and microcopy',
+        '12-13px where needed',
+        'Used sparingly for captions, badges, and compact support information',
+      ],
+    ].map(([title, scale, text]) => (
+      <div key={title} className="gv-doc-card">
+        <h3 className="gv-doc-card-title">{title}</h3>
+        <p className="gv-doc-card-copy" style={{ marginBottom: '8px' }}>
+          <strong>Typical scale:</strong> {scale}
+        </p>
+        <p className="gv-doc-card-copy">{text}</p>
+      </div>
+    ))}
+  </div>
 
-## Heading 2
+  ## Example hierarchy
 
-### Heading 3
+  <div className="gv-doc-panel">
+    <div style={{ color: 'var(--gv-text-strong)', fontSize: '28px', fontWeight: 800, lineHeight: 1.15 }}>
+      Dashboard section title
+    </div>
+    <div
+      style={{
+        marginTop: '10px',
+        color: 'var(--gv-text-strong)',
+        fontSize: '17px',
+        fontWeight: 700,
+      }}
+    >
+      Card or panel heading
+    </div>
+    <p style={{ marginTop: '10px', color: 'var(--gv-text)', lineHeight: 1.7 }}>
+      Standard body text should be easy to read in forms, tables, explanatory copy, and supporting
+      application content.
+    </p>
+    <p style={{ marginTop: '8px', color: 'var(--gv-text-muted)', lineHeight: 1.7 }}>
+      Muted text is for descriptions, helper content, secondary metadata, and supportive context.
+      It should remain readable, but clearly subordinate to primary content.
+    </p>
+  </div>
 
-#### Heading 4
+  ## Practical rules
 
----
+  <div className="gv-doc-callout-list">
+    {[
+      [
+        'Favor hierarchy over size inflation',
+        'A stronger weight, cleaner spacing, or better color role is often more effective than simply making text larger.',
+      ],
+      [
+        'Keep dense UI readable',
+        'Dashboard interfaces need fast scanning. Avoid oversized headings and long stretches of low-contrast body copy.',
+      ],
+      [
+        'Use muted text intentionally',
+        'Secondary text should support the interface, not disappear from it. Muted does not mean low-quality contrast.',
+      ],
+      [
+        'Let density affect typography globally',
+        'When density changes, the base type scale and line height shift with it. Components should inherit that behavior instead of freezing local values.',
+      ],
+    ].map(([title, text]) => (
+      <div key={title} className="gv-doc-callout">
+        <div className="gv-doc-callout-title">{title}</div>
+        <p className="gv-doc-callout-copy">{text}</p>
+      </div>
+    ))}
+  </div>
 
-## Body text
+  ## Where typography matters most
 
-This is standard body text. It should be easy to read and work well in forms, tables, cards, and documentation.
-
----
-
-## Emphasis
-
-**Bold text** is used for stronger emphasis.
-
-_Italic text_ is used more sparingly.
-
-`Inline code` can be used in docs and developer-facing content.
-
----
-
-## Guidance
-
-- Use headings to create clear hierarchy
-- Avoid oversized text in dense interfaces
-- Keep body text readable
-- Use muted text only for secondary information
+  <p className="gv-doc-section-copy">
+    Typography quality shows up fastest in forms, tables, empty states, and modal bodies. Those are
+    the places where users spend time reading labels, scanning status, and interpreting structured
+    information. If the hierarchy is unclear there, the whole system feels less trustworthy.
+  </p>
+</div>

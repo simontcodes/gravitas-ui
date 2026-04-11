@@ -42,6 +42,7 @@ const countryOptions: GvSelectOption<string>[] = [
 const meta: Meta<Select<string>> = {
   title: 'Gravitas/Select',
   component: Select,
+  tags: ['autodocs'],
   decorators: [
     (story) => ({
       ...story(),
@@ -73,6 +74,17 @@ const meta: Meta<Select<string>> = {
     size: { control: 'select', options: ['sm', 'md', 'lg'] },
     options: { control: false },
     className: { control: 'text' },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Choice input for single-select, searchable, and multi-select workflows in forms, filters, and admin tooling.
+
+Use native mode for simple single-select scenarios and turn on \`searchable\` or \`multiple\` when the option set becomes denser. The component integrates with Angular forms through ControlValueAccessor.
+        `.trim(),
+      },
+    },
   },
 };
 
