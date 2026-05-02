@@ -3836,7 +3836,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@popperjs/core@npm:^2.9.2":
+"@popperjs/core@npm:^2.11.8, @popperjs/core@npm:^2.9.2":
   version: 2.11.8
   resolution: "@popperjs/core@npm:2.11.8"
   checksum: 10c0/4681e682abc006d25eb380d0cf3efc7557043f53b6aea7a5057d0d1e7df849a00e281cd8ea79c902a35a414d7919621fc2ba293ecec05f413598e0b23d5a1e63
@@ -7693,6 +7693,7 @@ __metadata:
     "@angular/platform-browser-dynamic": "npm:21.2.8"
     "@angular/router": "npm:21.2.8"
     "@compodoc/compodoc": "npm:1.2.1"
+    "@popperjs/core": "npm:^2.11.8"
     "@storybook/addon-a11y": "npm:10.2.10"
     "@storybook/addon-docs": "npm:10.2.10"
     "@storybook/addon-onboarding": "npm:10.2.10"
