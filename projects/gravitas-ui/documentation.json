@@ -870,21 +870,21 @@
                 "name": "Basic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/components/empty/empty.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    imports: [Empty],\n    template: `\n      <gv-empty\n        [title]=\"title\"\n        [description]=\"description\"\n        [compact]=\"compact\"\n      ></gv-empty>\n    `,\n  }),\n}"
-            },
-            {
-                "name": "Basic",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/gravitas-ui/src/lib/components/dropdown/dropdown.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    imports: dropdownImports,\n    template: `\n      <div class=\"p-4\">\n        <gv-dropdown\n          [align]=\"align\"\n          [disabled]=\"disabled\"\n          [closeOnItemClick]=\"closeOnItemClick\"\n        >\n          <button gvDropdownTrigger type=\"button\" class=\"btn btn-outline-secondary\">\n            Actions\n          </button>\n\n          <div gvDropdownMenu>\n            <button type=\"button\">View details</button>\n            <button type=\"button\">Edit record</button>\n            <button type=\"button\">Duplicate</button>\n            <hr class=\"gv-dropdown-divider\" />\n            <button type=\"button\" class=\"gv-dropdown-item gv-dropdown-item--danger\">\n              Delete\n            </button>\n          </div>\n        </gv-dropdown>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Basic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/components/empty/empty.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    imports: [Empty],\n    template: `\n      <gv-empty\n        [title]=\"title\"\n        [description]=\"description\"\n        [compact]=\"compact\"\n      ></gv-empty>\n    `,\n  }),\n}"
             },
             {
                 "name": "CardExample",
@@ -1562,6 +1562,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Button>",
+                "defaultValue": "{\n  title: 'Gravitas/Button',\n  component: Button,\n  tags: ['autodocs'],\n  args: {\n    type: 'button',\n    variant: 'primary',\n    appearance: 'solid',\n    size: 'md',\n    disabled: false,\n    loading: false,\n    fullWidth: false,\n    loadingText: '',\n    className: '',\n  },\n  argTypes: {\n    // Appearance\n    variant: {\n      control: 'select',\n      options: [\n        'primary',\n        'secondary',\n        'success',\n        'danger',\n        'warning',\n        'info',\n        'light',\n        'dark',\n        'link',\n      ],\n      description: 'Visual style variant.',\n      table: { category: 'Appearance', defaultValue: { summary: 'primary' } },\n    },\n    appearance: {\n      control: 'select',\n      options: ['solid', 'soft', 'outline', 'ghost', 'link'],\n      description: 'Visual treatment independent from semantic variant.',\n      table: { category: 'Appearance', defaultValue: { summary: 'solid' } },\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Button size.',\n      table: { category: 'Appearance', defaultValue: { summary: 'md' } },\n    },\n    fullWidth: {\n      control: 'boolean',\n      description: 'Makes the button span the full width of its container.',\n      table: { category: 'Layout', defaultValue: { summary: 'false' } },\n    },\n\n    // Behavior\n    type: {\n      control: 'select',\n      options: ['button', 'submit', 'reset'],\n      description: 'Native button type attribute.',\n      table: { category: 'Behavior', defaultValue: { summary: 'button' } },\n    },\n\n    // State\n    disabled: {\n      control: 'boolean',\n      description: 'Disables the button.',\n      table: { category: 'State', defaultValue: { summary: 'false' } },\n    },\n    loading: {\n      control: 'boolean',\n      description: 'Shows a busy state (spinner) and disables the button.',\n      table: { category: 'State', defaultValue: { summary: 'false' } },\n    },\n    loadingText: {\n      control: 'text',\n      description: 'Optional label shown while loading. If empty, shows normal content.',\n      table: { category: 'State', defaultValue: { summary: '' } },\n    },\n\n    // Advanced\n    className: {\n      control: 'text',\n      description: 'Extra CSS classes applied to the underlying button (Bootstrap utilities, etc).',\n      table: { category: 'Advanced', defaultValue: { summary: '' } },\n    },\n  },\n  parameters: {\n    docs: {\n      // Note: excludeDecorators only affects Source, not rendered story blocks.\n      source: { excludeDecorators: true },\n      description: {\n        component: `\nButtons support loading states and optional left/right icon slots via content projection.\n\n### Usage\n\\`\\`\\`html\n<gv-button variant=\"primary\">Button</gv-button>\n<gv-button [loading]=\"true\" loadingText=\"Saving...\">Save</gv-button>\n\\`\\`\\`\n\n### Slots\n- \\`[gvIconLeft]\\`: left icon slot\n- default slot: label/content\n- \\`[gvIconRight]\\`: right icon slot\n\n### Accessibility\n- \\`aria-busy=\"true\"\\` is applied while \\`loading\\` is true.\n- Button is disabled while loading to prevent duplicate submissions.\n        `.trim(),\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/gravitas-ui/src/lib/components/checkbox/checkbox.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1572,11 +1582,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/components/button/button.stories.ts",
+                "file": "projects/gravitas-ui/src/lib/components/dropdown/dropdown.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<Button>",
-                "defaultValue": "{\n  title: 'Gravitas/Button',\n  component: Button,\n  tags: ['autodocs'],\n  args: {\n    type: 'button',\n    variant: 'primary',\n    appearance: 'solid',\n    size: 'md',\n    disabled: false,\n    loading: false,\n    fullWidth: false,\n    loadingText: '',\n    className: '',\n  },\n  argTypes: {\n    // Appearance\n    variant: {\n      control: 'select',\n      options: [\n        'primary',\n        'secondary',\n        'success',\n        'danger',\n        'warning',\n        'info',\n        'light',\n        'dark',\n        'link',\n      ],\n      description: 'Visual style variant.',\n      table: { category: 'Appearance', defaultValue: { summary: 'primary' } },\n    },\n    appearance: {\n      control: 'select',\n      options: ['solid', 'soft', 'outline', 'ghost', 'link'],\n      description: 'Visual treatment independent from semantic variant.',\n      table: { category: 'Appearance', defaultValue: { summary: 'solid' } },\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Button size.',\n      table: { category: 'Appearance', defaultValue: { summary: 'md' } },\n    },\n    fullWidth: {\n      control: 'boolean',\n      description: 'Makes the button span the full width of its container.',\n      table: { category: 'Layout', defaultValue: { summary: 'false' } },\n    },\n\n    // Behavior\n    type: {\n      control: 'select',\n      options: ['button', 'submit', 'reset'],\n      description: 'Native button type attribute.',\n      table: { category: 'Behavior', defaultValue: { summary: 'button' } },\n    },\n\n    // State\n    disabled: {\n      control: 'boolean',\n      description: 'Disables the button.',\n      table: { category: 'State', defaultValue: { summary: 'false' } },\n    },\n    loading: {\n      control: 'boolean',\n      description: 'Shows a busy state (spinner) and disables the button.',\n      table: { category: 'State', defaultValue: { summary: 'false' } },\n    },\n    loadingText: {\n      control: 'text',\n      description: 'Optional label shown while loading. If empty, shows normal content.',\n      table: { category: 'State', defaultValue: { summary: '' } },\n    },\n\n    // Advanced\n    className: {\n      control: 'text',\n      description: 'Extra CSS classes applied to the underlying button (Bootstrap utilities, etc).',\n      table: { category: 'Advanced', defaultValue: { summary: '' } },\n    },\n  },\n  parameters: {\n    docs: {\n      // Note: excludeDecorators only affects Source, not rendered story blocks.\n      source: { excludeDecorators: true },\n      description: {\n        component: `\nButtons support loading states and optional left/right icon slots via content projection.\n\n### Usage\n\\`\\`\\`html\n<gv-button variant=\"primary\">Button</gv-button>\n<gv-button [loading]=\"true\" loadingText=\"Saving...\">Save</gv-button>\n\\`\\`\\`\n\n### Slots\n- \\`[gvIconLeft]\\`: left icon slot\n- default slot: label/content\n- \\`[gvIconRight]\\`: right icon slot\n\n### Accessibility\n- \\`aria-busy=\"true\"\\` is applied while \\`loading\\` is true.\n- Button is disabled while loading to prevent duplicate submissions.\n        `.trim(),\n      },\n    },\n  },\n}"
+                "type": "Meta<Dropdown>",
+                "defaultValue": "{\n  title: 'Gravitas/Dropdown',\n  component: Dropdown,\n  tags: ['autodocs'],\n  args: {\n    align: 'start',\n    disabled: false,\n    closeOnItemClick: true,\n  },\n  argTypes: {\n    align: {\n      control: 'inline-radio',\n      options: ['start', 'end'],\n    },\n    disabled: {\n      control: 'boolean',\n    },\n    closeOnItemClick: {\n      control: 'boolean',\n    },\n  },\n  parameters: {\n    docs: {\n      description: {\n        component: `\nComposable menu container for contextual actions, row menus, profile menus, and lightweight command groups.\n\nProject your own trigger with \\`gvDropdownTrigger\\` and your own menu content with \\`gvDropdownMenu\\`. This component is intentionally low-level so teams can reuse it with their own action markup and iconography.\n        `.trim(),\n      },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -1597,16 +1607,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<Empty>",
                 "defaultValue": "{\n  title: 'Gravitas/Empty',\n  component: Empty,\n  tags: ['autodocs'],\n  args: {\n    title: 'Nothing to show',\n    description: 'There is currently no data available for this view.',\n    compact: false,\n  },\n  argTypes: {\n    title: { control: 'text' },\n    description: { control: 'text' },\n    compact: { control: 'boolean' },\n  },\n  parameters: {\n    docs: {\n      description: {\n        component: `\nEmpty-state placeholder for blank data views, filtered lists with no matches, and first-run experiences.\n\nUse \\`compact\\` inside constrained containers such as cards and tables. Project actions into the dedicated slot when the empty state should guide the user toward the next step.\n        `.trim(),\n      },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/components/dropdown/dropdown.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<Dropdown>",
-                "defaultValue": "{\n  title: 'Gravitas/Dropdown',\n  component: Dropdown,\n  tags: ['autodocs'],\n  args: {\n    align: 'start',\n    disabled: false,\n    closeOnItemClick: true,\n  },\n  argTypes: {\n    align: {\n      control: 'inline-radio',\n      options: ['start', 'end'],\n    },\n    disabled: {\n      control: 'boolean',\n    },\n    closeOnItemClick: {\n      control: 'boolean',\n    },\n  },\n  parameters: {\n    docs: {\n      description: {\n        component: `\nComposable menu container for contextual actions, row menus, profile menus, and lightweight command groups.\n\nProject your own trigger with \\`gvDropdownTrigger\\` and your own menu content with \\`gvDropdownMenu\\`. This component is intentionally low-level so teams can reuse it with their own action markup and iconography.\n        `.trim(),\n      },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -2548,6 +2548,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<Button>",
+                "file": "projects/gravitas-ui/src/lib/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<CheckboxStoryDemoComponent>",
                 "file": "projects/gravitas-ui/src/lib/components/checkbox/checkbox.stories.ts",
                 "deprecated": false,
@@ -2559,8 +2570,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<Button>",
-                "file": "projects/gravitas-ui/src/lib/components/button/button.stories.ts",
+                "rawtype": "StoryObj<Dropdown>",
+                "file": "projects/gravitas-ui/src/lib/components/dropdown/dropdown.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -2583,17 +2594,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<Empty>",
                 "file": "projects/gravitas-ui/src/lib/components/empty/empty.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<Dropdown>",
-                "file": "projects/gravitas-ui/src/lib/components/dropdown/dropdown.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4581,6 +4581,19 @@
                     "kind": 184
                 }
             ],
+            "projects/gravitas-ui/src/lib/components/button/button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Button>",
+                    "file": "projects/gravitas-ui/src/lib/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "projects/gravitas-ui/src/lib/components/checkbox/checkbox.stories.ts": [
                 {
                     "name": "Story",
@@ -4594,13 +4607,13 @@
                     "kind": 184
                 }
             ],
-            "projects/gravitas-ui/src/lib/components/button/button.stories.ts": [
+            "projects/gravitas-ui/src/lib/components/dropdown/dropdown.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<Button>",
-                    "file": "projects/gravitas-ui/src/lib/components/button/button.stories.ts",
+                    "rawtype": "StoryObj<Dropdown>",
+                    "file": "projects/gravitas-ui/src/lib/components/dropdown/dropdown.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -4627,19 +4640,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<Empty>",
                     "file": "projects/gravitas-ui/src/lib/components/empty/empty.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/gravitas-ui/src/lib/components/dropdown/dropdown.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<Dropdown>",
-                    "file": "projects/gravitas-ui/src/lib/components/dropdown/dropdown.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
