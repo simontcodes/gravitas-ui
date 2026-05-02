@@ -9,7 +9,7 @@
 
 /* Layout */
 .gv-card__header {
-  padding: var(--gv-space-3, 12px);
+  padding: var(--gv-space-4, 16px);
   border-bottom: 1px solid var(--gv-border);
   display: flex;
   align-items: center;
@@ -31,11 +31,11 @@
 }
 
 .gv-card__body {
-  padding: var(--gv-space-3, 12px);
+  padding: var(--gv-space-4, 16px);
 }
 
 .gv-card__footer {
-  padding: var(--gv-space-3, 12px);
+  padding: var(--gv-space-4, 16px);
   border-top: 1px solid var(--gv-border);
 }
 

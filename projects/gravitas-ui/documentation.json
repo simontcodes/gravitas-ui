@@ -870,21 +870,21 @@
                 "name": "Basic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/components/dropdown/dropdown.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    imports: dropdownImports,\n    template: `\n      <div class=\"p-4\">\n        <gv-dropdown\n          [align]=\"align\"\n          [disabled]=\"disabled\"\n          [closeOnItemClick]=\"closeOnItemClick\"\n        >\n          <button gvDropdownTrigger type=\"button\" class=\"btn btn-outline-secondary\">\n            Actions\n          </button>\n\n          <div gvDropdownMenu>\n            <button type=\"button\">View details</button>\n            <button type=\"button\">Edit record</button>\n            <button type=\"button\">Duplicate</button>\n            <hr class=\"gv-dropdown-divider\" />\n            <button type=\"button\" class=\"gv-dropdown-item gv-dropdown-item--danger\">\n              Delete\n            </button>\n          </div>\n        </gv-dropdown>\n      </div>\n    `,\n  }),\n}"
-            },
-            {
-                "name": "Basic",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/gravitas-ui/src/lib/components/empty/empty.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    imports: [Empty],\n    template: `\n      <gv-empty\n        [title]=\"title\"\n        [description]=\"description\"\n        [compact]=\"compact\"\n      ></gv-empty>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Basic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/components/dropdown/dropdown.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    imports: dropdownImports,\n    template: `\n      <div class=\"p-4\">\n        <gv-dropdown\n          [align]=\"align\"\n          [disabled]=\"disabled\"\n          [closeOnItemClick]=\"closeOnItemClick\"\n        >\n          <button gvDropdownTrigger type=\"button\" class=\"btn btn-outline-secondary\">\n            Actions\n          </button>\n\n          <div gvDropdownMenu>\n            <button type=\"button\">View details</button>\n            <button type=\"button\">Edit record</button>\n            <button type=\"button\">Duplicate</button>\n            <hr class=\"gv-dropdown-divider\" />\n            <button type=\"button\" class=\"gv-dropdown-item gv-dropdown-item--danger\">\n              Delete\n            </button>\n          </div>\n        </gv-dropdown>\n      </div>\n    `,\n  }),\n}"
             },
             {
                 "name": "CardExample",
@@ -1000,7 +1000,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/components/divider/divider.stories.ts",
+                "file": "projects/gravitas-ui/src/lib/components/checkbox/checkbox.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1010,7 +1010,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/components/checkbox/checkbox.stories.ts",
+                "file": "projects/gravitas-ui/src/lib/components/divider/divider.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1542,6 +1542,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/gravitas-ui/src/lib/components/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Badge>",
+                "defaultValue": "{\n  title: 'Gravitas/Badge',\n  component: Badge,\n  tags: ['autodocs'],\n  args: {\n    variant: 'neutral',\n    size: 'md',\n    pill: false,\n    dot: false,\n  },\n  argTypes: {\n    variant: {\n      control: 'inline-radio',\n      options: ['neutral', 'primary', 'success', 'warning', 'danger', 'info'],\n    },\n    size: {\n      control: 'inline-radio',\n      options: ['sm', 'md'],\n    },\n    pill: {\n      control: 'boolean',\n    },\n    dot: {\n      control: 'boolean',\n    },\n  },\n  parameters: {\n    docs: {\n      description: {\n        component: `\nCompact status or metadata label used for workflow state, record tags, counters, and lightweight semantic emphasis.\n\nUse \\`variant\\` for tone, \\`dot\\` when the badge represents state, and \\`pill\\` when the badge should read as a softer chip-like token.\n        `.trim(),\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/gravitas-ui/src/lib/components/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1552,11 +1562,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/components/badge/badge.stories.ts",
+                "file": "projects/gravitas-ui/src/lib/components/checkbox/checkbox.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<Badge>",
-                "defaultValue": "{\n  title: 'Gravitas/Badge',\n  component: Badge,\n  tags: ['autodocs'],\n  args: {\n    variant: 'neutral',\n    size: 'md',\n    pill: false,\n    dot: false,\n  },\n  argTypes: {\n    variant: {\n      control: 'inline-radio',\n      options: ['neutral', 'primary', 'success', 'warning', 'danger', 'info'],\n    },\n    size: {\n      control: 'inline-radio',\n      options: ['sm', 'md'],\n    },\n    pill: {\n      control: 'boolean',\n    },\n    dot: {\n      control: 'boolean',\n    },\n  },\n  parameters: {\n    docs: {\n      description: {\n        component: `\nCompact status or metadata label used for workflow state, record tags, counters, and lightweight semantic emphasis.\n\nUse \\`variant\\` for tone, \\`dot\\` when the badge represents state, and \\`pill\\` when the badge should read as a softer chip-like token.\n        `.trim(),\n      },\n    },\n  },\n}"
+                "type": "Meta<CheckboxStoryDemoComponent>",
+                "defaultValue": "{\n  title: 'Gravitas/Checkbox',\n  component: CheckboxStoryDemoComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      description: {\n        component: `\nBinary form control for independent selections such as settings, preferences, consent, and bulk actions.\n\nCheckbox is best when multiple options can be selected independently. Use \\`description\\`, \\`helperText\\`, and \\`errorText\\` to keep the control self-explanatory in dense forms.\n        `.trim(),\n      },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -1582,11 +1592,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/components/checkbox/checkbox.stories.ts",
+                "file": "projects/gravitas-ui/src/lib/components/empty/empty.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<CheckboxStoryDemoComponent>",
-                "defaultValue": "{\n  title: 'Gravitas/Checkbox',\n  component: CheckboxStoryDemoComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      description: {\n        component: `\nBinary form control for independent selections such as settings, preferences, consent, and bulk actions.\n\nCheckbox is best when multiple options can be selected independently. Use \\`description\\`, \\`helperText\\`, and \\`errorText\\` to keep the control self-explanatory in dense forms.\n        `.trim(),\n      },\n    },\n  },\n}"
+                "type": "Meta<Empty>",
+                "defaultValue": "{\n  title: 'Gravitas/Empty',\n  component: Empty,\n  tags: ['autodocs'],\n  args: {\n    title: 'Nothing to show',\n    description: 'There is currently no data available for this view.',\n    compact: false,\n  },\n  argTypes: {\n    title: { control: 'text' },\n    description: { control: 'text' },\n    compact: { control: 'boolean' },\n  },\n  parameters: {\n    docs: {\n      description: {\n        component: `\nEmpty-state placeholder for blank data views, filtered lists with no matches, and first-run experiences.\n\nUse \\`compact\\` inside constrained containers such as cards and tables. Project actions into the dedicated slot when the empty state should guide the user toward the next step.\n        `.trim(),\n      },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -1597,16 +1607,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<Dropdown>",
                 "defaultValue": "{\n  title: 'Gravitas/Dropdown',\n  component: Dropdown,\n  tags: ['autodocs'],\n  args: {\n    align: 'start',\n    disabled: false,\n    closeOnItemClick: true,\n  },\n  argTypes: {\n    align: {\n      control: 'inline-radio',\n      options: ['start', 'end'],\n    },\n    disabled: {\n      control: 'boolean',\n    },\n    closeOnItemClick: {\n      control: 'boolean',\n    },\n  },\n  parameters: {\n    docs: {\n      description: {\n        component: `\nComposable menu container for contextual actions, row menus, profile menus, and lightweight command groups.\n\nProject your own trigger with \\`gvDropdownTrigger\\` and your own menu content with \\`gvDropdownMenu\\`. This component is intentionally low-level so teams can reuse it with their own action markup and iconography.\n        `.trim(),\n      },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/gravitas-ui/src/lib/components/empty/empty.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<Empty>",
-                "defaultValue": "{\n  title: 'Gravitas/Empty',\n  component: Empty,\n  tags: ['autodocs'],\n  args: {\n    title: 'Nothing to show',\n    description: 'There is currently no data available for this view.',\n    compact: false,\n  },\n  argTypes: {\n    title: { control: 'text' },\n    description: { control: 'text' },\n    compact: { control: 'boolean' },\n  },\n  parameters: {\n    docs: {\n      description: {\n        component: `\nEmpty-state placeholder for blank data views, filtered lists with no matches, and first-run experiences.\n\nUse \\`compact\\` inside constrained containers such as cards and tables. Project actions into the dedicated slot when the empty state should guide the user toward the next step.\n        `.trim(),\n      },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -2526,6 +2526,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<Badge>",
+                "file": "projects/gravitas-ui/src/lib/components/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<Card>",
                 "file": "projects/gravitas-ui/src/lib/components/card/card.stories.ts",
                 "deprecated": false,
@@ -2537,8 +2548,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<Badge>",
-                "file": "projects/gravitas-ui/src/lib/components/badge/badge.stories.ts",
+                "rawtype": "StoryObj<CheckboxStoryDemoComponent>",
+                "file": "projects/gravitas-ui/src/lib/components/checkbox/checkbox.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -2570,8 +2581,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<CheckboxStoryDemoComponent>",
-                "file": "projects/gravitas-ui/src/lib/components/checkbox/checkbox.stories.ts",
+                "rawtype": "StoryObj<Empty>",
+                "file": "projects/gravitas-ui/src/lib/components/empty/empty.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -2583,17 +2594,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<Dropdown>",
                 "file": "projects/gravitas-ui/src/lib/components/dropdown/dropdown.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<Empty>",
-                "file": "projects/gravitas-ui/src/lib/components/empty/empty.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -3658,28 +3658,6 @@
                     "defaultValue": "{\n  args: { title: null, subtitle: null },\n  render: renderCard,\n}"
                 }
             ],
-            "projects/gravitas-ui/src/lib/components/divider/divider.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/components/divider/divider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/gravitas-ui/src/lib/components/divider/divider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<DividerStoryDemoComponent>",
-                    "defaultValue": "{\n  title: 'Gravitas/Divider',\n  component: DividerStoryDemoComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      description: {\n        component: `\nLow-emphasis structural separator for cards, toolbars, menus, settings sections, and split content layouts.\n\nUse horizontal dividers to separate stacked sections and vertical dividers for dense toolbar grouping. Add a label only when the separation itself needs semantic meaning.\n        `.trim(),\n      },\n    },\n  },\n}"
-                }
-            ],
             "projects/gravitas-ui/src/lib/components/checkbox/checkbox.stories.ts": [
                 {
                     "name": "Default",
@@ -3700,6 +3678,28 @@
                     "deprecationMessage": "",
                     "type": "Meta<CheckboxStoryDemoComponent>",
                     "defaultValue": "{\n  title: 'Gravitas/Checkbox',\n  component: CheckboxStoryDemoComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      description: {\n        component: `\nBinary form control for independent selections such as settings, preferences, consent, and bulk actions.\n\nCheckbox is best when multiple options can be selected independently. Use \\`description\\`, \\`helperText\\`, and \\`errorText\\` to keep the control self-explanatory in dense forms.\n        `.trim(),\n      },\n    },\n  },\n}"
+                }
+            ],
+            "projects/gravitas-ui/src/lib/components/divider/divider.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/components/divider/divider.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gravitas-ui/src/lib/components/divider/divider.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<DividerStoryDemoComponent>",
+                    "defaultValue": "{\n  title: 'Gravitas/Divider',\n  component: DividerStoryDemoComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      description: {\n        component: `\nLow-emphasis structural separator for cards, toolbars, menus, settings sections, and split content layouts.\n\nUse horizontal dividers to separate stacked sections and vertical dividers for dense toolbar grouping. Add a label only when the separation itself needs semantic meaning.\n        `.trim(),\n      },\n    },\n  },\n}"
                 }
             ],
             "projects/gravitas-ui/src/lib/components/form-field/form-field.stories.ts": [
@@ -4555,6 +4555,19 @@
                     "kind": 184
                 }
             ],
+            "projects/gravitas-ui/src/lib/components/badge/badge.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Badge>",
+                    "file": "projects/gravitas-ui/src/lib/components/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "projects/gravitas-ui/src/lib/components/card/card.stories.ts": [
                 {
                     "name": "Story",
@@ -4568,13 +4581,13 @@
                     "kind": 184
                 }
             ],
-            "projects/gravitas-ui/src/lib/components/badge/badge.stories.ts": [
+            "projects/gravitas-ui/src/lib/components/checkbox/checkbox.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<Badge>",
-                    "file": "projects/gravitas-ui/src/lib/components/badge/badge.stories.ts",
+                    "rawtype": "StoryObj<CheckboxStoryDemoComponent>",
+                    "file": "projects/gravitas-ui/src/lib/components/checkbox/checkbox.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -4607,13 +4620,13 @@
                     "kind": 184
                 }
             ],
-            "projects/gravitas-ui/src/lib/components/checkbox/checkbox.stories.ts": [
+            "projects/gravitas-ui/src/lib/components/empty/empty.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<CheckboxStoryDemoComponent>",
-                    "file": "projects/gravitas-ui/src/lib/components/checkbox/checkbox.stories.ts",
+                    "rawtype": "StoryObj<Empty>",
+                    "file": "projects/gravitas-ui/src/lib/components/empty/empty.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -4627,19 +4640,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<Dropdown>",
                     "file": "projects/gravitas-ui/src/lib/components/dropdown/dropdown.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/gravitas-ui/src/lib/components/empty/empty.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<Empty>",
-                    "file": "projects/gravitas-ui/src/lib/components/empty/empty.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
